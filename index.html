@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV charge</title>
+    <link rel="stylesheet" href="./src/styles/globlestyle.css" />
+    <link rel="stylesheet" href="./src/styles/mainpage.css" />
+    <link rel="stylesheet" href="./src/styles/Navbar.css" />
+    <link rel="stylesheet" href="./src/styles/findStation.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./src/index.js"></script>
+    <script src="./src/helper/getUserLocation.js"></script>
+    <script src="./src/helper/map.js"></script>
+    <script src="./src/constants/constant.js"></script>
+    <script src="./src/service/evstationService.js"></script>
+  </head>
+  <body>
+    <div class="homepage">
+      <div class="Navbar">
+        <div class="logo">Logo</div>
+        <div class="navbar-items">
+          <p class="navbar-item" onclick="changePage('mainpage')">Home</p>
+          <p class="navbar-item" onclick="changePage('find_station')">
+            Find charging station
+          </p>
+          <p class="navbar-item" onclick="changePage('contact_us')">About Us</p>
+          <p class="navbar-item" onclick="changePage('register_chargingstation')">Register chargingstation</p>
+        </div>
+        <div class="navbar-login-btn">Login</div>
+      </div>
+      <div class="mainpage">
+        <div id="map"></div>
+      </div>
+      <div class="find_station">
+        <div class="inputbox">
+          <input type="text" class="inp" placeholder="enter chargingstation name">
+        </div>
+        <div class="stationcards">
+          <div class="stationcard"></div>
+          <div class="stationcard"></div>
+          <div class="stationcard"></div>
+          <div class="stationcard"></div>
+          <div class="stationcard"></div>
+        </div>
+      </div>
+      <div class="contact_us">
+        <p>contact_us</p>
+      </div>
+      <div class="booking_page">
+        <p>contact_us</p>
+      </div>
+      <div class="register_chargingstation">
+        <p>contact_us</p>
+      </div>
+    </div>
+  </body>
+</html>
