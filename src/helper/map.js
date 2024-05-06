@@ -1,26 +1,24 @@
 
-const RenderMap=()=>{
+const RenderMap=(Evlocations,userlocation)=>{
     let lat = 20.5937;
     let lon = 78.9629;
-
-    const map = L.map("map").setView([20.5937, 78.9629], 5);
+    const map = L.map("map");
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     }).addTo(map);
     const MyLocationIcon=L.divIcon({
-        html:'<svg height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 444.406 444.406" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path style="fill:#010002;" d="M222.208,0c-66.672,0-120.906,54.234-120.906,120.916c0,48.704,28.959,90.736,70.55,109.875 l46.076,213.615h8.559l46.076-213.615c41.582-19.15,70.541-61.171,70.541-109.875C343.104,54.234,288.889,0,222.208,0z M222.208,215.823c-52.329,0-94.917-42.578-94.917-94.917c0-52.349,42.578-94.907,94.917-94.907s94.907,42.569,94.907,94.907 S274.537,215.823,222.208,215.823z"></path> </g> </g> </g> </g></svg>',
-        iconSize: [10, 10], // size of the icon
+        html:'<svg width="30px" height="30px" viewBox="0 0 " fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00bfff" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(4.199999999999999,4.199999999999999), scale(0.65)"><rect x="0" y="0" width="24.00" height="24.00" rx="12" fill="#7ed0ec" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#c9c5c5" stroke-width="0.192"></g><g id="SVGRepo_iconCarrier"> <path d="M3 12H21M12 3V21M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" stroke="#007bff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>',
+        iconSize: [25, 25], // size of the icon
         iconAnchor: [15, 30] 
     })
-
-    Cities.map((item)=>{
-        item.points.map((point)=>{
-            const marker = L.marker([point.lat, point.lon]).addTo(map);
-        })
-
-    });
-    console.log(lat,lon);
-    getCurrentPositionUser(lat,lon).then(()=>{
-        const userlocation = L.marker([lat,lon],{icon:MyLocationIcon}).addTo(map);
+    Evlocations.map((item)=>{
+       const marker=L.marker([item.latitude, item.longitude]).addTo(map);
+    //    marker.bindLabel(item.name, { noHide: true });
     })
-    map.setView([lat,lon], 13);
+    const m=L.marker([userlocation.lat,userlocation.long],{icon:MyLocationIcon}).addTo(map);
+    if(userlocation){
+
+        map.setView([userlocation.lat,userlocation.long],13);
+    }else{
+        map.setView([lat,lon], 13);
+    }
 };

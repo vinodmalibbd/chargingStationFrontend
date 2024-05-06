@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./src/styles/globlestyle.css" />
     <link rel="stylesheet" href="./src/styles/mainpage.css" />
     <link rel="stylesheet" href="./src/styles/Navbar.css" />
+    <link rel="stylesheet" href="./src/styles/registerStation.css">
     <link rel="stylesheet" href="./src/styles/findStation.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -15,9 +16,13 @@
     <script src="./src/helper/map.js"></script>
     <script src="./src/constants/constant.js"></script>
     <script src="./src/service/evstationService.js"></script>
+    <script src="./src/registerStation/registerstations.js"></script>
   </head>
   <body>
     <div class="homepage">
+      <div class="loaderwrapper">
+        <div class="loader"></div>
+      </div>
       <div class="Navbar">
         <div class="logo">
           <img src="logo.jpg" alt="Logo" width="50" height="50">
@@ -27,8 +32,7 @@
           <p class="navbar-item" onclick="changePage('find_station')">
             Find charging station
           </p>
-          <p class="navbar-item" onclick="changePage('contact_us')">About Us</p>
-          <p class="navbar-item" onclick="changePage('register_chargingstation')">Register chargingstation</p>
+          <p class="navbar-item" onclick="changePage('chargepoint')">Register chargingstation</p>
         </div>
         <div class="navbar-login-btn">Login</div>
       </div>
@@ -47,17 +51,43 @@
           <div class="stationcard"></div>
         </div>
       </div>
-      <div class="contact_us">
-        <p>contact_us</p>
-      </div>
       <div class="booking_page">
-        <p>contact_us</p>
+        <p>booking_page</p>
       </div>
-      <div class="register_chargingstation">
-        <form action="">
-          <p>Enter the station name :- </p>
-        </form>
-
+      <div class="success_card">
+        <p>booking_page</p>
+      </div>
+      <div class="chargepoint">
+        <form class="form">
+            <span class="registerheading">Register Chargingstation Here</span>
+            <div class="form_field">
+              <label> Name :</label>
+              <input type="text" class="inp" id="name" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label> Email :</label>
+              <input type="text" class="inp" id="emailId" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label> OpenTime :</label>
+              <input type="number" class="inp"  id="openTime" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label> CloseTime :</label>
+              <input type="number" class="inp" id="closeTime" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label> Latitude :</label>
+              <input type="text" class="inp" id="latitude" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label> Longitude :</label>
+              <input type="text" class="inp" id="longitude" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <button onclick="registerStation(event)">Register Now</button>
+            </div>
+          </form>
       </div>
     </div>
   </body>
