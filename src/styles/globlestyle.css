@@ -11,15 +11,6 @@
     color: white;
 }
 
-.chargepoint{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    color: white;
-    display: none;
-}
 .booking_page{
     width: 100%;
     flex-direction: column;
@@ -28,4 +19,42 @@
     color: white;
     display: none;
 
+}
+.success_card{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    display: none;
+}
+.loaderwrapper{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    position: absolute;
+    z-index: 100;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

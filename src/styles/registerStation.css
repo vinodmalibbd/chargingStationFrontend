@@ -1,0 +1,39 @@
+.chargepoint{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(194, 255, 197);
+    color: rgb(0, 0, 0);
+    display: none;
+    height: 100vh;
+}
+.form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(168, 145, 248);
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+
+}
+.form_field{
+    width: 70%;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form_field label{
+    width: 25%;
+}
+.registerheading{
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}

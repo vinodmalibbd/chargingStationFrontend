@@ -1,7 +1,11 @@
 window.onload=() => {
-    RenderMap();
-    const res=getAllChargingStation();
-    console.log(res);
+    const userlocation = getCurrentPositionUser();
+    getAllChargingStation().then(res=>{
+        console.log(res);
+        RenderMap(res,userlocation);
+        console.log(userlocation);
+    }).catch(e=>console.log(e.message))
+
 };
 const changePage = (pagename) => {
     const elements = document.querySelector(`.${pagename}`);
