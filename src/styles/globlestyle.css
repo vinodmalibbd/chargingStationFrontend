@@ -22,10 +22,18 @@
 }
 .register_chargingstation{
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     background-color: black;
     color: white;
     display: none;
+}
+.booking_page{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+    display: none;
+
 }
