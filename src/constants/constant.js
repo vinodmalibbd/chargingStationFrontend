@@ -1,4 +1,4 @@
-const Pages=["mainpage","find_station","contact_us"];
+const Pages=["mainpage","find_station","chargepoint","booking_page"];
 const Cities = [
     {
         name: "Ahmedabad",

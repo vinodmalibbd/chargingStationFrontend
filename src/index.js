@@ -6,7 +6,7 @@ window.onload=() => {
 const changePage = (pagename) => {
     const elements = document.querySelector(`.${pagename}`);
     Pages.forEach((page)=>{
-        console.log(page===pagename);
+        console.log();
         if(page===pagename){
             elements.style.display = 'flex';
         }else{
