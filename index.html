@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./src/styles/Navbar.css" />
     <link rel="stylesheet" href="./src/styles/registerStation.css">
     <link rel="stylesheet" href="./src/styles/findStation.css">
+    <link rel="stylesheet" href="./src/styles/bookingpage.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="./src/index.js"></script>
     <script src="./src/helper/getUserLocation.js"></script>
@@ -32,7 +34,7 @@
           <p class="navbar-item" onclick="changePage('find_station')">
             Find charging station
           </p>
-          <p class="navbar-item" onclick="changePage('chargepoint')">Register chargingstation</p>
+          <p class="navbar-item" onclick="changePage('register_station')">Register chargingstation</p>
         </div>
         <div class="navbar-login-btn">Login</div>
       </div>
@@ -57,9 +59,27 @@
       <div class="success_card">
         <p>booking_page</p>
       </div>
-      <div class="chargepoint">
-        <form class="form">
-            <span class="registerheading">Register Chargingstation Here</span>
+    <div class="login_station">
+      <span class="registerheading">Login Page</span>
+      <form action="" class="form">
+      <div class="form_field">
+        <label>Email :</label>
+        <input type="text" class="inp" id="emailId" onchange="handleInputChange(event)">
+      </div>
+      <div class="form_field">
+        <label>Password :</label>
+        <input type="password" class="inp" id="password" onchange="handleInputChange(event)">
+      </div>
+      <div class="registerbtn">
+        <button class="btn">Login</button>
+        <span class="forget-pass">forget password</span>
+        <span onclick="changePage('register_station')">Dont have account please register</span>
+      </div>
+    </form>
+    </div>
+      <div class="register_station">
+        <span class="registerheading">Register Chargingstation Here</span>
+        <form class="form">   
             <div class="form_field">
               <label> Name :</label>
               <input type="text" class="inp" id="name" onchange="handleInputChange(event)">
@@ -67,6 +87,10 @@
             <div class="form_field">
               <label> Email :</label>
               <input type="text" class="inp" id="emailId" onchange="handleInputChange(event)">
+            </div>
+            <div class="form_field">
+              <label>Password :</label>
+              <input type="password"class="inp" id="password" onchange="handleInputChange(event)">
             </div>
             <div class="form_field">
               <label> OpenTime :</label>
@@ -84,8 +108,9 @@
               <label> Longitude :</label>
               <input type="text" class="inp" id="longitude" onchange="handleInputChange(event)">
             </div>
-            <div class="form_field">
-              <button onclick="registerStation(event)">Register Now</button>
+            <div class="registerbtn">
+              <button class="btn" onclick="registerStation(event)">Register Now</button>
+              <span onclick="changePage('login_station')">already have an account</span>
             </div>
           </form>
       </div>
