@@ -15,6 +15,10 @@
     margin-left: 5%;
 
 }
+.logoimg{
+    width: 50;
+    height: 50;
+}
 .navbar-items{
     width: 60%;
     display: flex;

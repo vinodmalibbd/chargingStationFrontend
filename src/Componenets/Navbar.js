@@ -2,7 +2,7 @@ const renderNavbar=()=> {
     const navbarItems = [
         { text: "Home", action: "mainpage" },
         { text: "Find charging station", action: "find_station" },
-        { text: "Register charging station", action: "chargepoint" }
+        { text: "Register charging station", action: "register_station" }
     ];
     const navbar = document.querySelector('.Navbar');
 
@@ -13,7 +13,10 @@ const renderNavbar=()=> {
 
     const logo = document.createElement('div');
     logo.classList.add('logo');
-    logo.textContent = 'Logo';
+    
+    const logoimg = document.createElement('img');
+    logoimg.classList.add('logoimg');
+    logoimg.src='./logo.png';
 
     // Create navbar items container
     const navbarItemsContainer = document.createElement('div');

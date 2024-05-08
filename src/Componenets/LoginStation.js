@@ -3,7 +3,7 @@ const renderLoginForm=()=>{
         { label: 'Email:', type: 'text', id: 'emailId' },
         { label: 'password:', type: 'password', id: 'password' },
     ];
-    const chargepointDiv = document.querySelector('.chargepoint');
+    const chargepointDiv = document.querySelector('.login_station');
 
     const form = document.createElement('form');
     form.classList.add('form');
@@ -33,26 +33,17 @@ const renderLoginForm=()=>{
     registerBtn.textContent = 'Login Now';
     registerBtn.addEventListener('click', loginStation);
 
+    const loginSpan = document.createElement('span');
+    loginSpan.textContent = 'Not have an accout ? Register here';
+    loginSpan.addEventListener('click',()=> changePage("register_station"));
+
     const formField = document.createElement('div');
     formField.classList.add('form_field');
     formField.appendChild(registerBtn);
+    formField.appendChild(loginSpan)
 
     form.appendChild(formField);
     chargepointDiv.appendChild(form);
-}
-
-const inputValues = {};
-function handleInputChange(event) {
-    let inputId = event.target.id;
-    let inputValue = event.target.value;
-    if(inputId==='longitude' || inputId === 'latitude'){
-        inputValue=parseFloat(inputValue);
-    }
-    if(inputId==='openTime' || inputId === 'closeTime'){
-        inputValue=parseInt(inputValue);
-    }
-    inputValues[inputId] = inputValue;
-    // console.log(inputValues);
 }
 
 const loginStation=(event)=>{

@@ -1,4 +1,5 @@
 const Pages=["mainpage","find_station","register_station","booking_page","success_card","login_station"];
+const inputValues = {};
 const Cities = [
     {
         name: "Ahmedabad",

@@ -9,6 +9,7 @@ window.onload=() => {
     getTokenAndSaveToLocalStorage();
     renderNavbar();
     renderRegisterForm();
+    renderLoginForm();
 };
 
 const changePage = (pagename) => {

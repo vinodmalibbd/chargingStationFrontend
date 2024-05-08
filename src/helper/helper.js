@@ -50,3 +50,15 @@ const RederChargingStations=(chargingStation)=>{
         elements. appendChild(card);
     })
 };
+function handleInputChange(event) {
+    let inputId = event.target.id;
+    let inputValue = event.target.value;
+    if(inputId==='longitude' || inputId === 'latitude'){
+        inputValue=parseFloat(inputValue);
+    }
+    if(inputId==='openTime' || inputId === 'closeTime'){
+        inputValue=parseInt(inputValue);
+    }
+    inputValues[inputId] = inputValue;
+    // console.log(inputValues);
+}

@@ -16,22 +16,7 @@
   </head>
   <body>
     <div class="homepage">
-      <div class="loaderwrapper">
-        <div class="loader"></div>
-      </div>
-      <div class="Navbar">
-        <div class="logo">
-          <img src="logo.jpg" alt="Logo" width="50" height="50">
-        </div>
-        <div class="navbar-items">
-          <p class="navbar-item" onclick="changePage('mainpage')">Home</p>
-          <p class="navbar-item" onclick="changePage('find_station')">
-            Find charging station
-          </p>
-          <p class="navbar-item" onclick="changePage('register_station')">Register chargingstation</p>
-        </div>
-        <div class="navbar-login-btn">Login</div>
-      </div>
+      <div class="Navbar"></div>
       <div class="mainpage">
         <div id="map"></div>
       </div>
@@ -47,61 +32,8 @@
       <div class="success_card">
         <p>booking_page</p>
       </div>
-    <div class="login_station">
-      <span class="registerheading">Login Page</span>
-      <form action="" class="form">
-      <div class="form_field">
-        <label>Email :</label>
-        <input type="text" class="inp" id="emailId" onchange="handleInputChange(event)">
-      </div>
-      <div class="form_field">
-        <label>Password :</label>
-        <input type="password" class="inp" id="password" onchange="handleInputChange(event)">
-      </div>
-      <div class="registerbtn">
-        <button class="btn">Login</button>
-        <span class="forget-pass">forget password</span>
-        <span onclick="changePage('register_station')">Dont have account please register</span>
-      </div>
-    </form>
-    </div>
-      <div class="register_station">
-        <span class="registerheading">Register Chargingstation Here</span>
-        <form class="form">   
-            <div class="form_field">
-              <label> Name :</label>
-              <input type="text" class="inp" id="name" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label> Email :</label>
-              <input type="text" class="inp" id="emailId" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label>Password :</label>
-              <input type="password"class="inp" id="password" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label> OpenTime :</label>
-              <input type="number" class="inp"  id="openTime" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label> CloseTime :</label>
-              <input type="number" class="inp" id="closeTime" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label> Latitude :</label>
-              <input type="text" class="inp" id="latitude" onchange="handleInputChange(event)">
-            </div>
-            <div class="form_field">
-              <label> Longitude :</label>
-              <input type="text" class="inp" id="longitude" onchange="handleInputChange(event)">
-            </div>
-            <div class="registerbtn">
-              <button class="btn" onclick="registerStation(event)">Register Now</button>
-              <span onclick="changePage('login_station')">already have an account</span>
-            </div>
-          </form> -->
-      </div>
+      <div class="login_station"></div>
+      <div class="register_station"></div>
     </div>
     <script src="./src/index.js"></script>
     <script src="./src/helper/helper.js"></script>
