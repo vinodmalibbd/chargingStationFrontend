@@ -1,6 +1,6 @@
 const renderLoginForm=()=>{
     const inputFields = [
-        { label: 'Email:', type: 'text', id: 'emailId' },
+        { label: 'Email:', type: 'text', id: 'email' },
         { label: 'password:', type: 'password', id: 'password' },
     ];
     const chargepointDiv = document.querySelector('.login_station');
@@ -30,6 +30,7 @@ const renderLoginForm=()=>{
 
     // Add register button
     const registerBtn = document.createElement('button');
+    registerBtn.classList.add('register_btn')
     registerBtn.textContent = 'Login Now';
     registerBtn.addEventListener('click', loginStation);
 

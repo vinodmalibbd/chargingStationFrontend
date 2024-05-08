@@ -34,6 +34,7 @@ const renderRegisterForm=()=>{
 
     // Add register button
     const registerBtn = document.createElement('button');
+    registerBtn.classList.add('register_btn')
     registerBtn.textContent = 'Register Now';
     registerBtn.addEventListener('click', registerStation);
 

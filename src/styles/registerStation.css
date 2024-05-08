@@ -60,12 +60,19 @@
     cursor: pointer;
     color: red;
 }
-.btn{
-    padding: 12px;
-    border-radius: 10%;
-    border: 2px solid rgb(154, 37, 37);
-    outline: none;
-    background-color:azure ;
+.register_btn{
+    background-color: #008CBA; /* Blue */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 .login_station{
     display: flex;

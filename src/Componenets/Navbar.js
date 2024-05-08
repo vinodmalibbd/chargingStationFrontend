@@ -16,7 +16,7 @@ const renderNavbar=()=> {
     
     const logoimg = document.createElement('img');
     logoimg.classList.add('logoimg');
-    logoimg.src='./logo.png';
+    logoimg.src='logo.jpg';
 
     // Create navbar items container
     const navbarItemsContainer = document.createElement('div');
