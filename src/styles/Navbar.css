@@ -2,16 +2,18 @@
     width: 100%;
     height: 60px;
     position: sticky;
-    background-color: black;
+    background-color: #423442;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 .logo{
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 26px;
+    align-items: center;
+    padding: 10px 15px 10px 10px;
+    margin-top: 5px;
+    margin-left: 5%;
+
 }
 .navbar-items{
     width: 60%;
