@@ -27,15 +27,21 @@
 .stationcards{
     width: 80%;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
+
     flex-wrap: wrap;
     padding: 10px;
 }
 .stationcard{
-    width: 30%;
+    width: 40%;
     height: 100px;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    color: black;
     margin: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    cursor: pointer;
 }

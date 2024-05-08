@@ -1,3 +1,17 @@
+const getCurrentPositionUser=()=>{
+    let arr={
+        lat:20.5937,
+        long:78.9629
+    }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            arr.lat = position.coords.latitude;
+            arr.long = position.coords.longitude;
+            return arr;
+        });
+    } 
+    return arr;
+};
 
 const RenderMap=(Evlocations,userlocation)=>{
     let lat = 20.5937;
@@ -12,7 +26,6 @@ const RenderMap=(Evlocations,userlocation)=>{
     })
     Evlocations.map((item)=>{
        const marker=L.marker([item.latitude, item.longitude]).addTo(map);
-    //    marker.bindLabel(item.name, { noHide: true });
     })
     const m=L.marker([userlocation.lat,userlocation.long],{icon:MyLocationIcon}).addTo(map);
     if(userlocation){
@@ -21,4 +34,19 @@ const RenderMap=(Evlocations,userlocation)=>{
     }else{
         map.setView([lat,lon], 13);
     }
+};
+const RederChargingStations=(chargingStation)=>{
+    const elements = document.querySelector(`.stationcards`);
+    console.log(chargingStation);
+    chargingStation.map((item,key)=>{
+        const card = document.createElement('div');
+        card.classList.add('stationcard');
+        card.addEventListener('click',()=>changePage("booking_page"));
+        
+        const chargeStationname=document.createElement('p')
+        chargeStationname.textContent=item.name;
+
+        card.appendChild(chargeStationname);
+        elements. appendChild(card);
+    })
 };

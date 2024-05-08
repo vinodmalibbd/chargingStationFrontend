@@ -19,3 +19,13 @@ const registerChargingStation =async(data)=>{
     })
     return res;
 };
+const LoginUser =async()=>{
+    const res=await fetch('http://localhost:8081/auth/getuser',{
+        method:"GET",
+        headers:{
+            'Content-Type':"application/json"
+        },
+    
+    })
+    return res;
+};

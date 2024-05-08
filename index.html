@@ -11,29 +11,10 @@
     <link rel="stylesheet" href="./src/styles/findStation.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="./src/index.js"></script>
-    <script src="./src/helper/getUserLocation.js"></script>
-    <script src="./src/helper/map.js"></script>
-    <script src="./src/constants/constant.js"></script>
-    <script src="./src/service/evstationService.js"></script>
-    <script src="./src/registerStation/registerstations.js"></script>
   </head>
   <body>
     <div class="homepage">
-      <div class="loaderwrapper">
-        <div class="loader"></div>
-      </div>
-      <div class="Navbar">
-        <div class="logo">Logo</div>
-        <div class="navbar-items">
-          <p class="navbar-item" onclick="changePage('mainpage')">Home</p>
-          <p class="navbar-item" onclick="changePage('find_station')">
-            Find charging station
-          </p>
-          <p class="navbar-item" onclick="changePage('chargepoint')">Register chargingstation</p>
-        </div>
-        <div class="navbar-login-btn">Login</div>
-      </div>
+      <div class="Navbar"></div>
       <div class="mainpage">
         <div id="map"></div>
       </div>
@@ -41,22 +22,16 @@
         <div class="inputbox">
           <input type="text" class="inp" placeholder="enter chargingstation name">
         </div>
-        <div class="stationcards">
-          <div class="stationcard"></div>
-          <div class="stationcard"></div>
-          <div class="stationcard"></div>
-          <div class="stationcard"></div>
-          <div class="stationcard"></div>
-        </div>
+        <div class="stationcards"></div>
       </div>
       <div class="booking_page">
         <p>booking_page</p>
       </div>
       <div class="success_card">
-        <p>booking_page</p>
+        <p>success_card</p>
       </div>
       <div class="chargepoint">
-        <form class="form">
+        <!-- <form class="form">
             <span class="registerheading">Register Chargingstation Here</span>
             <div class="form_field">
               <label> Name :</label>
@@ -85,8 +60,16 @@
             <div class="form_field">
               <button onclick="registerStation(event)">Register Now</button>
             </div>
-          </form>
+          </form> -->
       </div>
     </div>
+    <script src="./src/index.js"></script>
+    <script src="./src/helper/helper.js"></script>
+    <script src="./src/constants/constant.js"></script>
+    <script src="./src/service/evstationService.js"></script>
+    <script src="./src/registerStation/registerstations.js"></script>
+    <script src="./src/Componenets/Navbar.js"></script>
+    <script src="./src/Componenets/RegisterStation.js"></script>
+    <script src="./src/Componenets/LoginStation.js"></script>
   </body>
 </html>
