@@ -1,40 +1,17 @@
-window.onload=() => {
-    const userlocation = getCurrentPositionUser();
-    getAllChargingStation().then(res=>{
-        console.log(res);
-        RenderMap(res,userlocation);
-        RederChargingStations(res);
-        console.log(userlocation);
-    }).catch(e=>console.log(e.message))
-    getTokenAndSaveToLocalStorage();
-    renderNavbar();
-    renderRegisterForm();
-    renderLoginForm();
-};
-
-const changePage = (pagename) => {
-    const elements = document.querySelector(`.${pagename}`);
-    Pages.forEach((page)=>{
-        console.log();
-        if(page===pagename){
-            elements.style.display = 'flex';
-        }else{
-            const hidepage = document.querySelector(`.${page}`);
-            hidepage.style.display = 'none';
+const getAllChargingStation=async(token)=>{
+    const res =await fetch(`http://localhost:8081/chargingstation/all`,{
+        method:"GET",
+        headers:{
+            'Content-Type':"application/json",
+            'Authorization': `${token}` 
         }
     })
+    return res.json()
 };
-
-const getTokenAndSaveToLocalStorage=()=>{
-    var urlParams = new URLSearchParams(window.location.search);
-    var token = urlParams.get('email');
-    if(token){
-        console.log("Token:", token);
-        localStorage.setItem("auth-token",token)
-        window.location.href="http://127.0.0.1:5500/index.html"
-    }
-}
-const gotoLogin = (event) => {
-    event.preventDefault();
-    window.location.href="http://localhost:8081/auth/user"
-};
+// window.onload(()=>{
+//     getAllChargingStation();
+// })
+window.addEventListener('load',function(){
+    const token='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2bTIxMjQyMTI0QGdtYWlsLmNvbSIsImlhdCI6MTcxNTM0MDk3MCwiZXhwIjoxNzE1MzU4OTcwfQ.-4eh76sKKeD2RkJoYPHDhT2XR2H-bg3gCGFXe3u1kL5YIT33xFkzbYY98VBlwDBw5ycpT3vd5PAq9a1aeRi6dw'
+    getAllChargingStation(token);
+})

@@ -1,0 +1,65 @@
+name: Java CI/CD with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with Maven
+        run: |
+          mvn clean install
+          mkdir artifacts && cp target/*.jar artifacts
+          cd artifacts && ls
+      - name: delete artifact
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: github-action-artifact
+          path: artifacts
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: github-action-artifact
+          path: artifacts
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/evstation-backend-main:latest
+
+
+      - name: Connect to EC2 instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.EC2_SSH_PORT }}
+          script: |
+            echo "Connected to EC2 instance"
+            sudo docker ps -q --filter "publish=8081" | xargs -r sudo docker stop
+            sudo docker ps -q --filter "publish=8081" | xargs -r sudo docker rm
+            sudo docker stop evstation-backend-main || true # Stop all running containers, ignore errors if there are none
+            sudo docker rm evstation-backend-main || true    # Remove all containers, ignore errors if there are none
+            sudo docker pull vm2124/evstation-backend-main
+            sudo docker run -d -p 8081:8081 vm2124/evstation-backend-main

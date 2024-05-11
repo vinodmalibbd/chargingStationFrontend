@@ -1,10 +1,12 @@
-const renderNavbar=()=> {
+function renderNavbar() {
     const navbarItems = [
         { text: "Home", action: "mainpage" },
         { text: "Find charging station", action: "find_station" },
         { text: "Register charging station", action: "register_station" }
     ];
-    const navbar = document.querySelector('.Navbar');
+    const body=document.querySelector('body')
+    const navbar = document.createElement('nav');
+    navbar.classList.add('Navbar');
 
     if (!navbar) {
         console.error("Navbar element not found!");
@@ -18,6 +20,7 @@ const renderNavbar=()=> {
     logoimg.classList.add('logoimg');
     logoimg.src='logo.jpg';
 
+    logo.appendChild(logoimg);
     // Create navbar items container
     const navbarItemsContainer = document.createElement('div');
     navbarItemsContainer.classList.add('navbar-items');
@@ -45,4 +48,5 @@ const renderNavbar=()=> {
     navbar.appendChild(navbarItemsContainer);
 
     navbar.appendChild(loginBtn);
+    body.appendChild(navbar)
 }

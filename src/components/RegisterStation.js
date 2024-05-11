@@ -7,8 +7,10 @@ const renderRegisterForm=()=>{
         { label: 'Latitude:', type: 'text', id: 'latitude' },
         { label: 'Longitude:', type: 'text', id: 'longitude' }
     ];
-    const chargepointDiv = document.querySelector('.register_station');
+    const body=document.querySelector('body')
 
+    const chargepointDiv = document.querySelector('.register_station');
+    body.appendChild(chargepointDiv)
     const form = document.createElement('form');
     form.classList.add('form');
 
