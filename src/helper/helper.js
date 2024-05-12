@@ -13,9 +13,9 @@ const getCurrentPositionUser=()=>{
     return arr;
 };
 
-const RenderMap=(Evlocations,userlocation)=>{
-    let lat = 20.5937;
-    let lon = 78.9629;
+const RenderMap=()=>{
+    const allchargepoints=getAllChargingStation();
+    const userlocation = getCurrentPositionUser();
     const map = L.map("map");
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     }).addTo(map);
@@ -24,16 +24,8 @@ const RenderMap=(Evlocations,userlocation)=>{
         iconSize: [25, 25], // size of the icon
         iconAnchor: [15, 30] 
     })
-    Evlocations.map((item)=>{
-       const marker=L.marker([item.latitude, item.longitude]).addTo(map);
-    })
     const m=L.marker([userlocation.lat,userlocation.long],{icon:MyLocationIcon}).addTo(map);
-    if(userlocation){
-
-        map.setView([userlocation.lat,userlocation.long],13);
-    }else{
-        map.setView([lat,lon], 13);
-    }
+    map.setView([userlocation.lat,userlocation.long],13);
 };
 const RederChargingStations=(chargingStation)=>{
     const elements = document.querySelector(`.stationcards`);
