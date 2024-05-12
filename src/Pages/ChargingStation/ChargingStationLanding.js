@@ -4,10 +4,12 @@ function createAndAppend(parent, elementType, content) {
   parent.appendChild(element);
 }
 
-
 function chargingStationDashboard() {
   document.body.innerHTML = '';
-  const container = document.createElement('div');
+  const chargestation=getChargingStationById();
+  console.log(chargestation.name)
+  if(chargestation.name){
+    const container = document.createElement('div');
   container.className = 'stationdashboard';
 
   createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
@@ -65,5 +67,9 @@ function chargingStationDashboard() {
   };
 
   document.body.appendChild(container);
+  }else{
+    updateStationInfo();
+
+  }
 }
 

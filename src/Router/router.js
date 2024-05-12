@@ -11,15 +11,30 @@ function navigateTo(route) {
   if (routes[route]) {
       routes[route]();
   } else {
-      navigateTo('/')
+
       console.error("Route not found:", route);
   }
 }
 
-function handleNavigation() {
-
+function handleNavigation(e) {
+  e.preventDefault();
   const currentRoute = window.location.pathname;
-  navigateTo(currentRoute);
+  
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('email');
+  const role = params.get('role');
+  if(token !==null){
+    localStorage.setItem('station-cookie',token);
+    localStorage.setItem('role',role);
+    if(role==='chargingstation'){
+      navigateTo('/station')
+    }else {
+      navigateTo('/')
+    }
+  }else{
+
+    navigateTo(currentRoute);
+  }
 }
 
 window.addEventListener('popstate', handleNavigation);

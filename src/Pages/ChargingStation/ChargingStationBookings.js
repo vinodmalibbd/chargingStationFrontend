@@ -23,7 +23,6 @@ function showChargingStationBooking(bookingsContainerDiv){
   tableHeader.appendChild(tr);
   table.appendChild(tableHeader)
 
-
   slottabledata.map(item=>{
     const tabledata=document.createElement('tbody')
     const tr=document.createElement('tr');

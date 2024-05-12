@@ -36,16 +36,16 @@ const MainPage=()=> {
     // Create station owner button
     const stationOwnerButton = document.createElement("a");
     stationOwnerButton.onclick = () =>{
-      navigateTo('/station')
-  }
+      loginchargingStation();
+         // navigateTo('/station')
+    }
     stationOwnerButton.className = "station-button";
     stationOwnerButton.textContent = "For Station Owners";
   
     // Append buttons to button container div
     buttonContainerDiv.appendChild(userButton);
     buttonContainerDiv.appendChild(stationOwnerButton);
-  
-    // Append description and button container divs to container div
+
     containerDiv.appendChild(descriptionDiv);
     containerDiv.appendChild(buttonContainerDiv);
   

@@ -1,5 +1,3 @@
-
-// let baseURL=baseURL='http://localhost:8081';
 const getAllChargingStation=async()=>{
     const res =await fetch(`http://localhost:8081/chargingstation/all`,{
         method:"GET",
@@ -9,15 +7,8 @@ const getAllChargingStation=async()=>{
     })
     return res.json()
 };
-const registerChargingStation =async(data)=>{
-    const res=await fetch('http://localhost:8081/chargingstation/register',{
-        method:"POST",
-        headers:{
-            'Content-Type':"application/json"
-        },
-        body:JSON.stringify(data)
-    })
-    return res;
+const loginchargingStation =async()=>{
+    window.location.href='http://localhost:8081/auth/chargingstation';
 };
 const LoginUser =async()=>{
     const res=await fetch('http://localhost:8081/auth/getuser',{
@@ -28,4 +19,25 @@ const LoginUser =async()=>{
     
     })
     return res;
+};
+const getChargingStationById =async()=>{
+    const token =localStorage.getItem('station-cookie')
+    if(token){
+
+        const decodedtoken=decodeJwtToken(token);
+        const stationId=decodedtoken.sub;
+        const res=await fetch(`http://localhost:8081/chargingstation/${stationId}`,{
+            method:"GET",
+            headers:{
+                'Content-Type':"application/json",
+                'Mode':'no-cors',
+                'Authorization':token
+            },
+        
+        })
+        console.log(JSON.parse(res));
+        return JSON.parse(res);
+    }else{
+        navigateTo('/')
+    }
 };
