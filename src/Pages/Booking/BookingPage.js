@@ -1,4 +1,5 @@
 const UserBooking=()=>{
+  document.body.innerHTML('');
   const navbar = document.createElement('div');
   navbar.classList.add('navbar');
   
@@ -23,12 +24,11 @@ const UserBooking=()=>{
   navbar.appendChild(logoLink);
   navbar.appendChild(loginLink);
   
-  // Create container for charging slots
+
   const container = document.createElement('div');
   container.classList.add('container');
   container.id = "cardContainer";
   
-  // Create date picker section
   const datepickerSection = document.createElement('div');
   datepickerSection.classList.add('datepicker');
   
@@ -39,7 +39,7 @@ const UserBooking=()=>{
   datePickerInput.type = "date";
   datePickerInput.id = "date";
   datePickerInput.name = "date";
-  datePickerInput.min = new Date().toISOString().split('T')[0]; // Set minimum date to today
+  datePickerInput.min = new Date().toISOString().split('T')[0];
   
   const submitButton = document.createElement('button');
   submitButton.textContent = "Submit";
@@ -49,12 +49,11 @@ const UserBooking=()=>{
   datepickerSection.appendChild(datePickerInput);
   datepickerSection.appendChild(submitButton);
   
-  // Create container for time slots
+
   const timeslotContainer = document.createElement('div');
   timeslotContainer.id = "timeslot";
   timeslotContainer.classList.add('timeslot');
   
-  // Append all elements to the body
   document.body.appendChild(navbar);
   document.body.appendChild(container);
   document.body.appendChild(datepickerSection);
@@ -94,8 +93,8 @@ function renderTimeSlots() {
   const hourCardsContainer = document.getElementById('timeslot');
   hourCardsContainer.innerHTML = ''; 
 
-  var currentHour = stationOpen;
-  var currentMinute = 0;
+  let currentHour = stationOpen;
+  let currentMinute = 0;
 
   if (selectedDate.toDateString() === currentDate.toDateString()) {
     
@@ -110,7 +109,7 @@ function renderTimeSlots() {
      }
   }
   else if (selectedDate > currentDate){
-    for(var hour = stationOpen; hour<stationClose;hour++){
+    for(let hour = stationOpen; hour<stationClose;hour++){
       const card = document.createElement('div');
       card.classList.add('card');
       card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
@@ -124,6 +123,5 @@ function renderTimeSlots() {
 }
 
 function bookSlot() {
-  // Logic to handle booking slot
   alert('Booking slot functionality will be implemented here.');
 }

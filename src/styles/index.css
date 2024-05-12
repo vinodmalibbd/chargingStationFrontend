@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background-color: #1a1a1a; /* Darker gray header */
+  background-color: #1a1a1a; 
   color: #fff;
   text-align: center;
   display: flex;
@@ -48,7 +48,7 @@ header {
   display: inline-block;
   padding: 10px 20px;
   margin: 10px;
-  border: 2px solid #fff; /* White border */
+  border: 2px solid #fff; 
   border-radius: 5px;
   text-decoration: none;
   color: #fff;
@@ -58,12 +58,12 @@ header {
 
 .user-button:hover,
 .station-button:hover {
-  background-color: #fff; /* White background */
-  color: #262626; /* Dark gray text */
+  background-color: #fff; 
+  color: #262626; 
 }
 
 footer {
-  background-color: #1a1a1a; /* Darker gray footer */
+  background-color: #1a1a1a;
   color: #fff;
   text-align: center;
   padding: 10px 0;

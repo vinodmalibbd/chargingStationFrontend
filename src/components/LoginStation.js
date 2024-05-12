@@ -28,7 +28,6 @@ const renderLoginForm=()=>{
         form.appendChild(formField);
     });
 
-    // Add register button
     const registerBtn = document.createElement('button');
     registerBtn.classList.add('register_btn')
     registerBtn.textContent = 'Login Now';

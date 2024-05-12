@@ -18,10 +18,10 @@ body {
 }
 
 .logo img {
-  width: 40px; /* Adjust the width of the logo image */
-  height: auto; /* Maintain aspect ratio */
-  vertical-align: middle; /* Align the image vertically */
-  margin-right: 10px; /* Add spacing between logo and text */
+  width: 40px; 
+  height: auto; 
+  vertical-align: middle;
+  margin-right: 10px; 
 }
 
 .login {
@@ -50,15 +50,13 @@ body {
 }
 #map {
   width: 80%;
-  height: 80vh; /* Adjust height as needed */
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px;
 }
-/* styles.css */
 
-/* Style for search container */
 .search-container {
   display: flex;
   justify-content: center;
@@ -66,9 +64,8 @@ body {
   padding: 10px;
 }
 
-/* Style for search input */
 #searchInput {
-  flex: 1; /* Take remaining space in the search container */
+  flex: 1;
   padding: 8px;
   margin-left: 8%;
   font-size: 16px;
@@ -76,7 +73,6 @@ body {
   border-radius: 5px;
 }
 
-/* Style for search button */
 #searchButton {
   padding: 8px 16px;
   font-size: 16px;
@@ -85,16 +81,18 @@ body {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
-  margin-left: 10px; /* Add margin between input field and button */
+  margin-left: 10px; 
 }
 
-/* Style for select dropdown */
 #stationDropdown {
   margin-top: 10px;
-  margin-left: 10%;/* Add margin between search bar and dropdown */
-  width: 80%; /* Occupy full width */
+  margin-left: 10%;
+  width: 80%;
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+.selectStation{
+  margin-right: 40%;
 }

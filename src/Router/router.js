@@ -4,7 +4,8 @@ const routes = {
   '/station':chargingStationDashboard,
   '/update/station':updateStationInfo,
   '/user':UserLandingPage,
-  '/user/booking':UserBooking
+  '/user/booking':UserBooking,
+  '/user/showStation': showStation
 };
 
 function navigateTo(route) {
