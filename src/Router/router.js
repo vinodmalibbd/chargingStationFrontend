@@ -1,6 +1,7 @@
 const routes = {
   '/': LandingPage,
-  '/user':UserLandingPage
+  '/user':UserLandingPage,
+  '/station':ChargingStationLandingPage
 };
 
 function navigateTo(route) {

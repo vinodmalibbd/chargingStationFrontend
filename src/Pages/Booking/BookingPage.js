@@ -1,105 +1,4 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     // Fetch data and populate charging slots
-//     fetch('http://localhost:8081/chargingstation/all')
-//       .then(response => response.json())
-//       .then(data => {
-//         const cardContainer = document.getElementById('cardContainer');
-//         data.forEach(item => {
-//           const card = createCard(item);
-//           cardContainer.appendChild(card);
-//         });
-//       })
-//       .catch(error => {
-//         console.error('Error fetching data:', error);
-//       });
-//   });
-  
-//   function createCard(item) {
-//     const card = document.createElement('div');
-//     card.classList.add('card');
-    
-//     const title = document.createElement('h2');
-//     title.textContent = item.name;
-  
-//     const description = document.createElement('p');
-//     description.textContent = item.emailId;
-  
-//     card.appendChild(title);
-//     card.appendChild(description);
-  
-//     return card;
-//   }
-  
-//   function renderTimeSlots() {
-//     var datepicker = document.getElementById("date");
-//     var selectedDate = new Date(datepicker.value);
-//     var currentDate = new Date();
-//     var stationOpen = 8; // 8:00 AM
-//     var stationClose = 24; // 8:00 PM
-//     const hourCardsContainer = document.getElementById('timeslot');
-//     hourCardsContainer.innerHTML = ''; // Clear previous time slots
-  
-//     if (selectedDate < currentDate) {
-//       alert("Please select a future date.");
-//     } else {
-//       var currentHour = stationOpen;
-//       var currentMinute = 0;
-  
-//       while (currentHour < stationClose) {
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-//         card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
-//         hourCardsContainer.appendChild(card);
-        
-//         currentHour++;
-//       }
-//     }
-//   }
-  
-// document.addEventListener('DOMContentLoaded', function () {
-//     // Fetch data and populate charging slots
-//     fetch('http://localhost:8081/chargingstation/all')
-//       .then(response => response.json())
-//       .then(data => {
-//         const cardContainer = document.getElementById('cardContainer');
-//         data.forEach(item => {
-//           const card = createCard(item);
-//           cardContainer.appendChild(card);
-//         });
-//       })
-//       .catch(error => {
-//         console.error('Error fetching data:', error);
-//       });
-//   });
-  
-  
-//   function renderTimeSlots() {
-//     var datepicker = document.getElementById("date");
-//     var selectedDate = new Date(datepicker.value);
-//     var currentDate = new Date();
-//     var stationOpen = 9; // 8:00 AM
-//     var stationClose = 24; // 8:00 PM
-//     const hourCardsContainer = document.getElementById('timeslot');
-//     hourCardsContainer.innerHTML = ''; // Clear previous time slots
-  
-//     if (selectedDate < currentDate) {
-//       alert("Please select a future date.");
-//     } else {
-//       var currentHour = stationOpen;
-//       var currentMinute = 0;
-  
-//       while (currentHour < stationClose) {
-//         const card = document.createElement('div');
-//         card.classList.add('card');
-//         card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
-//         hourCardsContainer.appendChild(card);
-        
-//         currentHour++;
-//       }
-//     }
-    
-//   }
-// Create navbar
+
 const navbar = document.createElement('div');
 navbar.classList.add('navbar');
 
@@ -108,7 +7,7 @@ logoLink.href = "#";
 logoLink.classList.add('logo');
 
 const logoImage = document.createElement('img');
-logoImage.src = "logo.jpg";
+logoImage.src = "./src/assets/logo.jpg";
 logoImage.alt = "Logo";
 
 const logoText = document.createTextNode("EV Charging Station");
@@ -124,12 +23,10 @@ loginLink.textContent = "User Login";
 navbar.appendChild(logoLink);
 navbar.appendChild(loginLink);
 
-// Create container for charging slots
 const container = document.createElement('div');
 container.classList.add('container');
 container.id = "cardContainer";
 
-// Create date picker section
 const datepickerSection = document.createElement('div');
 datepickerSection.classList.add('datepicker');
 
@@ -140,7 +37,7 @@ const datePickerInput = document.createElement('input');
 datePickerInput.type = "date";
 datePickerInput.id = "date";
 datePickerInput.name = "date";
-datePickerInput.min = new Date().toISOString().split('T')[0]; // Set minimum date to today
+datePickerInput.min = new Date().toISOString().split('T')[0]; 
 
 const submitButton = document.createElement('button');
 submitButton.textContent = "Submit";
@@ -150,12 +47,10 @@ datepickerSection.appendChild(datepickerTitle);
 datepickerSection.appendChild(datePickerInput);
 datepickerSection.appendChild(submitButton);
 
-// Create container for time slots
 const timeslotContainer = document.createElement('div');
 timeslotContainer.id = "timeslot";
 timeslotContainer.classList.add('timeslot');
 
-// Append all elements to the body
 document.body.appendChild(navbar);
 document.body.appendChild(container);
 document.body.appendChild(datepickerSection);
@@ -163,7 +58,6 @@ document.body.appendChild(timeslotContainer);
 
   
 document.addEventListener('DOMContentLoaded', function () {
-  // Fetch data and populate charging slots
   fetch('http://localhost:8081/chargingstation/all')
     .then(response => response.json())
     .then(data => {
@@ -177,13 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching data:', error);
     });
 
-  // Create and append booking button
-  const bookingButton = document.createElement('button');
-  bookingButton.textContent = 'Book Slot';
-  bookingButton.addEventListener('click', bookSlot);
-  document.body.appendChild(bookingButton);
-
-  // Render time slots
+ 
+    const bookingButton = document.createElement('button');
+    bookingButton.textContent = 'Book Slot';
+    bookingButton.addEventListener('click', bookSlot);
+    bookingButton.classList.add('booking-button');
+    document.body.appendChild(bookingButton);
   renderTimeSlots();
 });
 
@@ -191,10 +84,10 @@ function renderTimeSlots() {
   const datepicker = document.getElementById("date");
   const selectedDate = new Date(datepicker.value);
   const currentDate = new Date();
-  const stationOpen = 9; // 8:00 AM
-  const stationClose = 24; // 8:00 PM
+  const stationOpen = 9; 
+  const stationClose = 24; 
   const hourCardsContainer = document.getElementById('timeslot');
-  hourCardsContainer.innerHTML = ''; // Clear previous time slots
+  hourCardsContainer.innerHTML = ''; 
 
   var currentHour = stationOpen;
   var currentMinute = 0;

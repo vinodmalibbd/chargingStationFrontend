@@ -1,4 +1,4 @@
-/* Reset default browser styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +19,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 20px;
+  width: 40%;
 }
 
 .logo img {
@@ -77,14 +78,29 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 5px;
-  flex: 0 0 calc(30% - 20px); /* Adjust width here */
-  max-width: calc(33.333% - 20px); /* Adjust max-width here */
+  flex: 0 0 calc(30% - 20px);
+  max-width: calc(33.333% - 20px); 
 }
 
 .timeslot .card:hover {
-  background-color: #e0e0e0; /* Change background color on hover */
+  background-color: #e0e0e0; 
 }
 .timeslot .card.selected {
-  background-color: #007bff; /* Change background color for selected slot */
-  color: #fff; /* Change text color for better visibility */
+  background-color: #007bff; 
+  color: #fff;
+}
+.booking-button {
+  display: block;
+  margin: 20px auto; 
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.booking-button:hover {
+  background-color: #0056b3; 
 }
