@@ -1,4 +1,3 @@
-// Function to create and append elements
 function createAndAppend(parent, elementType, content) {
   const element = document.createElement(elementType);
   element.innerHTML = content;
@@ -6,34 +5,31 @@ function createAndAppend(parent, elementType, content) {
 }
 
 // Function to create dashboard
-function createDashboard() {
-  // Create container div
-  const container = document.createElement('div');
-  container.className = 'container';
+function chargingStationDashboard() {
+  document.body.innerHTML = '';
 
-  // Create h1 element
+  const container = document.createElement('div');
+  container.className = 'stationdashboard';
+
   createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
 
-  // Create options div
   const optionsDiv = document.createElement('div');
-  optionsDiv.className = 'options';
+  optionsDiv.className = 'stationoptions';
 
-  // Create "View Slots" button
-  createAndAppend(optionsDiv, 'button', 'View Slots');
-  optionsDiv.lastChild.onclick = function() {
-    window.location.href = 'slots.html';
-  };
+  const viewslot = document.createElement('button');
+  viewslot.textContent='View Slots'
+  viewslot.className = 'stationoptionbtn';
+  optionsDiv.appendChild(viewslot)
 
-  // Create "View Bookings" button
-  createAndAppend(optionsDiv, 'button', 'View Bookings');
-  optionsDiv.lastChild.onclick = function() {
-    window.location.href = 'bookings.html';
-  };
+  const viewBooking = document.createElement('button');
+  viewBooking.textContent='View Booking'
+  viewBooking.className = 'stationoptionbtn';
+  optionsDiv.appendChild(viewBooking)
 
-  // Append options div to container
+  
   container.appendChild(optionsDiv);
 
-  // Create dashboard section div
+
   const dashboardSectionDiv = document.createElement('div');
   dashboardSectionDiv.className = 'dashboard-section';
 
@@ -137,4 +133,3 @@ function createDashboard() {
 }
 
 // Call the function to create the dashboard
-createDashboard();
