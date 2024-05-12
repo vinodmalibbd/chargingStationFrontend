@@ -30,7 +30,7 @@ function UserLandingPage() {
     selectStation.className ="selectStation";
     selectStation.textContent =  "Select Station";
     selectStation.onclick = () =>{
-        navigateTo('/showStation');
+        navigateTo('/user/showStation');
     }
     // Append login link to navbar
     navbar.appendChild(selectStation);

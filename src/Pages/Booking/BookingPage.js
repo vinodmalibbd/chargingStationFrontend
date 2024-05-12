@@ -95,8 +95,8 @@ function renderTimeSlots() {
   const hourCardsContainer = document.getElementById('timeslot');
   hourCardsContainer.innerHTML = ''; 
 
-  var currentHour = stationOpen;
-  var currentMinute = 0;
+  let currentHour = stationOpen;
+  let currentMinute = 0;
 
   if (selectedDate.toDateString() === currentDate.toDateString()) {
     
@@ -111,7 +111,7 @@ function renderTimeSlots() {
      }
   }
   else if (selectedDate > currentDate){
-    for(var hour = stationOpen; hour<stationClose;hour++){
+    for(let hour = stationOpen; hour<stationClose;hour++){
       const card = document.createElement('div');
       card.classList.add('card');
       card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
@@ -125,6 +125,5 @@ function renderTimeSlots() {
 }
 
 function bookSlot() {
-  // Logic to handle booking slot
   alert('Booking slot functionality will be implemented here.');
 }
