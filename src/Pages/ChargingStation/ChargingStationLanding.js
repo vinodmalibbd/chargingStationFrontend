@@ -4,19 +4,12 @@ function createAndAppend(parent, elementType, content) {
   parent.appendChild(element);
 }
 
-<<<<<<< HEAD
 // Function to create dashboard
 function chargingStationDashboard() {
   document.body.innerHTML = '';
 
   const container = document.createElement('div');
   container.className = 'stationdashboard';
-=======
-function createDashboard() {
- 
-  const container = document.createElement('div');
-  container.className = 'container';
->>>>>>> dbb3278c953fc2625947cd9ad98c2a137fedc967
 
   createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
 
