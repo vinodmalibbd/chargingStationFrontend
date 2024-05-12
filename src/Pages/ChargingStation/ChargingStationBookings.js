@@ -23,27 +23,27 @@ function showChargingStationBooking(bookingsContainerDiv){
   tableHeader.appendChild(tr);
   table.appendChild(tableHeader)
 
-  slottabledata.map(item=>{
-    const tabledata=document.createElement('tbody')
-    const tr=document.createElement('tr');
+  // slottabledata.map(item=>{
+  //   const tabledata=document.createElement('tbody')
+  //   const tr=document.createElement('tr');
 
-    const id=document.createElement('td');
-    id.textContent=item.time;
-    tr.appendChild(id);
-    tabledata.appendChild(tr);
+  //   const id=document.createElement('td');
+  //   id.textContent=item.time;
+  //   tr.appendChild(id);
+  //   tabledata.appendChild(tr);
 
-    const name=document.createElement('td');
-    name.textContent=item.user;
-    tr.appendChild(name);
-    const status=document.createElement('td');
-    status.textContent=item.slotId;
-    tr.appendChild(status);
+  //   const name=document.createElement('td');
+  //   name.textContent=item.user;
+  //   tr.appendChild(name);
+  //   const status=document.createElement('td');
+  //   status.textContent=item.slotId;
+  //   tr.appendChild(status);
 
-    const bookings=document.createElement('td');
-    bookings.textContent=item.status;
-    tr.appendChild(bookings);
-    tabledata.appendChild(tr);
-    table.appendChild(tabledata);
-  })
+  //   const bookings=document.createElement('td');
+  //   bookings.textContent=item.status;
+  //   tr.appendChild(bookings);
+  //   tabledata.appendChild(tr);
+  //   table.appendChild(tabledata);
+  // })
   bookingsContainerDiv.appendChild(table);
 }

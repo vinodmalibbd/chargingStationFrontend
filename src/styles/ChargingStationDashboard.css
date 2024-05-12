@@ -17,12 +17,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin: 5px;
   justify-content: center;
 }
 .addslotcontainer{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+}
+
+#priceInput{
+  margin: 10px;
 }
 
 .stationoptionbtn {

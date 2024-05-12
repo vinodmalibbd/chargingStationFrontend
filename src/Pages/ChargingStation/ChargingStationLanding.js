@@ -5,62 +5,66 @@ function createAndAppend(parent, elementType, content) {
 }
 
 function chargingStationDashboard() {
-  document.body.innerHTML = '';
-    
+    document.body.innerHTML = '';
+
     const container = document.createElement('div');
     container.className = 'stationdashboard';
 
-  createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
+    createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
 
-  const dashboardSectionDiv = document.createElement('div');
-  dashboardSectionDiv.className = 'dashboard-section';
+    const dashboardSectionDiv = document.createElement('div');
+    dashboardSectionDiv.className = 'dashboard-section';
 
-  const slotsContainerDiv = document.createElement('div');
-  slotsContainerDiv.className = 'slots-container';
-  createAndAppend(slotsContainerDiv, 'h2', 'Slots');
-  showChargingStation(slotsContainerDiv);
+    const slotsContainerDiv = document.createElement('div');
+    slotsContainerDiv.className = 'slots-container';
+    createAndAppend(slotsContainerDiv, 'h2', 'Slots');
 
-  const slotOption = document.createElement('div');
-  slotOption.className = 'stationoptions';
+    showChargingStationSlots(slotsContainerDiv);
 
-  const viewslot = document.createElement('button');
-  viewslot.textContent='add slot'
-  viewslot.className = 'stationoptionbtn';
-  viewslot.onclick=function(){
-    addSlot(slotOption);
-  }
-  slotOption.appendChild(viewslot)
-  slotsContainerDiv.appendChild(slotOption)
+    const slotOption = document.createElement('div');
+    slotOption.className = 'stationoptions';
 
-  dashboardSectionDiv.appendChild(slotsContainerDiv);
+    const viewslot = document.createElement('button');
+    viewslot.textContent='add slot'
+    viewslot.className = 'stationoptionbtn';
+    viewslot.onclick=function(){
+      addSlot(slotOption);
+    }
+    slotOption.appendChild(viewslot)
+    slotsContainerDiv.appendChild(slotOption)
 
-  const bookingsContainerDiv = document.createElement('div');
-  bookingsContainerDiv.className = 'bookings-container';
-  createAndAppend(bookingsContainerDiv, 'h2', 'Bookings');
+    dashboardSectionDiv.appendChild(slotsContainerDiv);
 
-  showChargingStationBooking(bookingsContainerDiv);
+    const bookingsContainerDiv = document.createElement('div');
+    bookingsContainerDiv.className = 'bookings-container';
+    createAndAppend(bookingsContainerDiv, 'h2', 'Bookings');
 
-  const bookingOption = document.createElement('div');
-  bookingOption.className = 'stationoptions';
+    showChargingStationBooking(bookingsContainerDiv);
 
-  const viewBooking = document.createElement('button');
-  viewBooking.textContent='View Booking'
-  viewBooking.className = 'stationoptionbtn';
-  bookingOption.appendChild(viewBooking)
-  bookingsContainerDiv.appendChild(bookingOption)
+    const bookingOption = document.createElement('div');
+    bookingOption.className = 'stationoptions';
 
-  createAndAppend(bookingsContainerDiv, 'div', '');
+    const viewBooking = document.createElement('button');
+    viewBooking.textContent='View Booking'
+    viewBooking.className = 'stationoptionbtn';
+    bookingOption.appendChild(viewBooking)
+    bookingsContainerDiv.appendChild(bookingOption)
 
-  dashboardSectionDiv.appendChild(bookingsContainerDiv);
-  container.appendChild(dashboardSectionDiv);
+    createAndAppend(bookingsContainerDiv, 'div', '');
 
-  createAndAppend(container, 'button', 'Logout');
-  container.lastChild.className = 'logout-btn';
-  container.lastChild.onclick = function() {
-   
-  };
+    dashboardSectionDiv.appendChild(bookingsContainerDiv);
+    container.appendChild(dashboardSectionDiv);
 
-  document.body.appendChild(container);
-  
+    createAndAppend(container, 'button', 'Logout');
+    container.lastChild.className = 'logout-btn';
+    container.lastChild.onclick = function() {
+      LogOutChargingStation();
+    };
+
+  document.body.appendChild(container); 
 }
-
+function LogOutChargingStation(){
+  localStorage.removeItem('auth-token')
+  localStorage.removeItem('station-cookie')
+  navigateTo("/")
+}

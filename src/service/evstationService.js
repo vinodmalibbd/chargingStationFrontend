@@ -35,8 +35,8 @@ const getChargingStationById =async()=>{
         
         })
         
-        console.log(JSON.parse(res));
-        return JSON.parse(res);
+        console.log( res.json());
+        return res.json();
     }else{
         navigateTo('/')
     }
@@ -58,9 +58,53 @@ const updateChargingStationProfile =async(data)=>{
         })
         if(res.status===201){
 
-            console.log(JSON.parse(res));
+            console.log(res.json());
             navigateTo('/station')
 
+        }
+    }else{
+        navigateTo('/')
+    }
+};
+const getAllChargingStationSlots =async()=>{
+    const token =localStorage.getItem('station-cookie')
+    if(token){
+
+        const decodedtoken=decodeJwtToken(token);
+        const stationId=decodedtoken.sub;
+        const res=await fetch(`http://localhost:8081/chargingslot/all/${stationId}`,{
+            method:"GET",
+            headers:{
+                'Content-Type':"application/json",
+                'Authorization':token
+            },
+        })
+        
+        if(res.ok){
+
+            return res.json();
+        }
+    }else{
+        navigateTo('/')
+    }
+};
+const addChargingSlotStation =async(data)=>{
+    const token =localStorage.getItem('station-cookie')
+    if(token){
+        const decodedtoken=decodeJwtToken(token);
+        const stationId=decodedtoken.sub;
+        const res=await fetch(`http://localhost:8081/chargingslot/addslot/${stationId}`,{
+            method:"POST",
+            headers:{
+                'Content-Type':"application/json",
+                'Authorization':token
+            },
+            body:JSON.stringify(data)
+        })
+        if(res.status===201){
+            navigateTo('/station')
+            console.log( res.json());
+            return res.json();
         }
     }else{
         navigateTo('/')
