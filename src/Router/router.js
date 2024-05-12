@@ -5,7 +5,7 @@ const routes = {
   '/update/station':updateStationInfo,
   '/user':UserLandingPage,
   '/user/booking':UserBooking,
-  '/user/showStation': showStation
+  '/charpoints/all': showAllChargingStations
 };
 
 function navigateTo(route) {

@@ -1,30 +1,5 @@
 const UserBooking=()=>{
   document.body.innerHTML('');
-  const navbar = document.createElement('div');
-  navbar.classList.add('navbar');
-  
-  const logoLink = document.createElement('a');
-  logoLink.href = "#";
-  logoLink.classList.add('logo');
-  
-  const logoImage = document.createElement('img');
-  logoImage.src = "logo.jpg";
-  logoImage.alt = "Logo";
-  
-  const logoText = document.createTextNode("EV Charging Station");
-  
-  logoLink.appendChild(logoImage);
-  logoLink.appendChild(logoText);
-  
-  const loginLink = document.createElement('a');
-  loginLink.href = "#";
-  loginLink.classList.add('login');
-  loginLink.textContent = "User Login";
-  
-  navbar.appendChild(logoLink);
-  navbar.appendChild(loginLink);
-  
-
   const container = document.createElement('div');
   container.classList.add('container');
   container.id = "cardContainer";
@@ -54,7 +29,6 @@ const UserBooking=()=>{
   timeslotContainer.id = "timeslot";
   timeslotContainer.classList.add('timeslot');
   
-  document.body.appendChild(navbar);
   document.body.appendChild(container);
   document.body.appendChild(datepickerSection);
   document.body.appendChild(timeslotContainer);

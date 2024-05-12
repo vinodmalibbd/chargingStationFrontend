@@ -1,48 +1,28 @@
 function renderNavbar() {
-    const navbarItems = [
-        { text: "Home", action: "mainpage" },
-        { text: "Find charging station", action: "find_station" },
-        { text: "Register charging station", action: "register_station" }
-    ];
-    const body=document.querySelector('body')
-    const navbar = document.createElement('nav');
-    navbar.classList.add('Navbar');
-
-    if (!navbar) {
-        console.error("Navbar element not found!");
-        return;
+    const navbar = document.createElement("div");
+    navbar.className = "navbar";
+    const logoLink = document.createElement("div");
+    logoLink.className = "logo";
+    const logoImg = document.createElement("img");
+    logoImg.src = "logo.jpg";
+    logoImg.alt = "Logo";
+    logoLink.appendChild(logoImg);
+    
+    const logoTitle = document.createTextNode("EV Charging Station");
+    logoLink.appendChild(logoTitle);
+    
+    navbar.appendChild(logoLink);
+    
+    const loginLink = document.createElement("p");
+    loginLink.className = "login";
+    loginLink.textContent = "User Login";
+    const selectStation = document.createElement("p");
+    selectStation.className ="selectStation";
+    selectStation.textContent =  "Chargepoints";
+    selectStation.onclick = () =>{
+        navigateTo('/charpoints/all');
     }
-
-    const logo = document.createElement('div');
-    logo.classList.add('logo');
-    
-    const logoimg = document.createElement('img');
-    logoimg.classList.add('logoimg');
-    logoimg.src='logo.jpg';
-
-    logo.appendChild(logoimg);
-    const navbarItemsContainer = document.createElement('div');
-    navbarItemsContainer.classList.add('navbar-items');
-
-    const loginBtn = document.createElement('div');
-    loginBtn.classList.add('navbar-login-btn');
-    loginBtn.textContent = 'Login';
-    loginBtn.addEventListener('click', gotoLogin);
-
-    navbar.appendChild(logo);
-    
-    navbarItems.forEach(function(item) {
-        const navbarItem = document.createElement('p');
-        navbarItem.classList.add('navbar-item');
-        navbarItem.textContent = item.text;
-        navbarItem.addEventListener('click', function() {
-            changePage(item.action);
-        });
-        navbarItemsContainer.appendChild(navbarItem);
-    });
-
-    navbar.appendChild(navbarItemsContainer);
-
-    navbar.appendChild(loginBtn);
-    body.appendChild(navbar)
+    navbar.appendChild(selectStation);
+    navbar.appendChild(loginLink);
+    document.body.appendChild(navbar);
 }
