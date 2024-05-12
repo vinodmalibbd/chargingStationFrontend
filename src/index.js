@@ -11,10 +11,10 @@
 // // window.onload(()=>{
 // //     getAllChargingStation();
 // // })
-window.addEventListener('load',function(){
-    const token='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2bTIxMjQyMTI0QGdtYWlsLmNvbSIsImlhdCI6MTcxNTM0MDk3MCwiZXhwIjoxNzE1MzU4OTcwfQ.-4eh76sKKeD2RkJoYPHDhT2XR2H-bg3gCGFXe3u1kL5YIT33xFkzbYY98VBlwDBw5ycpT3vd5PAq9a1aeRi6dw'
-    getAllChargingStation(token);
-})
+// window.addEventListener('load',function(){
+//     const token='eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2bTIxMjQyMTI0QGdtYWlsLmNvbSIsImlhdCI6MTcxNTM0MDk3MCwiZXhwIjoxNzE1MzU4OTcwfQ.-4eh76sKKeD2RkJoYPHDhT2XR2H-bg3gCGFXe3u1kL5YIT33xFkzbYY98VBlwDBw5ycpT3vd5PAq9a1aeRi6dw'
+//     getAllChargingStation(token);
+// })
 
 
 // const Stationlogin = (event) =>{

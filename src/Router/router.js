@@ -1,5 +1,6 @@
 const routes = {
-  '/': LandingPage,
+  '/': MainPage,
+  '/index.html': MainPage,
   '/user':UserLandingPage
 };
 
@@ -13,8 +14,8 @@ function navigateTo(route) {
   }
 }
 
-function handleNavigation(e) {
-  e.preventDefault();
+function handleNavigation() {
+
   const currentRoute = window.location.pathname;
   navigateTo(currentRoute);
 }

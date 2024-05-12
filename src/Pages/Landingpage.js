@@ -1,10 +1,11 @@
-function LandingPage() {
+const MainPage=()=> {
+    document.body.innerHTML = '';
     const header = document.createElement("header");
     const h1 = document.createElement("h1");
     h1.textContent = "EV Charging Station";
     header.appendChild(h1);
     document.body.appendChild(header);
-
+  
     const containerDiv = document.createElement("div");
     containerDiv.className = "container";
   
@@ -26,14 +27,16 @@ function LandingPage() {
     // Create user button
     const userButton = document.createElement("a");
     userButton.onclick = () =>{
-        navigateTo('/User')
+        navigateTo('/user')
     }
     userButton.className = "user-button";
     userButton.textContent = "For Users";
   
     // Create station owner button
     const stationOwnerButton = document.createElement("a");
-    stationOwnerButton.href = ".\\temp\\temp.html";
+    stationOwnerButton.onclick = () =>{
+      navigateTo('/station')
+  }
     stationOwnerButton.className = "station-button";
     stationOwnerButton.textContent = "For Station Owners";
   
@@ -48,5 +51,4 @@ function LandingPage() {
     // Append container div to the body of the document
     document.body.appendChild(containerDiv);
   }
-  
   
