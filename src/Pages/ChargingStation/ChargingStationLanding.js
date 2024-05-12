@@ -4,12 +4,19 @@ function createAndAppend(parent, elementType, content) {
   parent.appendChild(element);
 }
 
+<<<<<<< HEAD
 // Function to create dashboard
 function chargingStationDashboard() {
   document.body.innerHTML = '';
 
   const container = document.createElement('div');
   container.className = 'stationdashboard';
+=======
+function createDashboard() {
+ 
+  const container = document.createElement('div');
+  container.className = 'container';
+>>>>>>> dbb3278c953fc2625947cd9ad98c2a137fedc967
 
   createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
 
@@ -33,14 +40,11 @@ function chargingStationDashboard() {
   const dashboardSectionDiv = document.createElement('div');
   dashboardSectionDiv.className = 'dashboard-section';
 
-  // Create slots container div
   const slotsContainerDiv = document.createElement('div');
   slotsContainerDiv.className = 'slots-container';
 
-  // Create slots header
   createAndAppend(slotsContainerDiv, 'h2', 'Slots');
 
-  // Create slots table
   createAndAppend(slotsContainerDiv, 'table', `
     <thead>
       <tr>
@@ -66,17 +70,11 @@ function chargingStationDashboard() {
     </tbody>
   `);
 
-  // Append slots container div to dashboard section div
   dashboardSectionDiv.appendChild(slotsContainerDiv);
-
-  // Create bookings container div
   const bookingsContainerDiv = document.createElement('div');
   bookingsContainerDiv.className = 'bookings-container';
-
-  // Create bookings header
   createAndAppend(bookingsContainerDiv, 'h2', 'Bookings');
 
-  // Create bookings table
   createAndAppend(bookingsContainerDiv, 'table', `
     <thead>
       <tr>
@@ -108,28 +106,21 @@ function chargingStationDashboard() {
     </tbody>
   `);
 
-  // Create feedback button
   createAndAppend(bookingsContainerDiv, 'div', '');
   createAndAppend(bookingsContainerDiv.lastChild, 'button', 'Feedback');
   bookingsContainerDiv.lastChild.lastChild.onclick = function() {
     window.location.href = 'feedback.html';
   };
 
-  // Append bookings container div to dashboard section div
   dashboardSectionDiv.appendChild(bookingsContainerDiv);
-
-  // Append dashboard section div to container
   container.appendChild(dashboardSectionDiv);
 
-  // Create logout button
   createAndAppend(container, 'button', 'Logout');
   container.lastChild.className = 'logout-btn';
   container.lastChild.onclick = function() {
     window.location.href = 'logout.html';
   };
 
-  // Append container to body
   document.body.appendChild(container);
 }
 
-// Call the function to create the dashboard

@@ -63,7 +63,6 @@ const UserBooking=()=>{
 }
   
 document.addEventListener('DOMContentLoaded', function () {
-  // Fetch data and populate charging slots
   fetch('http://localhost:8081/chargingstation/all')
     .then(response => response.json())
     .then(data => {
@@ -77,13 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching data:', error);
     });
 
-  // Create and append booking button
-  const bookingButton = document.createElement('button');
-  bookingButton.textContent = 'Book Slot';
-  bookingButton.addEventListener('click', bookSlot);
-  document.body.appendChild(bookingButton);
-
-  // Render time slots
+ 
+    const bookingButton = document.createElement('button');
+    bookingButton.textContent = 'Book Slot';
+    bookingButton.addEventListener('click', bookSlot);
+    bookingButton.classList.add('booking-button');
+    document.body.appendChild(bookingButton);
   renderTimeSlots();
 });
 
@@ -91,10 +89,10 @@ function renderTimeSlots() {
   const datepicker = document.getElementById("date");
   const selectedDate = new Date(datepicker.value);
   const currentDate = new Date();
-  const stationOpen = 9; // 8:00 AM
-  const stationClose = 24; // 8:00 PM
+  const stationOpen = 9; 
+  const stationClose = 24; 
   const hourCardsContainer = document.getElementById('timeslot');
-  hourCardsContainer.innerHTML = ''; // Clear previous time slots
+  hourCardsContainer.innerHTML = ''; 
 
   var currentHour = stationOpen;
   var currentMinute = 0;
