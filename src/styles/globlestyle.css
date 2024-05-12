@@ -2,32 +2,6 @@
     padding: 0;
     margin: 0;
 }
-.homepage{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color:black;
-    color: white;
-}
-
-.booking_page{
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    color: white;
-    display: none;
-
-}
-.success_card{
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: blue;
-    color: white;
-    display: none;
-}
 .loaderwrapper{
     width: 100%;
     display: flex;
@@ -59,4 +33,3 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-/* Resetting default margin and padding */
