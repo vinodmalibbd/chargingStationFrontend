@@ -1,13 +1,14 @@
 const MainPage=()=> {
     document.body.innerHTML = '';
     const header = document.createElement("header");
+    header.classList.add='header'
     const h1 = document.createElement("h1");
     h1.textContent = "EV Charging Station";
     header.appendChild(h1);
     document.body.appendChild(header);
   
     const containerDiv = document.createElement("div");
-    containerDiv.className = "container";
+    containerDiv.className = "landingpage";
   
     // Create description div
     const descriptionDiv = document.createElement("div");

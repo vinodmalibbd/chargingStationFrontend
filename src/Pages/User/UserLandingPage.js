@@ -70,4 +70,6 @@ function UserLandingPage() {
     document.body.appendChild(mainPage);
     RenderMap();
     
+    const footer = document.createElement("footer");
+    mainPage.appendChild(footer);
   }
