@@ -24,12 +24,11 @@ const UserBooking=()=>{
   navbar.appendChild(logoLink);
   navbar.appendChild(loginLink);
   
-  // Create container for charging slots
+
   const container = document.createElement('div');
   container.classList.add('container');
   container.id = "cardContainer";
   
-  // Create date picker section
   const datepickerSection = document.createElement('div');
   datepickerSection.classList.add('datepicker');
   
@@ -40,7 +39,7 @@ const UserBooking=()=>{
   datePickerInput.type = "date";
   datePickerInput.id = "date";
   datePickerInput.name = "date";
-  datePickerInput.min = new Date().toISOString().split('T')[0]; // Set minimum date to today
+  datePickerInput.min = new Date().toISOString().split('T')[0];
   
   const submitButton = document.createElement('button');
   submitButton.textContent = "Submit";
@@ -50,12 +49,11 @@ const UserBooking=()=>{
   datepickerSection.appendChild(datePickerInput);
   datepickerSection.appendChild(submitButton);
   
-  // Create container for time slots
+
   const timeslotContainer = document.createElement('div');
   timeslotContainer.id = "timeslot";
   timeslotContainer.classList.add('timeslot');
   
-  // Append all elements to the body
   document.body.appendChild(navbar);
   document.body.appendChild(container);
   document.body.appendChild(datepickerSection);

@@ -1,20 +1,19 @@
-/* CSS for card container */
+
 #cardContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Horizontally center the content */
+  justify-content: center;
   padding: 20px;
 }
 
-/* CSS for station cards */
 .card {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  width: calc(25% - 20px); /* Adjust card width here */
-  max-width: 250px; /* Maximum width for each card */
+  width: calc(25% - 20px); 
+  max-width: 250px; 
   box-sizing: border-box;
 }
 

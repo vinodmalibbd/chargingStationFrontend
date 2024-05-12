@@ -34,7 +34,6 @@ const renderRegisterForm=()=>{
         form.appendChild(formField);
     });
 
-    // Add register button
     const registerBtn = document.createElement('button');
     registerBtn.classList.add('register_btn')
     registerBtn.textContent = 'Register Now';

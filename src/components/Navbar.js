@@ -21,20 +21,16 @@ function renderNavbar() {
     logoimg.src='logo.jpg';
 
     logo.appendChild(logoimg);
-    // Create navbar items container
     const navbarItemsContainer = document.createElement('div');
     navbarItemsContainer.classList.add('navbar-items');
 
-    // Create navbar login button
     const loginBtn = document.createElement('div');
     loginBtn.classList.add('navbar-login-btn');
     loginBtn.textContent = 'Login';
     loginBtn.addEventListener('click', gotoLogin);
 
-    // Append logo to navbar
     navbar.appendChild(logo);
-
-    // Append each navbar item to the navbar items container
+    
     navbarItems.forEach(function(item) {
         const navbarItem = document.createElement('p');
         navbarItem.classList.add('navbar-item');
