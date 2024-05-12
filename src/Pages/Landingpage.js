@@ -9,8 +9,7 @@ const MainPage=()=> {
   
     const containerDiv = document.createElement("div");
     containerDiv.className = "landingpage";
-  
-    // Create description div
+ 
     const descriptionDiv = document.createElement("div");
     descriptionDiv.className = "description";
   

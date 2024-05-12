@@ -6,11 +6,9 @@ function createAndAppend(parent, elementType, content) {
 
 function chargingStationDashboard() {
   document.body.innerHTML = '';
-  const chargestation=getChargingStationById();
-  console.log(chargestation.name)
-  if(chargestation.name){
+    
     const container = document.createElement('div');
-  container.className = 'stationdashboard';
+    container.className = 'stationdashboard';
 
   createAndAppend(container, 'h1', 'Charging Station Owner Dashboard');
 
@@ -52,10 +50,6 @@ function chargingStationDashboard() {
   bookingsContainerDiv.appendChild(bookingOption)
 
   createAndAppend(bookingsContainerDiv, 'div', '');
-  createAndAppend(bookingsContainerDiv.lastChild, 'button', 'Feedback');
-  bookingsContainerDiv.lastChild.lastChild.onclick = function() {
-    window.location.href = 'feedback.html';
-  };
 
   dashboardSectionDiv.appendChild(bookingsContainerDiv);
   container.appendChild(dashboardSectionDiv);
@@ -63,13 +57,10 @@ function chargingStationDashboard() {
   createAndAppend(container, 'button', 'Logout');
   container.lastChild.className = 'logout-btn';
   container.lastChild.onclick = function() {
-    window.location.href = 'logout.html';
+   
   };
 
   document.body.appendChild(container);
-  }else{
-    updateStationInfo();
-
-  }
+  
 }
 

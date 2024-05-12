@@ -30,13 +30,38 @@ const getChargingStationById =async()=>{
             method:"GET",
             headers:{
                 'Content-Type':"application/json",
-                'Mode':'no-cors',
                 'Authorization':token
             },
         
         })
+        
         console.log(JSON.parse(res));
         return JSON.parse(res);
+    }else{
+        navigateTo('/')
+    }
+};
+const updateChargingStationProfile =async(data)=>{
+    const token =localStorage.getItem('station-cookie')
+    if(token){
+
+        const decodedtoken=decodeJwtToken(token);
+        const stationId=decodedtoken.sub;
+        const res=await fetch(`http://localhost:8081/chargingstation/update`,{
+            method:"PUT",
+            headers:{
+                'Content-Type':"application/json",
+                'Authorization':token,
+            },
+            body:JSON.stringify(data)
+        
+        })
+        if(res.status===201){
+
+            console.log(JSON.parse(res));
+            navigateTo('/station')
+
+        }
     }else{
         navigateTo('/')
     }

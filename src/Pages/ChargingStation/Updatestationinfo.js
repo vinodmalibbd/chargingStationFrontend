@@ -18,9 +18,9 @@
     columnLeft.classList.add('column-left');
     form.appendChild(columnLeft);
   
-    const labels = ['Name:', 'Email:', 'Opening Time:', 'Closing Time:'];
-    const inputIds = ['name', 'email', 'openingTime', 'closingTime'];
-    const inputTypes = ['text', 'email', 'text', 'text'];
+    const labels = ['Name:', 'Opening Time:', 'Closing Time:','Latitude','Longitude'];
+    const inputIds = ['name',  'openTime', 'closeTime','latitude','longitude'];
+    const inputTypes = ['text', 'number', 'number','text','text'];
   
     labels.forEach((labelText, index) => {
         const label = document.createElement('label');
@@ -36,17 +36,46 @@
         columnLeft.appendChild(label);
         columnLeft.appendChild(input);
     });
-  
+    const getlocation=document.createElement('button');
+    getlocation.setAttribute('type', 'button');
+    getlocation.textContent="add auto location";  
+    getlocation.onclick=function(){
+      const loc=getCurrentPositionUser();
+      const latitudeInput = document.getElementById('latitude');
+      const longitudeInput = document.getElementById('longitude');
+      latitudeInput.value = loc.lat;
+      longitudeInput.value = loc.long;
+    }
+    columnLeft.appendChild(getlocation);
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
-    submitButton.addEventListener('click', submitForm);
+    submitButton.onclick=function(){
+      submitForm();
+    }
     columnLeft.appendChild(submitButton);
   }
+
   function submitForm() {
     const formData = new FormData(document.getElementById('profileForm'));
-  
-    for (const pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
+
+    const formDataObject = {};
+
+    for (let [key, value] of formData.entries()) {
+      if(key==='openTime'|| key==='closeTime'){
+        value=parseInt(value);
+      }
+      if(key==='longitude'|| key==='latitude'){
+        value=parseFloat(value);
+      }
+      formDataObject[key] = value;
     }
+    const token=localStorage.getItem('auth-token');
+    if(token){
+      const decodedtoken=decodeJwtToken(token);
+      const email=decodedtoken.sub;
+      formDataObject['emailId']=email
+      updateChargingStationProfile(formDataObject)
+    }
+
   }
