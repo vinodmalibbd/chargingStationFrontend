@@ -26,8 +26,14 @@ function UserLandingPage() {
     const loginLink = document.createElement("p");
     loginLink.className = "login";
     loginLink.textContent = "User Login";
-    
+    const selectStation = document.createElement("p");
+    selectStation.className ="selectStation";
+    selectStation.textContent =  "Select Station";
+    selectStation.onclick = () =>{
+        navigateTo('/showStation');
+    }
     // Append login link to navbar
+    navbar.appendChild(selectStation);
     navbar.appendChild(loginLink);
     document.body.appendChild(navbar);
   

@@ -1,4 +1,5 @@
 const UserBooking=()=>{
+  document.body.innerHTML('');
   const navbar = document.createElement('div');
   navbar.classList.add('navbar');
   

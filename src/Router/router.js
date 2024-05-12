@@ -3,7 +3,8 @@ const routes = {
   '/index.html': MainPage,
   '/station':chargingStationDashboard,
   '/user':UserLandingPage,
-  '/user/booking':UserBooking
+  '/user/booking':UserBooking,
+  '/showStation': showStation
 };
 
 function navigateTo(route) {
