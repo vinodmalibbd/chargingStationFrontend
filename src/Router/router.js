@@ -4,8 +4,7 @@ const routes = {
   '/station':chargingStationDashboard,
   '/update/station':updateStationInfo,
   '/user':UserLandingPage,
-  '/user/booking':UserBooking,
-  '/charpoints/all': showAllChargingStations
+  '/charpoints/all': showAllChargingStations,
 };
 
 function navigateTo(route) {
