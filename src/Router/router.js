@@ -35,7 +35,9 @@ function handleNavigation(e) {
       }else{
         navigateTo('/update/station')
       }
-    }else {
+    }else if(role=='user'){
+      navigateTo('/user')
+    }else{
       navigateTo('/')
     }
   }else{

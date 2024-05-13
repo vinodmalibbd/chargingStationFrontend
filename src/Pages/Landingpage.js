@@ -23,7 +23,8 @@ const MainPage=()=> {
 
     const userButton = document.createElement("a");
     userButton.onclick = () =>{
-        navigateTo('/user')
+        localStorage.clear();
+        navigateTo('/user');
     }
     userButton.className = "user-button";
     userButton.textContent = "For Users";

@@ -14,8 +14,6 @@ const getCurrentPositionUser=()=>{
 };
 
 const RenderMap=()=>{
-    const allchargepoints=getAllChargingStation();
-    const userlocation = getCurrentPositionUser();
     const map = L.map("map");
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     }).addTo(map);
@@ -24,7 +22,16 @@ const RenderMap=()=>{
         iconSize: [25, 25],
         iconAnchor: [15, 30] 
     })
-    const m=L.marker([userlocation.lat,userlocation.long],{icon:MyLocationIcon}).addTo(map);
+    getAllChargingStation().then(data=>{
+        console.log(data);
+        data.map(item=>{
+
+            L.marker([item.latitude,item.longitude]).addTo(map);
+        })
+        
+    })
+    const userlocation = getCurrentPositionUser();
+    L.marker([userlocation.lat,userlocation.long]).addTo(map);
     map.setView([userlocation.lat,userlocation.long],13);
 };
 const RederChargingStations=(chargingStation)=>{
@@ -42,18 +49,6 @@ const RederChargingStations=(chargingStation)=>{
         elements. appendChild(card);
     })
 };
-function handleInputChange(event) {
-    let inputId = event.target.id;
-    let inputValue = event.target.value;
-    if(inputId==='longitude' || inputId === 'latitude'){
-        inputValue=parseFloat(inputValue);
-    }
-    if(inputId==='openTime' || inputId === 'closeTime'){
-        inputValue=parseInt(inputValue);
-    }
-    inputValues[inputId] = inputValue;
-
-}
 
 const decodeJwtToken=(token) =>{
     const base64Url = token.split('.')[1];

@@ -13,9 +13,6 @@ function renderNavbar() {
     
     navbar.appendChild(logoLink);
     
-    const loginLink = document.createElement("p");
-    loginLink.className = "login";
-    loginLink.textContent = "User Login";
     const selectStation = document.createElement("p");
     selectStation.className ="selectStation";
     selectStation.textContent =  "Chargepoints";
@@ -23,6 +20,21 @@ function renderNavbar() {
         navigateTo('/charpoints/all');
     }
     navbar.appendChild(selectStation);
+    const loginLink = document.createElement("div");
+    loginLink.classList.add='logindiv';
+    const isToken=localStorage.getItem('auth-token');
+    if(isToken){
+        const userimage = document.createElement("img");
+        userimage.src = "R.png";
+        userimage.alt = "Logo";
+        loginLink.appendChild(userimage)
+    }else{
+        loginLink.className = "login";
+        loginLink.textContent = "User Login";
+    }
+    loginLink.onclick=()=>{
+        loginuser();
+    }
     navbar.appendChild(loginLink);
     document.body.appendChild(navbar);
 }

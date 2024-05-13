@@ -10,6 +10,9 @@ const getAllChargingStation=async()=>{
 const loginchargingStation =async()=>{
     window.location.href='http://localhost:8081/auth/chargingstation';
 };
+const loginuser =async()=>{
+    window.location.href='http://localhost:8081/auth/user';
+};
 const LoginUser =async()=>{
     const res=await fetch('http://localhost:8081/auth/getuser',{
         method:"GET",
