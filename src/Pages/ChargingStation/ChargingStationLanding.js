@@ -6,7 +6,9 @@ function createAndAppend(parent, elementType, content) {
 
 function chargingStationDashboard() {
     document.body.innerHTML = '';
-
+    getChargingStationById().then(chargepoint=>{
+      if(chargepoint.name !==null || chargepoint.name===''){
+        
     const container = document.createElement('div');
     container.className = 'stationdashboard';
 
@@ -61,7 +63,11 @@ function chargingStationDashboard() {
       LogOutChargingStation();
     };
 
-  document.body.appendChild(container); 
+    document.body.appendChild(container); 
+    }else{
+        navigateTo('/update/station')
+    }
+  });
 }
 function LogOutChargingStation(){
   localStorage.clear();

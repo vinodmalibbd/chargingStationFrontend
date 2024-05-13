@@ -27,13 +27,7 @@ function handleNavigation(e) {
     localStorage.setItem('station-cookie',token);
     localStorage.setItem('role',role);
     if(role==='chargingstation'){
-      const chargepoint=getChargingStationById();
-      console.log(chargepoint.name);
-      if(chargepoint.name !==null || chargepoint.name===''){
-        navigateTo('/station')
-      }else{
-        navigateTo('/update/station')
-      }
+      navigateTo('/station')
     }else {
       navigateTo('/')
     }

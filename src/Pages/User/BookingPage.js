@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bookingButton.addEventListener('click', bookSlot);
     bookingButton.classList.add('booking-button');
     document.body.appendChild(bookingButton);
-  renderTimeSlots();
+    renderTimeSlots();
 });
 
 function renderTimeSlots() {
