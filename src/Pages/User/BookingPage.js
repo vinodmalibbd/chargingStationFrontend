@@ -1,5 +1,6 @@
-const UserBooking=()=>{
-  document.body.innerHTML('');
+const UserBooking=(chargepointId)=>{
+  document.body.innerHTML='';
+  renderNavbar();
   const container = document.createElement('div');
   container.classList.add('container');
   container.id = "cardContainer";

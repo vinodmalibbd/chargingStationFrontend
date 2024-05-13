@@ -1,5 +1,5 @@
 function showChargingStationSlots(slotsContainerDiv){
-    const slottableFeild=['Id','Name','Status','Bookings']
+    const slottableFeild=['Id','Name','Status','price']
     const table=document.createElement("table")
 
     const tableHeader=document.createElement('thead');
@@ -12,7 +12,7 @@ function showChargingStationSlots(slotsContainerDiv){
     });
     tableHeader.appendChild(tr);
     table.appendChild(tableHeader);
-getAllChargingStationSlots().then(data=>{
+  getAllChargingStationSlots().then(data=>{
   data.map(item=>{
   const tabledata=document.createElement('tbody')
     const tr=document.createElement('tr');
@@ -28,6 +28,9 @@ getAllChargingStationSlots().then(data=>{
     const status=document.createElement('td');
     status.textContent=item.available;
     tr.appendChild(status);
+    const pricePerHour=document.createElement('td');
+    pricePerHour.textContent=item.pricePerHour;
+    tr.appendChild(pricePerHour);
     
     tabledata.appendChild(tr);
     table.appendChild(tabledata);

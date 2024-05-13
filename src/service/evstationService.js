@@ -37,8 +37,6 @@ const getChargingStationById =async()=>{
             },
         
         })
-        
-        console.log( res.json());
         return res.json();
     }else{
         navigateTo('/')

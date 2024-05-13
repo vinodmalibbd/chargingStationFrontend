@@ -29,7 +29,7 @@ function handleNavigation(e) {
     if(role==='chargingstation'){
       const chargepoint=getChargingStationById();
       console.log(chargepoint.name);
-      if(chargepoint.name){
+      if(chargepoint.name !==null || chargepoint.name===''){
 
         navigateTo('/station')
       }else{

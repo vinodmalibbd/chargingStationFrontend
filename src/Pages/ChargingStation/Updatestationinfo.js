@@ -70,12 +70,10 @@
       }
       formDataObject[key] = value;
     }
-    const token=localStorage.getItem('auth-token');
-    if(token){
-      const decodedtoken=decodeJwtToken(token);
-      const email=decodedtoken.sub;
-      formDataObject['emailId']=email
+    console.log(formDataObject);
+    getChargingStationById().then(data=>{
+      console.log(data);
+      formDataObject['emailId']=data.emailId;
       updateChargingStationProfile(formDataObject)
-    }
-
+    })
   }
