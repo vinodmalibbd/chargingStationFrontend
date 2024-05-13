@@ -32,8 +32,7 @@ function handleNavigation(e) {
       if(chargepoint.name ==null || chargepoint.name===''){
         navigateTo('/update/station')
       }else{
-        navigateTo('/station')
-        
+        navigateTo('/station')   
       }
     }else {
       navigateTo('/')
