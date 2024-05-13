@@ -4,7 +4,7 @@ function renderNavbar() {
     const logoLink = document.createElement("div");
     logoLink.className = "logo";
     const logoImg = document.createElement("img");
-    logoImg.src = "logo.jpg";
+    logoImg.src = "/logo.jpg";
     logoImg.alt = "Logo";
     logoLink.appendChild(logoImg);
     

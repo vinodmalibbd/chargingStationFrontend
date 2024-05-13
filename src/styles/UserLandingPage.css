@@ -97,3 +97,9 @@ body {
 .selectStation{
   margin-right: 40%;
 }
+.user-button {
+cursor: pointer;
+}
+.station-button{
+  cursor: pointer;
+}
