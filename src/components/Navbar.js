@@ -22,7 +22,7 @@ function renderNavbar() {
     navbar.appendChild(selectStation);
     const loginLink = document.createElement("div");
     loginLink.classList.add='logindiv';
-    const isToken=localStorage.getItem('auth-token');
+    const isToken=localStorage.getItem('web-vb-token');
     if(isToken){
         const userimage = document.createElement("img");
         userimage.src = "R.png";

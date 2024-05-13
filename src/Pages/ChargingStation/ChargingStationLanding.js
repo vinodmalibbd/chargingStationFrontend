@@ -64,7 +64,6 @@ function chargingStationDashboard() {
   document.body.appendChild(container); 
 }
 function LogOutChargingStation(){
-  localStorage.removeItem('auth-token')
-  localStorage.removeItem('station-cookie')
+  localStorage.clear();
   navigateTo("/")
 }
