@@ -4,7 +4,7 @@ const routes = {
   '/station':chargingStationDashboard,
   '/update/station':updateStationInfo,
   '/user':UserLandingPage,
-  '/charpoints/all': showAllChargingStations,
+  '/charpoints/all': showAllChargingStations
 };
 
 function navigateTo(route) {
@@ -34,7 +34,9 @@ function handleNavigation(e) {
       }else{
         navigateTo('/station')   
       }
-    }else {
+    }else if(role==='user'){
+      navigateTo('/user');
+    }else{
       navigateTo('/')
     }
   }else{

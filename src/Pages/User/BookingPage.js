@@ -1,9 +1,32 @@
 const UserBooking=(chargepointId)=>{
   document.body.innerHTML='';
   renderNavbar();
-  const container = document.createElement('div');
-  container.classList.add('container');
-  container.id = "cardContainer";
+  const chargingslotsContainer=document.createElement('div');
+  chargingslotsContainer.classList.add("chargeslotscontainer")
+  const bookingdata={};
+
+  getAllChargingStationSlotsById(chargepointId).then(data=>{
+    data.map((item)=>{
+      const slotcard=document.createElement('div');
+      slotcard.classList.add('charginslotcard')
+      const p=document.createElement("p");
+      p.textContent=`slotId ${item.slotId}`;
+
+      slotcard.onclick=()=>{
+        bookingdata['chargingSlotId']=data.slotId;
+        renderDatepicker()
+      }
+      slotcard.appendChild(p);
+      chargingslotsContainer.appendChild(slotcard);
+    })
+  });
+  document.body.appendChild(chargingslotsContainer)
+}
+
+function renderDatepicker(){
+   const container = document.createElement('div');
+    container.classList.add('container');
+    container.id = "cardContainer";
   
   const datepickerSection = document.createElement('div');
   datepickerSection.classList.add('datepicker');
@@ -19,7 +42,9 @@ const UserBooking=(chargepointId)=>{
   
   const submitButton = document.createElement('button');
   submitButton.textContent = "Submit";
-  submitButton.addEventListener('click', renderTimeSlots);
+  submitButton.onclick=()=>{
+    renderTimeSlots(10,23);
+  }
   
   datepickerSection.appendChild(datepickerTitle);
   datepickerSection.appendChild(datePickerInput);
@@ -33,38 +58,12 @@ const UserBooking=(chargepointId)=>{
   document.body.appendChild(container);
   document.body.appendChild(datepickerSection);
   document.body.appendChild(timeslotContainer);
-  
 }
   
-document.addEventListener('DOMContentLoaded', function () {
-  fetch('http://localhost:8081/chargingstation/all')
-    .then(response => response.json())
-    .then(data => {
-      const cardContainer = document.getElementById('cardContainer');
-      data.forEach(item => {
-        const card = createCard(item);
-        cardContainer.appendChild(card);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-
- 
-    const bookingButton = document.createElement('button');
-    bookingButton.textContent = 'Book Slot';
-    bookingButton.addEventListener('click', bookSlot);
-    bookingButton.classList.add('booking-button');
-    document.body.appendChild(bookingButton);
-    renderTimeSlots();
-});
-
-function renderTimeSlots() {
+function renderTimeSlots(stationOpen,stationClose) {
   const datepicker = document.getElementById("date");
   const selectedDate = new Date(datepicker.value);
   const currentDate = new Date();
-  const stationOpen = 9; 
-  const stationClose = 24; 
   const hourCardsContainer = document.getElementById('timeslot');
   hourCardsContainer.innerHTML = ''; 
 

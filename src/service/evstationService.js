@@ -111,3 +111,16 @@ const addChargingSlotStation =async(data)=>{
         navigateTo('/')
     }
 };
+const getAllChargingStationSlotsById =async(id)=>{
+
+        const res=await fetch(`http://localhost:8081/chargingslot/all/${id}`,{
+            method:"GET",
+            headers:{
+                'Content-Type':"application/json"
+            },
+        })
+        
+
+
+            return res.json();
+};

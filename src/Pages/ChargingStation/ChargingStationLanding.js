@@ -69,6 +69,7 @@ function chargingStationDashboard() {
     }
   });
 }
+
 function LogOutChargingStation(){
   localStorage.clear();
   navigateTo("/")

@@ -1,50 +1,31 @@
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.navbar {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-}
-
-.logo {
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
-  width: 40%;
-}
-
-.logo img {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-
-.login {
-  float: right;
-  color: #fff;
-  text-decoration: none;
-}
-
 .container {
   margin: 20px;
   justify-content: center;
   align-items: center;
 }
-
+.chargeslotscontainer{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.charginslotcard{
+  width: 30%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  margin: 10px;
+}
 .card {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
   justify-content: center;
+  color: black;
   align-items: center;
 }
 
