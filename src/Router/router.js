@@ -30,7 +30,6 @@ function handleNavigation(e) {
       const chargepoint=getChargingStationById();
       console.log(chargepoint.name);
       if(chargepoint.name !==null || chargepoint.name===''){
-
         navigateTo('/station')
       }else{
         navigateTo('/update/station')
