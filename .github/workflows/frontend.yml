@@ -23,27 +23,11 @@ jobs:
           script: |
             echo "connected to ec2"
 
-            sudo service nginx stop || true
-            
-            # Remove previous website files
-            sudo rm -rf /var/www/html/*
-
             rm -rf chargingStationFrontend
             # Clone new repository
             git clone https://github.com/vinodmalibbd/chargingStationFrontend /var/www/html
             
-            # Configure Nginx to serve the website
-            sudo bash -c 'cat << EOF > /etc/nginx/sites-available/default
-            server {
-                listen 80;
-                server_name _;
-                root /var/www/html;
-                index index.html index.htm;
-                location / {
-                    try_files \$uri \$uri/ /index.html;
-                }
-            }
-            EOF'
+            cp chargingStationFrontend/index.html /var/www/html/index.html
 
             # Restart Nginx
             sudo service nginx restart
