@@ -27,7 +27,5 @@ jobs:
             # Clone new repository
             git clone https://github.com/vinodmalibbd/chargingStationFrontend /var/www/html
             
-            cp chargingStationFrontend/index.html /var/www/html/index.html
-
-            # Restart Nginx
-            sudo service nginx restart
+            echo "connected to ec2"
+            cp chargingStationFrontend/* /var/www/html/index.html
