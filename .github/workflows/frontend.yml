@@ -23,9 +23,8 @@ jobs:
           script: |
             echo "connected to ec2"
 
-            rm -rf chargingStationFrontend
+            sudo rm -rf chargingStationFrontend
             # Clone new repository
-            git clone https://github.com/vinodmalibbd/chargingStationFrontend /var/www/html
+            sudo git clone https://github.com/vinodmalibbd/chargingStationFrontend /var/www/html
             
-            echo "connected to ec2"
-            cp chargingStationFrontend/* /var/www/html/index.html
+            sudo cp chargingStationFrontend/* /var/www/html/index.html
