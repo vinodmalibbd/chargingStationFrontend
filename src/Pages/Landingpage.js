@@ -1,24 +1,6 @@
 const MainPage=()=> {
     document.body.innerHTML = '';
-    // const header = document.createElement("header");
-    // header.classList.add='header'
-    // const headingDiv = document.createElement("div");
-    // headingDiv.className = "headingDiv";
-    // const h1 = document.createElement("h1");
-    // h1.textContent = "EV Charging Station";
-    // const logoDiv =document.createElement("div");
-    // logoDiv.className = "logoDiv";
-    // const logo = document.createElement("img");
-    // logo.className ="logoimg";
-    // logo.src = "./logo.jpg";
-    // logoDiv.appendChild(logo);
-  
-    // headingDiv.appendChild(h1)
 
-    // header.appendChild(logoDiv); 
-    // header.appendChild(headingDiv);
-    // document.body.appendChild(header);
-  
     const containerDiv = document.createElement("div");
     containerDiv.className = "landingpage";
  
@@ -59,7 +41,6 @@ const MainPage=()=> {
     descriptionDiv.appendChild(buttonContainerDiv);
 
     containerDiv.appendChild(descriptionDiv);
-   // containerDiv.appendChild(buttonContainerDiv);
     document.body.appendChild(containerDiv);
   }
   

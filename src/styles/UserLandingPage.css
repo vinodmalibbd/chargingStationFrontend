@@ -1,116 +1,3 @@
-/* body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-.navbar {
-  background-color: #333;
-  padding: 1%;
-  display: flex;
-  align-items: center;
-}
-
-
-.logo {
-  color: #fff;
-  text-decoration: none;
-  font-size: 3%;
-  display: flex;
-  align-items: center;
-}
-.title{
-  size:10%
-
-}
-.navDiv{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.loglink{
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  width: 100%;
-  
-  
-}
-.loglink img{
-  width: 10%;
-  margin: 0px;
-}
-.login {
-  color: #fff;
-  text-decoration: none;
-}
-
-.logo {
-  margin-bottom: 1.5%;
-}
-
-.navbar p{
-  font-size: 1.5rem;
-}
-
-.mainpage{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-
-}
-#map {
-  width: 80%;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  border-radius: 2%;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-#searchInput {
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 0px;
-}
-
-#searchButton {
-  padding: 8px 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  margin-left: 10px; 
-}
-
-#stationDropdown {
-  margin-top: 10px;
-  margin-left: 10%;
-  width: 80%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.user-button {
-cursor: pointer;
-}
-.station-button{
-  cursor: pointer;
-} */
-
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 *{
@@ -122,17 +9,19 @@ cursor: pointer;
 
 body{
    background-color: #f3f5f9;
+   color: black;
 }
 
 .wrapper{
   display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
 .wrapper .sidebar{
-  width: 24%;
+  width: 30%;
   height: 100%;
   background: #4b4276;
-  position: fixed;
 }
 
 .wrapper .sidebar ul li{
@@ -140,16 +29,11 @@ body{
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
-}    
-
-.wrapper .sidebar ul li a{
   color: #bdb8d7;
   display: block;
-}
+  
+}    
 
-.wrapper .sidebar ul li a .fas{
-  width: 25px;
-}
 
 .wrapper .sidebar ul li:hover{
   background-color: #594f8d;
@@ -161,8 +45,9 @@ body{
 
 
 .wrapper .main_content{
-  width: 100%;
-  margin-left: 24%;
+  width: 70%;
+  height: 100%;
+  background: #fff;
 }
 
 .wrapper .main_content .header{
@@ -171,13 +56,6 @@ body{
   color: #717171;
   border-bottom: 1px solid #e0e4e8;
 }
-
-.wrapper .main_content .info{
-  margin: 2%;
-  color: #717171;
-  line-height: 25px;
-}
-
 
 .header{
   display:flex;
@@ -201,15 +79,90 @@ body{
 }
 .searbarbox{
   display: flex;
-  gap: 1rem;
-  margin-top: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 
 }
 .searbarbox input{
  width: 80%;
- padding: 2%;
+
 }
 .searbarbox button{
-  width: 20%;
   border-radius: 5px;
+}
+#map{
+  width: 100%;
+  height: 100%;
+}
+.chargepointTab{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.chargepointcardscontainer{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chargepointcard{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid blue;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 10px;
+}
+
+.chagestationpage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+.chargestationheader{
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.chargestationheader span{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.chargeslotscontainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.chargingslotcard{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid blue;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 10px;
+}
+.selectslottip{
+  color: black;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }

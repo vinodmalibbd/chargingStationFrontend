@@ -23,7 +23,6 @@ const RenderMap=()=>{
         iconAnchor: [15, 30] 
     })
     getAllChargingStation().then(data=>{
-        console.log(data);
         data.map(item=>{
 
             L.marker([item.latitude,item.longitude]).addTo(map);
@@ -33,6 +32,7 @@ const RenderMap=()=>{
     const userlocation = getCurrentPositionUser();
     L.marker([userlocation.lat,userlocation.long]).addTo(map);
     map.setView([userlocation.lat,userlocation.long],13);
+
 };
 const RederChargingStations=(chargingStation)=>{
     const elements = document.querySelector(`.stationcards`);

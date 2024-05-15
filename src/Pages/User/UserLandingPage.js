@@ -1,54 +1,15 @@
-// function UserLandingPage() {
-//     document.body.innerHTML = '';
-//     renderNavbar();
-//     const searchBar = document.createElement("div");
-//     searchBar.className = "searchBar";
-
-//     const searchContainer = document.createElement("div");
-//     searchContainer.className = "search-container";
-
-//     const searchInput = document.createElement("input");
-//     searchInput.type = "text";
-//     searchInput.id = "searchInput";
-//     searchInput.placeholder = "Search for a location";
-
-//     const searchButton = document.createElement("button");
-//     searchButton.id = "searchButton";
-//     searchButton.textContent = "Search";
-
-//     searchContainer.appendChild(searchInput);
-//     searchContainer.appendChild(searchButton);
-
-//     searchBar.appendChild(searchContainer);
-    
-//    document.body.appendChild(searchBar);
-
-//     const mainPage = document.createElement("div");
-//     mainPage.className = "mainpage";
-
-//     const mapContainer = document.createElement("div");
-//     mapContainer.id = "map";
-//     mainPage.appendChild(mapContainer);
-//     document.body.appendChild(mainPage);
-//     RenderMap();
-    
-//     const footer = document.createElement("footer");
-//     mainPage.appendChild(footer);
-//   }
 function UserLandingPage() {
-  // Create wrapper div
+  document.body.innerHTML='';
+
   const wrapperDiv = document.createElement('div');
   wrapperDiv.className = 'wrapper';
 
-  // Create sidebar div
   const sidebarDiv = document.createElement('div');
   sidebarDiv.className = 'sidebar';
 
-  // Create header div
   const headerDiv = document.createElement('div');
   headerDiv.className = 'header';
 
-  // Create header image div
   const headerImgDiv = document.createElement('div');
   headerImgDiv.className = 'headerImg';
   const logoImg = document.createElement('img');
@@ -56,19 +17,15 @@ function UserLandingPage() {
   logoImg.alt = '';
   headerImgDiv.appendChild(logoImg);
 
-  // Create title div
   const titleDiv = document.createElement('div');
   titleDiv.className ='Title';
   titleDiv.textContent = 'Smart EV Charge Point';
 
-  // Append header image and title to header div
   headerDiv.appendChild(headerImgDiv);
   headerDiv.appendChild(titleDiv);
 
-  // Create ul element
   const ulElement = document.createElement('ul');
 
-  // Create search bar li element
   const searchBarLi = document.createElement('li');
   searchBarLi.className = 'searbarbox';
   const searchInput = document.createElement('input');
@@ -80,50 +37,174 @@ function UserLandingPage() {
   searchBarLi.appendChild(searchInput);
   searchBarLi.appendChild(searchButton);
 
-  // Create Login li element
   const loginLi = document.createElement('li');
-  const loginLink = document.createElement('a');
-  loginLink.href = '#';
-  loginLink.innerHTML = '<i class="fas fa-user"></i>Login';
-  loginLi.appendChild(loginLink);
+  loginLi.innerHTML = '<i class="fas fa-user"></i>Login';
 
-  // Create ChargePoints li element
   const chargePointsLi = document.createElement('li');
-  const chargePointsLink = document.createElement('a');
-  chargePointsLink.href = '#';
-  chargePointsLink.innerHTML = '<i class="fas fa-address-card"></i>ChargePoints';
-  chargePointsLi.appendChild(chargePointsLink);
+  chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>ChargePoints';
+  chargePointsLi.onclick=()=>{
+    changeTab("/chargepoint",mainContentDiv)
+  }
 
-  // Append li elements to ul
   ulElement.appendChild(searchBarLi);
-  ulElement.appendChild(loginLi);
   ulElement.appendChild(chargePointsLi);
+  ulElement.appendChild(loginLi);
 
-  // Append header and ul to sidebar
   sidebarDiv.appendChild(headerDiv);
   sidebarDiv.appendChild(ulElement);
 
-  // Create main_content div
   const mainContentDiv = document.createElement('div');
   mainContentDiv.className ='main_content';
-
-  // Create info div inside main_content div
-  const infoDiv = document.createElement('div');
-  infoDiv.className = 'info';
-
-  document.body.appendChild(wrapperDiv);
-  const mapContainer = document.createElement("div");
-      mapContainer.id = "map";
-      infoDiv.appendChild(mapContainer);
-    
-
-  // Append info div to main_content div
-  mainContentDiv.appendChild(infoDiv);
-
-  // Append sidebar and main_content to wrapper
+  const c=document.createElement("div");
+  c.id="map";
+  mainContentDiv.appendChild(c);
   wrapperDiv.appendChild(sidebarDiv);
   wrapperDiv.appendChild(mainContentDiv);
-
-  // Append wrapper to body
+  document.body.appendChild(wrapperDiv);
   RenderMap();
+}
+function changeTab(tabname,mainContentDiv){
+  mainContentDiv.innerHTML='';
+  switch(tabname){
+    case "/chargepoint":{
+      chargePointTab(mainContentDiv);
+      break;
+    }
+  }
+}
+
+function chargePointTab(mainContentDiv){
+  const chargepointtab=document.createElement("div");
+  chargepointtab.className='chargepointTab';
+  mainContentDiv.appendChild(chargepointtab)
+
+  const cardsContainer=document.createElement('div');
+  cardsContainer.className="chargepointcardscontainer";
+  chargepointtab.appendChild(cardsContainer);
+  getAllChargingStation().then(data=>{
+    data.map(item=>{
+      const card=document.createElement('div');
+      card.textContent=item.name;
+      card.className='chargepointcard'
+      card.onclick=()=>{
+        chargeStationPage(item,mainContentDiv);
+      }
+      cardsContainer.appendChild(card);
+    })
+  })
+}
+
+function chargeStationPage(chargepoint,mainContentDiv){
+  mainContentDiv.innerHTML='';
+
+  const chargeStationPage=document.createElement("div");
+  chargeStationPage.className='chargestationpage';
+  mainContentDiv.appendChild(chargeStationPage);
+
+  const header=document.createElement("div");
+  header.className='chargestationheader'
+  chargeStationPage.appendChild(header);
+
+  const stationName=document.createElement('span');
+  stationName.textContent=chargepoint.name;
+  header.appendChild(stationName);
+
+  const selectSlot=document.createElement('span');
+  selectSlot.className='selectslottip'
+  selectSlot.textContent='select available charging slot and choose date';
+  chargeStationPage.appendChild(selectSlot);
+
+  const chargingslotsContainer=document.createElement('div');
+  chargingslotsContainer.classList.add("chargeslotscontainer");
+
+  getAllChargingStationSlotsById(chargepoint.stationId).then(data=>{
+    data.map((item)=>{
+      const slotcard=document.createElement('div');
+      slotcard.classList.add('chargingslotcard')
+      const p=document.createElement("p");
+      p.textContent=`chargepoint ${item.slotId}`;
+      slotcard.onclick=()=>{
+        renderDatepicker(chargeStationPage)
+      }
+      slotcard.appendChild(p);
+      chargingslotsContainer.appendChild(slotcard);
+    })
+  });
+  chargeStationPage.appendChild(chargingslotsContainer)
+}
+function renderDatepicker(mainContentDiv){
+  const container = document.createElement('div');
+   container.classList.add('container');
+   container.id = "cardContainer";
+ 
+  const datepickerSection = document.createElement('div');
+  datepickerSection.classList.add('datepicker');
+ 
+  const datepickerTitle = document.createElement('h2');
+  datepickerTitle.textContent = "Select Date:";
+ 
+  const datePickerInput = document.createElement('input');
+  datePickerInput.type = "date";
+  datePickerInput.id = "date";
+  datePickerInput.name = "date";
+  datePickerInput.min = new Date().toISOString().split('T')[0];
+ 
+ const submitButton = document.createElement('button');
+ submitButton.textContent = "Submit";
+ submitButton.onclick=()=>{
+   renderTimeSlots(10,23);
+ }
+ 
+ datepickerSection.appendChild(datepickerTitle);
+ datepickerSection.appendChild(datePickerInput);
+ datepickerSection.appendChild(submitButton);
+ 
+
+ const timeslotContainer = document.createElement('div');
+ timeslotContainer.id = "timeslot";
+ timeslotContainer.classList.add('timeslot');
+ 
+ mainContentDiv.appendChild(container);
+ mainContentDiv.appendChild(datepickerSection);
+ mainContentDiv.appendChild(timeslotContainer);
+}
+ 
+function renderTimeSlots(stationOpen,stationClose) {
+ const datepicker = document.getElementById("date");
+ const selectedDate = new Date(datepicker.value);
+ const currentDate = new Date();
+ const hourCardsContainer = document.getElementById('timeslot');
+ hourCardsContainer.innerHTML = ''; 
+
+ let currentHour = stationOpen;
+ let currentMinute = 0;
+
+ if (selectedDate.toDateString() === currentDate.toDateString()) {
+   
+     currentHour = Math.max(currentHour, currentDate.getHours() + 1);
+    while ((currentHour < stationClose)&&(currentHour>=stationOpen)) {
+     const card = document.createElement('div');
+     card.classList.add('card');
+     card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
+     hourCardsContainer.appendChild(card);
+     
+     currentHour++;
+    }
+ }
+ else if (selectedDate > currentDate){
+   for(let hour = stationOpen; hour<stationClose;hour++){
+     const card = document.createElement('div');
+     card.classList.add('card');
+     card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
+     hourCardsContainer.appendChild(card);
+
+   }
+ }
+ else{
+   alert("please Don't Select Old Date")
+ }
+}
+
+function bookSlot() {
+ alert('Booking slot functionality will be implemented here.');
 }

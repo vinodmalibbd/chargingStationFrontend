@@ -30,7 +30,6 @@
 }
 
 .datepicker {
-  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,6 +37,7 @@
 
 .datepicker h2 {
   margin-right: 10px;
+  color: black;
 }
 
 .datepicker input[type="date"],
