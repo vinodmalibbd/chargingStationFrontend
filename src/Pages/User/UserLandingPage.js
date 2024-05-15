@@ -133,14 +133,11 @@ function chargeStationPage(chargepoint,mainContentDiv){
   chargeStationPage.appendChild(chargingslotsContainer)
 }
 function renderDatepicker(mainContentDiv){
-  const container = document.createElement('div');
-   container.classList.add('container');
-   container.id = "cardContainer";
  
   const datepickerSection = document.createElement('div');
   datepickerSection.classList.add('datepicker');
  
-  const datepickerTitle = document.createElement('h2');
+  const datepickerTitle = document.createElement('span');
   datepickerTitle.textContent = "Select Date:";
  
   const datePickerInput = document.createElement('input');
@@ -148,28 +145,22 @@ function renderDatepicker(mainContentDiv){
   datePickerInput.id = "date";
   datePickerInput.name = "date";
   datePickerInput.min = new Date().toISOString().split('T')[0];
- 
- const submitButton = document.createElement('button');
- submitButton.textContent = "Submit";
- submitButton.onclick=()=>{
-   renderTimeSlots(10,23);
- }
+  datePickerInput.onchange=()=>{
+    renderTimeSlots(10,23,chargeStationPage);
+  }
  
  datepickerSection.appendChild(datepickerTitle);
  datepickerSection.appendChild(datePickerInput);
- datepickerSection.appendChild(submitButton);
- 
 
  const timeslotContainer = document.createElement('div');
  timeslotContainer.id = "timeslot";
  timeslotContainer.classList.add('timeslot');
  
- mainContentDiv.appendChild(container);
  mainContentDiv.appendChild(datepickerSection);
  mainContentDiv.appendChild(timeslotContainer);
 }
  
-function renderTimeSlots(stationOpen,stationClose) {
+function renderTimeSlots(stationOpen,stationClose,chargeStationPage) {
  const datepicker = document.getElementById("date");
  const selectedDate = new Date(datepicker.value);
  const currentDate = new Date();
@@ -187,7 +178,9 @@ function renderTimeSlots(stationOpen,stationClose) {
      card.classList.add('card');
      card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
      hourCardsContainer.appendChild(card);
-     
+     card.onclick=()=>{
+      showBookingButton(chargeStationPage)
+     }
      currentHour++;
     }
  }
@@ -197,12 +190,29 @@ function renderTimeSlots(stationOpen,stationClose) {
      card.classList.add('card');
      card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
      hourCardsContainer.appendChild(card);
-
+     card.onclick=()=>{
+      showBookingButton(chargeStationPage)
+     }
    }
  }
  else{
    alert("please Don't Select Old Date")
  }
+}
+function showBookingButton(chargeStationPage){
+  const bookingFooter=document.createElement("div");
+  bookingFooter.className='chargestationfooter';
+  chargeStationPage.appendChild(bookingFooter);
+
+  const bookingbtngroup=document.createElement('div');
+
+  bookingbtngroup.className='bookingbtngroup';
+  bookingFooter.appendChild(bookingbtngroup);
+  
+  const bookbtn=document.createElement('button').className='bookbtn'.textContent="Book now";
+  const canclebook=document.createElement('button').className='canclebookbtn'.textContent="Cancle"
+  bookingbtngroup.appendChild(canclebook);
+  bookingbtngroup.appendChild(bookbtn);
 }
 
 function bookSlot() {
