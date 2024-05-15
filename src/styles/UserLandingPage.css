@@ -1,45 +1,56 @@
-body {
+/* body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
-
 .navbar {
   background-color: #333;
-  padding: 10px 20px;
+  padding: 1%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
+
 
 .logo {
   color: #fff;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 3%;
   display: flex;
+  align-items: center;
 }
+.title{
+  size:10%
 
-.logo img {
-  width: 40px; 
-  height: auto; 
-  vertical-align: middle;
-  margin-right: 10px; 
 }
-
+.navDiv{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.loglink{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  
+  
+}
+.loglink img{
+  width: 10%;
+  margin: 0px;
+}
 .login {
   color: #fff;
   text-decoration: none;
 }
 
-@media screen and (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
+.logo {
+  margin-bottom: 1.5%;
 }
+
+.navbar p{
+  font-size: 1.5rem;
+}
+
 .mainpage{
   width: 100%;
   display: flex;
@@ -56,6 +67,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 20px;
+  border-radius: 2%;
 }
 
 .search-container {
@@ -66,12 +78,10 @@ body {
 }
 
 #searchInput {
-  flex: 1;
-  padding: 8px;
-  margin-left: 8%;
-  font-size: 16px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin: 0px;
 }
 
 #searchButton {
@@ -94,12 +104,112 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.selectStation{
-  margin-right: 40%;
-}
 .user-button {
 cursor: pointer;
 }
 .station-button{
   cursor: pointer;
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+   background-color: #f3f5f9;
+}
+
+.wrapper{
+  display: flex;
+}
+
+.wrapper .sidebar{
+  width: 24%;
+  height: 100%;
+  background: #4b4276;
+  position: fixed;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 24%;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 2%;
+  color: #717171;
+  line-height: 25px;
+}
+
+
+.header{
+  display:flex;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+  height: 10%;
+  background-color: #717171;
+}
+.header img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-left: 2%;
+}
+.Title{
+  width: 80%;
+}
+.headerImg{
+  width: 20%;
+}
+.searbarbox{
+  display: flex;
+  gap: 1rem;
+  margin-top: 0px;
+
+}
+.searbarbox input{
+ width: 80%;
+ padding: 2%;
+}
+.searbarbox button{
+  width: 20%;
+  border-radius: 5px;
 }

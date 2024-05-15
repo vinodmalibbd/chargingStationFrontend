@@ -1,0 +1,49 @@
+ 
+        .popup-overlay {
+          display:flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          padding: 1%;
+      
+      }
+      .popup-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        
+          width: 30%;
+          background-color: #fff;
+          background-color: inherit;
+          padding: 2%;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          text-align: center;
+      }
+      .loginTitle{
+        margin-bottom: 10%;
+      }
+    
+      .login-button {
+
+          font-size: 1em;
+          background-color: #4285F4;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+      }
+      .login-button:hover {
+          background-color: #5c6471;
+      }
+      .close-button:hover{
+        background-color: #5c6471;
+      }
+  
+      .close-button {
+        margin-top: 1%;
+          font-size: 1em;
+          background-color: #4285F4;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+      }

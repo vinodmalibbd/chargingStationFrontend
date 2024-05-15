@@ -1,21 +1,37 @@
 const MainPage=()=> {
     document.body.innerHTML = '';
-    const header = document.createElement("header");
-    header.classList.add='header'
-    const h1 = document.createElement("h1");
-    h1.textContent = "EV Charging Station";
-    header.appendChild(h1);
-    document.body.appendChild(header);
+    // const header = document.createElement("header");
+    // header.classList.add='header'
+    // const headingDiv = document.createElement("div");
+    // headingDiv.className = "headingDiv";
+    // const h1 = document.createElement("h1");
+    // h1.textContent = "EV Charging Station";
+    // const logoDiv =document.createElement("div");
+    // logoDiv.className = "logoDiv";
+    // const logo = document.createElement("img");
+    // logo.className ="logoimg";
+    // logo.src = "./logo.jpg";
+    // logoDiv.appendChild(logo);
+  
+    // headingDiv.appendChild(h1)
+
+    // header.appendChild(logoDiv); 
+    // header.appendChild(headingDiv);
+    // document.body.appendChild(header);
   
     const containerDiv = document.createElement("div");
     containerDiv.className = "landingpage";
  
     const descriptionDiv = document.createElement("div");
     descriptionDiv.className = "description";
-  
+    const descriptionHeading = document.createElement("h2");
+    descriptionHeading.className ="paragraphDes";
+    descriptionHeading.textContent = "EV charging should be easy.";
     const descriptionParagraph = document.createElement("p");
-    descriptionParagraph.textContent = "Welcome to our EV charging station! We provide fast and reliable charging services for electric vehicles. Whether you're a user looking to charge your car or a station owner interested in our services, we've got you covered.";
- 
+    descriptionParagraph.className = "paragraphDes";
+    descriptionParagraph.textContent = " From organizations and fleets of all sizes to drivers across Europe and North America, our goal is to make it simple for everyone to go electric.";
+   
+    descriptionDiv.appendChild(descriptionHeading);
     descriptionDiv.appendChild(descriptionParagraph);
 
     const buttonContainerDiv = document.createElement("div");
@@ -27,11 +43,12 @@ const MainPage=()=> {
         navigateTo('/user');
     }
     userButton.className = "user-button";
-    userButton.textContent = "For Users";
+    userButton.textContent = "For Vehicle Owner";
 
     const stationOwnerButton = document.createElement("a");
     stationOwnerButton.onclick = () =>{
-      loginchargingStation();
+  
+      createPOPUP();
   
     }
     stationOwnerButton.className = "station-button";
@@ -39,9 +56,10 @@ const MainPage=()=> {
 
     buttonContainerDiv.appendChild(userButton);
     buttonContainerDiv.appendChild(stationOwnerButton);
+    descriptionDiv.appendChild(buttonContainerDiv);
 
     containerDiv.appendChild(descriptionDiv);
-    containerDiv.appendChild(buttonContainerDiv);
+   // containerDiv.appendChild(buttonContainerDiv);
     document.body.appendChild(containerDiv);
   }
   

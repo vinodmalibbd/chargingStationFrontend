@@ -7,15 +7,22 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url('background.jpg');
+  width: 100vw;
+  height:100vh;
+  margin: 0px;
+  padding: 0px;
+  background-image: url('../assets/download.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  color: #fff;
+  color:white;
+  background-position: center;
+
+  
 }
 
 header {
-  background-color: #1a1a1a; 
-  color: #fff;
+  /* background-color: #1a1a1a;  */
+  color:white;
   text-align: center;
   display: flex;
   align-items: center;
@@ -24,17 +31,36 @@ header {
 }
 
 .landingpage {
-  width: 80%;
+  width: 90%;
   height: 100vh;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
+  color:rgb(74, 124, 84)
+  
 }
-
+.logoDiv{
+  height: 5%;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  width: 8%;
+}
+.headingDiv{
+  width: 100%;
+}
 .description {
-  margin-bottom: 20px;
+  width: 50%;
+  margin-bottom: 5%;
+  margin-left:0;
+  margin-top: 20%;
+  /* border: 2px solid rgb(55, 52, 52); */
+  border-radius: 20px;
+  padding: 5%;
+}
+.paragraphDes{
+  width: 100%;
+  align-items: center;
 }
 
 .button-container {
@@ -46,19 +72,19 @@ header {
 .user-button,
 .station-button {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  border: 2px solid #fff; 
+  padding: 2% 3%;
+  margin: 2%;
+  border: 2px solid rgb(59, 44, 44); 
   border-radius: 5px;
   text-decoration: none;
-  color: #fff;
+  color:rgb(74, 124, 84);
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .user-button:hover,
 .station-button:hover {
-  background-color: #fff; 
+  background-color: burlywood; 
   color: #262626; 
 }
 
@@ -66,7 +92,7 @@ footer {
   background-color: #1a1a1a;
   color: #fff;
   text-align: center;
-  padding: 10px 0;
+  padding: 4% 0;
   position: fixed;
   bottom: 0;
   width: 100%;
