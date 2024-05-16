@@ -1,6 +1,6 @@
 
 
-function createPOPUP() {
+function createPOPUP(usertype) {
  
   document.body.innerHTML = '';
 
@@ -18,8 +18,12 @@ function createPOPUP() {
   LoginBtn.className = "login-button";
   console.log("popup")
   LoginBtn.onclick= () =>{
-    loginchargingStation();
-
+    sessionStorage.clear();
+    if(usertype==="station"){
+      loginchargingStation();
+    }else{
+      loginuser();
+    }
   }
 
   const cancelBtn = document.createElement("button");
@@ -33,8 +37,5 @@ function createPOPUP() {
   popContent.appendChild(cancelBtn);
   mainDiv.appendChild(popContent);
   document.body.appendChild(mainDiv);
-
-
-
   
 }

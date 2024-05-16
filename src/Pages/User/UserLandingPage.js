@@ -39,16 +39,26 @@ function UserLandingPage() {
 
   const loginLi = document.createElement('li');
   loginLi.innerHTML = '<i class="fas fa-user"></i>Login';
+  loginLi.onclick=()=>{
+    createPOPUP("user");
+  }
+  const userLi = document.createElement('li');
+  userLi.innerHTML = '<i class="fas fa-user"></i>Profile';
 
   const chargePointsLi = document.createElement('li');
   chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>ChargePoints';
   chargePointsLi.onclick=()=>{
     changeTab("/chargepoint",mainContentDiv)
   }
-
   ulElement.appendChild(searchBarLi);
   ulElement.appendChild(chargePointsLi);
-  ulElement.appendChild(loginLi);
+  const user=sessionStorage.getItem('web-vb-token');
+  if(user){
+    
+    ulElement.appendChild(userLi);
+  }else{
+    ulElement.appendChild(loginLi);
+  }
 
   sidebarDiv.appendChild(headerDiv);
   sidebarDiv.appendChild(ulElement);
@@ -133,14 +143,11 @@ function chargeStationPage(chargepoint,mainContentDiv){
   chargeStationPage.appendChild(chargingslotsContainer)
 }
 function renderDatepicker(mainContentDiv){
-  const container = document.createElement('div');
-   container.classList.add('container');
-   container.id = "cardContainer";
  
   const datepickerSection = document.createElement('div');
   datepickerSection.classList.add('datepicker');
  
-  const datepickerTitle = document.createElement('h2');
+  const datepickerTitle = document.createElement('span');
   datepickerTitle.textContent = "Select Date:";
  
   const datePickerInput = document.createElement('input');
@@ -148,23 +155,17 @@ function renderDatepicker(mainContentDiv){
   datePickerInput.id = "date";
   datePickerInput.name = "date";
   datePickerInput.min = new Date().toISOString().split('T')[0];
- 
- const submitButton = document.createElement('button');
- submitButton.textContent = "Submit";
- submitButton.onclick=()=>{
-   renderTimeSlots(10,23);
- }
+  datePickerInput.onchange=()=>{
+    renderTimeSlots(10,23);
+  }
  
  datepickerSection.appendChild(datepickerTitle);
  datepickerSection.appendChild(datePickerInput);
- datepickerSection.appendChild(submitButton);
- 
 
  const timeslotContainer = document.createElement('div');
  timeslotContainer.id = "timeslot";
  timeslotContainer.classList.add('timeslot');
  
- mainContentDiv.appendChild(container);
  mainContentDiv.appendChild(datepickerSection);
  mainContentDiv.appendChild(timeslotContainer);
 }
@@ -187,7 +188,9 @@ function renderTimeSlots(stationOpen,stationClose) {
      card.classList.add('card');
      card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
      hourCardsContainer.appendChild(card);
-     
+     card.onclick=()=>{
+      showBookingButton()
+     }
      currentHour++;
     }
  }
@@ -197,12 +200,36 @@ function renderTimeSlots(stationOpen,stationClose) {
      card.classList.add('card');
      card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
      hourCardsContainer.appendChild(card);
-
+     card.onclick=()=>{
+      showBookingButton()
+     }
    }
  }
  else{
    alert("please Don't Select Old Date")
  }
+}
+function showBookingButton(){
+  const chargestationpage = document.querySelector('.chargestationpage');
+  const bookingFooter=document.createElement("div");
+  bookingFooter.className='chargestationfooter';
+  
+  const bookingbtngroup=document.createElement('div');
+  
+  bookingbtngroup.className='bookingbtngroup';
+  bookingFooter.appendChild(bookingbtngroup);
+  
+  const bookbtn=document.createElement('button');
+  bookbtn.className='bookbtn';
+  bookbtn.textContent='Book Now';
+
+  const canclebook=document.createElement('button')
+  canclebook.textContent='Cancle';
+  canclebook.className='canclebtn';
+
+  bookingbtngroup.appendChild(canclebook);
+  bookingbtngroup.appendChild(bookbtn);
+  chargestationpage.appendChild(bookingFooter);
 }
 
 function bookSlot() {

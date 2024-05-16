@@ -30,7 +30,7 @@ const MainPage=()=> {
     const stationOwnerButton = document.createElement("a");
     stationOwnerButton.onclick = () =>{
   
-      createPOPUP();
+      createPOPUP("station");
   
     }
     stationOwnerButton.className = "station-button";
