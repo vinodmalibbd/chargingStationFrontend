@@ -5,6 +5,7 @@
           justify-content: center;
           align-items: center;
           padding: 1%;
+          height: 100vh;
       
       }
       .popup-content {
@@ -31,6 +32,8 @@
           color: #fff;
           border: none;
           cursor: pointer;
+          height: 6vh;
+          border-radius: 8px;
       }
       .login-button:hover {
           background-color: #5c6471;
@@ -46,4 +49,6 @@
           color: #fff;
           border: none;
           cursor: pointer;
+          height: 6vh;
+          border-radius: 8px;
       }

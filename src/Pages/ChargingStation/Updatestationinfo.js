@@ -2,7 +2,7 @@
   function updateStationInfo() {
     document.body.innerHTML = '';
     const formContainer = document.createElement('div');
-    formContainer.classList.add('form-container');
+    formContainer.classList.add('main-container');
     document.body.appendChild(formContainer);
   
     const heading = document.createElement('h2');
@@ -10,34 +10,55 @@
     formContainer.appendChild(heading);
   
     const form = document.createElement('form');
-    form.setAttribute('action', '');
-    form.setAttribute('id', 'profileForm');
+    form.className ="form-container";
     formContainer.appendChild(form);
+
+   const stationName =document.createElement("label");
+   stationName.textContent = "Station Name :";
+   const nameInput = document.createElement("input");
+   nameInput.setAttribute('type','text');
+   nameInput.setAttribute('id','forminput');
+
+   const StationOpeningtime = document.createElement("label");
+   StationOpeningtime.textContent = "Station Opening Time :";
+   const OpentimeInput = document.createElement("input");
+   OpentimeInput.setAttribute('type','number');
+   OpentimeInput.setAttribute('id','forminput');
+
+   const StationClosingtime = document.createElement("label");
+   StationClosingtime.textContent = "Station Closing Time :";
+   const CloseTimeInput = document.createElement("input");
+   CloseTimeInput.setAttribute('type','number');
+   CloseTimeInput.setAttribute('id','forminput');
+
+   const stationLatitude = document.createElement("label");
+   stationLatitude.textContent = "Station Latitude :";
+   const LatitudeInput = document.createElement("input");
+   LatitudeInput.setAttribute('type','text');
+   LatitudeInput.setAttribute('id','forminput');
+
+   const stationLongitude = document.createElement("label");
+   stationLongitude.textContent = "Station Longitude :";
+   const LongitudeInput = document.createElement("input");
+   LongitudeInput.setAttribute('type','text');
+   LongitudeInput.setAttribute('id','forminput');
   
-    const columnLeft = document.createElement('div');
-    columnLeft.classList.add('column-left');
-    form.appendChild(columnLeft);
-  
-    const labels = ['Name:', 'Opening Time:', 'Closing Time:','Latitude','Longitude'];
-    const inputIds = ['name',  'openTime', 'closeTime','latitude','longitude'];
-    const inputTypes = ['text', 'number', 'number','text','text'];
-  
-    labels.forEach((labelText, index) => {
-        const label = document.createElement('label');
-        label.setAttribute('for', inputIds[index]);
-        label.textContent = labelText;
-  
-        const input = document.createElement('input');
-        input.setAttribute('type', inputTypes[index]);
-        input.setAttribute('name', inputIds[index]);
-        input.setAttribute('id', inputIds[index]);
-        input.setAttribute('required', '');
-  
-        columnLeft.appendChild(label);
-        columnLeft.appendChild(input);
-    });
+    form.appendChild(stationName);
+    form.appendChild(nameInput);
+    form.appendChild(StationOpeningtime);
+    form.appendChild(OpentimeInput);
+    form.appendChild(StationClosingtime);
+    form.appendChild(CloseTimeInput);
+    form.appendChild(stationLatitude);
+    form.appendChild(LatitudeInput);
+    form.appendChild(stationLongitude);
+    form.appendChild(LongitudeInput);
+    
+    const buttonDiv =document.createElement("div");
+    buttonDiv.className ="ButtonDiv";
+
+
     const getlocation=document.createElement('button');
-    getlocation.setAttribute('type', 'button');
     getlocation.textContent="add auto location";  
     getlocation.onclick=function(){
       const loc=getCurrentPositionUser();
@@ -46,14 +67,15 @@
       latitudeInput.value = loc.lat;
       longitudeInput.value = loc.long;
     }
-    columnLeft.appendChild(getlocation);
+    buttonDiv.appendChild(getlocation);
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
     submitButton.onclick=function(){
       submitForm();
     }
-    columnLeft.appendChild(submitButton);
+    buttonDiv.appendChild(submitButton);
+    form.appendChild(buttonDiv);
   }
 
   function submitForm() {
@@ -77,3 +99,4 @@
       updateChargingStationProfile(formDataObject)
     })
   }
+   updateStationInfo();
