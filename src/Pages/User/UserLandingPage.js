@@ -39,16 +39,26 @@ function UserLandingPage() {
 
   const loginLi = document.createElement('li');
   loginLi.innerHTML = '<i class="fas fa-user"></i>Login';
+  loginLi.onclick=()=>{
+    createPOPUP("user");
+  }
+  const userLi = document.createElement('li');
+  userLi.innerHTML = '<i class="fas fa-user"></i>Profile';
 
   const chargePointsLi = document.createElement('li');
   chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>ChargePoints';
   chargePointsLi.onclick=()=>{
     changeTab("/chargepoint",mainContentDiv)
   }
-
   ulElement.appendChild(searchBarLi);
   ulElement.appendChild(chargePointsLi);
-  ulElement.appendChild(loginLi);
+  const user=sessionStorage.getItem('web-vb-token');
+  if(user){
+    
+    ulElement.appendChild(userLi);
+  }else{
+    ulElement.appendChild(loginLi);
+  }
 
   sidebarDiv.appendChild(headerDiv);
   sidebarDiv.appendChild(ulElement);
@@ -146,7 +156,7 @@ function renderDatepicker(mainContentDiv){
   datePickerInput.name = "date";
   datePickerInput.min = new Date().toISOString().split('T')[0];
   datePickerInput.onchange=()=>{
-    renderTimeSlots(10,23,chargeStationPage);
+    renderTimeSlots(10,23);
   }
  
  datepickerSection.appendChild(datepickerTitle);
@@ -160,7 +170,7 @@ function renderDatepicker(mainContentDiv){
  mainContentDiv.appendChild(timeslotContainer);
 }
  
-function renderTimeSlots(stationOpen,stationClose,chargeStationPage) {
+function renderTimeSlots(stationOpen,stationClose) {
  const datepicker = document.getElementById("date");
  const selectedDate = new Date(datepicker.value);
  const currentDate = new Date();
@@ -179,7 +189,7 @@ function renderTimeSlots(stationOpen,stationClose,chargeStationPage) {
      card.textContent = `${currentHour}:00 ` + "To " + `${currentHour + 1}:00`;
      hourCardsContainer.appendChild(card);
      card.onclick=()=>{
-      showBookingButton(chargeStationPage)
+      showBookingButton()
      }
      currentHour++;
     }
@@ -191,7 +201,7 @@ function renderTimeSlots(stationOpen,stationClose,chargeStationPage) {
      card.textContent = `${hour}:00 ` + "To " + `${hour + 1}:00`;
      hourCardsContainer.appendChild(card);
      card.onclick=()=>{
-      showBookingButton(chargeStationPage)
+      showBookingButton()
      }
    }
  }
@@ -199,20 +209,27 @@ function renderTimeSlots(stationOpen,stationClose,chargeStationPage) {
    alert("please Don't Select Old Date")
  }
 }
-function showBookingButton(chargeStationPage){
+function showBookingButton(){
+  const chargestationpage = document.querySelector('.chargestationpage');
   const bookingFooter=document.createElement("div");
   bookingFooter.className='chargestationfooter';
-  chargeStationPage.appendChild(bookingFooter);
-
+  
   const bookingbtngroup=document.createElement('div');
-
+  
   bookingbtngroup.className='bookingbtngroup';
   bookingFooter.appendChild(bookingbtngroup);
   
-  const bookbtn=document.createElement('button').className='bookbtn'.textContent="Book now";
-  const canclebook=document.createElement('button').className='canclebookbtn'.textContent="Cancle"
+  const bookbtn=document.createElement('button');
+  bookbtn.className='bookbtn';
+  bookbtn.textContent='Book Now';
+
+  const canclebook=document.createElement('button')
+  canclebook.textContent='Cancle';
+  canclebook.className='canclebtn';
+
   bookingbtngroup.appendChild(canclebook);
   bookingbtngroup.appendChild(bookbtn);
+  chargestationpage.appendChild(bookingFooter);
 }
 
 function bookSlot() {

@@ -1,6 +1,9 @@
+// let backendurl=`http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081`;
+let backendurl=`http://localhost:8081`;
+
 const getAllChargingStation = async () => {
   const res = await fetch(
-    `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingstation/all`,
+    `${backendurl}/chargingstation/all`,
     {
       method: "GET",
       headers: {
@@ -12,31 +15,18 @@ const getAllChargingStation = async () => {
 };
 const loginchargingStation = async () => {
   window.location.href =
-    "http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/auth/chargingstation";
+    `${backendurl}/auth/chargingstation`;
 };
 const loginuser = async () => {
-  window.location.href =
-    "http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/auth/user";
-};
-const LoginUser = async () => {
-  const res = await fetch(
-    "http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/auth/getuser",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  return res;
+  window.location.href =`${backendurl}/auth/user`;
 };
 const getChargingStationById = async () => {
-  const token = localStorage.getItem("station-cookie");
+  const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
     const stationId = decodedtoken.sub;
     const res = await fetch(
-      `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingstation/${stationId}`,
+      `${backendurl}/chargingstation/${stationId}`,
       {
         method: "GET",
         headers: {
@@ -51,12 +41,12 @@ const getChargingStationById = async () => {
   }
 };
 const updateChargingStationProfile = async (data) => {
-  const token = localStorage.getItem("station-cookie");
+  const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
     const stationId = decodedtoken.sub;
     const res = await fetch(
-      `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingstation/update`,
+      `${backendurl}/chargingstation/update`,
       {
         method: "PUT",
         headers: {
@@ -75,12 +65,12 @@ const updateChargingStationProfile = async (data) => {
   }
 };
 const getAllChargingStationSlots = async () => {
-  const token = localStorage.getItem("station-cookie");
+  const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
     const stationId = decodedtoken.sub;
     const res = await fetch(
-      `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingslot/all/${stationId}`,
+      `${backendurl}/chargingslot/all/${stationId}`,
       {
         method: "GET",
         headers: {
@@ -98,12 +88,12 @@ const getAllChargingStationSlots = async () => {
   }
 };
 const addChargingSlotStation = async (data) => {
-  const token = localStorage.getItem("station-cookie");
+  const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
     const stationId = decodedtoken.sub;
     const res = await fetch(
-      `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingslot/addslot/${stationId}`,
+      `${backendurl}/chargingslot/addslot/${stationId}`,
       {
         method: "POST",
         headers: {
@@ -124,7 +114,7 @@ const addChargingSlotStation = async (data) => {
 };
 const getAllChargingStationSlotsById = async (id) => {
   const res = await fetch(
-    `http://ec2-54-75-101-91.eu-west-1.compute.amazonaws.com:8081/chargingslot/all/${id}`,
+    `${backendurl}/chargingslot/all/${id}`,
     {
       method: "GET",
       headers: {

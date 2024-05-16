@@ -71,6 +71,6 @@ function chargingStationDashboard() {
 }
 
 function LogOutChargingStation(){
-  localStorage.clear();
+  sessionStorage.clear();
   navigateTo("/")
 }

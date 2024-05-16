@@ -123,7 +123,7 @@ body{
 
 .chagestationpage{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,5 +174,7 @@ body{
 }
 .bookingbtngroup{
   width: 100%;
+  display: flex;
+  justify-content: space-around;
   height: 20%;
 }
