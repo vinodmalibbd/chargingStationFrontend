@@ -57,7 +57,7 @@ body{
   border-bottom: 1px solid #e0e4e8;
 }
 
-.header{
+.wrapper .header{
   display:flex;
   align-items: center;
   width: 100%;
@@ -65,62 +65,68 @@ body{
   height: 10%;
   background-color: #717171;
 }
-.header img{
+.wrapper .header img{
   max-width: 100%;
   height: auto;
   border-radius: 4px;
   margin-left: 2%;
 }
-.Title{
+.wrapper .Title{
   width: 80%;
 }
-.headerImg{
+.wrapper .headerImg{
   width: 20%;
 }
-.searbarbox{
+.wrapper .searbarbox{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
 }
-.searbarbox input{
+.wrapper .searbarbox input{
  width: 80%;
 
 }
-.searbarbox button{
+.wrapper .searbarbox button{
   border-radius: 5px;
 }
-#map{
+.wrapper #map{
   width: 100%;
   height: 100%;
 }
-.chargepointTab{
+.wrapper .chargepointTab{
   width: 100%;
-  height: 100%;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
 }
-.chargepointcardscontainer{
+.wrapper .chargepointcardscontainer{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.chargepointcard{
+.wrapper .chargepointcard{
   display: flex;
+  padding: 1%;
   border-radius: 10px;
-  padding: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-content: center;
   color: black;
-  margin: 10px;
+  margin: 1%;
 }
-
-.chagestationpage{
+.wrapper .chargepointcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .chagestationpage{
   width: 100%;
   height: 100%;
   display: flex;
@@ -128,7 +134,7 @@ body{
   align-items: center;
   color: black;
 }
-.chargestationheader{
+.wrapper .chargestationheader{
   width: 100%;
   height: 20vh;
   display: flex;
@@ -136,18 +142,18 @@ body{
   justify-content: center;
   color: black;
 }
-.chargestationheader span{
+.wrapper .chargestationheader span{
   font-weight: 600;
   font-size: 1.5rem;
 }
-.chargeslotscontainer{
+.wrapper .chargeslotscontainer{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.chargingslotcard{
+.wrapper .chargingslotcard{
   display: flex;
   border-radius: 10px;
   padding: 10px;
@@ -157,7 +163,7 @@ body{
   color: black;
   margin: 10px;
 }
-.selectslottip{
+.wrapper .selectslottip{
   color: black;
   text-align: center;
   width: 100%;
@@ -166,3 +172,88 @@ body{
   align-items: center;
   padding: 1rem;
 }
+
+/* Css for Form */
+.wrapper .main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  
+  }
+  
+  .wrapper.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper .form-container button:hover {
+    background-color: #45a049;
+  }
+  .wrapper.form-container input{
+    margin-bottom: 2%;
+    padding: 0.5%;
+    border-radius: 10px;
+  }
+  .wrapper .form-container label{
+    margin-bottom: 2%;
+  }
+  .wrapper .form-container button{
+    width: 40%;
+    background-color: rgb(10, 144, 144);
+    border-radius: 7px;
+    margin-bottom: 2%;
+    cursor: pointer;
+  font-size: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .wrapper .ButtonDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  /* Charging Slots Css For buttons */
+  .wrapper .ButtonCrudDiv{
+    display: flex;
+    justify-content: space-around;
+
+  }
+   .wrapper.ButtonCrudDiv button{
+    font-size: 1em;
+    padding: 1%;
+  }
+  .wrapper .chargepointcard .description{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .wrapper .chargepointcard .buttons{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper .chargepointcard .buttons button{
+
+    cursor: pointer;
+    margin-top: 1%;
+  }
+  .wrapper .ButttonCrudDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .wrapper .ButttonCrudDiv .AddSlotButton{
+    padding: 1%;
+    cursor: pointer;
+
+  }
