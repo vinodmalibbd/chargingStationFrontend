@@ -32,7 +32,13 @@
   /* flex: 0 0 calc(30% - 20px);
   max-width: calc(33.333% - 20px);  */
 }
-
+.selected-slot{
+  background-color: #ff7b7b;
+  border: 1px solid #000000;
+  color: rgb(255, 255, 255);
+  padding: 1rem;
+  margin: 5px;
+}
 .timeslot .card:hover {
   background-color: #e0e0e0; 
 }
