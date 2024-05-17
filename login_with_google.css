@@ -31,7 +31,6 @@ body{
   border-top: 1px solid rgba(255,255,255,0.05);
   color: #bdb8d7;
   display: block;
-  
 }    
 
 
@@ -48,6 +47,7 @@ body{
   width: 70%;
   height: 100%;
   background: #fff;
+  overflow-y: auto;
 }
 
 .wrapper .main_content .header{

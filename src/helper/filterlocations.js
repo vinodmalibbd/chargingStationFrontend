@@ -1,5 +1,5 @@
 async function getCityBounds(cityName) {
-    const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cityName)}`;
+    const geocodeUrl = `${URLs.openstreetMapSearchcity}${encodeURIComponent(cityName)}`;
     const response = await fetch(geocodeUrl);
     const data = await response.json();
     if (data.length > 0) {

@@ -160,6 +160,17 @@ body{
   color: black;
   margin: 10px;
 }
+.selectedchargingslotcard{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(175, 172, 255);
+  color: black;
+  margin: 10px;
+}
 .selectslottip{
   color: black;
   text-align: center;

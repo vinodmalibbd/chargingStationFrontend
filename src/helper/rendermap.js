@@ -1,18 +1,3 @@
-const getCurrentPositionUser=()=>{
-    let arr={
-        lat:20.5937,
-        long:78.9629
-    }
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            arr.lat = position.coords.latitude;
-            arr.long = position.coords.longitude;
-            return arr;
-        });
-    } 
-    return arr;
-};
-
 const RenderMap=()=>{
     const map = L.map("map");
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -34,28 +19,3 @@ const RenderMap=()=>{
     map.setView([userlocation.lat,userlocation.long],13);
 
 };
-const RederChargingStations=(chargingStation)=>{
-    const elements = document.querySelector(`.stationcards`);
-    console.log(chargingStation);
-    chargingStation.map((item,key)=>{
-        const card = document.createElement('div');
-        card.classList.add('stationcard');
-        card.addEventListener('click',()=>changePage("booking_page"));
-        
-        const chargeStationname=document.createElement('p')
-        chargeStationname.textContent=item.name;
-
-        card.appendChild(chargeStationname);
-        elements. appendChild(card);
-    })
-};
-
-const decodeJwtToken=(token) =>{
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-  
-    return JSON.parse(jsonPayload);
-  }
