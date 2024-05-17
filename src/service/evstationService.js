@@ -125,3 +125,18 @@ const getAllChargingStationSlotsById = async (id) => {
 
   return res.json();
 };
+
+
+const getSlotAvailblity=async(requestBody)=>{
+  const res = await fetch(
+    `${backendurl}/booking/availability/chargingslot`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    }
+  );
+    return res.json();
+}

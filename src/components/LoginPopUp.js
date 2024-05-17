@@ -15,8 +15,7 @@ function createPOPUP(usertype) {
 
   const LoginBtn = document.createElement("button");
   LoginBtn.textContent = "Sign up with Google";
-  LoginBtn.className = "login-button";
-  console.log("popup")
+  LoginBtn.className = "g-signin2";
   LoginBtn.onclick= () =>{
     sessionStorage.clear();
     if(usertype==="station"){
@@ -24,7 +23,9 @@ function createPOPUP(usertype) {
     }else{
       loginuser();
     }
+
   }
+
 
   const cancelBtn = document.createElement("button");
   cancelBtn.className = "close-button";
