@@ -34,7 +34,8 @@ function UserLandingPage() {
   searchInput.placeholder = "Search station";
   const searchButton = document.createElement("button");
   searchButton.id = "searchButton";
-  searchButton.textContent = "Search";
+  // searchButton.textContent = "Search";
+  searchButton.innerHTML = '🔍';
   searchButton.onclick = () => {
     searchCharingStationInCity();
   };
@@ -42,15 +43,15 @@ function UserLandingPage() {
   searchBarLi.appendChild(searchButton);
 
   const loginLi = document.createElement("li");
-  loginLi.innerHTML = '<i class="fas fa-user"></i>Login';
+  loginLi.innerHTML = '<i class="fas fa-user"></i>  Login';
   loginLi.onclick = () => {
     createPOPUP("user");
   };
   const userLi = document.createElement("li");
-  userLi.innerHTML = '<i class="fas fa-user"></i>Profile';
+  userLi.innerHTML = '<i class="fas fa-user"></i>  Profile';
 
   const chargePointsLi = document.createElement("li");
-  chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>ChargePoints';
+  chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>  ChargePoints';
   chargePointsLi.onclick = () => {
     changeTab("/chargepoint", mainContentDiv);
   };

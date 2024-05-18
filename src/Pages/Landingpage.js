@@ -1,4 +1,4 @@
-const MainPage=()=> {
+const MainPage = () => {
     document.body.innerHTML = '';
 
     const containerDiv = document.createElement("div");
