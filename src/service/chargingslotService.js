@@ -38,7 +38,27 @@ const addChargingSlotStation = async (data) => {
       }
     );
     if (res.status === 201) {
-      navigateTo("/station");
+      return res.json();
+    }
+  } else {
+    navigateTo("/");
+  }
+};
+const updateChargingSlot = async (data) => {
+  const token = sessionStorage.getItem("station-cookie");
+  if (token) {
+    const res = await fetch(
+      `${backendurl}/chargingslot/update`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    if (res.status === 200) {
       console.log(res.json());
       return res.json();
     }

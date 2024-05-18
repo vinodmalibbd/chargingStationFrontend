@@ -1,8 +1,6 @@
 const routes = {
   '/': MainPage,
-  '/index.html': MainPage,
   '/station':chargingStationDashboard,
-  '/update/station':updateStationInfo,
   '/user':UserLandingPage,
 };
 

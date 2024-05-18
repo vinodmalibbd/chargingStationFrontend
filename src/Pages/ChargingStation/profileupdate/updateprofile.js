@@ -1,9 +1,10 @@
-  
-  function updateStationInfo() {
-    // document.body.innerHTML = '';
+function updateProfileStation(mainContentDiv){
+    const chargepointtab=document.createElement("div");
+    chargepointtab.className='updateform';
+    mainContentDiv.appendChild(chargepointtab);
     const formContainer = document.createElement('div');
     formContainer.classList.add('main-container');
-    document.body.appendChild(formContainer);
+    mainContentDiv.appendChild(formContainer);
   
     const heading = document.createElement('h2');
     heading.textContent = 'Update Station Profile';
@@ -12,31 +13,31 @@
     const form = document.createElement('form');
     form.className ="form-container";
     formContainer.appendChild(form);
-
+  
    const stationName =document.createElement("label");
    stationName.textContent = "Station Name :";
    const nameInput = document.createElement("input");
    nameInput.setAttribute('type','text');
    nameInput.setAttribute('id','forminput');
-
+  
    const StationOpeningtime = document.createElement("label");
    StationOpeningtime.textContent = "Station Opening Time :";
    const OpentimeInput = document.createElement("input");
    OpentimeInput.setAttribute('type','number');
    OpentimeInput.setAttribute('id','forminput');
-
+  
    const StationClosingtime = document.createElement("label");
    StationClosingtime.textContent = "Station Closing Time :";
    const CloseTimeInput = document.createElement("input");
    CloseTimeInput.setAttribute('type','number');
    CloseTimeInput.setAttribute('id','forminput');
-
+  
    const stationLatitude = document.createElement("label");
    stationLatitude.textContent = "Station Latitude :";
    const LatitudeInput = document.createElement("input");
    LatitudeInput.setAttribute('type','text');
    LatitudeInput.setAttribute('id','forminput');
-
+  
    const stationLongitude = document.createElement("label");
    stationLongitude.textContent = "Station Longitude :";
    const LongitudeInput = document.createElement("input");
@@ -56,8 +57,8 @@
     
     const buttonDiv =document.createElement("div");
     buttonDiv.className ="ButtonDiv";
-
-
+  
+  
     const getlocation=document.createElement('button');
     getlocation.textContent="add auto location";  
     getlocation.onclick=function(){
@@ -71,18 +72,24 @@
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
-    submitButton.onclick=function(){
+    submitButton.onclick = () =>{
       submitForm();
     }
+    const cancelButton =document.createElement('button');
+    cancelButton.textContent ="cancel";
+    cancelButton.onclick = () =>{
+      StationLandingPage();
+    }
     buttonDiv.appendChild(submitButton);
+    buttonDiv.appendChild(cancelButton);
     form.appendChild(buttonDiv);
   }
-
+  
   function submitForm() {
     const formData = new FormData(document.getElementById('profileForm'));
-
+  
     const formDataObject = {};
-
+  
     for (let [key, value] of formData.entries()) {
       if(key==='openTime'|| key==='closeTime'){
         value=parseInt(value);
