@@ -18,3 +18,4 @@ function chargePointTab(mainContentDiv) {
       });
     });
   }
+

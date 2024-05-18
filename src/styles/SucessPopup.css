@@ -276,62 +276,63 @@ body{
 
   /* styles.css */
 
-.PopSucessmainDiv {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.PopSucessmainDiv .SuccessPopUpBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 10px;
-  width: 80%;
-  padding: 2%;
-  text-align: center;
-}
-
-.PopSucessmainDiv .PopUpHeader {
-  font-size: 2em;
-  color: #155724;
-  margin-bottom: 1%;
-}
-
-.PopSucessmainDiv .PopUpMessage {
-  font-size: 1em;
-  color: #155724;
-  margin-bottom: 2%;
-}
-
-.PopSucessmainDiv .PopUpicon {
-  font-size: 2em;
-  color: #28a745;
-  margin-bottom: 10px;
-}
-
-
-.PopSucessmainDiv .PopupOkButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #28a745;
-  border: none;
-  border-radius: 5px;
-  padding: 2% 2%;
-  font-size: 1em;
-  cursor: pointer;
-  width: 50%;
-  transition: background-color 0.3s;
-}
-
-.PopSucessmainDiv .PopupOkButton:hover {
-  background-color: #218838;
-}
-
+  .PopSucessmainDiv {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .PopSucessmainDiv .SuccessPopUpBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 10px;
+    width: 80%;
+    padding: 2%;
+    text-align: center;
+  }
+  
+  .PopSucessmainDiv .PopUpHeader {
+    font-size: 2em;
+    color: #155724;
+    margin-bottom: 1%;
+  }
+  
+  .PopSucessmainDiv .PopUpMessage {
+    font-size: 1em;
+    color: #155724;
+    margin-bottom: 2%;
+  }
+  
+  .PopSucessmainDiv .PopUpicon {
+    font-size: 2em;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  
+  .PopSucessmainDiv .PopupOkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    padding: 2% 2%;
+    font-size: 1em;
+    cursor: pointer;
+    width: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .PopSucessmainDiv .PopupOkButton:hover {
+    background-color: #218838;
+  }
+  
+  

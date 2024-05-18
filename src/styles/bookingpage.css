@@ -15,19 +15,21 @@
 .datepicker input{
   width: 60%;
   margin-bottom: 0px;
+  cursor: pointer;
 }
 
 .timeslot {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  cursor: pointer;
 }
 
 .timeslot .card {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   color: black;
-  padding: 1rem;
+  padding: 1%;
   margin: 5px;
   /* flex: 0 0 calc(30% - 20px);
   max-width: calc(33.333% - 20px);  */

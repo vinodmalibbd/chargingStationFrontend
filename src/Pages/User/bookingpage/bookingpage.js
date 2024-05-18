@@ -36,7 +36,8 @@ function chargeStationPage(chargepoint) {
       const slotcard = document.createElement("div");
       slotcard.classList.add("chargingslotcard");
       const p = document.createElement("p");
-      p.textContent = `chargepoint ${item.slotId}`;
+      // p.textContent = `chargepoint ${item.slotId}`;
+      p.innerHTML = `Chargepoint ${item.slotId}<br>Price: $${item.pricePerHour}`;
       slotcard.onclick = () => {
         renderDatepicker(datepickerSection, item.slotId, chargepoint.stationId);
         const allCards = document.querySelectorAll(".chargingslotcard");
