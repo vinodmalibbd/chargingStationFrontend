@@ -295,5 +295,3 @@ function Chargingpoints(mainContentDiv){
  buttonDiv.appendChild(addSlot); 
  mainContentDiv.appendChild(buttonDiv);
 }
-
-StationLandingPage();

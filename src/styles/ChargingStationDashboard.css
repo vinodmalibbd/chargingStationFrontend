@@ -1,98 +1,315 @@
-.stationdashboard {
-  width: 90%;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.stationdashboard h1 {
-  text-align: center;
-  margin-bottom: 20px;
+body{
+   background-color: #f3f5f9;
+   color: black;
 }
 
-.stationoptions {
+.chargingStationDashboard{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.chargingStationDashboard .sidebar{
+  width: 30%;
+  height: 100%;
+  background: #4b4276;
+}
+.chargingSlotsContainer{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin: 5px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 90%;
+  
+}
+.popupAddslot{
+  position: absolute;
+  width:100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid blue;
+}
+.popupAddslotForm{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
-.addslotcontainer{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+.chargingStationDashboard .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: #bdb8d7;
+  display: block;
+}    
 
-#priceInput{
-  margin: 10px;
-}
 
-.stationoptionbtn {
-  padding: 10px 20px;
-  background-color: #007bff;
+.chargingStationDashboard .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.chargingStationDashboard .sidebar ul li:hover a{
   color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.stationoptionbtn:hover {
-  background-color: #0056b3;
+
+.chargingStationDashboard .main_content{
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.dashboard-section {
-  margin-bottom: 20px;
-}
-
-.slots-container,
-.bookings-container {
-  background-color: #f2f2f2;
+.chargingStationDashboard .main_content .header{
   padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.chargingStationDashboard .header{
+  display:flex;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+  height: 10%;
+  background-color: #717171;
+}
+.chargingStationDashboard .header img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-left: 2%;
+}
+.chargingStationDashboard .Title{
+  width: 80%;
+}
+.chargingStationDashboard .headerImg{
+  width: 20%;
+}
+.chargingStationDashboard .searbarbox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+.chargingStationDashboard .searbarbox input{
+ width: 80%;
+
+}
+.chargingStationDashboard .searbarbox button{
+  border-radius: 5px;
+}
+.chargingStationDashboard #map{
+  width: 100%;
+  height: 100%;
+}
+.chargingStationDashboard .chargingSlotPage{
+  width: 100%;
+  color: black;
+  height: 90%;
+  overflow-y: scroll;
+}
+.AddSlotButtonHeader{
+  width: 80%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
+.chargingSlotPage .chargingSlotCardscontainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chargingSlotPage .chargingSlotCard{
+  display: flex;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 5px;
+}
+.chargingStationDashboard .chargingSlotCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100px;
+  position: relative;
+}
+.editSlotForm{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  margin: 5px;
+}
+.chargingStationDashboard .chagestationpage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: black;
 }
-
-.slots-container h2,
-.bookings-container h2 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.stationdashboard table {
+.chargingStationDashboard .chargestationheader{
   width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow-wrap: anywhere;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
-
-.stationdashboard th, .stationdashboard td {
+.chargingStationDashboard .chargestationheader span{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.chargingStationDashboard .chargeslotscontainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.chargingStationDashboard .chargingslotcard{
+  display: flex;
+  border-radius: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
+  border: 1px solid blue;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 10px;
+}
+.chargingStationDashboard .selectslottip{
+  color: black;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
-.stationdashboard th {
-  background-color: #f2f2f2;
-}
+/* Css for Form */
+.chargingStationDashboard .main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  
+  }
+  
+  .chargingStationDashboard.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .chargingStationDashboard .form-container button:hover {
+    background-color: #45a049;
+  }
+  .chargingStationDashboard.form-container input{
+    margin-bottom: 2%;
+    padding: 0.5%;
+    border-radius: 10px;
+  }
+  .chargingStationDashboard .form-container label{
+    margin-bottom: 2%;
+  }
+  .chargingStationDashboard .form-container button{
+    width: 40%;
+    background-color: rgb(10, 144, 144);
+    border-radius: 7px;
+    margin-bottom: 2%;
+    cursor: pointer;
+  font-size: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .chargingStationDashboard .ButtonDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
 
-.logout-btn {
-  padding: 10px 20px;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 20px;
-}
+  /* Charging Slots Css For buttons */
+  .chargingStationDashboard .ButtonCrudDiv{
+    display: flex;
+    justify-content: space-around;
 
-.logout-btn:hover {
-  background-color: #c82333;
-}
+  }
+   .chargingStationDashboard.ButtonCrudDiv button{
+    font-size: 1em;
+    padding: 1%;
+  }
+  .chargingStationDashboard .chargingSlotCard .description{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+  }
+  .chargingStationDashboard .chargingSlotCard .buttons{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  .chargingStationDashboard .chargingSlotCard .buttons button{
+
+    cursor: pointer;
+    margin-top: 1%;
+  }
+  .chargingStationDashboard .ButttonCrudDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .chargingStationDashboard .ButttonCrudDiv .AddSlotButton{
+    padding: 1%;
+    cursor: pointer;
+
+  }
