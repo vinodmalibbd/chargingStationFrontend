@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -9,5 +9,34 @@
 </head>
 <body>
 <script src="login_with_google.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - EV Charging Station</title>
+    <link rel="stylesheet" href="login_with_google.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>User Profile</h1>
+            <div class="user-info" id="userInfo"></div>
+            <div class="profile-actions">
+                <button class="action-button" onclick="showBookings()">Show Bookings</button>
+                <button class="action-button" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <div class="bookings-container" id="bookingsContainer">
+            <h2>Your Bookings</h2>
+            <div id="bookings"></div>
+        </div>
+    </div>
+
+    <script src="login_with_google.js"></script>
 </body>
 </html>

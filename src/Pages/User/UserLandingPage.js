@@ -48,17 +48,31 @@ function UserLandingPage() {
     createPOPUP("user");
   };
   const userLi = document.createElement("li");
-  userLi.innerHTML = '<i class="fas fa-user"></i>  Profile';
+  userLi.innerHTML = '<i class="fas fa-user"></i>  Log out';
+  userLi.onclick = () =>{
+    //add code for clear session
+    window.location.href = 'index.html';
+  }
 
   const chargePointsLi = document.createElement("li");
   chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>  ChargePoints';
   chargePointsLi.onclick = () => {
     changeTab("/chargepoint", mainContentDiv);
   };
+  const showbookingLi = document.createElement('li');
+  showbookingLi.className = 'showBooking';
+  showbookingLi.innerHTML = '<i class="fas fa-address-card"></i>  ShowBookings';
+  showbookingLi.onclick = () =>{
+    changeTab("/showBookings", mainContentDiv);
+  }
+
   ulElement.appendChild(searchBarLi);
   ulElement.appendChild(chargePointsLi);
+  
   const user = sessionStorage.getItem("web-vb-token");
   if (user) {
+    
+    ulElement.appendChild(showbookingLi);
     ulElement.appendChild(userLi);
   } else {
     ulElement.appendChild(loginLi);
@@ -86,6 +100,10 @@ function changeTab(tabname, mainContentDiv) {
     }
     case "/searchcities": {
       searchPage();
+      break;
+    }
+    case "/showBookings":{
+      ShowBookingsfuncion();
     }
   }
 }
