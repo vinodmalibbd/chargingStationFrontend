@@ -162,7 +162,7 @@ function saveSlot(){
   const status = formData.get('status');
     const data={};
     data['pricePerHour']=parseFloat(price);
-    data['available']=status==='Available'? true : false;
+    data['available'] = status==='Available'? true : false;
     // if((price == '' || price === null)||(price <= 0 ||  price >1000 )){
     //   const warningSpan =document.createElement('span');
     //   warningSpan.textContent = 'Please Enter valid price For charging point';

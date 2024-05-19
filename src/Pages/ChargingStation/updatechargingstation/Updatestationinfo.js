@@ -1,46 +1,51 @@
   
   function updateStationInfo() {
-    const formContainer = document.createElement('div');
-    formContainer.classList.add('main-container');
-    document.body.appendChild(formContainer);
+    const mainContainer = document.createElement('div');
+    mainContainer.classList.add('main-container');
+    document.body.appendChild(mainContainer);
   
+    const updateprofileContainer=document.createElement('div');
+    updateprofileContainer.className='updatestationformcontainer';
+
     const heading = document.createElement('h2');
     heading.textContent = 'Update Station Profile';
-    formContainer.appendChild(heading);
+    updateprofileContainer.appendChild(heading);
+
   
     const form = document.createElement('form');
-    form.className ="form-container";
-    formContainer.appendChild(form);
+    form.id ="updatestationform";
+
+   
 
    const stationName =document.createElement("label");
    stationName.textContent = "Station Name :";
    const nameInput = document.createElement("input");
    nameInput.setAttribute('type','text');
-   nameInput.setAttribute('id','forminput');
+   nameInput.setAttribute('id','stationname');
 
    const StationOpeningtime = document.createElement("label");
    StationOpeningtime.textContent = "Station Opening Time :";
    const OpentimeInput = document.createElement("input");
    OpentimeInput.setAttribute('type','number');
-   OpentimeInput.setAttribute('id','forminput');
+   OpentimeInput.setAttribute('id','stationopentime');
 
    const StationClosingtime = document.createElement("label");
    StationClosingtime.textContent = "Station Closing Time :";
    const CloseTimeInput = document.createElement("input");
    CloseTimeInput.setAttribute('type','number');
-   CloseTimeInput.setAttribute('id','forminput');
+   CloseTimeInput.setAttribute('id','stationcloseTime');
 
    const stationLatitude = document.createElement("label");
    stationLatitude.textContent = "Station Latitude :";
    const LatitudeInput = document.createElement("input");
    LatitudeInput.setAttribute('type','text');
-   LatitudeInput.setAttribute('id','forminput');
+   LatitudeInput.setAttribute('id','stationlatitude');
 
    const stationLongitude = document.createElement("label");
    stationLongitude.textContent = "Station Longitude :";
    const LongitudeInput = document.createElement("input");
    LongitudeInput.setAttribute('type','text');
-   LongitudeInput.setAttribute('id','forminput');
+   LongitudeInput.setAttribute('id','stationlongitude');
   
     form.appendChild(stationName);
     form.appendChild(nameInput);
@@ -58,43 +63,79 @@
 
 
     const getlocation=document.createElement('button');
-    getlocation.textContent="add auto location";  
-    getlocation.onclick=function(){
-      const loc=getCurrentPositionUser();
-      const latitudeInput = document.getElementById('latitude');
-      const longitudeInput = document.getElementById('longitude');
-      latitudeInput.value = loc.lat;
-      longitudeInput.value = loc.long;
-    }
+    getlocation.textContent="add auto location"; 
+    getlocation.onclick=(e)=>{
+      e.preventDefault();
+      console.log("here");
+      getCurrentPositionUser().then(loc=>{
+
+        const latitudeInput = document.getElementById('stationlatitude');
+        const longitudeInput = document.getElementById('stationlongitude');
+        latitudeInput.value = loc.lat;
+        longitudeInput.value = loc.long;
+      });
+    } 
     buttonDiv.appendChild(getlocation);
+
     const submitButton = document.createElement('button');
-    submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
-    submitButton.onclick=function(){
-      submitForm();
+    submitButton.onclick=(e)=>{
+      e.preventDefault();
+      submitFirstTimeprofileUpdate();
     }
+    
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
+    updateprofileContainer.appendChild(form);
+    mainContainer.appendChild(updateprofileContainer);
+    
   }
+  function submitFirstTimeprofileUpdate() {
+    const name = document.getElementById("stationname").value;
+    const openTime = document.getElementById("stationopentime").value;
+    const closeTime = document.getElementById("stationcloseTime").value;
+    const latitude = document.getElementById("stationlatitude").value;
+    const longitude = document.getElementById("stationlongitude").value;
 
-  function submitForm() {
-    const formData = new FormData(document.getElementById('profileForm'));
-
-    const formDataObject = {};
-
-    for (let [key, value] of formData.entries()) {
-      if(key==='openTime'|| key==='closeTime'){
-        value=parseInt(value);
-      }
-      if(key==='longitude'|| key==='latitude'){
-        value=parseFloat(value);
-      }
-      formDataObject[key] = value;
+    if (!name) {
+        console.error("Name is required.");
+        return ;
     }
-    console.log(formDataObject);
+
+    if (!openTime || isNaN(openTime)) {
+        console.error("Open time must be a valid number.");
+        return ;
+    }
+
+    if (!closeTime || isNaN(closeTime)) {
+        console.error("Close time must be a valid number.");
+        return ;
+    }
+
+    if (!latitude || isNaN(latitude)) {
+        console.error("Latitude must be a valid number.");
+        return ;
+    }
+
+    if (!longitude || isNaN(longitude)) {
+        console.error("Longitude must be a valid number.");
+        return;
+    }
+
+
+    const profileData = {
+        name: name,
+        openTime: parseInt(openTime),
+        closeTime: parseInt(closeTime),
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude)
+    };
+
+    console.log(profileData);
     getChargingStationById().then(data=>{
       console.log(data);
-      formDataObject['emailId']=data.emailId;
-      updateChargingStationProfile(formDataObject)
+      profileData['emailId']=data.emailId;
+      updateChargingStationProfile(profileData)
     })
-  }
+    
+}
