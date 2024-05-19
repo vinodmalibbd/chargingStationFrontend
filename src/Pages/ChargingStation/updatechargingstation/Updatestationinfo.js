@@ -1,6 +1,5 @@
   
   function updateStationInfo() {
-    // document.body.innerHTML = '';
     const formContainer = document.createElement('div');
     formContainer.classList.add('main-container');
     document.body.appendChild(formContainer);
