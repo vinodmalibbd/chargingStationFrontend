@@ -1,6 +1,6 @@
 const routes = {
   '/': MainPage,
-  '/station':chargingStationDashboard,
+  '/station':chargingStationLanding,
   '/user':UserLandingPage,
 };
 
@@ -38,4 +38,5 @@ function handleNavigation(e) {
 }
 
 window.addEventListener('popstate', handleNavigation);
+window.addEventListener('navigate', handleNavigation);
 window.addEventListener('load', handleNavigation);

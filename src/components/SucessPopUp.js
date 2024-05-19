@@ -1,6 +1,9 @@
-function createSucessPopUpBox(){
-  const mainDiv = document.createElement('div');
-  mainDiv.className = 'PopSucessmainDiv';
+function createSucessPopUpBox(message,navigate){
+  const mainDiv=document.querySelector('.main_content');
+  mainDiv.innerHTML='';
+  const container=document.createElement('div');
+  container.className='SuccessPopUpContainer';
+
   const SucessPopUp = document.createElement('div');
   SucessPopUp.className = 'SuccessPopUpBox';
   const PopUpHeader = document.createElement('div');
@@ -8,22 +11,21 @@ function createSucessPopUpBox(){
   PopUpHeader.textContent = 'Sucess';
   const PopUpMessage = document.createElement('div');
   PopUpMessage.className = 'PopUpMessage';
-  PopUpMessage.textContent = 'Booking confirmed';
+  PopUpMessage.textContent = message;
   const PopUpOkButton =document.createElement('div');
   const PopUpicon =document.createElement('div');
   PopUpicon.className = 'PopUpicon';
   PopUpicon.innerHTML = `<i class="fas fa-check-circle"></i> `;
-  const PopupOkButton =document.createElement('button')
   PopUpOkButton.className = 'PopupOkButton';
   PopUpOkButton.textContent = 'OK';
   PopUpOkButton.onclick =() =>{
-    document.body.removeChild(mainDiv);
+    navigateTo(`${navigate}`)
   }
   SucessPopUp.appendChild(PopUpicon);
   SucessPopUp.appendChild(PopUpHeader);
   SucessPopUp.appendChild(PopUpMessage);
   SucessPopUp.appendChild(PopUpOkButton);
-  mainDiv.appendChild(SucessPopUp);
-  document.body.appendChild(mainDiv);
+  container.appendChild(SucessPopUp);
 
+  mainDiv.appendChild(container);
 }

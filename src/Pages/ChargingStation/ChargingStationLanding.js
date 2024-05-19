@@ -2,9 +2,18 @@ function LogOutChargingStation(){
   sessionStorage.clear();
   navigateTo("/")
 }
-function chargingStationDashboard() {
+function chargingStationLanding() {
   document.body.innerHTML='';
-
+  getChargingStationById().then(chargestation=>{
+    if(chargestation.name===null || chargestation.name === ''){
+      updateStationInfo();
+    }else {
+      chargingStationDashboard();
+    }
+  })
+  
+}
+function chargingStationDashboard(){
   const wrapperDiv = document.createElement('div');
   wrapperDiv.className = 'chargingStationDashboard';
 
@@ -65,8 +74,7 @@ function chargingStationDashboard() {
   wrapperDiv.appendChild(sidebarDiv);
   wrapperDiv.appendChild(mainContentDiv);
   document.body.appendChild(wrapperDiv);
-
- 
+  Chargingpoints(mainContentDiv);
 }
 function StationChangeTab(tabname,mainContentDiv){
   mainContentDiv.innerHTML='';

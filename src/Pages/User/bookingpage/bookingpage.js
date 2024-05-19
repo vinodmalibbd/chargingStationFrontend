@@ -37,7 +37,7 @@ function chargeStationPage(chargepoint) {
       slotcard.classList.add("chargingslotcard");
       const p = document.createElement("p");
       // p.textContent = `chargepoint ${item.slotId}`;
-      p.innerHTML = `Chargepoint ${item.slotId}<br>Price: $${item.pricePerHour}`;
+      p.innerHTML = `Chargepoint ${item.slotId}<br>Price: INR ${item.pricePerHour}`;
       slotcard.onclick = () => {
         renderDatepicker(datepickerSection, item.slotId, chargepoint.stationId);
         const allCards = document.querySelectorAll(".chargingslotcard");
@@ -120,7 +120,6 @@ function renderTimeSlots(timeslots) {
         allCards.forEach((card) => {
           card.classList.remove("selected");
         });
-        // Add "selected" class to the clicked card
         card.classList.add("selected");
       };
     });
@@ -137,7 +136,6 @@ function renderTimeSlots(timeslots) {
         allCards.forEach((card) => {
           card.classList.remove("selected");
         });
-        // Add "selected" class to the clicked card
         card.classList.add("selected");
       };
     });
@@ -178,6 +176,7 @@ function bookSlot() {
           if(userId){
               bookingRequest.userId=userId;
               createBooking(bookingRequest)
+              createSucessPopUpBox("Booking confirmed...","/user")
           }
         }
     }

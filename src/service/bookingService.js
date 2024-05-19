@@ -14,8 +14,6 @@ const createBooking=async(bookingRequest)=>{
         }
       );
       if (res.status === 201) {
-        navigateTo("/user");
-        console.log(res.json());
         return res.json();
       }
     } else {
