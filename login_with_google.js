@@ -331,61 +331,125 @@
 // createSucessPopUpBox();
 // script.js
 // script.js
-document.addEventListener('DOMContentLoaded', () => {
-  // User data
-  const user = {
-      name: 'John Doe',
-      email: 'john.doe@example.com'
-  };
+// document.addEventListener('DOMContentLoaded', () => {
+//   // User data
+//   const user = {
+//       name: 'John Doe',
+//       email: 'john.doe@example.com'
+//   };
 
-  // Booking data
-  const bookings = [
-      { id: 'booking-1', slot: 'A1', date: '2024-05-20', bookingId: '12345' },
-      { id: 'booking-2', slot: 'B2', date: '2024-05-22', bookingId: '67890' }
+//   // Booking data
+//   const bookings = [
+//       { id: 'booking-1', slot: 'A1', date: '2024-05-20', bookingId: '12345' },
+//       { id: 'booking-2', slot: 'B2', date: '2024-05-22', bookingId: '67890' }
+//   ];
+
+//   // Populate user info
+//   const userInfoDiv = document.getElementById('userInfo');
+//   userInfoDiv.innerHTML = `
+//       <p><strong>Name:</strong> ${user.name}</p>
+//       <p><strong>Email:</strong> ${user.email}</p>
+//   `;
+
+//   // Populate bookings
+//   const bookingsDiv = document.getElementById('bookings');
+//   bookings.forEach(booking => {
+//       const bookingDiv = document.createElement('div');
+//       bookingDiv.className = 'booking';
+//       bookingDiv.id = booking.id;
+//       bookingDiv.innerHTML = `
+//           <p><strong>Booking ID:</strong> ${booking.bookingId}</p>
+//           <p><strong>Slot:</strong> ${booking.slot}</p>
+//           <p><strong>Date:</strong> ${booking.date}</p>
+//           <button class="cancel-button" onclick="cancelBooking('${booking.id}')">Cancel Booking</button>
+//       `;
+//       bookingsDiv.appendChild(bookingDiv);
+//   });
+// });
+
+// // Function to show bookings
+// function showBookings() {
+//   const bookingsContainer = document.getElementById('bookingsContainer');
+//   bookingsContainer.style.display = 'block';
+// }
+
+// // Function to cancel booking
+// function cancelBooking(bookingId) {
+//   const bookingElement = document.getElementById(bookingId);
+//   if (confirm('Are you sure you want to cancel this booking?')) {
+//       bookingElement.remove();
+//       alert('Booking cancelled successfully.');
+//   }
+// }
+
+// // Function to logout
+// function logout() {
+//   // Clear session (for this example, we just use an alert)
+//   alert('Logging out...');
+//   // Redirect to home page (you can replace with actual redirect logic)
+//   window.location.href = 'index.html';
+// }
+
+// Mock function to simulate fetching data from the backend
+async function fetchBookings() {
+  return [
+      {
+          stationName: "Station 1",
+          slotId: "Slot A1",
+          date: "2024-05-19",
+          startTime: "10:00 AM",
+          endTime: "11:00 AM"
+      },
+      {
+          stationName: "Station 2",
+          slotId: "Slot B2",
+          date: "2024-05-20",
+          startTime: "01:00 PM",
+          endTime: "02:00 PM"
+      },
+      // Add more bookings as needed
   ];
+}
 
-  // Populate user info
-  const userInfoDiv = document.getElementById('userInfo');
-  userInfoDiv.innerHTML = `
-      <p><strong>Name:</strong> ${user.name}</p>
-      <p><strong>Email:</strong> ${user.email}</p>
-  `;
+// Function to create a card for each booking
+function createBookingCard(booking) {
+  const card = document.createElement('div');
+  card.className = 'card';
 
-  // Populate bookings
-  const bookingsDiv = document.getElementById('bookings');
+  const stationName = document.createElement('h3');
+  stationName.textContent = booking.stationName;
+
+  const slotId = document.createElement('p');
+  slotId.textContent = `Slot ID: ${booking.slotId}`;
+
+  const date = document.createElement('p');
+  date.textContent = `Date: ${booking.date}`;
+
+  const startTime = document.createElement('p');
+  startTime.textContent = `Start Time: ${booking.startTime}`;
+
+  const endTime = document.createElement('p');
+  endTime.textContent = `End Time: ${booking.endTime}`;
+
+  card.appendChild(stationName);
+  card.appendChild(slotId);
+  card.appendChild(date);
+  card.appendChild(startTime);
+  card.appendChild(endTime);
+
+  return card;
+}
+
+// Function to show all bookings in the form of cards
+async function showBookings() {
+  const bookingsContainer = document.getElementById('bookings-container');
+  const bookings = await fetchBookings();
+
   bookings.forEach(booking => {
-      const bookingDiv = document.createElement('div');
-      bookingDiv.className = 'booking';
-      bookingDiv.id = booking.id;
-      bookingDiv.innerHTML = `
-          <p><strong>Booking ID:</strong> ${booking.bookingId}</p>
-          <p><strong>Slot:</strong> ${booking.slot}</p>
-          <p><strong>Date:</strong> ${booking.date}</p>
-          <button class="cancel-button" onclick="cancelBooking('${booking.id}')">Cancel Booking</button>
-      `;
-      bookingsDiv.appendChild(bookingDiv);
+      const card = createBookingCard(booking);
+      bookingsContainer.appendChild(card);
   });
-});
-
-// Function to show bookings
-function showBookings() {
-  const bookingsContainer = document.getElementById('bookingsContainer');
-  bookingsContainer.style.display = 'block';
 }
 
-// Function to cancel booking
-function cancelBooking(bookingId) {
-  const bookingElement = document.getElementById(bookingId);
-  if (confirm('Are you sure you want to cancel this booking?')) {
-      bookingElement.remove();
-      alert('Booking cancelled successfully.');
-  }
-}
-
-// Function to logout
-function logout() {
-  // Clear session (for this example, we just use an alert)
-  alert('Logging out...');
-  // Redirect to home page (you can replace with actual redirect logic)
-  window.location.href = 'index.html';
-}
+// Call the function to show bookings on page load
+document.addEventListener('DOMContentLoaded', showBookings);

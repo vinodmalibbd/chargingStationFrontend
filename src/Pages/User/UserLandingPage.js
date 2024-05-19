@@ -51,7 +51,8 @@ function UserLandingPage() {
   userLi.innerHTML = '<i class="fas fa-user"></i>  Log out';
   userLi.onclick = () =>{
     //add code for clear session
-    window.location.href = 'index.html';
+    alert("are you logout");
+    MainPage();
   }
 
   const chargePointsLi = document.createElement("li");
@@ -63,6 +64,7 @@ function UserLandingPage() {
   showbookingLi.className = 'showBooking';
   showbookingLi.innerHTML = '<i class="fas fa-address-card"></i>  ShowBookings';
   showbookingLi.onclick = () =>{
+    ShowBookingsfunction();
     changeTab("/showBookings", mainContentDiv);
   }
 
@@ -103,7 +105,7 @@ function changeTab(tabname, mainContentDiv) {
       break;
     }
     case "/showBookings":{
-      ShowBookingsfuncion();
+      ShowBookingsfunction();
     }
   }
 }

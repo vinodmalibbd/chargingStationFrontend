@@ -1,5 +1,5 @@
 function Chargingpoints(){
-  const mainContentDiv=document.querySelector('.main_content')
+  const mainContentDiv = document.querySelector('.main_content')
   mainContentDiv.innerHTML='';
   const chargepointtab=document.createElement("div");
   chargepointtab.className='chargingSlotPage';
@@ -64,10 +64,19 @@ function Chargingpoints(){
 }
 function addNewSlot(){
   const chargingSlotContainer = document.querySelector('.chargingSlotsContainer');
+  chargingSlotContainer.innerHTML = ' ';
 
   const popupForm = document.createElement('div');
   popupForm.className = 'popupAddslot';
 
+  const popupformHeading = document.createElement('div');
+  popupformHeading.className = 'popupformHeading';
+  const headingcontent = document.createElement('p');
+  headingcontent.innerHTML = ' Add New Slot';
+
+  popupformHeading.appendChild(headingcontent);
+  popupForm.appendChild(popupformHeading);
+  
   const form = document.createElement('form');
   form.className='popupAddslotForm';
 
@@ -77,6 +86,11 @@ function addNewSlot(){
   priceInput.type = 'number';
   priceInput.name = 'price';
   priceInput.required = true;
+  // priceInput.onfocus=()=>{
+  //   if (warningSpan) {
+  //     form.removeChild(warningSpan);
+  //   }
+  // }
 
   const statusLabel = document.createElement('label');
   statusLabel.textContent = 'Status:';
@@ -89,18 +103,42 @@ function addNewSlot(){
       option.textContent = optionText;
       statusSelect.appendChild(option);
   });
-
+  const ButtonForAddSlotForm = document.createElement('div');
+  ButtonForAddSlotForm.className = 'ButtonForAddSlotForm';
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
   saveButton.onclick=(e)=>{
-    e.preventDefault();
-    saveSlot();
+    const formData = new FormData(form);
+    const price = formData.get('price');
+    if(price === '' || price === null || price <= 0 ||  price >1000 ){
+      console.log(price);
+      if(!warningSpan){
+        console.log(price)
+        const warningSpan =document.createElement('span');
+        warningSpan.textContent = 'Please Enter valid price For charging point';
+        form.appendChild(warningSpan);
+      }
+      else{
+        console.log(price);
+        form.removeChild(warningSpan);
+      } 
+      e.preventDefault();
+    }
+    else{
+      console.log(price);
+      e.preventDefault();
+      Chargingpoints();
+    }
+    
+    // saveSlot();
+   
   }
 
   const canclebtn = document.createElement('button');
   canclebtn.textContent = 'Cancle';
   canclebtn.onclick=()=>{
     chargingSlotContainer.removeChild(popupForm);
+    Chargingpoints();
   }
 
   // Append form elements to form
@@ -110,8 +148,9 @@ function addNewSlot(){
   form.appendChild(statusLabel);
   form.appendChild(statusSelect);
   form.appendChild(document.createElement('br'));
-  form.appendChild(saveButton);
-  form.appendChild(canclebtn);
+  ButtonForAddSlotForm.appendChild(saveButton);
+  ButtonForAddSlotForm.appendChild(canclebtn);
+  form.appendChild(ButtonForAddSlotForm);
   popupForm.appendChild(form);
 
   chargingSlotContainer.appendChild(popupForm);
@@ -124,7 +163,16 @@ function saveSlot(){
     const data={};
     data['pricePerHour']=parseFloat(price);
     data['available']=status==='Available'? true : false;
-    addChargingSlotStation(data);
+    // if((price == '' || price === null)||(price <= 0 ||  price >1000 )){
+    //   const warningSpan =document.createElement('span');
+    //   warningSpan.textContent = 'Please Enter valid price For charging point';
+    //   form.appendChild(warningSpan);
+
+    // }
+    // // else{
+    // //   // addChargingSlotStation(data);
+    // // }
+
 }
 function editSlotForm(card,item){
   const editForm = document.createElement('div');

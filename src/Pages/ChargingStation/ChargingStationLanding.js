@@ -104,20 +104,24 @@ function chargingStationDashboard() {
   const ulElement = document.createElement('ul');
 
   const logoutLi = document.createElement('li');
-  logoutLi.innerHTML = '<i class="fas fa-user"></i>LogOut';
+  logoutLi.innerHTML = '<i class="fas fa-user"></i> LogOut';
+  logoutLi.onclick = () =>{
+    alert("Logging out");
+    MainPage();
+  }
 
   const chargingSlotLi = document.createElement('li');
-  chargingSlotLi.innerHTML = '<i class="fas fa-address-card"></i>ChargingSlots';
+  chargingSlotLi.innerHTML = '<i class="fas fa-address-card"></i> ChargingSlots';
   chargingSlotLi.onclick=()=>{
     StationChangeTab("/chargepoint",mainContentDiv);
   }
   const bookingLi = document.createElement('li');
-  bookingLi.innerHTML = '<i class="fas fa-address-card"></i>Bookings';
+  bookingLi.innerHTML = '<i class="fas fa-address-card"></i> Bookings';
   bookingLi.onclick=()=>{
-    StationChangeTab("/chargepoint",mainContentDiv);
+    StationChangeTab("/stationbooking",mainContentDiv);
   }
   const UpdateStationLi = document.createElement('li');
-  UpdateStationLi.innerHTML = '<i class="fas fa-user"></i>Update Station';
+  UpdateStationLi.innerHTML = '<i class="fas fa-user"></i> Update Station';
   UpdateStationLi.onclick = () =>{
     StationChangeTab("/updatestation",mainContentDiv);
   }
@@ -147,6 +151,10 @@ function StationChangeTab(tabname,mainContentDiv){
     }
     case "/updatestation":{
       updateProfileStation(mainContentDiv);
+      break;
+    }
+    case "/stationbooking":{
+      Chargingpoints(mainContentDiv);
       break;
     }
   }
