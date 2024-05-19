@@ -8,13 +8,15 @@ function chargePointTab(mainContentDiv) {
     chargepointtab.appendChild(cardsContainer);
     getAllChargingStation().then((data) => {
       data.map((item) => {
-        const card = document.createElement("div");
-        card.textContent = item.name;
-        card.className = "chargepointcard";
-        card.onclick = () => {
-          chargeStationPage(item);
-        };
-        cardsContainer.appendChild(card);
+        if(item.name !==null){
+          const card = document.createElement("div");
+          card.textContent = item.name;
+          card.className = "chargepointcard";
+          card.onclick = () => {
+            chargeStationPage(item);
+          };
+          cardsContainer.appendChild(card);
+        }
       });
     });
   }

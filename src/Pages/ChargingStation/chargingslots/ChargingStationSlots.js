@@ -107,31 +107,11 @@ function addNewSlot(){
   ButtonForAddSlotForm.className = 'ButtonForAddSlotForm';
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
+  const warningSpan = document.createElement('span');
+  
   saveButton.onclick=(e)=>{
-    const formData = new FormData(form);
-    const price = formData.get('price');
-    if(price === '' || price === null || price <= 0 ||  price >1000 ){
-      console.log(price);
-      if(!warningSpan){
-        console.log(price)
-        const warningSpan =document.createElement('span');
-        warningSpan.textContent = 'Please Enter valid price For charging point';
-        form.appendChild(warningSpan);
-      }
-      else{
-        console.log(price);
-        form.removeChild(warningSpan);
-      } 
-      e.preventDefault();
-    }
-    else{
-      console.log(price);
-      e.preventDefault();
-      Chargingpoints();
-    }
-    
-    // saveSlot();
-   
+    e.preventDefault();
+    saveSlot(warningSpan);
   }
 
   const canclebtn = document.createElement('button');
@@ -141,13 +121,13 @@ function addNewSlot(){
     Chargingpoints();
   }
 
-  // Append form elements to form
   form.appendChild(priceLabel);
   form.appendChild(priceInput);
   form.appendChild(document.createElement('br'));
   form.appendChild(statusLabel);
   form.appendChild(statusSelect);
   form.appendChild(document.createElement('br'));
+  form.appendChild(warningSpan);
   ButtonForAddSlotForm.appendChild(saveButton);
   ButtonForAddSlotForm.appendChild(canclebtn);
   form.appendChild(ButtonForAddSlotForm);
@@ -155,23 +135,30 @@ function addNewSlot(){
 
   chargingSlotContainer.appendChild(popupForm);
 }
-function saveSlot(){
-  const form=document.querySelector('.popupAddslotForm');
+function saveSlot(warningSpan){
+  const form = document.querySelector('.popupAddslotForm');
   const formData = new FormData(form);
   const price = formData.get('price');
   const status = formData.get('status');
-    const data={};
-    data['pricePerHour']=parseFloat(price);
-    data['available'] = status==='Available'? true : false;
-    // if((price == '' || price === null)||(price <= 0 ||  price >1000 )){
-    //   const warningSpan =document.createElement('span');
-    //   warningSpan.textContent = 'Please Enter valid price For charging point';
-    //   form.appendChild(warningSpan);
+  warningSpan.textContent="";
 
-    // }
-    // // else{
-    // //   // addChargingSlotStation(data);
-    // // }
+  if (price === null || price === '' || isNaN(price)) {
+      const warningSpan = document.createElement('span');
+      warningSpan.textContent = 'Please enter a valid price for the charging point.';
+  } else {
+      const priceValue = parseFloat(price);
+      if (priceValue < 200 || priceValue > 1000) {
+          warningSpan.textContent = 'Price must be between 200 and 1000.';
+      } else {
+          const data = {
+              pricePerHour: priceValue,
+              available: status === 'Available' ? true : false
+          };
+          addChargingSlotStation(data);
+          Chargingpoints();
+          
+      }
+  }
 
 }
 function editSlotForm(card,item){
@@ -205,7 +192,7 @@ function editSlotForm(card,item){
         const data={};
         data['slotId']=item.slotId;
         data['pricePerHour']=parseFloat(newPrice);
-        data['available']=newStatus==='Available'? true : false;
+        data['available']=(newStatus==='Available'? true : false);
         console.log(data);
         updateChargingSlot(data);
         card.removeChild(editForm);
