@@ -78,7 +78,7 @@ function updateProfileStation(mainContentDiv){
     const cancelButton =document.createElement('button');
     cancelButton.textContent ="cancel";
     cancelButton.onclick = () =>{
-      StationLandingPage();
+      chargingStationDashboard();
     }
     buttonDiv.appendChild(submitButton);
     buttonDiv.appendChild(cancelButton);

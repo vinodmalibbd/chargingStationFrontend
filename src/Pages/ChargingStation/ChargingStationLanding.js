@@ -44,19 +44,24 @@ function chargingStationDashboard(){
   logoutLi.onclick=()=>{
     LogOutChargingStation();
   }
+  logoutLi.innerHTML = '<i class="fas fa-user"></i> LogOut';
+  logoutLi.onclick = () =>{
+    alert("Logging out");
+    MainPage();
+  }
 
   const chargingSlotLi = document.createElement('li');
-  chargingSlotLi.innerHTML = '<i class="fas fa-address-card"></i>ChargingSlots';
+  chargingSlotLi.innerHTML = '<i class="fas fa-address-card"></i> ChargingSlots';
   chargingSlotLi.onclick=()=>{
     StationChangeTab("/chargepoint",mainContentDiv);
   }
   const bookingLi = document.createElement('li');
-  bookingLi.innerHTML = '<i class="fas fa-address-card"></i>Bookings';
+  bookingLi.innerHTML = '<i class="fas fa-address-card"></i> Bookings';
   bookingLi.onclick=()=>{
     StationChangeTab("/showbookings", mainContentDiv);
   }
   const UpdateStationLi = document.createElement('li');
-  UpdateStationLi.innerHTML = '<i class="fas fa-user"></i>Update Station';
+  UpdateStationLi.innerHTML = '<i class="fas fa-user"></i> Update Station';
   UpdateStationLi.onclick = () =>{
     StationChangeTab("/updatestation",mainContentDiv);
   }

@@ -20,3 +20,4 @@ const createBooking=async(bookingRequest)=>{
       navigateTo("/");
     }
 }
+
