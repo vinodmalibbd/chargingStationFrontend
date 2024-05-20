@@ -212,3 +212,43 @@ body{
   color: blanchedalmond;
   background-color: violet;
 }
+
+/* css for the show bookings */
+.cardsContainershowBooking{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+  margin-top: 4%;
+}
+
+.cardsContainershowBooking .card{
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1%;
+  padding: 1%;
+  /* width: 30%; */
+  margin-right: 1%;
+}
+.cardsContainershowBooking .card h3{
+  display: flex;
+  justify-content: center;
+}
+.cardsContainershowBooking .BookingheadingDiv{
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+}
+.cardsContainershowBooking .cardelementDiv{
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+
+}
+.cardsContainershowBooking .cardelementDiv .DivcancelBookingButton{
+  width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

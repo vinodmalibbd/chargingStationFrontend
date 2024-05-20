@@ -80,6 +80,11 @@ function ShowBookingsfunction() {
   const cardsContainershowBooking = document.createElement('div');
   cardsContainershowBooking.className = 'cardsContainershowBooking';
   UserLandingPage.appendChild(cardsContainershowBooking);
+  const BookingheadingDiv = document.createElement('p');
+  BookingheadingDiv.className = 'BookingheadingDiv';
+  BookingheadingDiv.innerHTML = ' User Bookings';
+  cardsContainershowBooking.appendChild(BookingheadingDiv);
+
   const bookings = [
     {
         stationName: "Station 1",
@@ -99,6 +104,7 @@ function ShowBookingsfunction() {
   bookings.map(book => {
       console.log(book);
       const card = createBookingCard(book);
+      
       cardsContainershowBooking.appendChild(card);
   });
 }
@@ -106,7 +112,9 @@ function ShowBookingsfunction() {
 function createBookingCard(booking) {
   const card = document.createElement('div');
   card.className = 'card';
-
+  const cardelementDiv = document.createElement('div');
+  cardelementDiv.className = 'cardelementDiv';
+  card.appendChild(cardelementDiv);
   const stationName = document.createElement('h3');
   stationName.textContent = booking.stationName;
 
@@ -121,13 +129,23 @@ function createBookingCard(booking) {
 
   const endTime = document.createElement('p');
   endTime.textContent = `End Time: ${booking.endTime}`;
+  const DivcancelBookingButton =document.createElement('div');
+  DivcancelBookingButton.className = 'DivcancelBookingButton';
+  const cancelBookingButton = document.createElement('button');
+  cancelBookingButton.className = 'cancelBookingButton';
+  cancelBookingButton.textContent = 'Cancel';
+  DivcancelBookingButton.appendChild(cancelBookingButton);
+    
 
-  card.appendChild(stationName);
-  card.appendChild(slotId);
-  card.appendChild(date);
-  card.appendChild(startTime);
-  card.appendChild(endTime);
-
+  cardelementDiv.appendChild(stationName);
+  cardelementDiv.appendChild(slotId);
+  cardelementDiv.appendChild(date);
+  cardelementDiv.appendChild(startTime);
+  cardelementDiv.appendChild(endTime);
+  card.appendChild(cardelementDiv);
+  card.appendChild(DivcancelBookingButton);
   return card;
 }
 
+const books = showAllUserBookings();
+console.log(books);
