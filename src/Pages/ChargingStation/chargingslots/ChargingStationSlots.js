@@ -42,18 +42,13 @@ function Chargingpoints(){
       editButton.onclick = () => {
         editSlotForm(card,item);
       }
-      const deleteButton = document.createElement('button');
-      deleteButton.classList.add('delete-btn');
-      deleteButton.innerHTML = '🗑️';
-      deleteButton.onclick = () => {
-
-      }
+  
 
       description.appendChild(span01);
       description.appendChild(span02);
       description.appendChild(span03);
       editDeleteButtonDiv.appendChild(editButton);
-      editDeleteButtonDiv.appendChild(deleteButton);
+  
       
       card.appendChild(description);
       card.appendChild(editDeleteButtonDiv);
@@ -86,11 +81,6 @@ function addNewSlot(){
   priceInput.type = 'number';
   priceInput.name = 'price';
   priceInput.required = true;
-  // priceInput.onfocus=()=>{
-  //   if (warningSpan) {
-  //     form.removeChild(warningSpan);
-  //   }
-  // }
 
   const statusLabel = document.createElement('label');
   statusLabel.textContent = 'Status:';
@@ -112,6 +102,7 @@ function addNewSlot(){
   saveButton.onclick=(e)=>{
     e.preventDefault();
     saveSlot(warningSpan);
+    Chargingpoints();
   }
 
   const canclebtn = document.createElement('button');
@@ -152,11 +143,9 @@ function saveSlot(warningSpan){
       } else {
           const data = {
               pricePerHour: priceValue,
-              available: status === 'Available' ? true : false
+              available: true
           };
           addChargingSlotStation(data);
-          Chargingpoints();
-          
       }
   }
 
@@ -165,7 +154,6 @@ function editSlotForm(card,item){
   const editForm = document.createElement('div');
     editForm.className = 'editSlotForm';
 
-    // Input field for price
     const priceInput = document.createElement('input');
     priceInput.type = 'number';
     priceInput.name = 'price';

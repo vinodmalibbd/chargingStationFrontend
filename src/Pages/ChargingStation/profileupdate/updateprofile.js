@@ -11,7 +11,7 @@ function updateProfileStation(mainContentDiv){
     formContainer.appendChild(heading);
   
     const form = document.createElement('form');
-    form.className ="form-container";
+    form.className ="profileupdateform";
     formContainer.appendChild(form);
   
    const stationName =document.createElement("label");
@@ -19,6 +19,7 @@ function updateProfileStation(mainContentDiv){
    const nameInput = document.createElement("input");
    nameInput.setAttribute('type','text');
    nameInput.setAttribute('id','forminput');
+   nameInput.setAttribute('required','true')
   
    const StationOpeningtime = document.createElement("label");
    StationOpeningtime.textContent = "Station Opening Time :";

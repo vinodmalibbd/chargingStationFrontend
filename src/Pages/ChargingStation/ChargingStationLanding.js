@@ -4,12 +4,17 @@ function LogOutChargingStation(){
 }
 function chargingStationLanding() {
   document.body.innerHTML='';
+  showLoader(true);
   getChargingStationById().then(chargestation=>{
     if(chargestation.name===null || chargestation.name === ''){
       updateStationInfo();
+      showLoader(false);
     }else {
+      showLoader(false);
       chargingStationDashboard();
     }
+  }).catch(e=>{
+    showLoader(false);
   })
   
 }

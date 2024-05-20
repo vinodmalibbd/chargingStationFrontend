@@ -216,25 +216,6 @@ body{
   
   }
   
-  .chargingStationDashboard.form-container {
-    background-color: #fff;
-    color: black;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 2%;
-    width: 50%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-  }
-  .chargingStationDashboard .form-container button:hover {
-    background-color: #45a049;
-  }
-  .chargingStationDashboard.form-container input{
-    margin-bottom: 2%;
-    padding: 0.5%;
-    border-radius: 10px;
-  }
   .chargingStationDashboard .AddSlotButtonHeader{
     width: 80%;
     height: 60px;
@@ -250,18 +231,7 @@ body{
 
   }
 
-  .chargingStationDashboard .form-container label{
-    margin-bottom: 2%;
-  }
-  .chargingStationDashboard .form-container button{
-    width: 40%;
-    background-color: rgb(10, 144, 144);
-    border-radius: 7px;
-    margin-bottom: 2%;
-    cursor: pointer;
-  font-size: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  
   .chargingStationDashboard .ButtonDiv{
     display: flex;
     flex-direction: column;
