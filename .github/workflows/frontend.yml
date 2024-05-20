@@ -22,5 +22,4 @@ jobs:
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             echo "connected to ec2"
-            
             sudo sh script
