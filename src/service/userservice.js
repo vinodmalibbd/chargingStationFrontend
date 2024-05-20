@@ -1,5 +1,3 @@
-
-
 const showAllUserBookings = async () => {
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {
