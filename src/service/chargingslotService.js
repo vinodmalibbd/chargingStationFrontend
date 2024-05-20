@@ -1,4 +1,5 @@
 const getAllChargingStationSlots = async () => {
+
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
@@ -15,13 +16,16 @@ const getAllChargingStationSlots = async () => {
     );
 
     if (res.ok) {
+      
       return res.json();
     }
   } else {
+    
     navigateTo("/");
   }
 };
 const addChargingSlotStation = async (data) => {
+
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
@@ -38,9 +42,11 @@ const addChargingSlotStation = async (data) => {
       }
     );
     if (res.status === 201) {
+      
       return res.json();
     }
   } else {
+    
     navigateTo("/");
   }
 };
@@ -59,7 +65,6 @@ const updateChargingSlot = async (data) => {
       }
     );
     if (res.status === 200) {
-      console.log(res.json());
       return res.json();
     }
   } else {
