@@ -23,4 +23,21 @@ jobs:
           script: |
             echo "connected to ec2"
             
-            sudo sh script
+            PID=$(sudo lsof -t -i:3000)
+            if [ ! -z "$PID" ]; then
+              sudo kill -9 $PID
+            fi
+            
+            # Remove previous repository
+            rm -rf chargingStationFrontend
+            
+            # Clone new repository
+            git clone https://github.com/vinodmalibbd/chargingStationFrontend.git
+            
+            # # Install dependencies
+            # cd /home/ubuntu/chargingStationFrontend
+            npm install
+            
+            # Start Node.js server
+            nohup node server.js > output.log 2>&1 &
+
