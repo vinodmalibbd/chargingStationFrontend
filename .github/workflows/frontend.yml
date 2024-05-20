@@ -21,8 +21,6 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
-            sudo rm -rf chargingStationFrontend
-            sudo git clone https://github.com/vinodmalibbd/chargingStationFrontend.git
-            cd chargingStationFrontend
-            sudo kill -9 $(sudo lsof -t -i:5500)
-            sudo nohup http-server -p 5500  > output.log 2>&1 &
+            echo "connected to ec2"
+            
+            sudo sh script
