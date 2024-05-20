@@ -8,7 +8,10 @@ function showChargingStationBooking(){
   
   const bookings=document.createElement('div')
   bookings.className='stationbookingsection';
-  
+
+  getAllChargingStationBooking().then(res=>{
+    console.log(res);
+  })
 //   usersTimeSlots.map((item)=>{
     // const bookingcard=document.createElement('div');
     // bookingcard.className='stationbookingcard';

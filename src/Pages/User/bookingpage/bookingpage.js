@@ -178,6 +178,8 @@ function bookSlot() {
               createBooking(bookingRequest)
               createSucessPopUpBox("Booking confirmed...","/user")
           }
+        } else{
+          createPOPUP("user");
         }
     }
 }

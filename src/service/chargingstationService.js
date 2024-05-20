@@ -1,6 +1,6 @@
 
 const getAllChargingStation = async () => {
-    const res = await fetch(
+      const res = await fetch(
       `${backendurl}/chargingstation/all`,
       {
         method: "GET",
@@ -16,6 +16,7 @@ const getAllChargingStation = async () => {
       `${backendurl}/auth/chargingstation`;
   };
   const getChargingStationById = async () => {
+    
     const token = sessionStorage.getItem("station-cookie");
     if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -36,6 +37,7 @@ const getAllChargingStation = async () => {
     }
   };
   const updateChargingStationProfile = async (data) => {
+    
     const token = sessionStorage.getItem("station-cookie");
     if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -52,7 +54,6 @@ const getAllChargingStation = async () => {
         }
       );
       if (res.status === 201) {
-        console.log(res.json());
         navigateTo("/station");
       }
     } else {

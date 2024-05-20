@@ -1,6 +1,6 @@
 const MainPage = () => {
     document.body.innerHTML = '';
-
+    
     const containerDiv = document.createElement("div");
     containerDiv.className = "landingpage";
  
