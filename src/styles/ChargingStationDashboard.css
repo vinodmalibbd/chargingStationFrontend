@@ -213,10 +213,11 @@ body{
   flex-direction: column;
   width: 100%;
   color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   
   }
   
-  .chargingStationDashboard.form-container {
+ .main-container .form-container {
     background-color: #fff;
     color: black;
     border-radius: 10px;
@@ -352,3 +353,4 @@ margin-top:1%;
 .popupAddslot .popupAddslotForm .ButtonForAddSlotForm button:hover {
   background-color: #45a049;
 }
+

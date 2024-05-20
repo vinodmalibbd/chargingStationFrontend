@@ -50,8 +50,7 @@ function UserLandingPage() {
   const userLi = document.createElement("li");
   userLi.innerHTML = '<i class="fas fa-user"></i>  Log out';
   userLi.onclick = () =>{
-    //add code for clear session
-    alert("are you logout");
+    sessionStorage.clear();
     MainPage();
   }
 
@@ -69,7 +68,7 @@ function UserLandingPage() {
   }
 
   ulElement.appendChild(searchBarLi);
-  ulElement.appendChild(chargePointsLi);
+  // ulElement.appendChild(chargePointsLi);
   
   const user = sessionStorage.getItem("web-vb-token");
   if (user) {

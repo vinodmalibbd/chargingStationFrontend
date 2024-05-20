@@ -188,11 +188,12 @@ function editSlotForm(card,item){
     saveButton.textContent = 'Save';
     saveButton.onclick = () => {
         const newPrice = priceInput.value;
-        const newStatus = statusSelect.value;
+        const newStatus = toLowerCase(statusSelect.value);
+        console.log(newStatus);
         const data={};
         data['slotId']=item.slotId;
         data['pricePerHour']=parseFloat(newPrice);
-        data['available']=(newStatus==='Available'? true : false);
+        data['available']=(newStatus==='available'? true : false);
         console.log(data);
         updateChargingSlot(data);
         card.removeChild(editForm);

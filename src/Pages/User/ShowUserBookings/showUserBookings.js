@@ -76,7 +76,6 @@ const loginuser = async () => {
 function ShowBookingsfunction() {
   const UserLandingPage = document.querySelector(".main_content");
   UserLandingPage.innerHTML = " ";
-  console.log('showbookings');
   const cardsContainershowBooking = document.createElement('div');
   cardsContainershowBooking.className = 'cardsContainershowBooking';
   UserLandingPage.appendChild(cardsContainershowBooking);
@@ -84,23 +83,7 @@ function ShowBookingsfunction() {
   BookingheadingDiv.className = 'BookingheadingDiv';
   BookingheadingDiv.innerHTML = ' User Bookings';
   cardsContainershowBooking.appendChild(BookingheadingDiv);
-
-  const bookings = [
-    {
-        stationName: "Station 1",
-        slotId: "Slot A1",
-        date: "2024-05-19",
-        startTime: "10:00 AM",
-        endTime: "11:00 AM"
-    },
-    {
-        stationName: "Station 2",
-        slotId: "Slot B2",
-        date: "2024-05-20",
-        startTime: "01:00 PM",
-        endTime: "02:00 PM"
-    },
-];
+  const bookings = showAllUserBookings();
   bookings.map(book => {
       console.log(book);
       const card = createBookingCard(book);
@@ -115,14 +98,18 @@ function createBookingCard(booking) {
   const cardelementDiv = document.createElement('div');
   cardelementDiv.className = 'cardelementDiv';
   card.appendChild(cardelementDiv);
-  const stationName = document.createElement('h3');
-  stationName.textContent = booking.stationName;
+  // const stationName = document.createElement('h3');
+  // stationName.textContent = booking.stationName;
 
   const slotId = document.createElement('p');
   slotId.textContent = `Slot ID: ${booking.slotId}`;
 
+  const datecast = booking.date;
+  const dateobj =Date(datecast);
+   const formatted_date = date.toISOString().replace('T', ' ').substring(0, 19);
+
   const date = document.createElement('p');
-  date.textContent = `Date: ${booking.date}`;
+  date.textContent = `Date: ${formatted_date}`;
 
   const startTime = document.createElement('p');
   startTime.textContent = `Start Time: ${booking.startTime}`;
@@ -134,10 +121,13 @@ function createBookingCard(booking) {
   const cancelBookingButton = document.createElement('button');
   cancelBookingButton.className = 'cancelBookingButton';
   cancelBookingButton.textContent = 'Cancel';
+  cancelBookingButton.onclick = () =>{
+    document.removeChild(card);
+  }
   DivcancelBookingButton.appendChild(cancelBookingButton);
     
 
-  cardelementDiv.appendChild(stationName);
+  // cardelementDiv.appendChild(stationName);
   cardelementDiv.appendChild(slotId);
   cardelementDiv.appendChild(date);
   cardelementDiv.appendChild(startTime);
@@ -146,6 +136,3 @@ function createBookingCard(booking) {
   card.appendChild(DivcancelBookingButton);
   return card;
 }
-
-const books = showAllUserBookings();
-console.log(books);
