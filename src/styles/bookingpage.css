@@ -91,21 +91,91 @@ color: #000000;
   font-size: 1rem;
   padding: 1%;
 }
-.BookingFormDiv{
+/* .BookingFormDiv{
   display: flex;
   flex-direction: column;
   margin-top: 10%;
   color: black;
 
 }
-.BookingFormDiv .chargeslotscontainer{
+.BookingFormDiv .chargestationheader h3{
+font-size: 1.5rem;
+}
+.BookingFormDiv .chargingstaionBooking {
   display: flex;
+  flex-direction: column;
+
 }
-.BookingFormDiv .chargeslotscontainer label{
-  font-size: 1rem;
-}
-.BookingFormDiv .chargingstaionBooking select{
+.BookingFormDiv .chargingstaionBooking SlotDiv{
   font-size: 1rem;
   padding: 0.5%;
   width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+} */
+/* Styling for Booking Form */
+/* Styling for Booking Form */
+.BookingFormDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.BookingFormDiv .chargestationheader {
+  text-align: center;
+  width: 100%; 
+}
+
+.BookingFormDiv .chargingstaionBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.BookingFormDiv .SlotDiv{
+  width: 100%; 
+  margin-bottom: 20px;
+  color: #000000;
+}
+.BookingFormDiv .datepickerDiv{
+  width: 100%; 
+  margin-bottom: 20px;
+  color: #000000;
+}
+.BookingFormDiv .timeslotDiv{
+  width: 100%; 
+  margin-bottom: 20px;
+  color: #000000;
+}
+.BookingFormDiv .BookingButtons {
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+/* Styling for Buttons */
+.bookingbtn,
+.cancelBtn {
+  width: 45%; /* Set width to 45% */
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bookingbtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancelBtn {
+  background-color: #f44336;
+  color: white;
 }
