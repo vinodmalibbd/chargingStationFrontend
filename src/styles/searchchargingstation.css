@@ -1,0 +1,97 @@
+/* .chargingStationContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.chargingStationHeader{
+    font-size: 2rem;
+    padding: 2%;
+}
+.chargingStationBody{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.chargingStationBody .searchStationbar{
+    width: 80%;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    max-width: 70vh;
+}
+.chargingStationBody .SearchStationButton{
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    font-size:1em;
+    background-color: transparent;
+    cursor: pointer;
+} */
+.searchpage{
+    width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: black;
+  }
+.searchpageheader{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .searchpagesearchbar{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .searchpagesearchbar input{
+    width: 80%;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    max-width: 70vh;
+  }
+  .searchpagesearchbar button {
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    font-size:1em;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .searchpagemiddle{
+    width: 90%;
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .searchpagechargingstation{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    scrollbar-width: 0px;
+  }
+  .searchstationcard{
+    display: flex;
+   
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
