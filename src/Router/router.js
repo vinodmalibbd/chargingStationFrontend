@@ -1,42 +1,49 @@
-const routes = {
-  '/': MainPage,
-  '/station':chargingStationLanding,
-  '/user':UserLandingPage,
-};
+function checkStorageAndRedirect() {
+  const stationCookie = sessionStorage.getItem('station-cookie');
+  const webVbToken = sessionStorage.getItem('web-vb-token');
+  const role = sessionStorage.getItem('role');
 
-function navigateTo(route) {
-  window.history.pushState({}, route, window.location.origin + route);
-  if (routes[route]) {
-      routes[route]();
+  if (stationCookie || webVbToken) {
+    redirectBasedOnRole(role);
   } else {
-      console.error("Route not found:", route);
+    MainPage();
+  }
+}
+
+function redirectBasedOnRole(role) {
+  switch (role) {
+    case 'chargingstation':
+      chargingStationDashboard();
+      break;
+    case 'user':
+      UserLandingPage();
+      break;
+    default:
+      MainPage();
   }
 }
 
 function handleNavigation(e) {
   e.preventDefault();
-  const currentRoute = window.location.pathname;
-
   const params = new URLSearchParams(window.location.search);
   const token = params.get('token');
   const role = params.get('role');
 
-  if(token !==null){
-    sessionStorage.setItem('role',role);
-    if(role==='chargingstation'){
-      sessionStorage.setItem('station-cookie',token);
-      navigateTo('/station')
-    }else if(role==='user'){
-      sessionStorage.setItem('web-vb-token',token);
-      navigateTo('/user');
-    }else{
-      navigateTo('/')
+  if (token !== null) {
+    sessionStorage.setItem('role', role);
+    if (role === 'chargingstation') {
+      sessionStorage.setItem('station-cookie', token);
+    } else if (role === 'user') {
+      sessionStorage.setItem('web-vb-token', token);
     }
-  }else{
-    navigateTo(currentRoute);
   }
+  history.replaceState({}, document.title, window.location.pathname);
+  checkStorageAndRedirect();
 }
 
 window.addEventListener('popstate', handleNavigation);
 window.addEventListener('navigate', handleNavigation);
-window.addEventListener('load', handleNavigation);
+
+window.addEventListener('load', () => {
+  handleNavigation(new Event('load'));
+});

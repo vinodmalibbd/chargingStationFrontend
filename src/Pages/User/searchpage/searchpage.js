@@ -1,12 +1,11 @@
 function searchStationPage() {
   const mainDiv = document.querySelector('.main_content');
   mainDiv.innerHTML = "";
-
-  // Create search page container
+  
   const searchPage = document.createElement('div');
   searchPage.className = 'searchpage';
 
-  // Create search header
+
   const searchPageHeader = document.createElement('div');
   searchPageHeader.className = 'searchpageheader';
 
@@ -60,6 +59,9 @@ function searchChargingStations(city) {
 
   searchByCityName(city)
     .then(filteredStations => {
+      if(filteredStations.length===0){
+        throw new Error("not found");
+      }
       filteredStations.forEach(station => {
         const searchStationCard = document.createElement('div');
         searchStationCard.className = 'searchstationcard';
@@ -86,6 +88,18 @@ function searchChargingStations(city) {
       });
     })
     .catch(error => {
-      console.error('Error fetching charging stations:', error);
+      const notFoundCard = document.createElement('div');
+      notFoundCard.className = 'notfoundcard';
+
+      const notFoundIcon = document.createElement('i');
+      notFoundIcon.className = 'fas fa-exclamation-triangle'; // Font Awesome icon class
+
+      const notFoundText = document.createElement('p');
+      notFoundText.textContent = 'No charging stations found in this city';
+
+      notFoundCard.appendChild(notFoundIcon);
+      notFoundCard.appendChild(notFoundText);
+
+      chargingStationContainer.appendChild(notFoundCard);
     });
 }

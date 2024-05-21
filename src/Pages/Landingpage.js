@@ -22,16 +22,14 @@ const MainPage = () => {
     const userButton = document.createElement("a");
     userButton.onclick = () =>{
         localStorage.clear();
-        navigateTo('/user');
+        UserLandingPage();
     }
     userButton.className = "user-button";
     userButton.textContent = "For Vehicle Owner";
 
     const stationOwnerButton = document.createElement("a");
     stationOwnerButton.onclick = () =>{
-  
       createPOPUP("station");
-  
     }
     stationOwnerButton.className = "station-button";
     stationOwnerButton.textContent = "For Station Owners";

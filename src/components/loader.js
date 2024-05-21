@@ -1,16 +1,17 @@
-function showLoader(isTrue,container) {
-    
+function showLoader(isTrue) {
     if (isTrue) {
-        loaderWrapper = document.createElement('div');
+        const loaderWrapper = document.createElement('div');
         loaderWrapper.className = 'loader-wrapper';
 
         const loader = document.createElement('div');
         loader.className = 'loader';
 
         loaderWrapper.appendChild(loader);
-        container.appendChild(loaderWrapper);
+        document.body.appendChild(loaderWrapper);
     } else {
-        
-        container.removeChild(document.querySelector('.loader-wrapper'));
+        const loaderWrapper = document.querySelector('.loader-wrapper');
+        if (loaderWrapper) {
+            loaderWrapper.parentNode.removeChild(loaderWrapper); 
+        }
     }
 }

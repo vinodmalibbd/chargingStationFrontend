@@ -1,5 +1,4 @@
-  
-  function updateStationInfo() {
+function updateStationInfo() {
     const mainContainer = document.createElement('div');
     mainContainer.classList.add('main-container');
     document.body.appendChild(mainContainer);
@@ -14,8 +13,6 @@
   
     const form = document.createElement('form');
     form.id ="updatestationform";
-
-   
 
    const stationName =document.createElement("label");
    stationName.textContent = "Station Name :";
@@ -66,16 +63,16 @@
     getlocation.textContent="add auto location"; 
     getlocation.onclick=(e)=>{
       e.preventDefault();
-      showLoader(true);
+      
       getCurrentPositionUser().then(loc=>{
 
         const latitudeInput = document.getElementById('stationlatitude');
         const longitudeInput = document.getElementById('stationlongitude');
         latitudeInput.value = loc.lat;
         longitudeInput.value = loc.long;
-        showLoader(false);
+        
       });
-      showLoader(false);
+      
     } 
     buttonDiv.appendChild(getlocation);
 
@@ -132,13 +129,11 @@
         latitude: parseFloat(latitude),
         longitude: parseFloat(longitude)
     };
-    showLoader(true)
-    getChargingStationById().then(data=>{
+        getChargingStationById().then(data=>{
       console.log(data);
       profileData['emailId']=data.emailId;
       updateChargingStationProfile(profileData)
-      showLoader(false);
+      
     })
-    showLoader(false);
-    
+        
 }

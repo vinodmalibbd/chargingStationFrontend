@@ -1,35 +1,3 @@
-/* .chargingStationContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-}
-.chargingStationHeader{
-    font-size: 2rem;
-    padding: 2%;
-}
-.chargingStationBody{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-.chargingStationBody .searchStationbar{
-    width: 80%;
-    padding: 1rem;
-    outline: none;
-    border: 1px solid blueviolet;
-    border-radius: 10px;
-    max-width: 70vh;
-}
-.chargingStationBody .SearchStationButton{
-    padding: 1rem 1rem;
-    border-radius: 10px;
-    font-size:1em;
-    background-color: transparent;
-    cursor: pointer;
-} */
 .searchpage{
     width: 100%;
       min-height: 100vh;
@@ -42,7 +10,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 20%;
+    height: 20vh;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -53,18 +21,20 @@
     justify-content: center;
     gap: 1rem;
   }
-  .searchpagesearchbar input{
+  #searchcityinp{
     width: 80%;
-    padding: 1rem;
     outline: none;
     border: 1px solid blueviolet;
     border-radius: 10px;
-    max-width: 70vh;
+    height: 40px;
+    padding-left: 1rem;
   }
   .searchpagesearchbar button {
-    padding: 1rem 1rem;
+    outline: none;
+    border: 1px solid blueviolet;
     border-radius: 10px;
-    font-size:1em;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: transparent;
     cursor: pointer;
   }
@@ -86,12 +56,19 @@
   }
   .searchstationcard{
     display: flex;
-   
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(231, 231, 231);
     padding: 1rem;
     border-radius: 1rem;
     margin: 1rem;
+  }
+  .notfoundcard{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
