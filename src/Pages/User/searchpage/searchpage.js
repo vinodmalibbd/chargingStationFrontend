@@ -57,10 +57,7 @@ function searchPage(stationsNearby) {
   cardCloseTime.textContent = `Closing Time : ${item.closeTime}:00`;
 
   cardBody.appendChild(cardTitle);
-<<<<<<< HEAD
-=======
   
->>>>>>> daad124328bf7f86133c7fe18d636b9a87d91659
   cardBody.appendChild(cardText);
   cardBody.appendChild(cardopenTime);
   cardBody.appendChild(cardCloseTime);
