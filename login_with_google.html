@@ -1,52 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./login_with_google.css">
+    <title>Booking Cards</title>
+    <style>
+        .chargingStationContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+        }
+        .chargingStationHeader{
+            font-size: 2rem;
+            padding: 2%;
+        }
+        .chargingStationBody{
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .chargingStationBody .searchStationbar{
+            width: 80%;
+            padding: 1rem;
+            outline: none;
+            border: 1px solid blueviolet;
+            border-radius: 10px;
+            max-width: 70vh;
+        }
+        .chargingStationBody .SearchStationButton{
+            padding: 1rem 1rem;
+            border-radius: 10px;
+            font-size:1em;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        /* .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        } */
+        /* .card h3 {
+            margin: 0 0 10px 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        #bookings-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        } */
+    </style>
 </head>
 <body>
-    <div class="searchpage">
-        <div class="searchpageheader">
-            <div class="searchpageheading">
-                <h3>In which city want to search for</h3>
-            </div>
-            <div class="searchpagesearchbar">
-                <input type="text" name="" id="" class="searchbar" placeholder="Enter city name">
-                <button>submit</button>
-            </div>
-            
-        </div>
-        <div class="searchpagemiddle">
-            <h3>you searched for pune</h3>
-        </div>
-        <div class="searchpagechargingstation">
-            <div class="searchstationcard">
-                <strong>name:kalayni nagar chargepoint</strong>
-                <span>openTime:11:00</span>
-                <span>closeTime:12:00</span>
-                <span>pune maharashtra india</span>
-            </div>
-            <div class="searchstationcard">
-                <strong>name:kalayni nagar chargepoint</strong>
-                <span>openTime:11:00</span>
-                <span>closeTime:12:00</span>
-                <span>pune maharashtra india</span>
-            </div>
-            <div class="searchstationcard">
-                <strong>name:kalayni nagar chargepoint</strong>
-                <span>openTime:11:00</span>
-                <span>closeTime:12:00</span>
-                <span>pune maharashtra india</span>
-            </div>
-            <div class="searchstationcard">
-                <strong>name:kalayni nagar chargepoint</strong>
-                <span>openTime:11:00</span>
-                <span>closeTime:12:00</span>
-                <span>pune maharashtra india</span>
-            </div>
-        </div>
+    <div class="bookings-container">
+        
     </div>
+    <script src="./src/helper/filterlocations.js"></script>
+    <script src="./src/service/chargingstationService.js"></script>
+    <script src="login_with_google.js"></script>
 </body>
 </html>
