@@ -143,9 +143,12 @@ function saveSlot(warningSpan){
       } else {
           const data = {
               pricePerHour: priceValue,
-              available: true
+              available: status === 'available' ? true : false
           };
-          addChargingSlotStation(data);
+          // addChargingSlotStation(data);
+          console.log(data);
+          Chargingpoints();
+          
       }
   }
 

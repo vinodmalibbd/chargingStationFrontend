@@ -23,7 +23,7 @@ function searchPage(stationsNearby) {
     stationsNearby.map((item) => {
       const card = document.createElement("div");
       card.className = "chargepointcard";
-      const cardcreate = createCard();
+      const cardcreate = createCard(item);
       card.appendChild(cardcreate);
       card.onclick = () => {
         chargeStationPage(item);
@@ -31,31 +31,39 @@ function searchPage(stationsNearby) {
       cardsContainer.appendChild(card);
     });
 }
-
-function createCard() {
+ function createCard(item) {
   let card = document.createElement('div');
   card.className = 'card';
   card.style.width = '18rem';
-
+  
   let cardBody = document.createElement('div');
   cardBody.className = 'card-body';
 
   let cardTitle = document.createElement('h5');
   cardTitle.className = 'card-title';
-  cardTitle.textContent = 'ABC';
+  cardTitle.textContent = item.name;
 
   let cardText = document.createElement('p');
   cardText.className = 'card-text';
-  cardText.textContent = 'Some quick example text to build on the card title and make up the bulk of the card\'s content.';
+  getAddress(item.latitude, item.longitude).then(address => cardText.textContent = address);
 
-  let cardLink1 = document.createElement('p');
-  cardLink1.className = 'card-rating';
-  cardLink1.textContent = ' Rating : 4';
+
+  let cardopenTime = document.createElement('p');
+  cardopenTime.className = 'station-open';
+  cardopenTime.textContent = `Opening Time : ${item.openTime}:00`;
+
+  let cardCloseTime = document.createElement('p');
+  cardCloseTime.className = 'station-close';
+  cardCloseTime.textContent = `Closing Time : ${item.closeTime}:00`;
 
   cardBody.appendChild(cardTitle);
+<<<<<<< HEAD
+=======
   
+>>>>>>> daad124328bf7f86133c7fe18d636b9a87d91659
   cardBody.appendChild(cardText);
-  cardBody.appendChild(cardLink1);
+  cardBody.appendChild(cardopenTime);
+  cardBody.appendChild(cardCloseTime);
 
   return cardBody;
 }
