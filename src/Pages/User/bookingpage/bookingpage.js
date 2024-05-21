@@ -6,94 +6,66 @@ const bookingRequest={
 }
 
 function chargeStationPage(chargepoint) {
-  const chargeStationPage = document.querySelector(".main_content");
-  chargeStationPage.innerHTML = "";
+  const ChargingStationPage = document.querySelector('.main_content');
+  ChargingStationPage.innerHTML = " ";
+
   const BookingFormDiv = document.createElement('div');
   BookingFormDiv.className = 'BookingFormDiv';
-
+  
   const header = document.createElement("div");
   header.className = "chargestationheader";
   BookingFormDiv.appendChild(header);
+  const h3 =document.createElement('h3');
+  h3.textContent = chargepoint.name;
+  const span = document.createElement('span');
+  span.className = 'stationAddress';
+  getAddress(chargepoint.latitude, chargepoint.longitude).then(address => span.textContent = address);
+  header.appendChild(h3);
+  header.appendChild(span);
+  const chargingstaionBooking = document.createElement('div');
+  chargingstaionBooking.className = 'chargingstaionBooking';
+  const chargingSlotDropdownList = document.createElement('select');
+  chargingSlotDropdownList.className = 'chargingSlotDropdownList';
+  const chargingSlotDropdownListLabel = document.createElement('label');
+  chargingSlotDropdownListLabel.textContent = 'Select Slot : ';
+  chargingstaionBooking.appendChild(chargingSlotDropdownListLabel);
+  chargingstaionBooking.appendChild(chargingSlotDropdownList);
+  BookingFormDiv.appendChild(chargingstaionBooking);
+  ChargingStationPage.appendChild(BookingFormDiv);
 
-  const stationName = document.createElement("span");
-  stationName.textContent = chargepoint.name;
-  header.appendChild(stationName);
 
-  const selectSlot = document.createElement("span");
-  selectSlot.className = "selectslottip";
-  selectSlot.textContent = "select available charging slot and choose date";
-  header.appendChild(selectSlot);
-
-  const chargingslotsContainer = document.createElement("div");
-  chargingslotsContainer.classList.add("chargeslotscontainer");
-  const chargingslotdropdownlist = document.createElement('select');
-  chargingslotdropdownlist.className = 'chargingslotdropdownlist';
-  const ChargingSlotdropdownLabel = document.createElement('label');
-  ChargingSlotdropdownLabel.textContent = ' Select Chargin Points : ';
-  ChargingSlotdropdownLabel.className = 'ChargingSlotdropdownLabel';
-  chargingslotsContainer.appendChild(ChargingSlotdropdownLabel);
-  chargingslotsContainer.appendChild(chargingslotdropdownlist);
-  chargingslotdropdownlist.innerHTML = '<option value="">Select a Chraging Slot </option>';
-
-  const datepickerSection = document.createElement("div");
-  datepickerSection.classList.add("datepicker");
-
-  const footerbuttons = document.createElement('div');
-  footerbuttons.className = 'bookingfooter';
-  const bookbtn = document.createElement("button");
-  bookbtn.className = "bookbtn";
-  bookbtn.textContent = "Book Now";
-  bookbtn.onclick=()=>{
-    bookSlot();
-  }
-  const canclebook = document.createElement("button");
-  canclebook.textContent = "Cancle";
-  canclebook.className = "canclebtn";
-  canclebook.onclick = () =>{
-    UserLandingPage();
-  }
-  footerbuttons.appendChild(bookbtn);
-  footerbuttons.appendChild(canclebook);
-
+  const tempdiv =document.createElement('div');
 
 
   getAllChargingStationSlotsById(chargepoint.stationId).then((data) => {
-    data.map((item) => {
-      const listelement = document.createElement('option');
-      const slotcard = document.createElement('div');
+    const chargingslotDropdown = document.getElementsByClassName("chargingSlotDropdownList")[0];
+    
+    if (chargingslotDropdown) {
+      console.log('Dropdown found');
+      chargingslotDropdown.innerHTML = '<option value="">Select a timeslot</option>';
       
-      slotcard.classList.add("chargingslotcard");
-      const h3 =document.createElement('h3');
-      h3.innerHTML = `Chargepoint ${item.slotId}`;
-      const p = document.createElement("p");
-      p.innerHTML = `Price: INR ${item.pricePerHour}`;
+      data.forEach((item) => {
+        const listelement = document.createElement('option');
+        listelement.value = item.slotId;
+        listelement.text = `ID : ${item.slotId}  Price : ₹${item.pricePerHour}`;
+        chargingslotDropdown.appendChild(listelement);
+       
+      });
       
-      renderDatepicker(datepickerSection, item.slotId, chargepoint.stationId);
-      slotcard.onclick = () => {
-        const allCards = document.querySelectorAll(".chargingslotcard");
-        bookingRequest.chargingSlotId=item.slotId;
-        allCards.forEach((card) => {
-            card.classList.remove("selectedchargingslotcard");
-        });
-        chargeStationPage.appendChild(datepickerSection);
+    } else {
+      console.error("No element found with the class 'chargingSlotDropdownList'");
+    }
+  });
+  getAllChargingStationSlotsById(chargepoint.stationId).then((data) => {
+    data.forEach((item) =>{
 
-        slotcard.classList.add("selectedchargingslotcard");
-      };
-      slotcard.appendChild(h3);
-      slotcard.appendChild(p);
-      listelement.value = item.SlotId;
-      listelement.text = `ID : ${item.slotId}  Price : ${item.pricePerHour}`;
-      chargingslotdropdownlist.appendChild(listelement);
-  
+      renderDatepicker(tempdiv, item.slotId, chargepoint.stationId);
 
     });
   });
-  BookingFormDiv.appendChild(chargingslotsContainer);
-  BookingFormDiv.appendChild(datepickerSection);
-  BookingFormDiv.appendChild(footerbuttons);
-  chargeStationPage.appendChild(BookingFormDiv);
- 
+  chargingstaionBooking.appendChild(tempdiv);
 }
+
 function renderDatepicker(datePickerSection, selectedSlotid, stationId) {
   let selectedDate;
   datePickerSection.innerHTML = "";
@@ -137,7 +109,7 @@ function renderDatepicker(datePickerSection, selectedSlotid, stationId) {
   timeslotContainer.id = "timeslot";
   timeslotContainer.classList.add("timeslot");
 
-  datePickerSection.appendChild(timeslotContainer);
+  // datePickerSection.appendChild(timeslotContainer);
   const timeslotDropdown = document.createElement('div');
   timeslotDropdown.className = 'timeslotDropdown';
   const labeltimeslot = document.createElement('label');
@@ -151,59 +123,6 @@ function renderDatepicker(datePickerSection, selectedSlotid, stationId) {
  
 }
 
-// function renderTimeSlots(timeslots) {
-//   const datepicker = document.getElementById("date");
-//   const selectedDate = new Date(datepicker.value);
-//   const currentDate = new Date();
-//   const hourCardsContainer = document.getElementById("timeslot");
-//   hourCardsContainer.innerHTML = "";
-
-//   if (selectedDate.toDateString() === currentDate.toDateString()) {
-//     const currentHour = currentDate.getHours();
-//     const currentMinute = currentDate.getMinutes();
-
-//     const futureTimeSlots = timeslots.filter((slot) => {
-//       return (
-//         slot.startTime > currentHour ||
-//         (slot.startTime === currentHour && slot.endTime > currentMinute)
-//       );
-//     });
-
-//     futureTimeSlots.forEach((data) => {
-//       const card = document.createElement("div");
-//       card.classList.add("card");
-//       card.textContent = `${data.startTime}:00 ` + "To " + `${data.endTime}:00`;
-//       hourCardsContainer.appendChild(card);
-//       card.onclick = () => {
-//         bookingRequest.timeSlotId=data.timeSlotId;
-//         // showBookingButton();
-//         const allCards = document.querySelectorAll(".card");
-//         allCards.forEach((card) => {
-//           card.classList.remove("selected");
-//         });
-//         card.classList.add("selected");
-//       };
-//     });
-//   } else if (selectedDate > currentDate) {
-//     timeslots.map((data) => {
-//       const card = document.createElement("div");
-//       card.classList.add("card");
-//       card.textContent = `${data.startTime}:00 ` + "To " + `${data.endTime}:00`;
-//       hourCardsContainer.appendChild(card);
-//       card.onclick = () => {
-//         bookingRequest.timeSlotId=data.timeSlotId;
-//         // showBookingButton();
-//         const allCards = document.querySelectorAll(".card");
-//         allCards.forEach((card) => {
-//           card.classList.remove("selected");
-//         });
-//         card.classList.add("selected");
-//       };
-//     });
-//   } else {
-//     alert("please Don't Select Old Date");
-//   }
-// }
 //chatgpt function
 function renderTimeSlots(timeslots) {
   const datepicker = document.getElementById("date");
@@ -241,29 +160,6 @@ function renderTimeSlots(timeslots) {
   }
 }
 
-// function showBookingButton() {
-//   const buttonfooter = document.querySelector('.bookingfooter');
-//   const bookingbtngroup = document.createElement("div");
-//   bookingbtngroup.className = "bookingbtngroup";
-//   const bookbtn = document.createElement("button");
-//   bookbtn.className = "bookbtn";
-//   bookbtn.textContent = "Book Now";
-//   bookbtn.onclick=()=>{
-//     bookSlot();
-//   }
-
-//   const canclebook = document.createElement("button");
-//   canclebook.textContent = "Cancle";
-//   canclebook.className = "canclebtn";
-//   canclebook.onclick = () =>{
-//     UserLandingPage();
-
-//   }
-
-//   bookingbtngroup.appendChild(canclebook);
-//   bookingbtngroup.appendChild(bookbtn);
-//   buttonfooter.appendChild(bookingbtngroup);
-// }
 
 function bookSlot() {
     if(bookingRequest.chargingSlotId!==null ||bookingRequest.date !==null ||bookingRequest.timeSlotId !==null){

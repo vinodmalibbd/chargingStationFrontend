@@ -116,7 +116,7 @@ body{
 .chargepointcard{
   display: flex;
   border-radius: 10px;
-  padding: 10px;
+  padding: 1%;
   border: 1px solid blue;
   align-items: center;
   justify-content: center;
@@ -142,8 +142,8 @@ body{
   flex-direction: column;
 }
 .chargestationheader span{
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 .chargeslotscontainer{
   width: 100%;
@@ -262,4 +262,11 @@ body{
 }
 .card-title{
   font-size: 1.5rem ;
+}
+.chargepointcardscontainer .chargepointcard{
+  width: auto;
+  display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
+  
 }
