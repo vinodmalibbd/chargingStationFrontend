@@ -25,23 +25,7 @@ function UserLandingPage() {
   headerDiv.appendChild(titleDiv);
 
   const ulElement = document.createElement("ul");
-
-  const searchBarLi = document.createElement("li");
-  searchBarLi.className = "searbarbox";
-  const searchInput = document.createElement("input");
-  searchInput.type = "text";
-  searchInput.id = "searchinput";
-  searchInput.placeholder = "Search station";
-  const searchButton = document.createElement("button");
-  searchButton.id = "searchButton";
-  
-  searchButton.innerHTML = '🔍';
-  searchButton.onclick = () => {
-    searchCharingStationInCity();
-  };
-  searchBarLi.appendChild(searchInput);
-  searchBarLi.appendChild(searchButton);
-
+    // searchCharingStationInCity();
   const loginLi = document.createElement("li");
   loginLi.innerHTML = '<i class="fas fa-user"></i>  Login';
   loginLi.onclick = () => {
@@ -54,10 +38,11 @@ function UserLandingPage() {
     MainPage();
   }
 
-  const chargePointsLi = document.createElement("li");
-  chargePointsLi.innerHTML = '<i class="fas fa-address-card"></i>  ChargePoints';
-  chargePointsLi.onclick = () => {
-    changeTab("/chargepoint", mainContentDiv);
+  const searchstationli = document.createElement("li");
+  searchstationli.innerHTML = '<i class="fas fa-address-card"></i>  Search Station';
+  searchstationli.onclick = () => {
+    searchStationPage();
+    // changeTab("/chargepoint", mainContentDiv);
   };
   const showbookingLi = document.createElement('li');
   showbookingLi.className = 'showBooking';
@@ -67,7 +52,7 @@ function UserLandingPage() {
     changeTab("/showBookings", mainContentDiv);
   }
 
-  ulElement.appendChild(searchBarLi);
+  ulElement.appendChild(searchstationli);
   // ulElement.appendChild(chargePointsLi);
   
   const user = sessionStorage.getItem("web-vb-token");
