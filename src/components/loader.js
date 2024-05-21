@@ -1,4 +1,4 @@
-function showLoader(isTrue) {
+function showLoader(isTrue,container) {
     
     if (isTrue) {
         loaderWrapper = document.createElement('div');
@@ -8,9 +8,9 @@ function showLoader(isTrue) {
         loader.className = 'loader';
 
         loaderWrapper.appendChild(loader);
-        document.body.appendChild(loaderWrapper);
+        container.appendChild(loaderWrapper);
     } else {
         
-        document.body.removeChild(document.querySelector('.loader-wrapper'));
+        container.removeChild(document.querySelector('.loader-wrapper'));
     }
 }

@@ -1,421 +1,71 @@
-/* @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
+/*style.css */
+@import url( 
+'https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
 body{
-   background-color: #f3f5f9;
-   color: black;
+  background-color: rgb(226, 226, 226);
+}
+.searchpage{
+  width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.wrapper{
+.searchpageheader{
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100vh;
-}
-
-.wrapper .sidebar{
-  width: 30%;
-  height: 100%;
-  background: #4b4276;
-}
-
-.wrapper .sidebar ul li{
-  padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  color: #bdb8d7;
-  display: block;
-}    
-
-
-.wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
-}
-    
-.wrapper .sidebar ul li:hover a{
-  color: #fff;
-}
-
-
-.wrapper .main_content{
-  width: 70%;
-  height: 100%;
-  background: #fff;
-  overflow-y: auto;
-}
-
-.wrapper .main_content .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .header{
-  display:flex;
+  height: 20%;
   align-items: center;
-  width: 100%;
-  gap: 1em;
-  height: 10%;
-  background-color: #717171;
+  justify-content: center;
+  gap: 1rem;
 }
-.wrapper .header img{
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  margin-left: 2%;
-}
-.wrapper .Title{
+.searchpagesearchbar{
   width: 80%;
-}
-.wrapper .headerImg{
-  width: 20%;
-}
-.wrapper .searbarbox{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-}
-.wrapper .searbarbox input{
- width: 80%;
-
-}
-.wrapper .searbarbox button{
-  border-radius: 5px;
-}
-.wrapper #map{
-  width: 100%;
-  height: 100%;
-}
-.wrapper .chargepointTab{
-  width: 100%;
-  height: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-}
-.wrapper .chargepointcardscontainer{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.wrapper .chargepointcard{
-  display: flex;
-  padding: 1%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  align-items: center;
-  justify-content: center;
-  color: black;
-  margin: 1%;
-}
-.wrapper .chargepointcard{
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 1rem;
 }
-.wrapper .chagestationpage{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-}
-.wrapper .chargestationheader{
-  width: 100%;
-  height: 20vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-}
-.wrapper .chargestationheader span{
-  font-weight: 600;
-  font-size: 1.5rem;
-}
-.wrapper .chargeslotscontainer{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.wrapper .chargingslotcard{
-  display: flex;
-  border-radius: 10px;
-  padding: 10px;
-  border: 1px solid blue;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  margin: 10px;
-}
-.wrapper .selectslottip{
-  color: black;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.searchpagesearchbar input{
+  width: 80%;
   padding: 1rem;
-}
-.wrapper .main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  
-  }
-  
-  .wrapper .form-container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 2%;
-    width: 50%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-  }
-  .wrapper .form-container button:hover {
-    background-color: #45a049;
-  }
-  .wrapper.form-container input{
-    margin-bottom: 2%;
-    padding: 0.5%;
-    border-radius: 10px;
-  }
-  .wrapper .form-container label{
-    margin-bottom: 2%;
-  }
-  .wrapper .form-container button{
-    width: 40%;
-    background-color: rgb(10, 144, 144);
-    border-radius: 7px;
-    margin-bottom: 2%;
-    cursor: pointer;
-  font-size: 1em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .wrapper .ButtonDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-  }
-
-  .wrapper .ButtonCrudDiv{
-    display: flex;
-    justify-content: space-around;
-
-  }
-   .wrapper.ButtonCrudDiv button{
-    font-size: 1em;
-    padding: 1%;
-  }
-  .wrapper .chargepointcard .description{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-  }
-  .wrapper .chargepointcard .buttons{
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-  }
-  .wrapper .chargepointcard .buttons button{
-
-    cursor: pointer;
-    margin-top: 1%;
-  }
-  .wrapper .ButttonCrudDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  .wrapper .ButttonCrudDiv .AddSlotButton{
-    padding: 1%;
-    cursor: pointer;
-
-  } */
-
-  /* css for Sucess Popup box */
-  /* .mainDiv{
-    height: 100vh;
-    width:100% ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  }
-
-  .SuccessPopUpBox{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #280e11;
-    width: 40%;
-  } */
-
-  /* PopupSucess.css */
-
-/* .PopSucessmainDiv {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.PopSucessmainDiv .SuccessPopUpBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
+  outline: none;
+  border: 1px solid blueviolet;
   border-radius: 10px;
-  width: 80%;
-  padding: 2%;
-  text-align: center;
+  max-width: 70vh;
 }
-
-.PopSucessmainDiv .PopUpHeader {
-  font-size: 2em;
-  color: #155724;
-  margin-bottom: 1%;
-}
-
-.PopSucessmainDiv .PopUpMessage {
-  font-size: 1em;
-  color: #155724;
-  margin-bottom: 2%;
-}
-
-.PopSucessmainDiv .PopUpicon {
-  font-size: 2em;
-  color: #28a745;
-  margin-bottom: 10px;
-}
-
-
-.PopSucessmainDiv .PopupOkButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #28a745;
-  border: none;
-  border-radius: 5px;
-  padding: 2% 2%;
-  font-size: 1em;
-  cursor: pointer;
-  width: 50%;
-  transition: background-color 0.3s;
-}
-
-.PopSucessmainDiv .PopupOkButton:hover {
-  background-color: #218838;
-}
- */
-
- /* styles.css */
-/* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.profile-container {
-  background-color: #fff;
-  border: 1px solid #ccc;
+.searchpagesearchbar button {
+  padding: 1rem 1rem;
   border-radius: 10px;
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.user-info p {
-  margin: 5px 0;
-}
-
-.profile-actions {
-  margin-top: 20px;
-}
-
-.action-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 5px;
-  font-size: 1em;
+  font-size:1em;
+  background-color: transparent;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
-
-.action-button:hover {
-  background-color: #218838;
+.searchpagemiddle{
+  width: 90%;
+  padding: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
-
-.bookings-container {
-  display: none; /* Initially hidden */
+.searchpagechargingstation{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  scrollbar-width: 0px;
 }
+.searchstationcard{
+  display: flex;
 
-.bookings-container h2 {
-  margin-bottom: 10px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
 }
-
-.booking {
-  background-color: #e0ffe0;
-  border: 1px solid #b3ffb3;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.cancel-button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.cancel-button:hover {
-  background-color: #cc0000;
-}
-
-
