@@ -1,45 +1,49 @@
-const createBooking=async(bookingRequest)=>{
-    const token = sessionStorage.getItem("web-vb-token");
-    if (token) {
+const createBooking = async (bookingRequest) => {
+  showLoader(true); // Show loader before API call
+  const token = sessionStorage.getItem("web-vb-token");
+  if (token) {
       const decodedtoken = decodeJwtToken(token);
       const res = await fetch(
-        `${backendurl}/booking/create`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify(bookingRequest),
-        }
+          `${backendurl}/booking/create`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  Authorization: token,
+              },
+              body: JSON.stringify(bookingRequest),
+          }
       );
       if (res.status === 201) {
-        return res.json();
+          showLoader(false); 
+          return res.json();
       }
-    } else {
+  } else {
+      showLoader(false); 
       navigateTo("/");
-    }
+  }
 }
 
-async function getAllChargingStationBooking(){
+async function getAllChargingStationBooking() {
+  showLoader(true); // Show loader before API call
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
-    const decodedtoken = decodeJwtToken(token);
-    const stationId=decodedtoken.sub;
-    const res = await fetch(
-      `${backendurl}/booking/all/chargingstation/${stationId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
+      const decodedtoken = decodeJwtToken(token);
+      const stationId = decodedtoken.sub;
+      const res = await fetch(
+          `${backendurl}/booking/all/chargingstation/${stationId}`, {
+              method: "GET",
+              headers: {
+                  "Content-Type": "application/json",
+                  Authorization: token,
+              },
+          }
+      );
+      if (res.status === 200) {
+          showLoader(false); 
+          return res.json();
       }
-    );
-    if (res.status === 200) {
-      return res.json();
-    }
   } else {
-    navigateTo("/");
+      showLoader(false); 
+      navigateTo("/");
   }
 }

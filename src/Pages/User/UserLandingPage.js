@@ -34,7 +34,7 @@ function UserLandingPage() {
   searchInput.placeholder = "Search station";
   const searchButton = document.createElement("button");
   searchButton.id = "searchButton";
-  // searchButton.textContent = "Search";
+  
   searchButton.innerHTML = '🔍';
   searchButton.onclick = () => {
     searchCharingStationInCity();

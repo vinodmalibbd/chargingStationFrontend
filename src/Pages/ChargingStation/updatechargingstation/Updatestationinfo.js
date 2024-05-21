@@ -66,14 +66,16 @@
     getlocation.textContent="add auto location"; 
     getlocation.onclick=(e)=>{
       e.preventDefault();
-      console.log("here");
+      showLoader(true);
       getCurrentPositionUser().then(loc=>{
 
         const latitudeInput = document.getElementById('stationlatitude');
         const longitudeInput = document.getElementById('stationlongitude');
         latitudeInput.value = loc.lat;
         longitudeInput.value = loc.long;
+        showLoader(false);
       });
+      showLoader(false);
     } 
     buttonDiv.appendChild(getlocation);
 
@@ -130,12 +132,13 @@
         latitude: parseFloat(latitude),
         longitude: parseFloat(longitude)
     };
-
-    console.log(profileData);
+    showLoader(true)
     getChargingStationById().then(data=>{
       console.log(data);
       profileData['emailId']=data.emailId;
       updateChargingStationProfile(profileData)
+      showLoader(false);
     })
+    showLoader(false);
     
 }

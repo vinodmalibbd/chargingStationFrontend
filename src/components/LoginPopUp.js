@@ -1,4 +1,7 @@
-
+function loginuser() {
+  window.location.href =
+    `${backendurl}/auth/user`;
+};
 
 function createPOPUP(usertype) {
  

@@ -1,4 +1,4 @@
-.stationbookingheader{
+.userbookingheader{
     width: 100%;
     height: 20%;
     display: flex;
@@ -6,17 +6,17 @@
     align-items: center;
     color: black;
   }
-  .stationbookingsection{
+  .userbookingsection{
     width: 100%;
     height: 70%;
     color: black;
     overflow-y: scroll;
     scrollbar-width: 0px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    
   }
-  .stationbookingcard{
+  .userbookingcard{
     margin: 5px;
     display: flex;
     justify-content: center;
@@ -25,21 +25,21 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 8px;
   }
-  .stationbookingcarditem{
+  .userbookingcarditem{
     display: flex;
     justify-content: space-between;
   }
-  .stationbookingshowmorebtn{
+  .userbookingshowmorebtn{
     display: flex;
     justify-content: center;
     font-size: 0.8rem;
     font-weight: 500;
   }
-  .stationbookinglablespan{
+  .userbookinglablespan{
     display: flex;
     flex-direction: column;
   }
-  .stationbookingdatetime{
+  .userbookingdatetime{
     display: flex;
     justify-content: space-around;
     width: 95%;

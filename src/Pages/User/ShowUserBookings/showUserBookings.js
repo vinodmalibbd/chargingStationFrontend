@@ -1,138 +1,105 @@
-// function ShowBookingsfuncion(){
-//   const ShowBookingsMainDiv = document.querySelector('.main_content');
-//   ShowBookingsMainDiv.innerHTML = ' ';
-//   const chargepointtab = document.createElement("div");
-//     chargepointtab.className = "chargepointTab";
-//     mainContentDiv.appendChild(chargepointtab);
-  
-//     const cardsContainer = document.createElement("div");
-//     cardsContainer.className = "chargepointcardscontainer";
-//     chargepointtab.appendChild(cardsContainer);
-//     showAllUserBookings().then((data) => {
-//       data.map((item) => {
-//         const card = document.createElement("div");
-//         card.textContent = item.name;
-//         card.className = "chargepointcard";
-//         card.onclick = () => {
-//           ShowBookings(item);
-//         };
-//         cardsContainer.appendChild(card);
-//         ShowBookingsMainDiv.appendChild(cardsContainer);
-//       });
-//     });
-
-// }
-const loginuser = async () => {
-  window.location.href =`${backendurl}/auth/user`;
-};
-
-// function ShowBookingsfuncion(){
-
-//   const UserLandingPage = document.querySelector(".main_content");
-//   chargeStationPage.innerHTML = "";
-//   const showBookingHeader =document.createElement('div');
-//   showBookingHeader.className = 'showBookingHeader';
-//   UserLandingPage.appendChild(showBookingHeader);
-  
-//   const showheadingBooking = document.createElement("span");
-//   showheadingBooking.textContent = 'User Bookings';
-//   showBookingHeader.appendChild(showheadingBooking);
-//   const showBookingCardContainer =document.createElement('div');
-//   showBookingCardContainer.className = 'showBookingCardContainer';
-//   showAllUserBookings().then((data) => {
-//     console.log(data);
-//     data.map((item) => {
-//       const showBookingcard = document.createElement("div");
-//       showBookingcard.className = 'showBookingcard';
-//       const StationNameSpan =document.createElement('span');
-//       StationNameSpan.className = 'StationNameSpan';
-//       const chargingpontid = document.createElement('span');
-//       chargingpontid .className = 'chargingpontid';
-//       const bookingDate = document.createElement('span');
-//       bookingDate.className = 'bookingDate';
-//       const bookingtime = document.createElement('span');
-//       bookingtime.className = 'bookingtime';
-//       const bookingAmount = document.createElement('span');
-//       bookingAmount.className ='bookingAmount';
-//       StationNameSpan.textContent = 'Station Name : Kalyani nagar charge Point';
-//       chargingpontid.textContent = 'charge point id : 1';
-//       bookingDate.textContent = 'Booking Date : 19/05/2024';
-//       bookingtime.textContent = 'booking time : 10 '+' To 11';
-//       const bookingStatus = document.createElement('span');
-//       bookingStatus.textContent = 'Confirmed'
-//       showBookingcard.appendChild(StationNameSpan);
-//       showBookingCard.appendChild(chargingpontid);
-//       showBookingcard.appendChild(bookingDate);
-//       showBookingcard.appendChild(bookingtime);
-//       showBookingcard.appendChild(bookingStatus);
-//       showBookingCardContainer.appendChild(showBookingcard);
-//     });
-
-//    });
-//   UserLandingPage.appendChild(showBookingCardContainer);
-
-// }
-
 function ShowBookingsfunction() {
   const UserLandingPage = document.querySelector(".main_content");
   UserLandingPage.innerHTML = " ";
   const cardsContainershowBooking = document.createElement('div');
-  cardsContainershowBooking.className = 'cardsContainershowBooking';
+  cardsContainershowBooking.className = 'userbookingheader';
+  cardsContainershowBooking.textContent="user bookings"
   UserLandingPage.appendChild(cardsContainershowBooking);
   const BookingheadingDiv = document.createElement('p');
-  BookingheadingDiv.className = 'BookingheadingDiv';
-  BookingheadingDiv.innerHTML = ' User Bookings';
-  cardsContainershowBooking.appendChild(BookingheadingDiv);
-  const bookings = showAllUserBookings();
-  bookings.map(book => {
-      console.log(book);
-      const card = createBookingCard(book);
-      
-      cardsContainershowBooking.appendChild(card);
-  });
+  BookingheadingDiv.className = 'userbookingheader';
+  BookingheadingDiv.textContent = ' User Bookings';
+  const userBookingSection=document.createElement('div');
+  userBookingSection.className='userbookingsection';
+  UserLandingPage.appendChild(userBookingSection);
+  showAllUserBookings().then(data=>{
+
+      data.map(book => {
+          createBookingCard(book,userBookingSection);
+      });
+  })
 }
 
-function createBookingCard(booking) {
-  const card = document.createElement('div');
-  card.className = 'card';
-  const cardelementDiv = document.createElement('div');
-  cardelementDiv.className = 'cardelementDiv';
-  card.appendChild(cardelementDiv);
-  // const stationName = document.createElement('h3');
-  // stationName.textContent = booking.stationName;
+function createBookingCard(booking,userBookingSection) {
+  const bookingcard=document.createElement('div');
+    bookingcard.className='stationbookingcard';
+    
+    const usernameanddatecontainer=document.createElement("div");
+    usernameanddatecontainer.className='stationbookingcarditem';
 
-  const slotId = document.createElement('p');
-  slotId.textContent = `Slot ID: ${booking.slotId}`;
+    const usernamecontainer=document.createElement('div');
+    usernamecontainer.className='stationbookinglablespan';
 
-  const datecast = booking.date;
-  const dateobj =Date(datecast);
-   const formatted_date = date.toISOString().replace('T', ' ').substring(0, 19);
-
-  const date = document.createElement('p');
-  date.textContent = `Date: ${formatted_date}`;
-
-  const startTime = document.createElement('p');
-  startTime.textContent = `Start Time: ${booking.startTime}`;
-
-  const endTime = document.createElement('p');
-  endTime.textContent = `End Time: ${booking.endTime}`;
-  const DivcancelBookingButton =document.createElement('div');
-  DivcancelBookingButton.className = 'DivcancelBookingButton';
-  const cancelBookingButton = document.createElement('button');
-  cancelBookingButton.className = 'cancelBookingButton';
-  cancelBookingButton.textContent = 'Cancel';
-  cancelBookingButton.onclick = () =>{
-    document.removeChild(card);
-  }
-  DivcancelBookingButton.appendChild(cancelBookingButton);
+    const namespan=document.createElement('span');
+    namespan.textContent='Name';
+    namespan.className='lablespan';
     
 
-  // cardelementDiv.appendChild(stationName);
-  cardelementDiv.appendChild(slotId);
-  cardelementDiv.appendChild(date);
-  cardelementDiv.appendChild(startTime);
-  cardelementDiv.appendChild(endTime);
-  card.appendChild(cardelementDiv);
-  card.appendChild(DivcancelBookingButton);
-  return card;
+    const username=document.createElement('span');
+    username.textContent=`${booking.chargingStation.name}`;
+    username.className='valuespan';
+
+    usernamecontainer.appendChild(namespan);
+    usernamecontainer.appendChild(username);
+    
+
+    const datecontainer=document.createElement('div');
+    datecontainer.className='stationbookinglablespan';
+
+    const datespan=document.createElement('span');
+    datespan.textContent=`Date`
+    datespan.className='lablespan'
+
+    const bookingdate=document.createElement('span');
+    bookingdate.textContent=`${formatDate(booking.date)}`;
+    bookingdate.className='valuespan';
+
+    datecontainer.appendChild(datespan);
+    datecontainer.appendChild(bookingdate);
+
+    usernameanddatecontainer.appendChild(usernamecontainer);
+    usernameanddatecontainer.appendChild(datecontainer);
+
+    const timeandstatuscontainer=document.createElement('div');
+    timeandstatuscontainer.className='stationbookingcarditem';
+
+
+    const timeContainer=document.createElement('div');
+    timeContainer.className='stationbookinglablespan';
+
+    const timespan=document.createElement('span');
+    timespan.textContent='Time'
+    timespan.className='lablespan'
+
+    const bookingtime=document.createElement('span');
+    bookingtime.textContent=`11:00-12:00`;
+    bookingtime.className='valuespan';
+
+    timeContainer.appendChild(timespan);
+    timeContainer.appendChild(bookingtime);
+
+    const slotnumbercontainer=document.createElement('div');
+    slotnumbercontainer.className='stationbookinglablespan';
+
+    const slotspan=document.createElement('span');
+    slotspan.textContent=`Status`;
+    slotspan.className='lablespan';
+    const bookingstatus=document.createElement('span');
+    bookingstatus.textContent=`${booking.status}`;
+    bookingstatus.className='valuespan';
+    
+
+    slotnumbercontainer.appendChild(slotspan);
+    slotnumbercontainer.appendChild(bookingstatus);
+
+    timeandstatuscontainer.appendChild(timeContainer);
+    timeandstatuscontainer.appendChild(slotnumbercontainer)
+
+    const showbookingbtn=document.createElement("span");
+    showbookingbtn.className='stationbookingshowmorebtn';
+    showbookingbtn.textContent=`chargepoint: ${booking.chargingSlot.slotId}`
+
+    bookingcard.appendChild(usernameanddatecontainer);
+    bookingcard.appendChild(timeandstatuscontainer);
+    bookingcard.appendChild(showbookingbtn);
+    userBookingSection.appendChild(bookingcard);
 }
