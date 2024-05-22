@@ -4,6 +4,7 @@ let bookingRequest={
     timeSlotId:null,
     date:null
 }
+let charginStationId;
 
 function getCurrentDate() {
   const today = new Date();
@@ -13,11 +14,14 @@ function getCurrentDate() {
   return `${year}-${month}-${day}`;
 }
 
-// Function to render the charging station page
+
 async function chargeStationPage(chargingStation) {
+  charginStationId=chargingStation.stationId;
   
   const ChargingStationPage = document.querySelector('.main_content');
   ChargingStationPage.innerHTML = " ";
+  bookingRequest.chargingSlotId=chargingStation.chargingSlots[0].slotId;
+  bookingRequest.date=new Date()
   
   const BookingFormDiv = document.createElement('div');
   BookingFormDiv.className = 'BookingFormDiv';
@@ -57,10 +61,7 @@ async function chargeStationPage(chargingStation) {
 
   const timeslotDiv = document.createElement('div');
   timeslotDiv.className = 'timeslotDiv';
-  const timeslotLabel = document.createElement('label');
-  timeslotLabel.className = 'timeslotLabel';
-  timeslotLabel.textContent = 'Time Slot : ';
-  timeslotDiv.appendChild(timeslotLabel);
+ 
 
   const BookingButtons = document.createElement('div');
   BookingButtons.className = 'BookingButtons';
@@ -93,18 +94,16 @@ async function chargeStationPage(chargingStation) {
   chargingstaionBooking.appendChild(timeslotDiv);
   chargingstaionBooking.appendChild(BookingButtons);
 
-  // Create and populate the slot dropdown list
   const slots = await getAllChargingStationSlotsById(chargingStation.stationId)
     console.log(slots);
   if (slots && slots.length > 0){
     const slotSelect = createSlotDropdown(slots);
     SlotDiv.appendChild(slotSelect);
   
-    // Render the date picker
     const datePicker = createDatepicker();
     datepickerDiv.appendChild(datePicker);
   
-    // Populate and render the time slots dropdown based on selected date and station's open/close time
+
     populateTimeSlotsDropdown(datePicker.value, chargingStation.openTime, chargingStation.closeTime);
   }else {
     console.error('No slots available for this station.');
@@ -118,6 +117,10 @@ async function chargeStationPage(chargingStation) {
 function createSlotDropdown(slots) {
   const slotSelect = document.createElement('select');
   slotSelect.id = 'slot-select';
+  slotSelect.onchange=(e)=>{
+    updateBookingRequest();
+  }
+
   slots.forEach(slot => {
       const option = document.createElement('option');
       option.value = slot.slotId;
@@ -136,6 +139,7 @@ function createDatepicker(openTime,closeTime) {
   datePicker.value = todaydate; 
   datePicker.onchange = (event) =>{
     const selectedDate = event.target.value;
+    updateBookingRequest();
     populateTimeSlotsDropdown(selectedDate, openTime, closeTime);
   }
   return datePicker;
@@ -143,14 +147,21 @@ function createDatepicker(openTime,closeTime) {
 
 function populateTimeSlotsDropdown(selectedDate, openTime, closeTime) {
   const timeSlotsSelect = createTimeSlotsDropdown(selectedDate, openTime, closeTime);
-
-  document.querySelector('.timeslotDiv').appendChild(timeSlotsSelect);
- 
+  const timsloddiv=document.querySelector('.timeslotDiv');
+  timsloddiv.innerHTML='';
+  const timeslotLabel = document.createElement('label');
+  timeslotLabel.className = 'timeslotLabel';
+  timeslotLabel.textContent = 'Time Slot : ';
+  timsloddiv.appendChild(timeslotLabel);
+  timsloddiv.appendChild(timeSlotsSelect);
 }
 
 function createTimeSlotsDropdown(selectedDate, openTime, closeTime) {
   const timeSlotsSelect = document.createElement('select');
   timeSlotsSelect.id = 'time-slots-select';
+  timeSlotsSelect.onchange=(e)=>{
+    updateBookingRequest();
+  }
 
   for (let hour = openTime; hour < closeTime; hour++) {
       for (let minute = 0; minute < 60; minute += 60) {
@@ -175,26 +186,35 @@ function bookSlot() {
   console.log(timeSlot);
   if (slotId && date && timeSlot) {
    
-    const bookingRequest = {
-      userId: null,
-      chargingSlotId: slotId,
-      timeSlotId: null, 
-      date: date
-    };
+   
+    console.log(bookingRequest);
 
-    createBooking(bookingRequest)
-      .then(response => {
 
-        alert('Booking successful!');
-      })
-      .catch(error => {
-        console.error('Failed to book slot:', error);
-      });
+    // createBooking(bookingRequest)
+    //   .then(response => {
+
+    //     alert('Booking successful!');
+    //   })
+    //   .catch(error => {
+    //     console.error('Failed to book slot:', error);
+    //   });
   } else {
     alert('Please select all fields to book a slot');
   }
 }
 
 
-
-// You need to call chargeStationPage function with the charging station object when needed.
+function updateBookingRequest() {
+  const slotId = document.getElementById('slot-select').value;
+  const date = document.getElementById('date-picker').value;
+  const timeSlot = document.getElementById('time-slots-select').value;
+  bookingRequest.chargingSlotId = slotId;
+  bookingRequest.date = date;
+  bookingRequest.timeSlotId = timeSlot;
+  const data={
+        date: date,
+        chargingSlotId: slotId,
+        stationId: charginStationId
+  }
+  console.log(bookingRequest);
+}
