@@ -148,7 +148,7 @@ function saveSlot(warningSpan){
               pricePerHour: priceValue,
               available: status === 'available' ? true : false
           };
-          // addChargingSlotStation(data);
+          addChargingSlotStation(data);
           console.log(data);
           Chargingpoints();
           
