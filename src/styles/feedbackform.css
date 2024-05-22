@@ -32,8 +32,6 @@ i {
 	display: flex;  
 } 
 
-#feedbackform input[type="radio"] { 
-} 
 
 #feedbackform label { 
 	display: block; 

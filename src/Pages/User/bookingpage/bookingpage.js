@@ -219,6 +219,7 @@ function updateBookingRequest() {
   getSlotAvailblity(data).then(res=>{
     timeslotsByData=res;
   })
+  
 }
 function firsttime(){
   const data={

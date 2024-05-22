@@ -46,7 +46,7 @@ const addChargingSlotStation = async (data) => {
       return res.json();
     }
   } else {
-    
+    console.error("Charging Slot is not added proprly")
   }
 };
 const updateChargingSlot = async (data) => {
@@ -68,7 +68,8 @@ const updateChargingSlot = async (data) => {
     if (res.status === 200) {
       return res.json();
     }
-  } 
+  } else {
+  }
 };
 const getAllChargingStationSlotsById = async (id) => {
   showloader();

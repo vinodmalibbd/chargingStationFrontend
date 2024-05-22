@@ -57,19 +57,19 @@ function updateProfileStation(mainContentDiv){
     form.appendChild(LongitudeInput);
     
     const buttonDiv =document.createElement("div");
-    buttonDiv.className ="ButtonDiv";
+    buttonDiv.className ="StationprofileUpdateButtonDiv";
   
   
-    const getlocation=document.createElement('button');
-    getlocation.textContent="add auto location";  
+    const getlocation=document.createElement('span');
+    getlocation.textContent="use current location";  
     getlocation.onclick=function(){
-      const loc=getCurrentPositionUser();
+      const loc= getCurrentPositionUser();
       const latitudeInput = document.getElementById('latitude');
       const longitudeInput = document.getElementById('longitude');
       latitudeInput.value = loc.lat;
       longitudeInput.value = loc.long;
     }
-    buttonDiv.appendChild(getlocation);
+   form.appendChild(getlocation);
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
@@ -87,8 +87,9 @@ function updateProfileStation(mainContentDiv){
   }
   
   function submitForm() {
-    const formData = new FormData(document.getElementById('profileForm'));
-  
+    const formobj = document.querySelector('.profileupdateform')
+    const formData = new FormData(formobj);
+
     const formDataObject = {};
   
     for (let [key, value] of formData.entries()) {

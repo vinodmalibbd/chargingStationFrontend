@@ -4,6 +4,7 @@ function Chargingpoints(){
   mainContentDiv.innerHTML='';
   const chargepointtab=document.createElement("div");
   chargepointtab.className='chargingSlotPage';
+  
 
   const cardsContainer=document.createElement('div');
   cardsContainer.className="chargingSlotsContainer";
@@ -11,15 +12,18 @@ function Chargingpoints(){
 
   const buttonDiv =document.createElement('div');
   buttonDiv.className = "AddSlotButtonHeader";
+  mainContentDiv.appendChild(buttonDiv); 
+  mainContentDiv.appendChild(chargepointtab);
 
   const addSlot = document.createElement('button');
   addSlot.className = "AddSlotButton";
   addSlot.textContent = "ADD Slot";
+  buttonDiv.appendChild(addSlot);
   addSlot.onclick = () =>{
     addNewSlot();
   }
-  buttonDiv.appendChild(addSlot);
-  mainContentDiv.appendChild(buttonDiv); 
+  
+ 
   getAllChargingStationSlots().then(data=>{
     data.map((item , key)=>{
       const card=document.createElement('div');
@@ -38,7 +42,7 @@ function Chargingpoints(){
       span02.textContent = `Price per hour : ${item.pricePerHour}`;
       span03.textContent = item.available ? 'Status : available': 'Status : maintainance';
       const editButton = document.createElement('button');
-      editButton.classList.add('edit-btn');
+      editButton.classname = 'edit-btn';
       editButton.innerHTML = '✏️';
       editButton.onclick = () => {
         editSlotForm(card,item);
@@ -149,7 +153,7 @@ function saveSlot(warningSpan){
               pricePerHour: priceValue,
               available: status === 'available' ? true : false
           };
-          // addChargingSlotStation(data);
+          addChargingSlotStation(data);
           console.log(data);
           Chargingpoints();
           

@@ -13,7 +13,7 @@ function checkStorageAndRedirect() {
 function redirectBasedOnRole(role) {
   switch (role) {
     case 'chargingstation':
-      chargingStationDashboard();
+      chargingStationLanding();
       break;
     case 'user':
       UserLandingPage();

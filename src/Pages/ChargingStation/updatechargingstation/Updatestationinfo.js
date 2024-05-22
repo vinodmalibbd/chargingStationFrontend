@@ -1,11 +1,11 @@
 function updateStationInfo() {
     const mainContainer = document.createElement('div');
-    mainContainer.classList.add('main-container');
+    mainContainer.className = 'main-container';
     document.body.appendChild(mainContainer);
   
-    const updateprofileContainer=document.createElement('div');
-    updateprofileContainer.className='updatestationformcontainer';
-
+    const updateprofileContainer = document.createElement('div');
+    updateprofileContainer.className = 'updatestationformcontainer';
+    mainContainer.appendChild(updateprofileContainer);
     const heading = document.createElement('h2');
     heading.textContent = 'Update Station Profile';
     updateprofileContainer.appendChild(heading);
@@ -13,6 +13,7 @@ function updateStationInfo() {
   
     const form = document.createElement('form');
     form.id ="updatestationform";
+    updateprofileContainer.appendChild(form);
 
    const stationName =document.createElement("label");
    stationName.textContent = "Station Name :";
@@ -43,6 +44,9 @@ function updateStationInfo() {
    const LongitudeInput = document.createElement("input");
    LongitudeInput.setAttribute('type','text');
    LongitudeInput.setAttribute('id','stationlongitude');
+
+   const getlocation=document.createElement('span');
+   getlocation.textContent="use current location"; 
   
     form.appendChild(stationName);
     form.appendChild(nameInput);
@@ -54,16 +58,10 @@ function updateStationInfo() {
     form.appendChild(LatitudeInput);
     form.appendChild(stationLongitude);
     form.appendChild(LongitudeInput);
+    form.appendChild(getlocation);
     
-    const buttonDiv =document.createElement("div");
-    buttonDiv.className ="ButtonDiv";
-
-
-    const getlocation=document.createElement('button');
-    getlocation.textContent="add auto location"; 
     getlocation.onclick=(e)=>{
       e.preventDefault();
-      
       getCurrentPositionUser().then(loc=>{
 
         const latitudeInput = document.getElementById('stationlatitude');
@@ -74,19 +72,21 @@ function updateStationInfo() {
       });
       
     } 
-    buttonDiv.appendChild(getlocation);
+    
+    const buttonDiv = document.createElement("div");
+    buttonDiv.className ="ButtonDiv";
+    form.appendChild(buttonDiv);
 
     const submitButton = document.createElement('button');
     submitButton.textContent = 'Submit';
+    buttonDiv.appendChild(submitButton);
+
     submitButton.onclick=(e)=>{
       e.preventDefault();
       submitFirstTimeprofileUpdate();
     }
     
-    buttonDiv.appendChild(submitButton);
-    form.appendChild(buttonDiv);
-    updateprofileContainer.appendChild(form);
-    mainContainer.appendChild(updateprofileContainer);
+    
   }
   function submitFirstTimeprofileUpdate() {
     const name = document.getElementById("stationname").value;

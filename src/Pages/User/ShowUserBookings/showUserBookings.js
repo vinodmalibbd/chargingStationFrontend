@@ -3,7 +3,7 @@ function ShowBookingsfunction() {
   UserLandingPage.innerHTML = " ";
   const cardsContainershowBooking = document.createElement('div');
   cardsContainershowBooking.className = 'userbookingheader';
-  cardsContainershowBooking.textContent="user bookings"
+  cardsContainershowBooking.textContent="YOURS BOOKING"
   UserLandingPage.appendChild(cardsContainershowBooking);
   const BookingheadingDiv = document.createElement('p');
   BookingheadingDiv.className = 'userbookingheader';
@@ -71,7 +71,7 @@ function createBookingCard(booking,userBookingSection) {
     timespan.className='lablespan'
 
     const bookingtime=document.createElement('span');
-    bookingtime.textContent=`${booking.timeSlot.startTime}:00 -${booking.timeSlot.endTime}`;
+    bookingtime.textContent=`${booking.timeSlot.startTime}:00 -${booking.timeSlot.endTime}:00`;
     bookingtime.className='valuespan';
 
     timeContainer.appendChild(timespan);
@@ -98,8 +98,30 @@ function createBookingCard(booking,userBookingSection) {
     showbookingbtn.className='stationbookingshowmorebtn';
     showbookingbtn.textContent=`chargepoint: ${booking.chargingSlot.slotId}`
 
+    const cancelBtnDiv = document.createElement('div');
+    cancelBtnDiv.className = 'cancelBtnDiv';
+    const cancelBooking = document.createElement('button');
+    cancelBooking.className = 'cancelBooking';
+    cancelBooking.textContent = 'cancelBooking';
+    
+    cancelBooking.onclick = () =>{
+      console.log(booking);
+      createWarningPopup(booking);
+
+    }
+
+
     bookingcard.appendChild(usernameanddatecontainer);
     bookingcard.appendChild(timeandstatuscontainer);
     bookingcard.appendChild(showbookingbtn);
+    cancelBtnDiv.appendChild(cancelBooking);
+    if(booking.status === 'cancelled'){
+      cancelBtnDiv.removeChild(cancelBooking);
+    }
+    else{
+      cancelBtnDiv.appendChild(cancelBooking);
+    }
+    bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);
+
 }
