@@ -84,7 +84,7 @@ function updateStationInfo() {
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
     updateprofileContainer.appendChild(form);
-    mainContainer.appendChild(updateprofileContainer);
+    document.querySelector('.main-container').appendChild(updateprofileContainer);
     
   }
   function submitFirstTimeprofileUpdate() {
