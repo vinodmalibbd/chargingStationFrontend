@@ -71,7 +71,7 @@ function createBookingCard(booking,userBookingSection) {
     timespan.className='lablespan'
 
     const bookingtime=document.createElement('span');
-    bookingtime.textContent=`11:00-12:00`;
+    bookingtime.textContent=`${booking.timeSlot.startTime}:00 -${booking.timeSlot.endTime}`;
     bookingtime.className='valuespan';
 
     timeContainer.appendChild(timespan);

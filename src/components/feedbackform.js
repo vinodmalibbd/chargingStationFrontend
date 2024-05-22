@@ -1,6 +1,4 @@
-function createFeedbackForm() {
-    const mainContentDiv=document.querySelector('.main_content')
-    mainContentDiv.innerHTML='';
+function createFeedbackForm(feedbackcontainer,stationId) {
 
     const feedbackFormBox = document.createElement('div');
     feedbackFormBox.classList.add('feedback-form-box');
@@ -59,14 +57,22 @@ function createFeedbackForm() {
     submitButton.innerHTML = 'Submit';
     submitButton.onclick=(e)=>{
         e.preventDefault();
-        submitButton();
+        submitFeedback();
     }
     form.appendChild(submitButton);
 
-    mainContentDiv.appendChild(feedbackFormBox);
+    feedbackcontainer.appendChild(feedbackFormBox);
   }
-  function submitFeedback(){
-    const form=document.getElementById('feedbackform');
-    const formdata=new FormData(form);
-    log(formdata)
-  }
+  function submitFeedback(stationId){
+    const form = document.getElementById('feedbackform');
+    const formData = new FormData(form);
+    const rating = formData.get('satisfy'); // Get the rating value
+    const description = formData.get('msg'); // Get the description value
+
+    // Now you can use the rating and description as needed
+    const data={
+        feedback:description,
+        rating:rating
+    }
+    addfeedbackonchargingstation(data,userId,stationId);
+}
