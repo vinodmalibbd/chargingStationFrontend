@@ -24,5 +24,6 @@ function chargePointTab(mainContentDiv) {
         }
       });
     });
+    document.body.remove(loaderwrapper);
   }
 

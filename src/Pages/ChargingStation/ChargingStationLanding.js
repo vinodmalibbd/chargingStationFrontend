@@ -4,17 +4,18 @@ function LogOutChargingStation(){
 }
 function chargingStationLanding() {
   document.body.innerHTML='';
-  showLoader(true);
+  showLoader();
   getChargingStationById().then(chargestation=>{
     if(chargestation.name===null || chargestation.name === ''){
       updateStationInfo();
-      showLoader(false);
+      removeloader();
     }else {
-      showLoader(false);
       chargingStationDashboard();
+      removeloader();
     }
   }).catch(e=>{
-    showLoader(false);
+    console.error("you need to logged in ")
+    removeloader();
   })
   
 }

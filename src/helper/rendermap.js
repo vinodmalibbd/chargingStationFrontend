@@ -14,7 +14,6 @@ const RenderMap = () => {
     getCurrentPositionUser().then(userLocation => {
         L.marker([userLocation.lat, userLocation.long], { icon: MyLocationIcon }).addTo(map);
         map.setView([userLocation.lat, userLocation.long], 13);
-
         getAllChargingStation().then(data => {
             data.forEach(item => {
                 const chargingMarker = L.marker([item.latitude, item.longitude]).addTo(map);

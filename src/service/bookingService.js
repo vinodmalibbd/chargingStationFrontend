@@ -1,5 +1,5 @@
 const createBooking = async (bookingRequest) => {
-  showLoader(true); // Show loader before API call
+  showLoader(); // Show loader before API call
   const token = sessionStorage.getItem("web-vb-token");
   if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -13,18 +13,17 @@ const createBooking = async (bookingRequest) => {
               body: JSON.stringify(bookingRequest),
           }
       );
+      removeloader()
       if (res.status === 201) {
-          showLoader(false); 
           return res.json();
       }
   } else {
-      showLoader(false); 
-      navigateTo("/");
+      removeloader()
   }
 }
 
 async function getAllChargingStationBooking() {
-  showLoader(true); // Show loader before API call
+  showLoader(); 
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -38,12 +37,12 @@ async function getAllChargingStationBooking() {
               },
           }
       );
+      removeloader()
       if (res.status === 200) {
-          showLoader(false); 
           return res.json();
       }
   } else {
-      showLoader(false); 
-      navigateTo("/");
+      removeloader()
+      MainPage();
   }
 }

@@ -1,4 +1,5 @@
 const showAllUserBookings = async () => {
+  showloader();
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -13,6 +14,7 @@ const showAllUserBookings = async () => {
           },
         }
       );
+      removeloader();
       if (res.status === 200) {
         return res.json()
       }

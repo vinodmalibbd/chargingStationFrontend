@@ -3,7 +3,8 @@ const MainPage = () => {
     
     const containerDiv = document.createElement("div");
     containerDiv.className = "landingpage";
- 
+    showloader();
+    
     const descriptionDiv = document.createElement("div");
     descriptionDiv.className = "description";
     const descriptionHeading = document.createElement("h2");
@@ -40,5 +41,6 @@ const MainPage = () => {
 
     containerDiv.appendChild(descriptionDiv);
     document.body.appendChild(containerDiv);
+    removeloader();
   }
   

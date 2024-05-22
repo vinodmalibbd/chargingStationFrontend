@@ -1,5 +1,6 @@
 
 const getAllChargingStation = async () => {
+  showloader();
       const res = await fetch(
       `${backendurl}/chargingstation/all`,
       {
@@ -9,6 +10,7 @@ const getAllChargingStation = async () => {
         },
       }
     );
+    removeloader();
     return res.json();
   };
   const loginchargingStation = async () => {
@@ -16,7 +18,7 @@ const getAllChargingStation = async () => {
       `${backendurl}/auth/chargingstation`;
   };
   const getChargingStationById = async () => {
-    
+    showloader();
     const token = sessionStorage.getItem("station-cookie");
     if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -31,13 +33,15 @@ const getAllChargingStation = async () => {
           },
         }
       );
+      removeloader();
       return res.json();
     } else {
-      navigateTo("/");
+      removeloader();
+      MainPage();
     }
   };
   const updateChargingStationProfile = async (data) => {
-    
+    showloader();
     const token = sessionStorage.getItem("station-cookie");
     if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -54,9 +58,10 @@ const getAllChargingStation = async () => {
         }
       );
       if (res.status === 201) {
-        navigateTo("/station");
+        removeloader();
+        chargingStationLanding();
       }
     } else {
-      navigateTo("/");
+      MainPage();
     }
   };

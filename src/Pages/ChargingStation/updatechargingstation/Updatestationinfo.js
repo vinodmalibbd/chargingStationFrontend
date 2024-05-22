@@ -87,7 +87,6 @@ function updateStationInfo() {
     form.appendChild(buttonDiv);
     updateprofileContainer.appendChild(form);
     mainContainer.appendChild(updateprofileContainer);
-    
   }
   function submitFirstTimeprofileUpdate() {
     const name = document.getElementById("stationname").value;

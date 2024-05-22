@@ -1,5 +1,5 @@
 const getAllChargingStationSlots = async () => {
-
+  showloader();
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
@@ -15,17 +15,16 @@ const getAllChargingStationSlots = async () => {
       }
     );
 
+    removeloader();
     if (res.ok) {
-      
       return res.json();
     }
   } else {
-    
-    navigateTo("/");
+    MainPage();
   }
 };
 const addChargingSlotStation = async (data) => {
-
+  showloader();
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const decodedtoken = decodeJwtToken(token);
@@ -41,16 +40,17 @@ const addChargingSlotStation = async (data) => {
         body: JSON.stringify(data),
       }
     );
+    removeloader();
     if (res.status === 201) {
       
       return res.json();
     }
   } else {
     
-    navigateTo("/");
   }
 };
 const updateChargingSlot = async (data) => {
+  showloader();
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
     const res = await fetch(
@@ -64,14 +64,14 @@ const updateChargingSlot = async (data) => {
         body: JSON.stringify(data),
       }
     );
+    removeloader();
     if (res.status === 200) {
       return res.json();
     }
-  } else {
-    navigateTo("/");
-  }
+  } 
 };
 const getAllChargingStationSlotsById = async (id) => {
+  showloader();
   const res = await fetch(
     `${backendurl}/chargingslot/all/${id}`,
     {
@@ -81,12 +81,13 @@ const getAllChargingStationSlotsById = async (id) => {
       },
     }
   );
-
+  removeloader();
   return res.json();
 };
 
 
 const getSlotAvailblity=async(requestBody)=>{
+  showloader();
   const res = await fetch(
     `${backendurl}/booking/availability/chargingslot`,
     {
@@ -97,5 +98,6 @@ const getSlotAvailblity=async(requestBody)=>{
       body: JSON.stringify(requestBody),
     }
   );
+  removeloader();
     return res.json();
 }

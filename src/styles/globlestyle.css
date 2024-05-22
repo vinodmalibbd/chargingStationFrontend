@@ -3,17 +3,16 @@
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.loader-wrapper{
+.loader-wrapper {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     position: absolute;
+    /* display: block; */
     background-color: rgba(0, 0, 0, 0.7);
-    display: block;
 }
 .loader {
     border: 4px solid #f3f3f3;

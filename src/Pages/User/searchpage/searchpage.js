@@ -26,7 +26,7 @@ function searchStationPage() {
   const button = document.createElement('button');
   button.textContent = 'Submit';
   button.onclick = function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
     const cityInput = document.getElementById('searchcityinp').value;
     searchChargingStations(cityInput);
   };
@@ -55,12 +55,13 @@ function searchStationPage() {
 
 function searchChargingStations(city) {
   const chargingStationContainer = document.querySelector('.searchpagechargingstation');
-  chargingStationContainer.innerHTML = ""; // Clear previous results
-
+  chargingStationContainer.innerHTML = ""; 
+  
   searchByCityName(city)
     .then(filteredStations => {
       if(filteredStations.length===0){
         throw new Error("not found");
+
       }
       filteredStations.forEach(station => {
         const searchStationCard = document.createElement('div');

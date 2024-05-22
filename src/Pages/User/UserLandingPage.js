@@ -1,6 +1,8 @@
+  
 function UserLandingPage() {
   document.body.innerHTML = "";
-
+  showloader();
+  document.body.appendChild(loaderwrapper);
   const wrapperDiv = document.createElement("div");
   wrapperDiv.className = "wrapper";
 
@@ -74,6 +76,8 @@ function UserLandingPage() {
   wrapperDiv.appendChild(mainContentDiv);
   document.body.appendChild(wrapperDiv);
   RenderMap();
+  removeloader();
+  document.body.removeChild(loaderwrapper);
 }
 function changeTab(tabname, mainContentDiv) {
   mainContentDiv.innerHTML = "";
@@ -102,4 +106,3 @@ function searchCharingStationInCity() {
     });
   }
 }
-

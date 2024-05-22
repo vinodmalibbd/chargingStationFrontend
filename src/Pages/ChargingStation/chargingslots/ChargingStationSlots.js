@@ -1,5 +1,6 @@
 function Chargingpoints(){
   const mainContentDiv = document.querySelector('.main_content')
+  showloader();
   mainContentDiv.innerHTML='';
   const chargepointtab=document.createElement("div");
   chargepointtab.className='chargingSlotPage';
@@ -55,6 +56,7 @@ function Chargingpoints(){
       cardsContainer.appendChild(card);
     })
   })
+  removeloader();
   mainContentDiv.appendChild(chargepointtab);
 }
 function addNewSlot(){
@@ -101,8 +103,10 @@ function addNewSlot(){
   
   saveButton.onclick=(e)=>{
     e.preventDefault();
+    showloader();
     saveSlot(warningSpan);
     Chargingpoints();
+    removeloader();
   }
 
   const canclebtn = document.createElement('button');
