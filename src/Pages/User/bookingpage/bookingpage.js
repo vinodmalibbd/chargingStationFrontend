@@ -5,6 +5,7 @@ let bookingRequest={
     date:null
 }
 let charginStationId;
+let timeslotsByData;
 
 function getCurrentDate() {
   const today = new Date();
@@ -22,6 +23,7 @@ async function chargeStationPage(chargingStation) {
   ChargingStationPage.innerHTML = " ";
   bookingRequest.chargingSlotId=chargingStation.chargingSlots[0].slotId;
   bookingRequest.date=new Date()
+  firsttime();
   
   const BookingFormDiv = document.createElement('div');
   BookingFormDiv.className = 'BookingFormDiv';
@@ -140,13 +142,13 @@ function createDatepicker(openTime,closeTime) {
   datePicker.onchange = (event) =>{
     const selectedDate = event.target.value;
     updateBookingRequest();
-    populateTimeSlotsDropdown(selectedDate, openTime, closeTime);
+    populateTimeSlotsDropdown(selectedDate);
   }
   return datePicker;
 }
 
-function populateTimeSlotsDropdown(selectedDate, openTime, closeTime) {
-  const timeSlotsSelect = createTimeSlotsDropdown(selectedDate, openTime, closeTime);
+function populateTimeSlotsDropdown(selectedDate) {
+  const timeSlotsSelect = createTimeSlotsDropdown(selectedDate);
   const timsloddiv=document.querySelector('.timeslotDiv');
   timsloddiv.innerHTML='';
   const timeslotLabel = document.createElement('label');
@@ -156,21 +158,20 @@ function populateTimeSlotsDropdown(selectedDate, openTime, closeTime) {
   timsloddiv.appendChild(timeSlotsSelect);
 }
 
-function createTimeSlotsDropdown(selectedDate, openTime, closeTime) {
+function createTimeSlotsDropdown(selectedDate) {
   const timeSlotsSelect = document.createElement('select');
   timeSlotsSelect.id = 'time-slots-select';
   timeSlotsSelect.onchange=(e)=>{
     updateBookingRequest();
   }
-
-  for (let hour = openTime; hour < closeTime; hour++) {
-      for (let minute = 0; minute < 60; minute += 60) {
-          const time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
-          const option = document.createElement('option');
-          option.value = time;
-          option.textContent = time;
-          timeSlotsSelect.appendChild(option);
-      }
+  if(timeslotsByData){
+    console.log(timeslotsByData);
+    timeslotsByData.map(item=>{
+      const option = document.createElement('option');
+            option.value = item.timeSlotId;
+            option.textContent = `${item.startTime}:00 - ${item.endTime}:00`;
+            timeSlotsSelect.appendChild(option);
+    })
   }
 
   return timeSlotsSelect;
@@ -181,26 +182,25 @@ function bookSlot() {
   const slotId = document.getElementById('slot-select').value;
   const date = document.getElementById('date-picker').value;
   const timeSlot = document.getElementById('time-slots-select').value;
-  console.log(slotId);
-  console.log(date);
-  console.log(timeSlot);
-  if (slotId && date && timeSlot) {
-   
-   
-    console.log(bookingRequest);
+  const token=sessionStorage.getItem('web-vb-token');
+  if(token){
+    const decodedtoken = decodeJwtToken(token);
+    const userId = decodedtoken.sub;
+    const data={
+      date: new Date(date),
+      chargingSlotId: Number(slotId),
+      stationId: Number(charginStationId),
+      userId:Number(userId),
+      timeSlotId:Number(timeSlot)
+    }
 
-
-    // createBooking(bookingRequest)
-    //   .then(response => {
-
-    //     alert('Booking successful!');
-    //   })
-    //   .catch(error => {
-    //     console.error('Failed to book slot:', error);
-    //   });
+    createBooking(data).then(res=>{
+      createSucessPopUpBox("thank you for using our service")
+    })
   } else {
-    alert('Please select all fields to book a slot');
+    createPOPUP("user")
   }
+ 
 }
 
 
@@ -212,9 +212,21 @@ function updateBookingRequest() {
   bookingRequest.date = date;
   bookingRequest.timeSlotId = timeSlot;
   const data={
-        date: date,
-        chargingSlotId: slotId,
-        stationId: charginStationId
+        date: new Date(date),
+        chargingSlotId: Number(slotId),
+        stationId: Number(charginStationId)
   }
-  console.log(bookingRequest);
+  getSlotAvailblity(data).then(res=>{
+    timeslotsByData=res;
+  })
+}
+function firsttime(){
+  const data={
+    date: new Date(bookingRequest.date),
+    chargingSlotId: Number(bookingRequest.chargingSlotId),
+    stationId: Number(charginStationId)
+}
+  getSlotAvailblity(data).then(res=>{
+  timeslotsByData=res;
+})
 }
