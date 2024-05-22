@@ -54,16 +54,12 @@ function updateStationInfo() {
     form.appendChild(LatitudeInput);
     form.appendChild(stationLongitude);
     form.appendChild(LongitudeInput);
+    form.appendChild(getlocation);
     
-    const buttonDiv =document.createElement("div");
-    buttonDiv.className ="ButtonDiv";
-
-
     const getlocation=document.createElement('button');
     getlocation.textContent="add auto location"; 
     getlocation.onclick=(e)=>{
       e.preventDefault();
-      
       getCurrentPositionUser().then(loc=>{
 
         const latitudeInput = document.getElementById('stationlatitude');
@@ -74,7 +70,9 @@ function updateStationInfo() {
       });
       
     } 
-    buttonDiv.appendChild(getlocation);
+    
+    const buttonDiv =document.createElement("div");
+    buttonDiv.className ="ButtonDiv";
 
     const submitButton = document.createElement('button');
     submitButton.textContent = 'Submit';

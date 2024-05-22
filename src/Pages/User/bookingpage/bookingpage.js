@@ -184,8 +184,9 @@ function bookSlot() {
 
     createBooking(bookingRequest)
       .then(response => {
+        createSucessPopUpBox("Booking Is Completed")
 
-        alert('Booking successful!');
+        // alert('Booking successful!');
       })
       .catch(error => {
         console.error('Failed to book slot:', error);

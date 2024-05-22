@@ -33,7 +33,7 @@ const getAllChargingStation = async () => {
       );
       return res.json();
     } else {
-      navigateTo("/");
+      console.error("Charging Station not available")
     }
   };
   const updateChargingStationProfile = async (data) => {
@@ -54,9 +54,9 @@ const getAllChargingStation = async () => {
         }
       );
       if (res.status === 201) {
-        navigateTo("/station");
+        return res.json
       }
     } else {
-      navigateTo("/");
+      console.error("Station values not updated");
     }
   };

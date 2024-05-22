@@ -453,42 +453,74 @@
 
 // // Call the function to show bookings on page load
 // document.addEventListener('DOMContentLoaded', showBookings);
-function searchStationPage(){
-  const MainDiv = document.querySelector('.main_content');
-  MainDiv.innerHTML = "";
-  const chargingStationContainer = document.createElement('div');
-  chargingStationContainer.className = 'chargingStationContainer';
+// function searchStationPage(){
+//   const MainDiv = document.querySelector('.main_content');
+//   MainDiv.innerHTML = "";
+//   const chargingStationContainer = document.createElement('div');
+//   chargingStationContainer.className = 'chargingStationContainer';
 
-  const chargingStationHeader = document.createElement('div');
-  chargingStationHeader.className = 'chargingStationHeader';
+//   const chargingStationHeader = document.createElement('div');
+//   chargingStationHeader.className = 'chargingStationHeader';
 
-  const Headerspan = document.createElement('span');
-  Headerspan.className = 'Headerspan';
-  Headerspan.textContent = 'SEARCH CHARGING STATION';
+//   const Headerspan = document.createElement('span');
+//   Headerspan.className = 'Headerspan';
+//   Headerspan.textContent = 'SEARCH CHARGING STATION';
 
-  chargingStationHeader.appendChild(Headerspan);
+//   chargingStationHeader.appendChild(Headerspan);
 
   
-  const chargingStationBody = document.createElement('div');
-  chargingStationBody.className = 'chargingStationBody';
+//   const chargingStationBody = document.createElement('div');
+//   chargingStationBody.className = 'chargingStationBody';
 
-  const searchStationbar = document.createElement('input');
-  searchStationbar.className = 'searchStationbar';
-  searchStationbar.type ='text';
+//   const searchStationbar = document.createElement('input');
+//   searchStationbar.className = 'searchStationbar';
+//   searchStationbar.type ='text';
 
-  const SearchStationButton =document.createElement('button');
-  SearchStationButton.textContent = 'SEARCH';
-  SearchStationButton.className = 'SearchStationButton';
-  SearchStationButton.onclick = () =>{
-    searchChargingStations(searchStationbar.value);
+//   const SearchStationButton =document.createElement('button');
+//   SearchStationButton.textContent = 'SEARCH';
+//   SearchStationButton.className = 'SearchStationButton';
+//   SearchStationButton.onclick = () =>{
+//     searchChargingStations(searchStationbar.value);
+//   }
+//   chargingStationBody.appendChild(searchStationbar);
+//   chargingStationBody.appendChild(SearchStationButton);
+
+//   chargingStationContainer.appendChild(chargingStationHeader);
+//   chargingStationContainer.appendChild(chargingStationBody);
+//   MainDiv.appendChild(chargingStationContainer);
+// }
+document.addEventListener("DOMContentLoaded", function() {
+  const toastContainer = document.getElementById('toastContainer');
+
+  function createToast(message, type) {
+      const toast = document.createElement('div');
+      toast.classList.add('toast', type);
+      
+      toast.innerHTML = `
+          <span>${message}</span>
+          <span class="close-btn">&times;</span>
+      `;
+
+      toast.querySelector('.close-btn').addEventListener('click', () => {
+          toastContainer.removeChild(toast);
+      });
+
+      toastContainer.appendChild(toast);
+
+      setTimeout(() => {
+          if (toastContainer.contains(toast)) {
+              toastContainer.removeChild(toast);
+          }
+      }, 3000);
   }
-  chargingStationBody.appendChild(searchStationbar);
-  chargingStationBody.appendChild(SearchStationButton);
 
-  chargingStationContainer.appendChild(chargingStationHeader);
-  chargingStationContainer.appendChild(chargingStationBody);
-  MainDiv.appendChild(chargingStationContainer);
-}
+  const showSuccessToast = () => createToast('Your action was successful!', 'success');
+  const showErrorToast = () => createToast('An error occurred!', 'error');
+
+  document.getElementById('showSuccessToastBtn').addEventListener('click', showSuccessToast);
+  document.getElementById('showErrorToastBtn').addEventListener('click', showErrorToast);
+});
+
 
 
 function searchChargingStations(city) {

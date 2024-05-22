@@ -3,7 +3,7 @@ function ShowBookingsfunction() {
   UserLandingPage.innerHTML = " ";
   const cardsContainershowBooking = document.createElement('div');
   cardsContainershowBooking.className = 'userbookingheader';
-  cardsContainershowBooking.textContent="user bookings"
+  cardsContainershowBooking.textContent="YOURS BOOKING"
   UserLandingPage.appendChild(cardsContainershowBooking);
   const BookingheadingDiv = document.createElement('p');
   BookingheadingDiv.className = 'userbookingheader';
