@@ -86,10 +86,6 @@ function updateStationInfo() {
       submitFirstTimeprofileUpdate();
     }
     
-    // buttonDiv.appendChild(submitButton);
-    // form.appendChild(buttonDiv);
-    // updateprofileContainer.appendChild(form);
-   
     
   }
   function submitFirstTimeprofileUpdate() {

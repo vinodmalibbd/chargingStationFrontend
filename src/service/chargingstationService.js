@@ -54,6 +54,7 @@ const getAllChargingStation = async () => {
         }
       );
       if (res.status === 201) {
+        chargingStationDashboard();
         return res.json
       }
     } else {
