@@ -102,7 +102,7 @@ function createBookingCard(booking,userBookingSection) {
     cancelBtnDiv.className = 'cancelBookingDiv';
     const cancelBooking = document.createElement('button');
     cancelBooking.className = 'cancelBooking';
-    cancelBooking.textContent = 'cancelBooking';
+    cancelBooking.textContent = 'Cancel Booking';
     
     cancelBooking.onclick = (e) =>{
       e.preventDefault();
