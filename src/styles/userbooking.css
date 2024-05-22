@@ -6,7 +6,7 @@
     align-items: center;
     color: black;
     font-size: 2rem;
-    
+
   }
   
   .userbookingsection{
@@ -61,3 +61,9 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
+
+  .stationbookingcard .cancelBtnDiv{
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}

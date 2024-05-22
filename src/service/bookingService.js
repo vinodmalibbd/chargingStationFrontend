@@ -44,6 +44,30 @@ async function getAllChargingStationBooking() {
       }
   } else {
       showLoader(false); 
-      navigateTo("/");
+    //   navigateTo("/");
   }
 }
+
+const cancelBooking = async (bookingId) => {
+    showLoader(true); // Show loader before API call
+    const token = sessionStorage.getItem("web-vb-token");
+    if (token) {
+        const decodedtoken = decodeJwtToken(token);
+        const res = await fetch(
+            `${backendurl}/booking/cancle/${bookingId}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: token,
+                },
+            }
+        );
+        if (res.status === 200) {
+            showLoader(false); 
+            return res;
+        }
+    } else {
+        showLoader(false); 
+        console.error("Booking id was not found");
+    }
+  }

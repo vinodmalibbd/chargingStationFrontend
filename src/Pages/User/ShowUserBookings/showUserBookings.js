@@ -98,8 +98,22 @@ function createBookingCard(booking,userBookingSection) {
     showbookingbtn.className='stationbookingshowmorebtn';
     showbookingbtn.textContent=`chargepoint: ${booking.chargingSlot.slotId}`
 
+    const cancelBtnDiv = document.createElement('div');
+    cancelBtnDiv.className = 'cancelBtnDiv';
+    const cancelBooking = document.createElement('button');
+    cancelBooking.className = 'cancelBooking';
+    cancelBooking.textContent = 'cancelBooking';
+    cancelBooking.onclick = () =>{
+      console.log(booking);
+      createWarningPopup(booking);
+
+    }
+
+
     bookingcard.appendChild(usernameanddatecontainer);
     bookingcard.appendChild(timeandstatuscontainer);
     bookingcard.appendChild(showbookingbtn);
+    cancelBtnDiv.appendChild(cancelBooking);
+    bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);
 }

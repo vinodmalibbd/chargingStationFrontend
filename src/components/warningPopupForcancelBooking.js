@@ -1,5 +1,5 @@
-function createWarningPopup() {
-  const PopupDiv = document.querySelector('.main_content');
+function createWarningPopup(bookingRequest) {
+  const PopupDiv = document.querySelector('.userbookingsection');
   const warningPopup = document.createElement('div');
   warningPopup.id = 'warningPopup';
   warningPopup.className = 'popup';
@@ -21,6 +21,10 @@ function createWarningPopup() {
   const confirmCancelBtn = document.createElement('button');
   confirmCancelBtn.id = 'confirmCancelBtn';
   confirmCancelBtn.textContent = 'Yes, Cancel';
+//   confirmCancelBtn.onclick = () =>{
+//     console.log(bookingRequest)
+//     cancelBooking(bookingRequest);
+//   }
 
   const denyCancelBtn = document.createElement('button');
   denyCancelBtn.id = 'denyCancelBtn';
@@ -35,10 +39,8 @@ function createWarningPopup() {
 
 
   warningPopup.appendChild(popupContent);
+
   PopupDiv.appendChild(warningPopup);
-
-
-  document.body.appendChild(warningPopup);
 
   function showPopup() {
       warningPopup.style.display = 'flex';
@@ -46,24 +48,31 @@ function createWarningPopup() {
 
   function hidePopup() {
       warningPopup.style.display = 'none';
-      document.body.removeChild(warningPopup); 
+      PopupDiv.removeChild(warningPopup); 
   }
 
-  closePopupBtn.addEventListener('click', hidePopup);
-  denyCancelBtn.addEventListener('click', hidePopup);
+  closePopupBtn.onclick = () =>{
+    hidePopup();
+  }
+
+  denyCancelBtn.onclick = () =>{
+    hidePopup();
+  }
 
   
-  confirmCancelBtn.addEventListener('click', function() {
+  confirmCancelBtn.onclick = () => {
       hidePopup();
       alert('Booking has been cancelled.');
-  });
+      console.log(bookingRequest)
+      cancelBooking(bookingRequest.bookingId);
+
+  };
 
   window.addEventListener('click', function(event) {
       if (event.target == warningPopup) {
           hidePopup();
+          
       }
   });
-
-  // Show the popup initially
   showPopup();
 }

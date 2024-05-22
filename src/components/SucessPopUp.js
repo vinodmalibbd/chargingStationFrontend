@@ -1,4 +1,4 @@
-function createSucessPopUpBox(message,functionname){
+function createSucessPopUpBox(message){
   const mainDiv=document.querySelector('.main_content');
   mainDiv.innerHTML='';
   const container=document.createElement('div');
@@ -19,8 +19,7 @@ function createSucessPopUpBox(message,functionname){
   PopUpOkButton.className = 'PopupOkButton';
   PopUpOkButton.textContent = 'OK';
   PopUpOkButton.onclick =() =>{
-    // navigateTo(`${navigate}`)
-    functionname();
+    UserLandingPage();
   }
   SucessPopUp.appendChild(PopUpicon);
   SucessPopUp.appendChild(PopUpHeader);
