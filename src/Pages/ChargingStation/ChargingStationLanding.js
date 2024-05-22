@@ -4,7 +4,7 @@ function LogOutChargingStation(){
 }
 function chargingStationLanding() {
   document.body.innerHTML='';
-  showLoader();
+  showloader();
   getChargingStationById().then(chargestation=>{
     if(chargestation.name===null || chargestation.name === ''){
       updateStationInfo();
