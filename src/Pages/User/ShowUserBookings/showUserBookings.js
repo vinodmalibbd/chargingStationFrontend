@@ -99,12 +99,13 @@ function createBookingCard(booking,userBookingSection) {
     showbookingbtn.textContent=`chargepoint: ${booking.chargingSlot.slotId}`
 
     const cancelBtnDiv = document.createElement('div');
-    cancelBtnDiv.className = 'cancelBtnDiv';
+    cancelBtnDiv.className = 'cancelBookingDiv';
     const cancelBooking = document.createElement('button');
     cancelBooking.className = 'cancelBooking';
     cancelBooking.textContent = 'cancelBooking';
     
-    cancelBooking.onclick = () =>{
+    cancelBooking.onclick = (e) =>{
+      e.preventDefault();
       console.log(booking);
       createWarningPopup(booking);
 
@@ -117,9 +118,10 @@ function createBookingCard(booking,userBookingSection) {
     cancelBtnDiv.appendChild(cancelBooking);
     if(booking.status === 'cancelled'){
       cancelBtnDiv.removeChild(cancelBooking);
+    const element = document.querySelector('.stationbookingcard');
+    if (element) {
+      element.style.backgroundColor = 'red';
     }
-    else{
-      cancelBtnDiv.appendChild(cancelBooking);
     }
     bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);
