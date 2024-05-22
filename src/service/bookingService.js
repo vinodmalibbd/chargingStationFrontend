@@ -47,7 +47,7 @@ async function getAllChargingStationBooking() {
   }
 }
 const cancelBooking = async (bookingId) => {
-    showloader(true); // Show loader before API call
+// Show loader before API call
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {
         const decodedtoken = decodeJwtToken(token);
@@ -61,11 +61,11 @@ const cancelBooking = async (bookingId) => {
             }
         );
         if (res.status === 200) {
-            showloader(false); 
+            
             return res;
         }
     } else {
-        showloader(false); 
+    
         console.error("Booking id was not found");
     }
   }
