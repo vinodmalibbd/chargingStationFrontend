@@ -103,12 +103,7 @@ function createBookingCard(booking,userBookingSection) {
     const cancelBooking = document.createElement('button');
     cancelBooking.className = 'cancelBooking';
     cancelBooking.textContent = 'cancelBooking';
-    if(booking.status === 'cancelled'){
-      cancelBtnDiv.removeChild(cancelBooking);
-    }
-    else{
-      cancelBtnDiv.appendChild(cancelBooking);
-    }
+    
     cancelBooking.onclick = () =>{
       console.log(booking);
       createWarningPopup(booking);
@@ -119,7 +114,14 @@ function createBookingCard(booking,userBookingSection) {
     bookingcard.appendChild(usernameanddatecontainer);
     bookingcard.appendChild(timeandstatuscontainer);
     bookingcard.appendChild(showbookingbtn);
-    
+    cancelBtnDiv.appendChild(cancelBooking);
+    if(booking.status === 'cancelled'){
+      cancelBtnDiv.removeChild(cancelBooking);
+    }
+    else{
+      cancelBtnDiv.appendChild(cancelBooking);
+    }
     bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);
+
 }
