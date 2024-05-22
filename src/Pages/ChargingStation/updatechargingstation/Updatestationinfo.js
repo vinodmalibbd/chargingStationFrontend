@@ -3,8 +3,8 @@ function updateStationInfo() {
     mainContainer.className = 'main-container';
     document.body.appendChild(mainContainer);
   
-    const updateprofileContainer=document.createElement('div');
-    updateprofileContainer.className='updatestationformcontainer';
+    const updateprofileContainer = document.createElement('div');
+    updateprofileContainer.className = 'updatestationformcontainer';
     mainContainer.appendChild(updateprofileContainer);
     const heading = document.createElement('h2');
     heading.textContent = 'Update Station Profile';
@@ -13,6 +13,7 @@ function updateStationInfo() {
   
     const form = document.createElement('form');
     form.id ="updatestationform";
+    updateprofileContainer.appendChild(form);
 
    const stationName =document.createElement("label");
    stationName.textContent = "Station Name :";
@@ -83,7 +84,7 @@ function updateStationInfo() {
     
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
-    updateprofileContainer.appendChild(form);
+    // updateprofileContainer.appendChild(form);
    
     
   }
