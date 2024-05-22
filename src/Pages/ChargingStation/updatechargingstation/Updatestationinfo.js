@@ -46,7 +46,7 @@ function updateStationInfo() {
    LongitudeInput.setAttribute('id','stationlongitude');
 
    const getlocation=document.createElement('span');
-   getlocation.textContent="add location"; 
+   getlocation.textContent="use current location"; 
   
     form.appendChild(stationName);
     form.appendChild(nameInput);

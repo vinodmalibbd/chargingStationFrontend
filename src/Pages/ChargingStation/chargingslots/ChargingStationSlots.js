@@ -3,7 +3,7 @@ function Chargingpoints(){
   mainContentDiv.innerHTML='';
   const chargepointtab=document.createElement("div");
   chargepointtab.className='chargingSlotPage';
-  mainContentDiv.appendChild(chargepointtab);
+  
 
   const cardsContainer=document.createElement('div');
   cardsContainer.className="chargingSlotsContainer";
@@ -12,6 +12,7 @@ function Chargingpoints(){
   const buttonDiv =document.createElement('div');
   buttonDiv.className = "AddSlotButtonHeader";
   mainContentDiv.appendChild(buttonDiv); 
+  mainContentDiv.appendChild(chargepointtab);
 
   const addSlot = document.createElement('button');
   addSlot.className = "AddSlotButton";

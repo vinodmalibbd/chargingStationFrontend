@@ -21,10 +21,10 @@ function createWarningPopup(bookingRequest) {
   const confirmCancelBtn = document.createElement('button');
   confirmCancelBtn.id = 'confirmCancelBtn';
   confirmCancelBtn.textContent = 'Yes, Cancel';
-//   confirmCancelBtn.onclick = () =>{
-//     console.log(bookingRequest)
-//     cancelBooking(bookingRequest);
-//   }
+  confirmCancelBtn.onclick = () =>{
+    console.log(bookingRequest)
+    cancelBooking(bookingRequest);
+  }
 
   const denyCancelBtn = document.createElement('button');
   denyCancelBtn.id = 'denyCancelBtn';

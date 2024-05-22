@@ -61,7 +61,7 @@ function updateProfileStation(mainContentDiv){
   
   
     const getlocation=document.createElement('span');
-    getlocation.textContent="add auto location";  
+    getlocation.textContent="use current location";  
     getlocation.onclick=function(){
       const loc= getCurrentPositionUser();
       const latitudeInput = document.getElementById('latitude');

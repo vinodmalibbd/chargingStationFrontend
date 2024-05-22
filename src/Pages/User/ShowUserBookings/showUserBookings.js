@@ -71,7 +71,7 @@ function createBookingCard(booking,userBookingSection) {
     timespan.className='lablespan'
 
     const bookingtime=document.createElement('span');
-    bookingtime.textContent=`${booking.timeSlot.startTime}:00 -${booking.timeSlot.endTime}`;
+    bookingtime.textContent=`${booking.timeSlot.startTime}:00 -${booking.timeSlot.endTime}:00`;
     bookingtime.className='valuespan';
 
     timeContainer.appendChild(timespan);
@@ -103,6 +103,12 @@ function createBookingCard(booking,userBookingSection) {
     const cancelBooking = document.createElement('button');
     cancelBooking.className = 'cancelBooking';
     cancelBooking.textContent = 'cancelBooking';
+    if(booking.status === 'cancelled'){
+      cancelBtnDiv.removeChild(cancelBooking);
+    }
+    else{
+      cancelBtnDiv.appendChild(cancelBooking);
+    }
     cancelBooking.onclick = () =>{
       console.log(booking);
       createWarningPopup(booking);
@@ -113,7 +119,7 @@ function createBookingCard(booking,userBookingSection) {
     bookingcard.appendChild(usernameanddatecontainer);
     bookingcard.appendChild(timeandstatuscontainer);
     bookingcard.appendChild(showbookingbtn);
-    cancelBtnDiv.appendChild(cancelBooking);
+    
     bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);
 }
