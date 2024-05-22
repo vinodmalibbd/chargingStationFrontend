@@ -1,6 +1,6 @@
 function updateStationInfo() {
     const mainContainer = document.createElement('div');
-    mainContainer.classList.add('main-container');
+    mainContainer.className = 'main-container';
     document.body.appendChild(mainContainer);
   
     const updateprofileContainer=document.createElement('div');
