@@ -1,5 +1,5 @@
 const createBooking = async (bookingRequest) => {
-  showLoader(); // Show loader before API call
+  showloader(); // Show loader before API call
   const token = sessionStorage.getItem("web-vb-token");
   if (token) {
       const decodedtoken = decodeJwtToken(token);
@@ -23,7 +23,7 @@ const createBooking = async (bookingRequest) => {
 }
 
 async function getAllChargingStationBooking() {
-  showLoader(); 
+  showloader(); 
   const token = sessionStorage.getItem("station-cookie");
   if (token) {
       const decodedtoken = decodeJwtToken(token);
