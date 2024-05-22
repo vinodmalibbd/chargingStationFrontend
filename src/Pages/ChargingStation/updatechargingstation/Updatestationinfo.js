@@ -5,7 +5,7 @@ function updateStationInfo() {
   
     const updateprofileContainer=document.createElement('div');
     updateprofileContainer.className='updatestationformcontainer';
-
+    mainContainer.appendChild(updateprofileContainer);
     const heading = document.createElement('h2');
     heading.textContent = 'Update Station Profile';
     updateprofileContainer.appendChild(heading);
@@ -84,7 +84,7 @@ function updateStationInfo() {
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
     updateprofileContainer.appendChild(form);
-    document.querySelector('.main-container').appendChild(updateprofileContainer);
+   
     
   }
   function submitFirstTimeprofileUpdate() {
