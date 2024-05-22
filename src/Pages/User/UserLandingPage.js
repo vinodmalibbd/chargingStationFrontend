@@ -36,7 +36,7 @@ function UserLandingPage() {
   const userLi = document.createElement("li");
   userLi.innerHTML = '<i class="fas fa-user"></i>  Log out';
   userLi.onclick = () =>{
-    alert.
+    alert("Logging Out .....")
     sessionStorage.clear();
     MainPage();
   }
