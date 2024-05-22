@@ -3,6 +3,7 @@ function Chargingpoints(){
   mainContentDiv.innerHTML='';
   const chargepointtab=document.createElement("div");
   chargepointtab.className='chargingSlotPage';
+  mainContentDiv.appendChild(chargepointtab);
 
   const cardsContainer=document.createElement('div');
   cardsContainer.className="chargingSlotsContainer";
@@ -53,9 +54,9 @@ function Chargingpoints(){
       card.appendChild(description);
       card.appendChild(editDeleteButtonDiv);
       cardsContainer.appendChild(card);
-    })
-  })
-  mainContentDiv.appendChild(chargepointtab);
+    });
+  });
+  
 }
 function addNewSlot(){
   const chargingSlotContainer = document.querySelector('.chargingSlotsContainer');
