@@ -44,6 +44,9 @@ function updateStationInfo() {
    const LongitudeInput = document.createElement("input");
    LongitudeInput.setAttribute('type','text');
    LongitudeInput.setAttribute('id','stationlongitude');
+
+   const getlocation=document.createElement('span');
+   getlocation.textContent="add location"; 
   
     form.appendChild(stationName);
     form.appendChild(nameInput);
@@ -57,8 +60,6 @@ function updateStationInfo() {
     form.appendChild(LongitudeInput);
     form.appendChild(getlocation);
     
-    const getlocation=document.createElement('button');
-    getlocation.textContent="add auto location"; 
     getlocation.onclick=(e)=>{
       e.preventDefault();
       getCurrentPositionUser().then(loc=>{
@@ -72,18 +73,21 @@ function updateStationInfo() {
       
     } 
     
-    const buttonDiv =document.createElement("div");
+    const buttonDiv = document.createElement("div");
     buttonDiv.className ="ButtonDiv";
+    form.appendChild(buttonDiv);
 
     const submitButton = document.createElement('button');
     submitButton.textContent = 'Submit';
+    buttonDiv.appendChild(submitButton);
+
     submitButton.onclick=(e)=>{
       e.preventDefault();
       submitFirstTimeprofileUpdate();
     }
     
-    buttonDiv.appendChild(submitButton);
-    form.appendChild(buttonDiv);
+    // buttonDiv.appendChild(submitButton);
+    // form.appendChild(buttonDiv);
     // updateprofileContainer.appendChild(form);
    
     
