@@ -44,7 +44,8 @@ function Chargingpoints(){
       const editButton = document.createElement('button');
       editButton.classname = 'edit-btn';
       editButton.innerHTML = '✏️';
-      editButton.onclick = () => {
+      editButton.onclick = (e) => {
+        e.preventDefault();
         editSlotForm(card,item);
       }
   
@@ -187,7 +188,7 @@ function editSlotForm(card,item){
     saveButton.textContent = 'Save';
     saveButton.onclick = () => {
         const newPrice = priceInput.value;
-        const newStatus = toLowerCase(statusSelect.value);
+        const newStatus = statusSelect.value.toLowerCase();
         console.log(newStatus);
         const data={};
         data['slotId']=item.slotId;
