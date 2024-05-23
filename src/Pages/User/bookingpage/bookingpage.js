@@ -124,10 +124,13 @@ function createSlotDropdown(slots) {
   }
 
   slots.forEach(slot => {
+    if(slot.available){
+
       const option = document.createElement('option');
       option.value = slot.slotId;
       option.textContent = `Slot : ${slot.slotId} Price : ₹${slot.pricePerHour}`;
       slotSelect.appendChild(option);
+    }
   });
   return slotSelect;
 }
@@ -165,7 +168,6 @@ function createTimeSlotsDropdown(selectedDate) {
     updateBookingRequest();
   }
   if(timeslotsByData){
-    console.log(timeslotsByData);
     timeslotsByData.map(item=>{
       const option = document.createElement('option');
             option.value = item.timeSlotId;

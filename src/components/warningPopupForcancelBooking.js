@@ -65,7 +65,7 @@ function createWarningPopup(bookingRequest) {
       alert('Booking has been cancelled.');
       console.log(bookingRequest)
       cancelBooking(bookingRequest.bookingId);
-
+      
   };
 
   window.addEventListener('click', function(event) {

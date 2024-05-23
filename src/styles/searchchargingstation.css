@@ -62,7 +62,9 @@
     background-color: rgb(231, 231, 231);
     padding: 1rem;
     border-radius: 1rem;
+    width: 70%;
     margin: 1rem;
+    cursor: pointer;
   }
   .notfoundcard{
     width: 100%;

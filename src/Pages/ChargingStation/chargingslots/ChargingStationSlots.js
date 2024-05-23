@@ -12,14 +12,15 @@ function Chargingpoints(){
 
   const buttonDiv =document.createElement('div');
   buttonDiv.className = "AddSlotButtonHeader";
-  mainContentDiv.appendChild(buttonDiv); 
   mainContentDiv.appendChild(chargepointtab);
+  mainContentDiv.appendChild(buttonDiv); 
 
   const addSlot = document.createElement('button');
   addSlot.className = "AddSlotButton";
-  addSlot.textContent = "ADD Slot";
+  addSlot.textContent = "Add chargepoint";
   buttonDiv.appendChild(addSlot);
   addSlot.onclick = () =>{
+    e.preventDefault();
     addNewSlot();
   }
   
@@ -187,7 +188,7 @@ function editSlotForm(card,item){
     saveButton.textContent = 'Save';
     saveButton.onclick = () => {
         const newPrice = priceInput.value;
-        const newStatus = toLowerCase(statusSelect.value);
+        const newStatus = statusSelect.value.toLowerCase(statusSelect.value);
         console.log(newStatus);
         const data={};
         data['slotId']=item.slotId;
