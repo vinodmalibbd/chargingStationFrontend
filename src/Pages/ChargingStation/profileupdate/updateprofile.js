@@ -91,24 +91,49 @@ function updateProfileStation(mainContentDiv){
   }
   
   function submitForm() {
-    const formobj = document.querySelector('.profileupdateform')
-    const formData = new FormData(formobj);
+    const name = document.getElementById("inputname").value;
+    const openTime = document.getElementById("inputopentime").value;
+    const closeTime = document.getElementById("inputclosetime").value;
+    const latitude = document.getElementById("inputlatitude").value;
+    const longitude = document.getElementById("inputlogitude").value;
 
-    const formDataObject = {};
-  
-    for (let [key, value] of formData.entries()) {
-      if(key==='openTime'|| key==='closeTime'){
-        value=parseInt(value);
-      }
-      if(key==='longitude'|| key==='latitude'){
-        value=parseFloat(value);
-      }
-      formDataObject[key] = value;
+    if (!name) {
+        alert("Name is required.");
+        return ;
     }
-    console.log(formDataObject);
-    getChargingStationById().then(data=>{
+
+    if (!openTime || isNaN(openTime)) {
+        alert("Open time must be a valid number.");
+        return ;
+    }
+
+    if (!closeTime || isNaN(closeTime)) {
+        alert("Close time must be a valid number.");
+        return ;
+    }
+
+    if (!latitude || isNaN(latitude)) {
+        alert("Latitude must be a valid number.");
+        return ;
+    }
+
+    if (!longitude || isNaN(longitude)) {
+        alert("Longitude must be a valid number.");
+        return;
+    }
+
+
+    const profileData = {
+        name: name,
+        openTime: parseInt(openTime),
+        closeTime: parseInt(closeTime),
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude)
+    };
+        getChargingStationById().then(data=>{
       console.log(data);
-      formDataObject['emailId']=data.emailId;
-      updateChargingStationProfile(formDataObject)
+      profileData['emailId']=data.emailId;
+      updateChargingStationProfile(profileData)
+      
     })
   }
