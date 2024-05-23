@@ -80,7 +80,7 @@ function updateProfileStation(mainContentDiv){
       submitForm();
     }
     const cancelButton =document.createElement('button');
-    cancelButton.textContent ="cancel";
+    cancelButton.textContent ="Cancel";
     cancelButton.onclick = () =>{
       chargingStationDashboard();
     }

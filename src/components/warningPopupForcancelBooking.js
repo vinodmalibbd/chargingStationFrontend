@@ -21,7 +21,8 @@ function createWarningPopup(bookingRequest) {
   const confirmCancelBtn = document.createElement('button');
   confirmCancelBtn.id = 'confirmCancelBtn';
   confirmCancelBtn.textContent = 'Yes, Cancel';
-  confirmCancelBtn.onclick = () =>{
+  confirmCancelBtn.onclick = (e) =>{
+    e.preventDefault();
     console.log(bookingRequest)
     cancelBooking(bookingRequest);
   }
@@ -60,11 +61,13 @@ function createWarningPopup(bookingRequest) {
   }
 
   
-  confirmCancelBtn.onclick = () => {
-      hidePopup();
+  confirmCancelBtn.onclick = (e) => {
+      e.preventDefault();
       alert('Booking has been cancelled.');
-      console.log(bookingRequest)
+      console.log(bookingRequest);
+      hidePopup();
       cancelBooking(bookingRequest.bookingId);
+
 
   };
 
