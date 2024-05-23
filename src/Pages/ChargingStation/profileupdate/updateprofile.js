@@ -77,11 +77,12 @@ function updateProfileStation(mainContentDiv){
     submitButton.textContent = 'Submit';
     submitButton.onclick = (e) =>{
       e.preventDefault();
-      submitForm();
+      submitUpdateprofileForm();
     }
     const cancelButton =document.createElement('button');
     cancelButton.textContent ="Cancel";
-    cancelButton.onclick = () =>{
+    cancelButton.onclick = (e) =>{
+      e.preventDefault();
       chargingStationDashboard();
     }
     buttonDiv.appendChild(submitButton);
@@ -89,27 +90,8 @@ function updateProfileStation(mainContentDiv){
     form.appendChild(buttonDiv);
   }
   
-  function submitForm() {
-    // const formobj = document.querySelector('.profileupdateform')
-    // const formData = new FormData(formobj);
-
-    // const formDataObject = {};
+  function submitUpdateprofileForm() {
   
-    // for (let [key, value] of formData.entries()) {
-    //   if(key==='openTime'|| key==='closeTime'){
-    //     value=parseInt(value);
-    //   }
-    //   if(key==='longitude'|| key==='latitude'){
-    //     value=parseFloat(value);
-    //   }
-    //   formDataObject[key] = value;
-    // }
-    // console.log(formDataObject);
-    // getChargingStationById().then(data=>{
-    //   console.log(data);
-    //   formDataObject['emailId']=data.emailId;
-    //   updateChargingStationProfile(formDataObject)
-    // })
     const name = document.getElementById("inputName").value;
     const openTime = document.getElementById("inputOpenTime").value;
     const closeTime = document.getElementById("inputCloseTime").value;

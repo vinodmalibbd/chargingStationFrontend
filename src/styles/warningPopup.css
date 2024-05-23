@@ -113,10 +113,6 @@ button {
   border-radius: 5px;
 }
 
-#confirmCancelBtn {
-  background-color: #f44336; /* Red */
-  color: white;
-}
 
 #denyCancelBtn {
   background-color: #4CAF50; /* Green */
