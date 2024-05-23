@@ -64,7 +64,7 @@ function filterUniqueBookings(bookings) {
 
     return uniqueBookings;
 }
-const cancelBooking = async (bookingId) => {
+const cancelUserBooking = async (bookingId) => {
 // Show loader before API call
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {

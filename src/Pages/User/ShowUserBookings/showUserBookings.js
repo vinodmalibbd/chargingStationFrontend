@@ -107,9 +107,9 @@ function createBookingCard(booking,userBookingSection) {
     cancelBooking.onclick = (e) =>{
       e.preventDefault();
       console.log(booking);
-      alert("Booking is cancelled")
-      cancelBooking(booking.bookingId);
-
+      cancelUserBooking(booking.bookingId);
+      alert("Booking is cancelled");
+      
     }
 
 
