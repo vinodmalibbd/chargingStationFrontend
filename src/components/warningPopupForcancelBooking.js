@@ -24,7 +24,7 @@ function createWarningPopup(bookingRequest) {
   confirmCancelBtn.onclick = (e) =>{
     e.preventDefault();
     console.log(bookingRequest)
-    cancelBooking(bookingRequest);
+    cancelBooking(bookingRequest.bookingId);
   }
 
   const denyCancelBtn = document.createElement('button');

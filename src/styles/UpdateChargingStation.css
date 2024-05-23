@@ -11,7 +11,7 @@ width: 100%;
 }
 .updatestationformcontainer {
   width: 100%;
-  height: 100vh;
+  min-height:80vh ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,8 +47,13 @@ width: 100%;
   border-radius: 7px;
   margin-bottom: 2%;
   cursor: pointer;
-font-size: 1em;
+  height: 2.075rem;
+  font-size: 1em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#updatestationform span{
+  cursor: pointer;
+  /* color: blue; */
 }
 .ButtonDiv{
   display: flex;
