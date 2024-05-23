@@ -64,7 +64,7 @@ function createWarningPopup(bookingRequest) {
       hidePopup();
       alert('Booking has been cancelled.');
       console.log(bookingRequest)
-      cancelBooking(bookingRequest.bookingId);
+      cancelUserBooking(bookingRequest.bookingId);
 
   };
 
