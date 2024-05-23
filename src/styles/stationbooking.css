@@ -59,3 +59,7 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
+  .cancelBookingDiv .cancelBooking{
+    background-color:  orange;
+    cursor: pointer;
+  }

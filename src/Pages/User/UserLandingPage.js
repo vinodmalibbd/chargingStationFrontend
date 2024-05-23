@@ -78,7 +78,6 @@ function UserLandingPage() {
   document.body.appendChild(wrapperDiv);
   RenderMap();
   removeloader();
-  document.body.removeChild(loaderwrapper);
 }
 function changeTab(tabname, mainContentDiv) {
   mainContentDiv.innerHTML = "";

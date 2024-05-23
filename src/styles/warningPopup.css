@@ -1,4 +1,4 @@
-#warningPopup {
+/* #warningPopup {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -49,4 +49,71 @@
   margin: 1% 0.5% 0 0.5%;
   padding: 1% 2%;
   font-size: 1.4em;
+} */
+/* CSS for the Popup */
+.userbookingsection {
+  position: relative;
+  z-index: 1; /* Ensure this section is above other elements */
+}
+
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  z-index: 1000; /* Ensure popup is on top */
+}
+
+.popup-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Responsive width */
+  max-width: 500px; /* Maximum width for larger screens */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between elements */
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#confirmCancelBtn {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+#denyCancelBtn {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
 }
