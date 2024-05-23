@@ -1,6 +1,6 @@
 function LogOutChargingStation(){
   sessionStorage.clear();
-  navigateTo("/")
+  
 }
 function chargingStationLanding() {
   document.body.innerHTML='';

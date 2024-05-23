@@ -25,6 +25,7 @@
     min-width: 35vh;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 8px;
+    height: 200px;
   }
   .stationbookingcarditem{
     display: flex;
