@@ -118,7 +118,10 @@ function createBookingCard(booking,userBookingSection) {
     cancelBtnDiv.appendChild(cancelBooking);
     if(booking.status === 'cancelled'){
       cancelBtnDiv.removeChild(cancelBooking);
-      const element = document.querySelector('.stationbookingcard');
+    const element = document.querySelector('.stationbookingcard');
+    if (element) {
+      element.style.backgroundColor = 'red';
+    }
     }
     bookingcard.appendChild(cancelBtnDiv)
     userBookingSection.appendChild(bookingcard);

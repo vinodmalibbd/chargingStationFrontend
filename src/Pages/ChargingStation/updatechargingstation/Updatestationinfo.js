@@ -96,27 +96,27 @@ function updateStationInfo() {
     const longitude = document.getElementById("stationlongitude").value;
 
     if (!name) {
-        alert("Name is required.");
+        console.error("Name is required.");
         return ;
     }
 
     if (!openTime || isNaN(openTime)) {
-        alert("Open time must be a valid number.");
+        console.error("Open time must be a valid number.");
         return ;
     }
 
     if (!closeTime || isNaN(closeTime)) {
-        alert("Close time must be a valid number.");
+        console.error("Close time must be a valid number.");
         return ;
     }
 
     if (!latitude || isNaN(latitude)) {
-        alert("Latitude must be a valid number.");
+        console.error("Latitude must be a valid number.");
         return ;
     }
 
     if (!longitude || isNaN(longitude)) {
-        alert("Longitude must be a valid number.");
+        console.error("Longitude must be a valid number.");
         return;
     }
 

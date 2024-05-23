@@ -1,14 +1,14 @@
 function createWarningPopup(bookingRequest) {
   const PopupDiv = document.querySelector('.userbookingsection');
   const warningPopup = document.createElement('div');
-  // warningPopup.id = 'warningPopup';
+  warningPopup.id = 'warningPopup';
   warningPopup.className = 'popup';
 
   const popupContent = document.createElement('div');
   popupContent.className = 'popup-content';
 
   const closePopupBtn = document.createElement('span');
-  // closePopupBtn.id = 'closePopupBtn';
+  closePopupBtn.id = 'closePopupBtn';
   closePopupBtn.className = 'close-btn';
   closePopupBtn.innerHTML = '&times;';
 
@@ -19,11 +19,11 @@ function createWarningPopup(bookingRequest) {
   popupMessage.textContent = 'Are you sure you want to cancel the booking?';
 
   const confirmCancelBtn = document.createElement('button');
+  confirmCancelBtn.id = 'confirmCancelBtn';
   confirmCancelBtn.textContent = 'Yes, Cancel';
-  confirmCancelBtn.onclick = (e) =>{
-    e.preventDefault();
+  confirmCancelBtn.onclick = () =>{
     console.log(bookingRequest)
-    cancelBooking(bookingRequest.bookingId);
+    cancelBooking(bookingRequest);
   }
 
   const denyCancelBtn = document.createElement('button');
@@ -60,13 +60,11 @@ function createWarningPopup(bookingRequest) {
   }
 
   
-  confirmCancelBtn.onclick = (e) => {
-      e.preventDefault();
-      alert('Booking has been cancelled.');
-      console.log(bookingRequest);
+  confirmCancelBtn.onclick = () => {
       hidePopup();
+      alert('Booking has been cancelled.');
+      console.log(bookingRequest)
       cancelBooking(bookingRequest.bookingId);
-
 
   };
 
