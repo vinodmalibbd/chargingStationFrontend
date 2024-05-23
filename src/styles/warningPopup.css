@@ -55,6 +55,15 @@
   position: relative;
   z-index: 1; /* Ensure this section is above other elements */
 }
+#warningPopup{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
 
 .popup {
   display: none; /* Hidden by default */
