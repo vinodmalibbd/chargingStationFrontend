@@ -17,7 +17,7 @@ function Chargingpoints(){
 
   const addSlot = document.createElement('button');
   addSlot.className = "AddSlotButton";
-  addSlot.textContent = "ADD Slot";
+  addSlot.textContent = "ADD CHARGE POINT";
   buttonDiv.appendChild(addSlot);
   addSlot.onclick = () =>{
     addNewSlot();
@@ -187,7 +187,7 @@ function editSlotForm(card,item){
     saveButton.textContent = 'Save';
     saveButton.onclick = () => {
         const newPrice = priceInput.value;
-        const newStatus = toLowerCase(statusSelect.value);
+        const newStatus = statusSelect.value.toLowerCase();
         console.log(newStatus);
         const data={};
         data['slotId']=item.slotId;

@@ -23,7 +23,7 @@ function createWarningPopup(bookingRequest) {
   confirmCancelBtn.textContent = 'Yes, Cancel';
   confirmCancelBtn.onclick = () =>{
     console.log(bookingRequest)
-    cancelBooking(bookingRequest);
+    cancelBooking(bookingRequest.bookingId);
   }
 
   const denyCancelBtn = document.createElement('button');

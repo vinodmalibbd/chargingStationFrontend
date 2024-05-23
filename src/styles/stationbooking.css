@@ -8,7 +8,7 @@
   }
   .stationbookingsection{
     width: 100%;
-    height: 70%;
+    /* height: 70%; */
     color: black;
     overflow-y: scroll;
     scrollbar-width: 0px;

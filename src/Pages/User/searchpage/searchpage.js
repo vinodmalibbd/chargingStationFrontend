@@ -36,7 +36,7 @@ function searchStationPage() {
 
   searchPage.appendChild(searchPageHeader);
 
-  // Create middle section
+  
   const searchPageMiddle = document.createElement('div');
   searchPageMiddle.className = 'searchpagemiddle';
   const middleHeading = document.createElement('h3');
@@ -44,12 +44,10 @@ function searchStationPage() {
   searchPageMiddle.appendChild(middleHeading);
   searchPage.appendChild(searchPageMiddle);
 
-  // Create container for charging stations
   const searchPageChargingStation = document.createElement('div');
   searchPageChargingStation.className = 'searchpagechargingstation';
   searchPage.appendChild(searchPageChargingStation);
 
-  // Append search page to main div
   mainDiv.appendChild(searchPage);
 }
 
@@ -93,7 +91,7 @@ function searchChargingStations(city) {
       notFoundCard.className = 'notfoundcard';
 
       const notFoundIcon = document.createElement('i');
-      notFoundIcon.className = 'fas fa-exclamation-triangle'; // Font Awesome icon class
+      notFoundIcon.className = 'fas fa-exclamation-triangle';
 
       const notFoundText = document.createElement('p');
       notFoundText.textContent = 'No charging stations found in this city';

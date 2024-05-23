@@ -18,32 +18,32 @@ function updateProfileStation(mainContentDiv){
    stationName.textContent = "Station Name :";
    const nameInput = document.createElement("input");
    nameInput.setAttribute('type','text');
-   nameInput.setAttribute('id','forminput');
+   nameInput.setAttribute('id','inputname');
    nameInput.setAttribute('required','true')
   
    const StationOpeningtime = document.createElement("label");
    StationOpeningtime.textContent = "Station Opening Time :";
    const OpentimeInput = document.createElement("input");
    OpentimeInput.setAttribute('type','number');
-   OpentimeInput.setAttribute('id','forminput');
+   OpentimeInput.setAttribute('id','inputopentime');
   
    const StationClosingtime = document.createElement("label");
    StationClosingtime.textContent = "Station Closing Time :";
    const CloseTimeInput = document.createElement("input");
    CloseTimeInput.setAttribute('type','number');
-   CloseTimeInput.setAttribute('id','forminput');
+   CloseTimeInput.setAttribute('id','inputclosetime');
   
    const stationLatitude = document.createElement("label");
    stationLatitude.textContent = "Station Latitude :";
    const LatitudeInput = document.createElement("input");
    LatitudeInput.setAttribute('type','text');
-   LatitudeInput.setAttribute('id','forminput');
+   LatitudeInput.setAttribute('id','inputlatitude');
   
    const stationLongitude = document.createElement("label");
    stationLongitude.textContent = "Station Longitude :";
    const LongitudeInput = document.createElement("input");
    LongitudeInput.setAttribute('type','text');
-   LongitudeInput.setAttribute('id','forminput');
+   LongitudeInput.setAttribute('id','inputlogitude');
   
     form.appendChild(stationName);
     form.appendChild(nameInput);
@@ -63,22 +63,26 @@ function updateProfileStation(mainContentDiv){
     const getlocation=document.createElement('span');
     getlocation.textContent="use current location";  
     getlocation.onclick=function(){
-      const loc= getCurrentPositionUser();
-      const latitudeInput = document.getElementById('latitude');
-      const longitudeInput = document.getElementById('longitude');
-      latitudeInput.value = loc.lat;
-      longitudeInput.value = loc.long;
+       getCurrentPositionUser().then(loc =>{
+
+         const latitudeInput = document.getElementById('inputlatitude');
+         const longitudeInput = document.getElementById('inputlogitude');
+         latitudeInput.value = loc.lat;
+         longitudeInput.value = loc.long;
+       })
     }
    form.appendChild(getlocation);
     const submitButton = document.createElement('button');
     submitButton.setAttribute('type', 'button');
     submitButton.textContent = 'Submit';
-    submitButton.onclick = () =>{
+    submitButton.onclick = (e) =>{
+      e.preventDefault();
       submitForm();
     }
     const cancelButton =document.createElement('button');
     cancelButton.textContent ="cancel";
-    cancelButton.onclick = () =>{
+    cancelButton.onclick = (e) =>{
+      e.preventDefault();
       chargingStationDashboard();
     }
     buttonDiv.appendChild(submitButton);
