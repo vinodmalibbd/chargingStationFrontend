@@ -23,7 +23,7 @@ jobs:
           script: |
             echo "connected to ec2"
             
-            PID=$(sudo lsof -t -i:8081)
+            PID=$(sudo lsof -t -i:8082)
             if [ ! -z "$PID" ]; then
               sudo kill -9 $PID
             fi
