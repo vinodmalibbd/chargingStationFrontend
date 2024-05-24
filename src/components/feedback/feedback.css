@@ -1,0 +1,63 @@
+#feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.feedback-card {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 3vw;
+    background-color: #fff;
+    margin-bottom: 1vh;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.8rem;
+}
+
+.feedback-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.feedback-initials {
+    background-color: #f4f5f7;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2vw;
+    font-size: 1.2rem;
+}
+
+.map-feedback-name {
+    font-weight: bold;
+}
+
+.feedback-rating {
+    font-size: 1.2rem;
+    margin-bottom: 0.5vh;
+}
+
+.feedback-date {
+    font-size: 1rem;
+    color: #70758d;
+}
+
+.feedback-vehicle-info {
+    text-align: end;
+}
+
+.feedback-time-ago {
+    font-size: 1rem;
+    color: #404767;
+}
+
+.feedback-vehicle-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #404767;
+}
