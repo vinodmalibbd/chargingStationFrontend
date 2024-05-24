@@ -1,0 +1,41 @@
+.userlandingheader{
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--white-color);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbarcontainer{
+    padding: 1.5rem;
+}
+.navbar-item{
+    padding: 1rem;
+    cursor: pointer;
+}
+.navbar-brand{
+
+
+}
+.navuser{
+
+}
+.navbarloginbutton{
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    outline: none;
+    border: 1px solid var(--white-color);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.navbarloginbutton:hover{
+    background-color: var(--white-color);
+    color: var(--gray-color);
+}

@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --primary-color: #03081d;
+    --secondary-color: #fb4335;
+    --white-color: #ffffff;
+    --text-color: #d2d2d1;
+    --dark-blue: #060a1a;
+    --text-color100: #262631;
+    --black-color: #000000;
+    --read-text: #e6555c;
+    --orange-color: #fc441e;
+    --gray-color: #4a4a49;
+    --text-blueColor: #080b1c;
+    --text-primary-color: #101941;
+}
+header,footer{
+    background-color: var(--primary-color);
+}
+::-webkit-scrollbar-track {
+    background: #e8e8ec;
+    border-radius: 4%;
+}
+::-webkit-scrollbar-thumb {
+    background: #101941;
+    border-radius: 4%;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
