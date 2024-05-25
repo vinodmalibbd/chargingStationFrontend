@@ -1,0 +1,92 @@
+/* Main container */
+.registration-main-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card container */
+.registration-card-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 90%; /* Adjusted for responsiveness */
+    margin: 0 auto;
+}
+
+/* Form container */
+.registration-updatestationformcontainer {
+    margin-top: 20px;
+}
+
+/* Form heading */
+.registration-updatestationformcontainer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Form label */
+.registration-updatestationformcontainer label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Form input */
+.registration-updatestationformcontainer input {
+    width: calc(100% - 22px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Form span */
+.registration-updatestationformcontainer span {
+    cursor: pointer;
+    color: #007bff;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Form button container */
+.registration-ButtonDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Form submit button */
+.registration-ButtonDiv button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.registration-ButtonDiv button:hover {
+    background-color: #0056b3;
+}
+
+/* Cancel button */
+.registration-cancel {
+    background-color: #f44336;
+}
+
+.registration-cancel:hover {
+    background-color: #d32f2f;
+}
+
+/* Media query for laptop screens */
+@media only screen and (min-width: 1024px) {
+    .registration-card-container {
+        max-width: 600px; /* Adjusted for laptop screens */
+    }
+}

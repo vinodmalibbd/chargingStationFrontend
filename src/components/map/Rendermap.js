@@ -39,14 +39,14 @@ function Rendermap(){
                         const distance = route.summary.totalDistance;
                         const formattedDistance = (distance / 1000).toFixed(2) + " km";
                         const destinationMarker = L.marker(route.coordinates[0]).addTo(map);
-                        // currentPopup = destinationMarker.bindPopup(openStationDetailsPopup(item,formattedDistance)).openPopup();
+                        currentPopup = destinationMarker.bindPopup(openStationDetailsPopup(item,formattedDistance)).openPopup();
 
-                        // const poupcard=document.querySelector('.popup-button-stationcard');
-                        // if(poupcard){
-                        //     poupcard.addEventListener('click',()=>{
-                        //         chargeStationPage(item);
-                        //     })
-                        // }
+                        const poupcard=document.querySelector('.popup-button-stationcard');
+                        if(poupcard){
+                            poupcard.addEventListener('click',()=>{
+                                chargeStationPage(item);
+                            })
+                        }
                     }).addTo(map);
                 });
             });
@@ -55,15 +55,15 @@ function Rendermap(){
     
 }
 
-// const openStationDetailsPopup = (station, distance) => {
-//     const popupContent = `
-//         <div class="popupstaioninfo">
-//             <h3>${station.name}</h3>
-//             <p>Open Time: ${station.openTime}</p>
-//             <p>Close Time: ${station.closeTime}</p>
-//             <p>Distance: ${distance} km</p>
-//             <button class="popup-button-stationcard">More Details</button>
-//         </div>
-//     `;
-//     return popupContent;
-// };
+const openStationDetailsPopup = (station, distance) => {
+    const popupContent = `
+        <div class="popupstaioninfo">
+            <h3>${station.name}</h3>
+            <p>Open Time: ${station.openTime}</p>
+            <p>Close Time: ${station.closeTime}</p>
+            <p>Distance: ${distance} km</p>
+            <button class="popup-button-stationcard">More Details</button>
+        </div>
+    `;
+    return popupContent;
+};

@@ -25,13 +25,13 @@ function addNewSlot() {
     priceInput.required = true;
     priceInput.min = '50';
     priceInput.max = '200';
-    priceInput.step = '1'; // Set to '1' to only allow integer values
+    priceInput.step = '1'; 
     priceInput.className = 'chargingslot-input';
 
     const priceWarningSpan = document.createElement('span');
     priceWarningSpan.className = 'chargingslot-warning';
     priceWarningSpan.textContent = 'Price must be greater than 0.';
-    priceWarningSpan.style.display = 'none'; // Initially hide the warning span
+    priceWarningSpan.style.display = 'none'; 
 
     const statusLabel = document.createElement('label');
     statusLabel.textContent = 'Status:';
@@ -53,7 +53,7 @@ function addNewSlot() {
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     saveButton.className = 'chargingslot-button chargingslot-saveButton';
-    saveButton.disabled = true; // Initially disable the button
+    saveButton.disabled = true; 
     saveButton.addEventListener('click', function () {
         const priceValue = parseInt(priceInput.value);
         const warningSpan = popupForm.querySelector('.chargingslot-warning');
@@ -64,7 +64,7 @@ function addNewSlot() {
             removeloader();
         } else {
             warningSpan.textContent = 'Price must be a number greater than 50 and less than or equal to 200.';
-            warningSpan.style.display = 'block'; // Show the warning span
+            warningSpan.style.display = 'block'; 
         }
     });
 
@@ -81,17 +81,17 @@ function addNewSlot() {
     priceInput.addEventListener('input', function () {
         const priceValue = parseInt(priceInput.value);
         if (priceValue === 0) {
-            priceWarningSpan.style.display = 'block'; // Show the warning span
-            saveButton.disabled = true; // Disable the button
+            priceWarningSpan.style.display = 'block'; 
+            saveButton.disabled = true; 
         } else {
-            priceWarningSpan.style.display = 'none'; // Hide the warning span
-            saveButton.disabled = false; // Enable the button
+            priceWarningSpan.style.display = 'none'; 
+            saveButton.disabled = false; 
         }
     });
 
     popupForm.appendChild(priceLabel);
     popupForm.appendChild(priceInput);
-    popupForm.appendChild(priceWarningSpan); // Append the warning span
+    popupForm.appendChild(priceWarningSpan); 
     popupForm.appendChild(document.createElement('br'));
     popupForm.appendChild(statusLabel);
     popupForm.appendChild(statusSelect);

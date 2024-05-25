@@ -40,9 +40,10 @@ const createBooking = async (bookingRequest) => {
           removeloader();
           if (res.status === 200) {
               const bookings = await res.json();
-              // Filter out duplicate bookings based on some unique identifier (e.g., ID)
               const uniqueBookings = filterUniqueBookings(bookings);
-              return uniqueBookings;
+              console.log(uniqueBookings);
+            return uniqueBookings;
+          
           }
       } else {
           removeloader();
@@ -50,15 +51,14 @@ const createBooking = async (bookingRequest) => {
       }
   }
   
-  // Function to filter out duplicate bookings based on ID
   function filterUniqueBookings(bookings) {
       const uniqueBookings = [];
-      const idSet = new Set(); // Use a set to store unique IDs
+      const idSet = new Set(); 
   
       bookings.forEach(booking => {
-          if (!idSet.has(booking.id)) {
+          if (!idSet.has(booking.bookingId)) {
               uniqueBookings.push(booking);
-              idSet.add(booking.id);
+              idSet.add(booking.bookingId);
           }
       });
   
