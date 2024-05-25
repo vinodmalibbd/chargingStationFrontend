@@ -22,8 +22,8 @@ const MainPage = () => {
 
   const userButton = document.createElement("a");
   userButton.onclick = () =>{
-      localStorage.clear();
-      UserLandingPage();
+      sessionStorage.clear();
+      Userlandingpage();
   }
   userButton.className = "LandingPageUser-button";
   userButton.textContent = "For Vehicle Owner";
