@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     padding: 16px;
+    justify-content: flex-start;
 }
 .chargingstation-nav-link {
     padding: 8px 12px;

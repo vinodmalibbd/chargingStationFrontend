@@ -4,8 +4,12 @@ const navbarlist=[
     },
     {
         name:'About us'
+    },
+    {
+        name:'Show booking'
     }
-]
+];
+
 function Navbar() {
     const header = document.createElement('header');
     header.className = 'userlandingheader';
