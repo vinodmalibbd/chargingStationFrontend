@@ -174,4 +174,3 @@ function createChargePointCards(chargingStation){
   // });  
   
 }
-userBooking();

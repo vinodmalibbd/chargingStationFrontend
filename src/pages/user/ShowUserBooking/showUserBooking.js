@@ -53,5 +53,3 @@ function userShowBooking(){
    ShowUserBookingCard.appendChild(cancelUserBookingbtn);
 
 }
-
-userShowBooking();
