@@ -1,140 +1,124 @@
-
-let bookingRequest={
-  userId:null,
-  chargingSlotId:null,
-  timeSlotId:null,
-  date:null
-}
+let bookingRequest = {
+  userId: null,
+  chargingSlotId: null,
+  timeSlotId: null,
+  date: null,
+};
 
 function getCurrentDate() {
   const today = new Date();
   const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 
-function userBooking(){
+async function userBooking() {
+  // let chargingSlots = getAllChargingStationSlots
 
-  const BookingDiv = document.querySelector('.mainDiv');
-  BookingDiv.innerHTML = " ";
+  const BookingDiv = document.querySelector(".main_content");
+  BookingDiv.innerHTML = "";
 
-  const headingDiv = document.createElement('div');
+  const headingDiv = document.createElement("div");
   headingDiv.className = "BookingHeading";
 
-  const bookingHeader = document.createElement('span');
-  bookingHeader.className = 'bookingSpan';
+  const bookingHeader = document.createElement("span");
+  bookingHeader.className = "bookingSpan";
   bookingHeader.textContent = "Kalyani Charging Point";
 
-  const stationAdderess = document.createElement('span');
-  stationAdderess.textContent = 'Fortaleza Complex, 5, Central Ave, Princeton Town Society, Prathamesh Society, Kalyani Nagar, Pune, Maharashtra 411006';
-
+  const stationAdderess = document.createElement("span");
+  stationAdderess.textContent =
+    "Fortaleza Complex, 5, Central Ave, Princeton Town Society, Prathamesh Society, Kalyani Nagar, Pune, Maharashtra 411006";
 
   headingDiv.appendChild(bookingHeader);
   headingDiv.appendChild(stationAdderess);
-
   BookingDiv.appendChild(headingDiv);
-  
-  
 
-  const chargePointCardsDiv = document.createElement('div');
-  chargePointCardsDiv.className = 'chargePointCardsDiv';
+  const chargePointCardsDiv = document.createElement("div");
+  chargePointCardsDiv.className = "chargePointCardsDiv";
   BookingDiv.appendChild(chargePointCardsDiv);
-    
-for(let i=1;i<=5;i++){
-  const chargePointcard = document.createElement('div');
-  chargePointcard.className = 'chargePointcard';
+  const stationID = 1;
 
-  const chargepointId = document.createElement('span');
-  chargepointId.textContent = 'Charging Point:1'
-  const Price =document.createElement('span');
-  Price.textContent = 'Price : $200';
-  chargePointcard.appendChild(chargepointId);
-  chargePointcard.appendChild(Price);
+  const data = await getAllChargingStationSlots(stationID);
+  if (data) {
+    console.log(data);
+    data.map((slots) => {
+      const chargePointcard = document.createElement("div");
+      chargePointcard.className = "chargePointcard";
 
-  chargePointCardsDiv.appendChild(chargePointcard);
+      const chargePointInfo = document.createElement("div");
+      chargePointInfo.className = "chargePointInfo";
 
-}
-const cards = document.querySelectorAll('.chargePointcard');
+      const chargepointId = document.createElement("span");
+      chargepointId.textContent = "Charging Point: ";
 
-    if (cards.length > 0) {
-        cards[0].classList.add('selected');
-    }
-    cards.forEach(card => {
-        card.onclick =() => {
-          
-            cards.forEach(c => c.classList.remove('selected'));
+      const chargepointIdNo = document.createElement("span");
+      chargepointIdNo.textContent = "1";
+      chargepointIdNo.className = "sp1";
+      chargepointId.appendChild(chargepointIdNo);
 
-            card.classList.add('selected');
-        };
+      const Price = document.createElement("span");
+      Price.textContent = "Price :";
+
+      const PriceAmount = document.createElement("span");
+      PriceAmount.textContent = " ₹200";
+      PriceAmount.className = "sp1";
+      Price.appendChild(PriceAmount);
+      chargePointInfo.appendChild(chargepointId);
+      chargePointInfo.appendChild(Price);
+      chargePointcard.appendChild(chargePointInfo);
+
+      const bookingDatePickerDiv = document.createElement("div");
+      bookingDatePickerDiv.className = "bookingDatePickerDiv";
+
+      const bookingDatePicker = document.createElement("input");
+      bookingDatePicker.className = "bookingDatePicker";
+      bookingDatePicker.type = "date";
+      bookingDatePicker.value = getCurrentDate();
+      bookingDatePicker.min = getCurrentDate();
+
+      const DatePickerlabel = document.createElement("label");
+      DatePickerlabel.className = "UserDatePickerSpan";
+      DatePickerlabel.textContent = "Date : ";
+
+      bookingDatePickerDiv.appendChild(DatePickerlabel);
+      bookingDatePickerDiv.appendChild(bookingDatePicker);
+      chargePointcard.appendChild(bookingDatePickerDiv);
+
+      const BookingtimeslotDiv = document.createElement("div");
+      BookingtimeslotDiv.className = "BookingtimeslotDiv";
+
+      const timeSlotlabel = document.createElement("label");
+      timeSlotlabel.className = "timeSlotlabel";
+      timeSlotlabel.textContent = "Time Slot : ";
+
+      const timeSlotList = document.createElement("select");
+      timeSlotList.className = "timeSlotList";
+
+      BookingtimeslotDiv.appendChild(timeSlotlabel);
+      BookingtimeslotDiv.appendChild(timeSlotList);
+      chargePointcard.appendChild(BookingtimeslotDiv);
+
+      const BookingButtonGroup = document.createElement("div");
+      BookingButtonGroup.className = "BookingButtonGroup";
+
+      const userBookingButton = document.createElement("button");
+      userBookingButton.className = "BookingButton";
+      userBookingButton.textContent = "Book Now ";
+
+      BookingButtonGroup.appendChild(userBookingButton);
+      chargePointcard.appendChild(BookingButtonGroup);
+      chargePointCardsDiv.appendChild(chargePointcard);
     });
-
-const chargePointDiv = document.createElement('div');
-  chargePointDiv.className = 'chargePointDiv';
-  BookingDiv.appendChild(chargePointDiv);
-
-
-  const bookingDatePickerDiv = document.createElement('div');
-  bookingDatePickerDiv.className = "bookingDatePickerDiv";
-
-  const bookingDatePicker = document.createElement('input');
-  bookingDatePicker.className = 'bookingDatePicker';
-  bookingDatePicker.type = 'date';
-  bookingDatePicker.value = getCurrentDate();
-  bookingDatePicker.min = getCurrentDate();
-
-  const DatePickerlabel = document.createElement('label');
-  DatePickerlabel.className = 'UserDatePickerSpan';
-  DatePickerlabel.textContent = 'Date : ';
-
-  bookingDatePickerDiv.appendChild(DatePickerlabel);
-  bookingDatePickerDiv.appendChild(bookingDatePicker);
-
-  const BookingtimeslotDiv =document.createElement('div');
-  BookingtimeslotDiv.className ='BookingtimeslotDiv';
-
-  const timeSlotlabel = document.createElement('label');
-  timeSlotlabel.className = 'timeSlotlabel';
-  timeSlotlabel.textContent ="Time Slot : ";
-
-  const timeSlotList = document.createElement('select');
-  timeSlotList.className = 'timeSlotList';
-
-  BookingtimeslotDiv.appendChild(timeSlotlabel);
-  BookingtimeslotDiv.appendChild(timeSlotList);
-
-  const BookingButtonGroup = document.createElement('div');
-  BookingButtonGroup.className = 'BookingButtonGroup';
-
-  const userBookingButton =document.createElement('button');
-  userBookingButton.className = 'BookingButton';
-  userBookingButton.textContent = 'Book Now '
-
-  const BookingCancelbtn = document.createElement('button');
-  BookingCancelbtn.className = 'BookingCancelbtn';
-  BookingCancelbtn.textContent = 'Cancel';
-
-  BookingCancelbtn.onclick = (e) =>{
-    e.preventDefault();
-    // UserLandingPage();
-  
   }
 
-  BookingButtonGroup.appendChild(BookingCancelbtn);
-  BookingButtonGroup.appendChild(userBookingButton);
-  chargePointDiv.appendChild(bookingDatePickerDiv);
-  chargePointDiv.appendChild(BookingtimeslotDiv);
-  chargePointDiv.appendChild(BookingButtonGroup);
-
-  const UserFeedback = document.createElement('div');
-  UserFeedback.className = 'UserFeedback';
+  const UserFeedback = document.createElement("div");
+  UserFeedback.className = "UserFeedback";
   BookingDiv.appendChild(UserFeedback);
-
 }
 
-
-function createChargePointCards(chargingStation){
-  const slotsCards =document.querySelector('.chargePointDiv');
+function createChargePointCards(chargingStation) {
+  const slotsCards = document.querySelector(".chargePointDiv");
   // getAllChargingStationSlotsById(1).then(slots =>{
 
   //   console.log(slots);
@@ -142,18 +126,18 @@ function createChargePointCards(chargingStation){
   //     slots.map(slot => {
   //       const chargingSlots = document.createElement('div');
   //       chargingSlots.className = 'charginSlot';
-  
+
   //       const chargingSlotId = document.createElement('span');
   //       chargingSlotId.className = 'chargingSlotId';
   //       chargingSlotId.textContent = `Slot : ${slot.slotId}`;
-  
+
   //       const chargingSlotPrice = document.createElement('span');
   //       chargingSlotPrice.className = 'chargingSlotPrice';
   //       chargingSlotPrice.textContent = `Price : ₹${slot.pricePerHour}`;
-  
+
   //       chargingSlots.appendChild(chargingSlotId);
   //       chargingSlots.appendChild(chargingSlotPrice);
-  
+
   //       slotsCards.appendChild(chargingSlots);
   //   });
   //   }
@@ -162,7 +146,7 @@ function createChargePointCards(chargingStation){
   //      noslotAvailableslotsCards.className = 'noslotAvailableslotsCards';
 
   //      const warningspan = document.createElement('span');
-  //      warningspan.textContent = 'Warning'; 
+  //      warningspan.textContent = 'Warning';
 
   //      const warningspan01 = document.createElement('span');
   //      warningspan01.textContent ='No Chrging Slot Available for this Station';
@@ -171,6 +155,5 @@ function createChargePointCards(chargingStation){
   //      noslotAvailableslotsCards.appendChild(warningspan01);
   //      chargePointDiv.appendChild(noslotAvailableslotsCards);
   //   }
-  // });  
-  
+  // });
 }
