@@ -36,6 +36,9 @@
 .map-feedback-name {
     font-weight: bold;
 }
+.map-feedback-comment {
+    padding: 0.5rem 0rem;
+}
 
 .feedback-rating {
     font-size: 1.2rem;
@@ -47,7 +50,7 @@
     color: #70758d;
 }
 
-.feedback-vehicle-info {
+.feedback-right-side {
     text-align: end;
 }
 

@@ -15,37 +15,32 @@ function createFeedbackCard(feedback) {
     userNameDiv.className = 'map-feedback-name';
     userNameDiv.textContent = feedback.name;
 
+    const userdiscription = document.createElement('div');
+    userdiscription.className = 'map-feedback-comment';
+    userdiscription.textContent = feedback.name;
+
     const ratingDiv = document.createElement('div');
     ratingDiv.className = 'feedback-rating';
     ratingDiv.textContent = '★'.repeat(feedback.rating) + ' ' + feedback.rating;
 
-    const dateDiv = document.createElement('div');
-    dateDiv.className = 'feedback-date';
-    dateDiv.textContent = feedback.date;
-
     userInfoDiv.appendChild(userNameDiv);
-    userInfoDiv.appendChild(ratingDiv);
-    userInfoDiv.appendChild(dateDiv);
+    userInfoDiv.appendChild(userdiscription);
+   
 
     userDiv.appendChild(initialsDiv);
     userDiv.appendChild(userInfoDiv);
 
-    const vehicleDiv = document.createElement('div');
-    vehicleDiv.className = 'feedback-vehicle-info';
+    const feebackrightside = document.createElement('div');
+    feebackrightside.className = 'feedback-vehicle-info';
 
     const timeAgoDiv = document.createElement('div');
     timeAgoDiv.className = 'feedback-time-ago';
     timeAgoDiv.textContent = feedback.timeAgo;
 
-    const vehicleNameDiv = document.createElement('div');
-    vehicleNameDiv.className = 'feedback-vehicle-name';
-    vehicleNameDiv.textContent = feedback.vehicle;
-
-    vehicleDiv.appendChild(timeAgoDiv);
-    vehicleDiv.appendChild(vehicleNameDiv);
+    feebackrightside.appendChild(ratingDiv);
 
     card.appendChild(userDiv);
-    card.appendChild(vehicleDiv);
+    card.appendChild(feebackrightside);
 
     return card;
 }
@@ -64,7 +59,7 @@ function renderFeedback(feedbackList) {
     });
 }
 
-// Example feedback data
+
 const feedbackList = [
     {
         initials: 'JS',
