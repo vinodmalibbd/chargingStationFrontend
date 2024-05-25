@@ -1,0 +1,71 @@
+
+.stationbookingcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.chargingstationbookingstab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ 
+/* Filter container */
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+ 
+/* Card styling */
+.bookingCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+ 
+
+.bookingDetail {
+    font-size: 16px;
+    color: #333;
+}
+ 
+/* Status styling */
+.status {
+    font-weight: bold;
+}
+ 
+.status.confirm {
+    color: green;
+}
+ 
+.status.cancel {
+    color: red;
+}
+ 
+/* Dropdown and input styling */
+.statusFilter, .dateFilter {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+ 
+/* No data message styling */
+.noDataMessage {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
