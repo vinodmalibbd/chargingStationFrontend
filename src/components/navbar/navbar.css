@@ -39,3 +39,64 @@ nav{
     background-color: var(--white-color);
     color: var(--gray-color);
 }
+
+/* .userlandingheader {
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
+
+.navbarcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.navbaritemscontainer {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar-item {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.navbaruser {
+    display: flex;
+    align-items: center;
+}
+
+.navbarloginbutton {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.burger-menu {
+    cursor: pointer;
+    font-size: 1.5em;
+    display: none; /* Initially hidden */
+}
+
+/* Basic styles for mobile */
+@media (max-width: 600px) {
+    .burger-menu {
+        display: block;
+    }
+} */

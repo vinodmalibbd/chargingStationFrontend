@@ -76,6 +76,9 @@ async function userBooking() {
       bookingDatePicker.type = "date";
       bookingDatePicker.value = getCurrentDate();
       bookingDatePicker.min = getCurrentDate();
+      bookingDatePicker.onchange = () => {
+        generateTimeSlot(bookingRequest);
+      };
 
       const DatePickerlabel = document.createElement("label");
       DatePickerlabel.className = "UserDatePickerSpan";
@@ -94,6 +97,14 @@ async function userBooking() {
 
       const timeSlotList = document.createElement("select");
       timeSlotList.className = "timeSlotList";
+      getSlotAvailblity(bookingRequest).then((data) => {
+        data.map((timeslot) => {
+          const timeslotoption = document.createElement("option");
+          timeslotoption.value = timeslot.Id;
+          timeslotoption.textContent = `${startTime}:00 To ${endTime}:00`;
+          timeSlotList.appendChild(timeslotoption);
+        });
+      });
 
       BookingtimeslotDiv.appendChild(timeSlotlabel);
       BookingtimeslotDiv.appendChild(timeSlotList);
@@ -156,4 +167,16 @@ function createChargePointCards(chargingStation) {
   //      chargePointDiv.appendChild(noslotAvailableslotsCards);
   //   }
   // });
+}
+
+function generateTimeSlot(bookingRequest) {
+  const timeSlotList = document.querySelector(".timeSlotList");
+  getSlotAvailblity(bookingRequest).then((data) => {
+    data.map((timeslot) => {
+      const timeslotoption = document.createElement("option");
+      timeslotoption.value = timeslot.Id;
+      timeslotoption.textContent = `${startTime}:00 To ${endTime}:00`;
+      timeSlotList.appendChild(timeslotoption);
+    });
+  });
 }
