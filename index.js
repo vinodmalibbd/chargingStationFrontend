@@ -1,4 +1,7 @@
 window.addEventListener('DOMContentLoaded',()=>{
     // Userlandingpage();
-    renderFeedback(feedbackList);
+    // renderFeedback(feedbackList);\
+
+    Chargestationlanding();
+
 })
