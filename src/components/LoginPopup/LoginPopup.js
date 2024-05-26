@@ -14,10 +14,10 @@ function createPOPUP(usertype) {
   popContent.className = "Loginpopup-content";
   const Title =document.createElement("h2");
   Title.className = "LoginTitle";
-  Title.textContent = "Login With Google"
+  Title.textContent = "Get Started"
 
   const LoginBtn = document.createElement("button");
-  LoginBtn.textContent = "Sign up with Google";
+  LoginBtn.textContent = "Login with Google";
   LoginBtn.className = "g-signin2";
   LoginBtn.onclick= () =>{
     sessionStorage.clear();

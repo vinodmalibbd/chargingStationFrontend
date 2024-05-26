@@ -1,11 +1,3 @@
-// function Chargestationlanding (){
-//     document.body.innerHTML='';
-//     getChargingStationById().then(res=>{
-//         console.log(res);
-//     })
-   
-// }
-
 function Chargestationlanding() {
     document.body.innerHTML='';
     showloader();

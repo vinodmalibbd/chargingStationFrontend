@@ -1,15 +1,17 @@
 .main_content{
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
     align-items: center;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    background-color: var(--white-color);
+    color: var(--text-color);
 
     /* justify-content: center; */
 }
 #map{
     width: 100%;
-    height: 100%;
-    
+    height: 100%;   
+    position: absolute;
 }

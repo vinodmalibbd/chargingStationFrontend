@@ -1,11 +1,14 @@
 let bookingRequest = {
   date: null,
+  date: null,
   chargingSlotId: null,
   stationId: null,
 };
 
 let getslotrequest = {
   date: null,
+  chargingSlotId: null,
+  stationId: null,
   chargingSlotId: null,
   stationId: null,
 };
@@ -49,6 +52,7 @@ function userBooking(chargepoint) {
     if (data) {
       console.log(data);
       data.map((slots) => {
+        // if(slots.)
         generateChargPoints(slots);
       });
     }

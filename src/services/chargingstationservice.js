@@ -70,3 +70,23 @@ const getAllChargingStation = async () => {
       MainPage();
     }
   };
+
+  const getCharginstation = async (id) => {
+    showloader();
+
+      const res = await fetch(
+        `${backendurl}/chargingstation/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        }
+      );
+      removeloader();
+      if(res.ok){
+
+        return res.json();
+      }
+
+  };

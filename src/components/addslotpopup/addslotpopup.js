@@ -4,7 +4,6 @@ function addNewSlot() {
     const container=document.createElement('div');
     container.className='addcharginslotcontainer';
 
-
     const popupForm = document.createElement('div');
     popupForm.className = 'chargingslot-popupAddslot';
     
@@ -59,8 +58,13 @@ function addNewSlot() {
         const warningSpan = popupForm.querySelector('.chargingslot-warning');
         if (priceInput.checkValidity() && priceValue > 0 && priceValue <= 200) {
             showloader();
-            // saveSlot(warningSpan);
-            // Chargingpoints();
+            const data={
+                pricePerHour:Number(priceValue),
+                available:statusSelect.value==='available'?true:false
+            }
+            console.log(data);
+            addChargingSlotStation(data);
+            addchargepointtab();
             removeloader();
         } else {
             warningSpan.textContent = 'Price must be a number greater than 50 and less than or equal to 200.';

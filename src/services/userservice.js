@@ -1,4 +1,4 @@
-const showAllUserBookings = async () => {
+const showLoggedInUserBookings = async () => {
     showloader();
       const token = sessionStorage.getItem("web-vb-token");
       if (token) {
@@ -18,5 +18,7 @@ const showAllUserBookings = async () => {
         if (res.status === 200) {
           return res.json()
         }
+      }else{
+        removeloader();
       }
 };

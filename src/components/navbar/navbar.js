@@ -1,12 +1,19 @@
 const navbarlist = [
   {
     name: "Home",
+    click: Userlandingpage,
   },
   {
-    name: "About Us",
+    name: "Search Station",
+    click: searchStationPage,
+    // click: () => {
+    //   // console.log("About Us clicked");
+    //   click: searchStationPage,
+    // }
   },
   {
     name: "Show Booking",
+    click: userShowBooking,
   },
 ];
 
@@ -26,20 +33,16 @@ function Navbar() {
 
   const navbaritemscontainer = document.createElement("ul");
   navbaritemscontainer.className = "navbaritemscontainer";
-  navbarlist.map((item) => {
+  navbarlist.forEach((item) => {
     const navbaritem = document.createElement("span");
     navbaritem.className = "navbar-item";
     navbaritem.textContent = item.name;
-    if (item.name === "Show Booking") {
-      navbaritem.onclick = () => {
-        showUserBooking();
-      };
-    } else if (item.name === "Home") {
-      navbaritem.onclick = () => {
-        Userlandingpage();
+    if (item.click) {
+      navbaritem.onclick = (e) => {
+        e.preventDefault();
+        item.click();
       };
     }
-
     navbaritemscontainer.appendChild(navbaritem);
   });
 
@@ -48,8 +51,7 @@ function Navbar() {
 
   const navloginbutton = document.createElement("button");
   navloginbutton.className = "navbarloginbutton";
-  navloginbutton.textContent = "login";
-  navloginbutton.className = "navbarloginbutton";
+  navloginbutton.textContent = "Login";
   navloginbutton.onclick = () => {
     createPOPUP("user");
   };

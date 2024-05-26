@@ -1,7 +1,10 @@
 .main_content_chargepoint{
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
+    align-items: center;
     display: flex;
-    background-color: var(--white-color);
     flex-direction: column;
+    overflow-y: auto;
+    background-color: var(--white-color);
+    color: var(--text-color);
 }
