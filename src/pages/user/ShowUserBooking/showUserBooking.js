@@ -72,7 +72,7 @@ function userShowBooking() {
       bookingStatus.appendChild(statusText);
       ShowUserBookingCard.appendChild(bookingStatus);
 
-      if(item.status==='Confirmed') {
+      if(item.status==='confirmed') {
         const cancelUserBookingBtn = document.createElement('button');
         cancelUserBookingBtn.className = 'cancelUserBookingBtn';
         cancelUserBookingBtn.textContent = 'Cancel Booking';
