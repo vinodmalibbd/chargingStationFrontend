@@ -11,6 +11,7 @@
   padding: 2%;
 }
 
+
 .chargePointDiv{
   display: flex;
   flex-direction: column;
@@ -46,8 +47,11 @@
 .chargePointCardsDiv{
   display: flex;
   justify-content: center;
-  gap: 2%;
   flex-wrap: wrap;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 15px;
 }
 
 .chargePointcard .bookingDatePicker{

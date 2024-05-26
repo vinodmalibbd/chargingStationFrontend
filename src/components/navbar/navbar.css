@@ -18,13 +18,13 @@ nav{
     padding: 1rem;
     cursor: pointer;
 }
-.navbar-brand{
+/* .navbar-brand{
 
 
 }
 .navuser{
 
-}
+} */
 .navbarloginbutton{
     padding: 0.5rem 1rem;
     background-color: var(--primary-color);
@@ -95,8 +95,8 @@ nav{
 }
 
 /* Basic styles for mobile */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .burger-menu {
         display: block;
     }
-} */
+}  */
