@@ -34,9 +34,11 @@ function RenderChargingSlotCard(item, key) {
     const span01 = document.createElement('span');
     const span02 = document.createElement('span');
     const span03 = document.createElement('span');
-    span01.textContent = `Chargepoint: ${key + 1}`;
-    span02.textContent = `Price per hour: ${item.pricePerHour}`;
-    span03.textContent = item.available ? 'Status: available' : 'Status: maintenance';
+    
+    span01.innerHTML = `<strong>Chargepoint:</strong> ${key + 1}`;
+    span02.innerHTML = `<strong>Price per hour:</strong> ${item.pricePerHour}`;
+    span03.innerHTML = `<strong>Status: <p style="color: ${item.available ? 'green' : 'red'}">${item.available ? 'available' : 'maintenance'}</p></strong>`;
+
 
     const editButtonDiv = document.createElement('div');
     editButtonDiv.className = 'renderchargingslot-buttons';
@@ -101,6 +103,7 @@ function editChargingslot(card, item) {
 
         if (newPrice <= 0 || newPrice > 200) {
             warningSpan.textContent = 'Please enter a valid price (1-200)';
+
             return;
         }
 

@@ -83,7 +83,11 @@
 .renderchargingslot-edit-btn:hover {
     background-color: #45a049;
 }
-
+.renderchargingslot-warning{
+    font-size: 12px;
+    color: red;
+    margin: 5px;
+}
 .renderchargingslot-editcard{
     position: absolute;
     background-color: black;
@@ -96,6 +100,7 @@
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #ccc;
+    justify-content: center;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

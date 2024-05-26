@@ -31,14 +31,24 @@ function Chargingstationdashboard() {
     
         const totalbookingsheading = document.createElement('div');
         totalbookingsheading.className = 'chargingstation-balance-label';
-        totalbookingsheading.textContent = 'Totalbookings';
+        totalbookingsheading.textContent = 'Opentime';
         accountbooking.appendChild(totalbookingsheading);
     
         const totalbookings = document.createElement('div');
         totalbookings.className = 'chargingstation-balance-amount';
-        totalbookings.textContent = '15';
+        totalbookings.textContent = chargingstation.openTime;
         accountbooking.appendChild(totalbookings);
-        
+
+        const closTimeContainer = document.createElement('div');
+        closTimeContainer.className = 'chargingstation-balance-label';
+        closTimeContainer.textContent = 'Closetime';
+        accountbooking.appendChild(closTimeContainer);
+    
+        const closeTime = document.createElement('div');
+        closeTime.className = 'chargingstation-balance-amount';
+        closeTime.textContent = chargingstation.closeTime;
+        accountbooking.appendChild(closeTime);
+
         const navLinks = document.createElement('nav');
         navLinks.className = 'chargingstation-nav-links';
         container.appendChild(navLinks);

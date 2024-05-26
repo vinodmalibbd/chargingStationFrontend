@@ -1,37 +1,92 @@
-.UserBookingHeadingDiv{
-  font-size: 2rem;
+.mainDiv {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.showAllUserBookings{
+
+.showUserBookingDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.UserBookingHeadingDiv {
+  margin-bottom: 20px;
+}
+
+.ShowUserBookingHeadingSpan {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 1rem;
+  color: black;
+}
+
+.showAllUserBookings {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2%;
+  gap: 1rem;
+  width: 100%;
 }
-.showAllUserBookings .ShowUserBookingCard{
-  display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 3%;
 
+.ShowUserBookingCard {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: black;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;  
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  max-width: 90%; 
+  margin-bottom: 20px; 
 }
-.showAllUserBookings .ShowUserBookingCard .cancelUserBookingbtn{
-  display: inline-block;
-  outline: 0;
+.ShowUserBookingCard span{
+  margin-bottom: 1rem;
+}
+
+.stationAddress{
+  width: 200px;
+  height: 100px;
+}
+.cancelUserBookingBtn {
+  padding: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 6px;
-  border: 2px solid #ff4742;
-  color: #fff;
-  background-color: #ff4742;
-  padding: 8px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
-  font-size: 16px;
-  width: 80%;
-  margin-left: 10%;
 }
-.showAllUserBookings .ShowUserBookingCard .cancelUserBookingbtn:hover{
-  background: 0 0;
-  color: #ff4742;
+
+.cancelUserBookingBtn:hover {
+  background-color: #ff1a1a;
+}
+strong {
+  font-weight: bold;
+}
+
+.bookingDate {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.status-confirmed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: red;
+  font-weight: bold;
+}
+.status-completed{
+  color: rgb(0, 72, 255);
+  font-weight: bold;
 }

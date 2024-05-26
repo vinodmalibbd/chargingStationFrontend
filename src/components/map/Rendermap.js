@@ -43,8 +43,9 @@ function Rendermap(){
 
                         const poupcard=document.querySelector('.popup-button-stationcard');
                         if(poupcard){
-                            poupcard.addEventListener('click',()=>{
-                                chargeStationPage(item);
+                            poupcard.addEventListener('click',(e)=>{
+                                e.preventDefault();
+                                userBooking(item);
                             })
                         }
                     }).addTo(map);
