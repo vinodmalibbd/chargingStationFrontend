@@ -87,9 +87,7 @@ function userShowBooking() {
         cancelUserBookingBtn.className = 'cancelUserBookingBtn';
         cancelUserBookingBtn.textContent = 'Cancel Booking';
         cancelUserBookingBtn.onclick = () => {
-          // Handle cancel booking action
           console.log(`Cancel booking ${item.bookingId}`);
-          // Add your cancellation logic here
         };
         ShowUserBookingCard.appendChild(cancelUserBookingBtn);
       }
