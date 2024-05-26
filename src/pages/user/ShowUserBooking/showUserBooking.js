@@ -1,5 +1,5 @@
 function userShowBooking() {
-  console.log("hello");
+  
   const ShowUserBookingMainDiv = document.querySelector('.main_content');
   ShowUserBookingMainDiv.innerHTML = '';
 
@@ -77,9 +77,9 @@ function userShowBooking() {
         feedbackButton.className = 'feedbackButton';
         feedbackButton.textContent = 'Give Feedback';
         feedbackButton.onclick = () => {
-          // Handle feedback action
+          
           console.log(`Feedback for booking ${item.bookingId}`);
-          // Add your feedback logic here
+        
         };
         ShowUserBookingCard.appendChild(feedbackButton);
       } else {
@@ -87,9 +87,7 @@ function userShowBooking() {
         cancelUserBookingBtn.className = 'cancelUserBookingBtn';
         cancelUserBookingBtn.textContent = 'Cancel Booking';
         cancelUserBookingBtn.onclick = () => {
-          // Handle cancel booking action
           console.log(`Cancel booking ${item.bookingId}`);
-          // Add your cancellation logic here
         };
         ShowUserBookingCard.appendChild(cancelUserBookingBtn);
       }

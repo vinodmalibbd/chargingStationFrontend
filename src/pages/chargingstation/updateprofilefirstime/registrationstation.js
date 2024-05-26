@@ -14,42 +14,42 @@ function chargingStationRegistration() {
     cardContainer.appendChild(updateprofileContainer);
 
     const heading = document.createElement('h2');
-    heading.textContent = 'Register Charging Station'; // Changed heading
+    heading.textContent = 'Register Charging Station'; 
     updateprofileContainer.appendChild(heading);
 
     const form = document.createElement('form');
-    form.id = 'registration-updatestationform'; // Changed form ID
+    form.id = 'registration-updatestationform'; 
     updateprofileContainer.appendChild(form);
 
     const stationName = document.createElement('label');
     stationName.textContent = 'Station Name:';
     const nameInput = document.createElement('input');
     nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('id', 'registration-stationname'); // Changed input ID
+    nameInput.setAttribute('id', 'registration-stationname'); 
 
     const stationOpeningTime = document.createElement('label');
     stationOpeningTime.textContent = 'Station Opening Time:';
     const openTimeInput = document.createElement('input');
     openTimeInput.setAttribute('type', 'number');
-    openTimeInput.setAttribute('id', 'registration-stationopentime'); // Changed input ID
+    openTimeInput.setAttribute('id', 'registration-stationopentime');
 
     const stationClosingTime = document.createElement('label');
     stationClosingTime.textContent = 'Station Closing Time:';
     const closeTimeInput = document.createElement('input');
     closeTimeInput.setAttribute('type', 'number');
-    closeTimeInput.setAttribute('id', 'registration-stationcloseTime'); // Changed input ID
+    closeTimeInput.setAttribute('id', 'registration-stationcloseTime'); 
 
     const stationLatitude = document.createElement('label');
     stationLatitude.textContent = 'Station Latitude:';
     const latitudeInput = document.createElement('input');
     latitudeInput.setAttribute('type', 'text');
-    latitudeInput.setAttribute('id', 'registration-stationlatitude'); // Changed input ID
+    latitudeInput.setAttribute('id', 'registration-stationlatitude'); 
 
     const stationLongitude = document.createElement('label');
     stationLongitude.textContent = 'Station Longitude:';
     const longitudeInput = document.createElement('input');
     longitudeInput.setAttribute('type', 'text');
-    longitudeInput.setAttribute('id', 'registration-stationlongitude'); // Changed input ID
+    longitudeInput.setAttribute('id', 'registration-stationlongitude'); 
 
     const getLocation = document.createElement('span');
     getLocation.textContent = 'Use Current Location';
@@ -69,8 +69,8 @@ function chargingStationRegistration() {
     getLocation.onclick = (e) => {
         e.preventDefault();
         getCurrentPositionUser().then((loc) => {
-            const latitudeInput = document.getElementById('registration-stationlatitude'); // Changed input ID
-            const longitudeInput = document.getElementById('registration-stationlongitude'); // Changed input ID
+            const latitudeInput = document.getElementById('registration-stationlatitude'); 
+            const longitudeInput = document.getElementById('registration-stationlongitude'); 
             latitudeInput.value = loc.lat;
             longitudeInput.value = loc.long;
         });
@@ -149,18 +149,6 @@ function submitFirstTimeprofileUpdate() {
 }
 
 function cancelRegistration() {
-    // Redirect to the previous form or perform other actions as needed
-    // For example, navigate back to the landing page
+    
    
 }
-
-// Add event listeners to submit and cancel buttons
-// document.getElementById('registration-updatestationform').addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     submitFirstTimeprofileUpdate();
-// });
-
-// document.querySelector('.registration-cancel').addEventListener('click', (e) => {
-//     e.preventDefault();
-//     cancelRegistration();
-// });

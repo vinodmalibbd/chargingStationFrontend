@@ -7,7 +7,7 @@ const navbarlist = [
     name: "About Us",
     click: () => {
       console.log("About Us clicked");
-      // Add about us page logic here
+      
     },
   },
   {

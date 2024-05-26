@@ -1,6 +1,6 @@
 function chargepointupdateprofiletab() {
     const mainDiv = document.querySelector('.chargingstationtabcontainer');
-    mainDiv.innerHTML = ''; // Clear the main content div
+    mainDiv.innerHTML = ''; 
 
     const container = document.createElement('div');
     container.className = 'chargingstationprofileupdatecontainer';
@@ -22,7 +22,7 @@ function chargepointupdateprofiletab() {
     form.className = "profileupdateform";
     formContainer.appendChild(form);
 
-    // Group 1
+    
     const group1 = document.createElement('div');
     group1.className = 'form-group';
     const stationName = document.createElement("label");
@@ -42,7 +42,7 @@ function chargepointupdateprofiletab() {
     group1.appendChild(StationOpeningtime);
     group1.appendChild(OpentimeInput);
 
-    // Group 2
+   
     const group2 = document.createElement('div');
     group2.className = 'form-group';
     const StationClosingtime = document.createElement("label");
@@ -61,7 +61,6 @@ function chargepointupdateprofiletab() {
     group2.appendChild(stationLatitude);
     group2.appendChild(LatitudeInput);
 
-    // Group 3
     const group3 = document.createElement('div');
     group3.className = 'form-group';
     const stationLongitude = document.createElement("label");
@@ -94,7 +93,7 @@ function chargepointupdateprofiletab() {
 
     const cancelButton = document.createElement('button');
     cancelButton.textContent = "Cancel";
-    cancelButton.className = "cancel-button"; // Adding a class for cancel button
+    cancelButton.className = "cancel-button"; 
     cancelButton.onclick = (e) => {
         e.preventDefault();
         chargingStationDashboard();
@@ -112,7 +111,6 @@ function chargepointupdateprofiletab() {
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
 
-    // Fetch existing profile data and pre-fill the form
     getChargingStationById().then(data => {
         if (data) {
             document.getElementById('inputname').value = data.name || '';

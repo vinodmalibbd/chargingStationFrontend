@@ -42,7 +42,7 @@ function Chargepointnav() {
     
     nav.appendChild(navbarBrand);
     nav.appendChild(navbaritemscontainer);
-    // nav.appendChild(navuser); // Uncomment this line if you want to include the login button
+
     container.appendChild(nav);
     header.appendChild(container);
     document.body.appendChild(header);

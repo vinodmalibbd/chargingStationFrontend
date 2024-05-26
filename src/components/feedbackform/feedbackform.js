@@ -66,10 +66,10 @@ function createFeedbackForm(feedbackcontainer,stationId) {
   function submitFeedback(stationId){
     const form = document.getElementById('feedbackform');
     const formData = new FormData(form);
-    const rating = formData.get('satisfy'); // Get the rating value
-    const description = formData.get('msg'); // Get the description value
+    const rating = formData.get('satisfy'); 
+    const description = formData.get('msg'); 
 
-    // Now you can use the rating and description as needed
+    
     const data={
         feedback:description,
         rating:rating

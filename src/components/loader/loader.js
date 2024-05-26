@@ -12,7 +12,7 @@ function showloader(){
 }
 function removeloader() {
     var body = document.body;
-    var loaderwrapper = document.querySelector('.loader-wrapper'); // Select by class name
+    var loaderwrapper = document.querySelector('.loader-wrapper'); 
     
 
     if (loaderwrapper && loaderwrapper.parentNode === body) {
