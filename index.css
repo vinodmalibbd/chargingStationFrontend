@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+.main_content{
+    height: 100vh;
+}
 :root {
     --primary-color: #03081d;
     --secondary-color: #fb4335;

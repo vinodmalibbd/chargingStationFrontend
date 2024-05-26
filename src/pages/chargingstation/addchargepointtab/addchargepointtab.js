@@ -28,8 +28,6 @@ function addchargepointtab() {
     .catch((e) => {
       console.log(e.message);
     });
-
-
 }
 
 function RenderChargingSlotCard(item, key) {
@@ -82,7 +80,7 @@ function editChargingslot(card, item) {
   editchargingslotcard.className = "renderchargingslot-editcard";
 
   const priceLabel = document.createElement("label");
-  priceLabel.textContent = "Price:";
+  priceLabel.textContent = "Price: ₹";
   const priceInput = document.createElement("input");
   priceInput.type = "number";
   priceInput.value = item.pricePerHour;
@@ -116,8 +114,8 @@ function editChargingslot(card, item) {
     const newPrice = priceInput.value;
     const newStatus = statusSelect.value.toLowerCase();
 
-    if (newPrice <= 0 || newPrice > 200) {
-      warningSpan.textContent = "Please enter a valid price (1-200)";
+    if (newPrice <= 0 || newPrice > 500) {
+      warningSpan.textContent = "Please enter a valid price (1-500)";
 
       return;
     }

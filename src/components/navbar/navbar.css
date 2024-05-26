@@ -52,10 +52,10 @@
   .burger-menu {
     cursor: pointer;
     font-size: 1.5rem;
-    display: none; 
+    display: none; /* Initially hidden */
   }
   
-  
+  /* Basic styles for mobile */
   @media (max-width: 768px) {
     .burger-menu {
       display: block;

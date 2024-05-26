@@ -45,7 +45,7 @@ function createFeedbackCard(feedback) {
 }
 
 function renderFeedback(feedbackList) {
-  const feedbackContainer = document.querySelector(".main_content");
+  const feedbackContainer = document.querySelector(".UserBookingFeedback");
 
   
   const feedbackheadingOnBooking = document.createElement("h2");
