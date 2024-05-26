@@ -81,7 +81,7 @@ function chargepointupdateprofiletab() {
 
     const getlocation = document.createElement('span');
     getlocation.textContent = "use current location";
-    getlocation.className='currentlocationspan'
+    getlocation.className = 'currentlocationspan';
     getlocation.onclick = function () {
         getCurrentPositionUser().then(loc => {
             const latitudeInput = document.getElementById('inputlatitude');
@@ -109,10 +109,22 @@ function chargepointupdateprofiletab() {
     }
 
     buttonDiv.appendChild(cancelButton);
-    buttonDiv.appendChild(submitButton); 
+    buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
-}
 
+    // Fetch existing profile data and pre-fill the form
+    getChargingStationById().then(data => {
+        if (data) {
+            document.getElementById('inputname').value = data.name || '';
+            document.getElementById('inputopentime').value = data.openTime || '';
+            document.getElementById('inputclosetime').value = data.closeTime || '';
+            document.getElementById('inputlatitude').value = data.latitude || '';
+            document.getElementById('inputlongitude').value = data.longitude || '';
+        }
+    }).catch(e => {
+        console.log(e.message);
+    });
+}
 
 function submitForm() {
     const name = document.getElementById("inputname").value;
@@ -159,7 +171,7 @@ function submitForm() {
         longitude: longitude
     };
 
-    console.log("Profile Data:", profileData); 
+    console.log("Profile Data:", profileData);
 
     getChargingStationById().then(data => {
         console.log(data);
@@ -168,9 +180,7 @@ function submitForm() {
     });
 }
 
-
 function showSuccessMessage(message) {
-   
     const successCard = document.createElement('div');
     successCard.classList.add('success-card');
 
@@ -179,8 +189,7 @@ function showSuccessMessage(message) {
     successCard.appendChild(successMessage);
     document.body.appendChild(successCard);
 
-    
     setTimeout(() => {
         successCard.remove();
-    }, 5000); 
+    }, 5000);
 }

@@ -8,9 +8,4 @@ const Userlandingpage = () => {
   evmap.id = "map";
   mainDiv.appendChild(evmap);
   Rendermap();
-  mapsearch();
-  //   userBooking();
-  //   renderFeedback(feedbackList);
-
-  Footer();
 };

@@ -17,9 +17,7 @@ function userShowBooking() {
   ShowUserBookingMainDiv.appendChild(showAllUserBookings);
 
   showLoggedInUserBookings().then(res => {
-    console.log(res);
     res.forEach(item => {
-      console.log(item);
       const ShowUserBookingCard = document.createElement('div');
       ShowUserBookingCard.className = 'ShowUserBookingCard';
       showAllUserBookings.appendChild(ShowUserBookingCard);
@@ -74,10 +72,27 @@ function userShowBooking() {
       bookingStatus.appendChild(statusText);
       ShowUserBookingCard.appendChild(bookingStatus);
 
-      const cancelUserBookingBtn = document.createElement('button');
-      cancelUserBookingBtn.className = 'cancelUserBookingBtn';
-      cancelUserBookingBtn.textContent = 'Cancel Booking';
-      ShowUserBookingCard.appendChild(cancelUserBookingBtn);
+      if (item.status === 'Completed') {
+        const feedbackButton = document.createElement('button');
+        feedbackButton.className = 'feedbackButton';
+        feedbackButton.textContent = 'Give Feedback';
+        feedbackButton.onclick = () => {
+          // Handle feedback action
+          console.log(`Feedback for booking ${item.bookingId}`);
+          // Add your feedback logic here
+        };
+        ShowUserBookingCard.appendChild(feedbackButton);
+      } else {
+        const cancelUserBookingBtn = document.createElement('button');
+        cancelUserBookingBtn.className = 'cancelUserBookingBtn';
+        cancelUserBookingBtn.textContent = 'Cancel Booking';
+        cancelUserBookingBtn.onclick = () => {
+          // Handle cancel booking action
+          console.log(`Cancel booking ${item.bookingId}`);
+          // Add your cancellation logic here
+        };
+        ShowUserBookingCard.appendChild(cancelUserBookingBtn);
+      }
     });
   }).catch(error => {
     console.error('Error fetching user bookings:', error);
