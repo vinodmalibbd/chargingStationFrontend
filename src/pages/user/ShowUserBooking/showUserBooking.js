@@ -72,22 +72,12 @@ function userShowBooking() {
       bookingStatus.appendChild(statusText);
       ShowUserBookingCard.appendChild(bookingStatus);
 
-      if (item.status === 'Completed') {
-        const feedbackButton = document.createElement('button');
-        feedbackButton.className = 'feedbackButton';
-        feedbackButton.textContent = 'Give Feedback';
-        feedbackButton.onclick = () => {
-          
-          console.log(`Feedback for booking ${item.bookingId}`);
-        
-        };
-        ShowUserBookingCard.appendChild(feedbackButton);
-      } else {
+      if(item.status==='Confirmed') {
         const cancelUserBookingBtn = document.createElement('button');
         cancelUserBookingBtn.className = 'cancelUserBookingBtn';
         cancelUserBookingBtn.textContent = 'Cancel Booking';
         cancelUserBookingBtn.onclick = () => {
-          console.log(`Cancel booking ${item.bookingId}`);
+          showModal(item.bookingId);
         };
         ShowUserBookingCard.appendChild(cancelUserBookingBtn);
       }
@@ -100,4 +90,61 @@ function userShowBooking() {
 function getFormattedDate(date) {
   const d = new Date(date);
   return d.toLocaleDateString();
+}
+
+function showModal(bookingId) {
+  const modalContainer = document.createElement("div");
+  modalContainer.id = "confirm-model-cancelModal";
+  modalContainer.className = "confirm-model-modal";
+
+  const modalContent = document.createElement("div");
+  modalContent.className = "confirm-model-modal-content";
+
+  const closeButton = document.createElement("span");
+  closeButton.className = "close";
+  closeButton.id = "confirm-model-cancelCloseButton";
+  closeButton.textContent = "×";
+
+  const modalText = document.createElement("p");
+  modalText.textContent = "Are you sure you want to cancel this booking?";
+
+  const confirmButton = document.createElement("button");
+  confirmButton.id = "confirm-model-cancelConfirmButton";
+  confirmButton.className = "confirm-model-confirm-button";
+  confirmButton.textContent = "Confirm";
+
+  const cancelButton = document.createElement("button");
+  cancelButton.id = "confirm-model-cancelCancelButton";
+  cancelButton.className = "confirm-model-cancel-button";
+  cancelButton.textContent = "Cancel";
+
+  modalContent.appendChild(closeButton);
+  modalContent.appendChild(modalText);
+  modalContent.appendChild(cancelButton);
+  modalContent.appendChild(confirmButton);
+
+  modalContainer.appendChild(modalContent);
+
+  document.body.appendChild(modalContainer);
+
+  closeButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+  });
+
+  cancelButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+  });
+
+  confirmButton.addEventListener("click", () => {
+      cancelBooking(bookingId);
+      modalContainer.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+      if (event.target === modalContainer) {
+          modalContainer.style.display = "none";
+      }
+  });
+
+  modalContainer.style.display = "block";
 }
