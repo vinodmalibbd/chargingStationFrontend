@@ -71,6 +71,7 @@ function searchChargingStations(city) {
         const closeTime = document.createElement("span");
         closeTime.textContent = `Close Time: ${station.closeTime}`;
         const location = document.createElement("span");
+
         getAddress(station.latitude, station.longitude).then(
           (address) => (location.textContent = `Location : ${address}`)
         );
@@ -81,7 +82,7 @@ function searchChargingStations(city) {
         searchStationCard.appendChild(location);
         searchStationCard.onclick = (e) => {
           e.preventDefault();
-          chargeStationPage(station);
+          userBooking(station);
         };
 
         chargingStationContainer.appendChild(searchStationCard);

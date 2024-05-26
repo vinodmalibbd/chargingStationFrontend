@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   Upload-To-EC2:
@@ -33,6 +33,8 @@ jobs:
             
             # Clone new repository
             git clone https://github.com/vinodmalibbd/chargingStationFrontend.git
+            cd chargingStationFrontend
+            git checkout master
             
             # # Install dependencies
             # cd /home/ubuntu/chargingStationFrontend

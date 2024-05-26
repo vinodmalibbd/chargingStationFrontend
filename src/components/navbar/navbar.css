@@ -1,31 +1,40 @@
-.userlandingheader{
+.userlandingheader {
     width: 100%;
-    padding-right: 1rem;
-    padding-left: 1rem;
     margin-right: auto;
     margin-left: auto;
     color: var(--white-color);
-}
-nav{
+  }
+  
+  .navbarcontainer {
+    padding: 1.5rem;
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.navbarcontainer{
-    padding: 1.5rem;
-}
-.navbar-item{
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .navbaritemscontainer {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .navbar-item {
     padding: 1rem;
     cursor: pointer;
-}
-/* .navbar-brand{
-
-
-}
-.navuser{
-
-} */
-.navbarloginbutton{
+  }
+  
+  .navbarloginbutton, .navbarlogoutbutton {
     padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     color: var(--text-color);
@@ -33,70 +42,35 @@ nav{
     border: 1px solid var(--white-color);
     border-radius: 10px;
     cursor: pointer;
-
-}
-.navbarloginbutton:hover{
+  }
+  
+  .navbarloginbutton:hover, .navbarlogoutbutton:hover {
     background-color: var(--white-color);
     color: var(--gray-color);
-}
-
-/* .userlandingheader {
-    width: 100%;
-    background-color: #333;
-    color: white;
-}
-
-.navbarcontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar-brand {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.navbaritemscontainer {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex: 1;
-    justify-content: center;
-}
-
-.navbar-item {
-    margin: 0 10px;
+  }
+  
+  .burger-menu {
     cursor: pointer;
-}
-
-.navbaruser {
-    display: flex;
-    align-items: center;
-}
-
-.navbarloginbutton {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.burger-menu {
-    cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     display: none; /* Initially hidden */
-}
-
-/* Basic styles for mobile */
-/* @media (max-width: 600px) {
+  }
+  
+  /* Basic styles for mobile */
+  @media (max-width: 768px) {
     .burger-menu {
-        display: block;
+      display: block;
     }
-}  */
+    .navbaritemscontainer {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+    .navbaritemscontainer .navbar-item {
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .navbaritemscontainer.show {
+      display: flex;
+    }
+  }
+  
