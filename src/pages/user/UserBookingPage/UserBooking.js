@@ -52,8 +52,9 @@ function userBooking(chargepoint) {
     if (data) {
       console.log(data);
       data.map((slots) => {
-        // if(slots.)
-        generateChargPoints(slots);
+        if (slots.available) {
+          generateChargPoints(slots);
+        }
       });
     }
   });
