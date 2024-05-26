@@ -4,10 +4,12 @@ const navbarlist = [
     click: Userlandingpage,
   },
   {
-    name: "About Us",
-    click: () => {
-      console.log("About Us clicked");
-    },
+    name: "Search Station",
+    click: searchStationPage,
+    // click: () => {
+    //   // console.log("About Us clicked");
+    //   click: searchStationPage,
+    // }
   },
   {
     name: "Show Booking",
