@@ -168,7 +168,7 @@ function chargingStationRegistration() {
     if (isValid) {
       submitFirstTimeprofileUpdate();
     } else {
-      errorContainer.textContent = "Please fix the errors above.";
+      firsterrorContainer.textContent = "Please fix the errors above.";
     }
   }
 }
