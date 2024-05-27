@@ -1,15 +1,3 @@
-function Logout() {
-  console.log("clearing the session");
-  sessionStorage.clear;
-  MainPage();
-}
-const charginstationnavbarlist = [
-  {
-    name: "Logout",
-    click: Logout,
-  },
-];
-
 function Chargepointnav() {
   const header = document.createElement("header");
   header.className = "chargepoint-userlandingheader";
@@ -27,12 +15,14 @@ function Chargepointnav() {
   const navbaritemscontainer = document.createElement("ul");
   navbaritemscontainer.className = "chargepoint-navbaritemscontainer";
 
-  charginstationnavbarlist.forEach((item) => {
-    const navbaritem = document.createElement("span");
-    navbaritem.className = "chargepoint-navbar-item";
-    navbaritem.textContent = item.name;
-    navbaritemscontainer.appendChild(navbaritem);
-  });
+  const navbaritem = document.createElement("span");
+  navbaritem.className = "chargepoint-navbar-item";
+  navbaritem.textContent = "Logout";
+  navbaritem.onclick = () => {
+    sessionStorage.clear();
+    MainPage();
+  };
+  navbaritemscontainer.appendChild(navbaritem);
 
   const navuser = document.createElement("div");
   navuser.className = "chargepoint-navbaruser";
@@ -45,7 +35,7 @@ function Chargepointnav() {
 
   nav.appendChild(navbarBrand);
   nav.appendChild(navbaritemscontainer);
-  // nav.appendChild(navuser); // Uncomment this line if you want to include the login button
+
   container.appendChild(nav);
   header.appendChild(container);
   document.body.appendChild(header);
