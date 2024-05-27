@@ -121,7 +121,7 @@ function chargingStationRegistration() {
   // };
   function validateForm() {
     let isValid = true;
-    errorContainer.innerHTML = "";
+    firsterrorContainer.innerHTML = "";
 
     if (!nameInput.value.trim()) {
       nameError.textContent = "Station Name is required.";
