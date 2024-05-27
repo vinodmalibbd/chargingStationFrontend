@@ -144,8 +144,6 @@ function submitFirstTimeprofileUpdate() {
   }
 
   getChargingStationById().then((res) => {
-    console.log(res);
-
     const profileData = {
       name: name,
       openTime: parseInt(openTime),
@@ -156,6 +154,7 @@ function submitFirstTimeprofileUpdate() {
       emailId: res.emailId,
     };
     updateChargingStationProfile(profileData);
+    Chargingstationdashboard();
   });
 }
 
