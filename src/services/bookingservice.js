@@ -1,5 +1,5 @@
 const createBooking = async (bookingRequest) => {
-    showloader(); // Show loader before API call
+    showloader();
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {
         const decodedtoken = decodeJwtToken(token);

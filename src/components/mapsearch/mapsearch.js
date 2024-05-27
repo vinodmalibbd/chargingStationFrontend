@@ -13,7 +13,7 @@ function mapsearch(){
     const searchinput=document.createElement('input');
     searchinput.className='mapsearchinput';
     searchinput.onchange=(e)=>{
-        // fetchCitySuggestions(e.target.value,suggestionscontainer)
+        
     }
 
 

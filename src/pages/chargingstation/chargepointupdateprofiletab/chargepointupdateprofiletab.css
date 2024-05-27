@@ -1,10 +1,8 @@
-/* Scoping the styles to only affect elements within .chargingstationprofileupdatecontainer */
 .chargingstationprofileupdatecontainer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
-    /* min-height: 100vh; */
     box-sizing: border-box;
 }
 
@@ -87,7 +85,7 @@
 
 .chargingstationprofileupdatecontainer .cancel-button {
     background-color: #dc3545;
-    color: white; /* Text color is white */
+    color: white; 
 }
 
 .chargingstationprofileupdatecontainer .cancel-button:hover {
@@ -107,7 +105,7 @@
 
 .chargingstationprofileupdatecontainer .cancel-button {
     background-color: #dc3545 !important;
-    color: white !important; /* Text color is white */
+    color: white !important; 
 }
 
 

@@ -100,50 +100,40 @@ function getFormattedDate(date) {
 }
 
 function showModal(bookingId) {
-  // Create modal container
   const modalContainer = document.createElement("div");
   modalContainer.id = "confirm-model-cancelModal";
   modalContainer.className = "confirm-model-modal";
 
-  // Create modal content
   const modalContent = document.createElement("div");
   modalContent.className = "confirm-model-modal-content";
 
-  // Create close button
   const closeButton = document.createElement("span");
   closeButton.className = "close";
   closeButton.id = "confirm-model-cancelCloseButton";
   closeButton.textContent = "×";
 
-  // Create modal text
   const modalText = document.createElement("p");
   modalText.textContent = "Are you sure you want to cancel this booking?";
 
-  // Create confirm button
   const confirmButton = document.createElement("button");
   confirmButton.id = "confirm-model-cancelConfirmButton";
   confirmButton.className = "confirm-model-confirm-button";
   confirmButton.textContent = "Confirm";
 
-  // Create cancel button
   const cancelButton = document.createElement("button");
   cancelButton.id = "confirm-model-cancelCancelButton";
   cancelButton.className = "confirm-model-cancel-button";
   cancelButton.textContent = "Cancel";
 
-  // Append elements to modal content
   modalContent.appendChild(closeButton);
   modalContent.appendChild(modalText);
   modalContent.appendChild(cancelButton);
   modalContent.appendChild(confirmButton);
 
-  // Append modal content to modal container
   modalContainer.appendChild(modalContent);
 
-  // Append modal container to body
   document.body.appendChild(modalContainer);
 
-  // Add event listeners
   closeButton.addEventListener("click", () => {
     modalContainer.style.display = "none";
   });
@@ -163,6 +153,5 @@ function showModal(bookingId) {
     }
   });
 
-  // Display the modal
   modalContainer.style.display = "block";
 }

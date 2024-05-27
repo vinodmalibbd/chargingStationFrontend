@@ -33,7 +33,7 @@
   column-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 
 .ShowUserBookingCard {
@@ -105,7 +105,6 @@ strong {
   overflow: auto;
 }
 
-/* Modal content */
 .confirm-model-modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -117,7 +116,6 @@ strong {
   position: relative;
 }
 
-/* Close button */
 .confirm-model-close {
   position: absolute;
   top: 5px;
@@ -126,7 +124,6 @@ strong {
   cursor: pointer;
 }
 
-/* Confirm and cancel buttons */
 .confirm-model-confirm-button, .confirm-model-cancel-button {
   margin-top: 20px;
   padding: 10px 20px;

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    /* display: block; */
+  
     background-color: rgba(0, 0, 0, 0.7);
 }
 .loader {
