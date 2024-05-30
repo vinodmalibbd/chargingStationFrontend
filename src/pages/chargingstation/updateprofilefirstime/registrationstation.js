@@ -107,18 +107,18 @@ function chargingStationRegistration() {
   submitButton.onclick = (e) => {
     e.preventDefault();
     validateForm();
-    // submitFirstTimeprofileUpdate();
   };
 
-  // const cancelButton = document.createElement('button');
-  // cancelButton.textContent = 'Cancel';
-  // cancelButton.className = 'registration-cancel';
-  // buttonDiv.appendChild(cancelButton);
+  const cancelButton = document.createElement("button");
+  cancelButton.textContent = "Cancel";
+  cancelButton.className = "registration-cancel";
+  buttonDiv.appendChild(cancelButton);
 
-  // cancelButton.onclick = (e) => {
-  //     e.preventDefault();
-
-  // };
+  cancelButton.onclick = (e) => {
+    e.preventDefault();
+    sessionStorage.clear();
+    MainPage();
+  };
   function validateForm() {
     let isValid = true;
     firsterrorContainer.innerHTML = "";

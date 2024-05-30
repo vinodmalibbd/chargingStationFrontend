@@ -14,7 +14,6 @@ function userShowBooking() {
 
   const showAllUserBookings = document.createElement("div");
   showAllUserBookings.className = "showAllUserBookings";
-  ShowUserBookingMainDiv.appendChild(showAllUserBookings);
 
   showLoggedInUserBookings()
     .then((res) => {
@@ -92,6 +91,7 @@ function userShowBooking() {
     .catch((error) => {
       console.error("Error fetching user bookings:", error);
     });
+  ShowUserBookingMainDiv.appendChild(showAllUserBookings);
 }
 
 function getFormattedDate(date) {
@@ -144,6 +144,7 @@ function showModal(bookingId) {
 
   confirmButton.addEventListener("click", () => {
     cancelBooking(bookingId);
+    console.log(bookingId);
     modalContainer.style.display = "none";
   });
 

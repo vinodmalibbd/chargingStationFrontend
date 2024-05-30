@@ -30,7 +30,7 @@ function Navbar() {
   const token = sessionStorage.getItem("web-vb-token");
   const navbarBrand = document.createElement("h1");
   navbarBrand.className = "navbar-brand";
-  navbarBrand.textContent = "Smart EV";
+  navbarBrand.textContent = "Charge EV";
 
   const navbaritemscontainer = document.createElement("ul");
   navbaritemscontainer.className = "navbaritemscontainer";

@@ -1,0 +1,7 @@
+.popup-button-stationcard{
+  cursor: pointer;
+}
+
+.popup-button-stationcard:hover{
+  background-color: aqua;
+}

@@ -22,24 +22,23 @@ jobs:
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             echo "connected to ec2"
-            
+
             PID=$(sudo lsof -t -i:8082)
             if [ ! -z "$PID" ]; then
               sudo kill -9 $PID
             fi
-            
+
             # Remove previous repository
             sudo rm -rf chargingStationFrontend
-            
+
             # Clone new repository
             git clone https://github.com/vinodmalibbd/chargingStationFrontend.git
             cd chargingStationFrontend
             git checkout master
-            
+
             # # Install dependencies
             # cd /home/ubuntu/chargingStationFrontend
             npm install
-            
+
             # Start Node.js server
             nohup node server.js > output.log 2>&1 &
-
