@@ -201,7 +201,7 @@ function addchargepointtab() {
         addButton.onclick = (e) => {
           e.preventDefault();
           if (res.length > 4) {
-            showWarningMessage("You cannot add more than 4 charging points.");
+            showWarningMessage("You cannot add more than 5 charging points.");
           } else {
             addNewSlot();
           }

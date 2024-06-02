@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 .searchstationcard:hover{
-  background-color: aqua; 
+  background-color: rgb(142, 188, 205); 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
