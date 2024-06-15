@@ -40,7 +40,6 @@ async function getAllChargingStationBooking() {
     if (res.status === 200) {
       const bookings = await res.json();
       const uniqueBookings = filterUniqueBookings(bookings);
-      console.log(uniqueBookings);
       return uniqueBookings;
     }
   } else {
@@ -74,8 +73,8 @@ const cancelBooking = async (bookingId) => {
       },
     });
     if (res.status === 200) {
+
       return res;
-      console.log(res);
     }
   } else {
     console.error("Booking id was not found");

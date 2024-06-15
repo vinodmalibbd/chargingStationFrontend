@@ -22,7 +22,6 @@ function getCurrentDate() {
 }
 
 function userBooking(chargepoint) {
-  console.log(chargepoint);
 
   const BookingDiv = document.querySelector(".main_content");
   BookingDiv.innerHTML = "";
@@ -50,7 +49,6 @@ function userBooking(chargepoint) {
 
   getAllChargingStationSlotsById(chargepoint.stationId).then((data) => {
     if (data) {
-      console.log(data);
       data.map((slots) => {
         if (slots.available) {
           generateChargPoints(slots);
@@ -130,9 +128,7 @@ function generateChargPoints(slots) {
   userBookingButton.textContent = "Book Now ";
   userBookingButton.onclick = () => {
     const selectedTimeslot = timeSlotList.value;
-    console.log(selectedTimeslot);
-    console.log(bookingDatePicker.value);
-    console.log(slots.slotId);
+ 
 
     const token = sessionStorage.getItem("web-vb-token");
     if (token) {
@@ -144,9 +140,8 @@ function generateChargPoints(slots) {
         userId: Number(userId),
         timeSlotId: Number(timeSlotList.value),
       };
-      console.log(data);
+
       createBooking(data).then((res) => {
-        console.log(res);
         createSucessPopUpBox("Thank you for using our service");
       });
     } else {

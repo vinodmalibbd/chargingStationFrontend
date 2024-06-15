@@ -62,7 +62,7 @@ function addNewSlot() {
                 pricePerHour:Number(priceValue),
                 available:statusSelect.value==='available'?true:false
             }
-            console.log(data);
+         
             addChargingSlotStation(data);
             addchargepointtab();
             removeloader();

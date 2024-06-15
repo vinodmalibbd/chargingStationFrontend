@@ -1,5 +1,4 @@
 function userShowBooking() {
-  console.log("hello");
   const ShowUserBookingMainDiv = document.querySelector(".main_content");
   ShowUserBookingMainDiv.innerHTML = "";
 
@@ -144,7 +143,7 @@ function showModal(bookingId) {
 
   confirmButton.addEventListener("click", () => {
     cancelBooking(bookingId);
-    console.log(bookingId);
+    userShowBooking();
     modalContainer.style.display = "none";
   });
 

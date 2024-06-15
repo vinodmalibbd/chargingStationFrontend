@@ -33,7 +33,6 @@ const getChargingStationById = async () => {
   }
 };
 const updateChargingStationProfile = async (data) => {
-  console.log("calling updateChargingStationProfile");
 
   showloader();
   const token = sessionStorage.getItem("station-cookie");

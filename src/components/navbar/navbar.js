@@ -6,10 +6,6 @@ const navbarlist = [
   {
     name: "Search Station",
     click: searchStationPage,
-    // click: () => {
-    //   // console.log("About Us clicked");
-    //   click: searchStationPage,
-    // }
   },
   {
     name: "Show Booking",
@@ -30,7 +26,7 @@ function Navbar() {
   const token = sessionStorage.getItem("web-vb-token");
   const navbarBrand = document.createElement("h1");
   navbarBrand.className = "navbar-brand";
-  navbarBrand.textContent = "Charge EV";
+  navbarBrand.textContent = "Smart EV";
 
   const navbaritemscontainer = document.createElement("ul");
   navbaritemscontainer.className = "navbaritemscontainer";

@@ -129,66 +129,12 @@ function chargepointupdateprofiletab() {
       }
     })
     .catch((e) => {
-      console.log(e.message);
+      console.error(e.message);
     });
 }
 
-// function submitForm() {
-//     const name = document.getElementById("inputname").value;
-//     const openTime = parseInt(document.getElementById("inputopentime").value);
-//     const closeTime = parseInt(document.getElementById("inputclosetime").value);
-//     const latitude = parseFloat(document.getElementById("inputlatitude").value);
-//     const longitude = parseFloat(document.getElementById("inputlongitude").value);
-
-//     if (!name) {
-//         alert("Name is required.");
-//         return;
-//     }
-
-//     if (isNaN(openTime) || openTime < 0 || openTime >= 24) {
-//         alert("Open time must be a valid number between 0 and 24.");
-//         return;
-//     }
-
-//     if (isNaN(closeTime) || closeTime < 0 || closeTime >= 24) {
-//         alert("Close time must be a valid number between 0 and 24.");
-//         return;
-//     }
-
-//     if (closeTime <= openTime) {
-//         alert("Close time must be greater than open time.");
-//         return;
-//     }
-
-//     if (isNaN(latitude)) {
-//         alert("Latitude must be a valid number.");
-//         return;
-//     }
-
-//     if (isNaN(longitude)) {
-//         alert("Longitude must be a valid number.");
-//         return;
-//     }
-
-//     const profileData = {
-//         name: name,
-//         openTime: openTime,
-//         closeTime: closeTime,
-//         latitude: latitude,
-//         longitude: longitude
-//     };
-
-//     console.log("Profile Data:", profileData);
-
-//     getChargingStationById().then(data => {
-//         console.log(data);
-//         profileData['emailId'] = data.emailId;
-//         updateChargingStationProfile(profileData);
-//     });
-// }
-
 function submitForm() {
-  clearErrors(); // Clear any existing errors
+  clearErrors();
 
   const name = document.getElementById("inputname").value;
   const openTime = parseInt(document.getElementById("inputopentime").value);
@@ -252,10 +198,8 @@ function submitForm() {
     longitude: longitude,
   };
 
-  console.log("Profile Data:", profileData);
-
   getChargingStationById().then((data) => {
-    console.log(data);
+    
     profileData["emailId"] = data.emailId;
     updateChargingStationProfile(profileData);
     location.reload();

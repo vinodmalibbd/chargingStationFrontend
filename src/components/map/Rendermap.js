@@ -21,7 +21,6 @@ function Rendermap() {
     getAllChargingStation().then((data) => {
       data.forEach((item) => {
         if (item.name !== null && item.chargingSlots.length > 0) {
-          console.log(item);
           const chargingMarker = L.marker([
             item.latitude,
             item.longitude,

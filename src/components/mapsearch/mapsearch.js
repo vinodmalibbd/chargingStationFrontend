@@ -34,7 +34,6 @@ function fetchCitySuggestions(query,suggestionscontainer) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const suggestlistcard=document.createElement('address');
         suggestlistcard.className='suggestlistcard';
         suggestlistcard.textContent=data.display_name;

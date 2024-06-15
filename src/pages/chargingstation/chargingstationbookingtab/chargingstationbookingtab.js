@@ -10,7 +10,6 @@ function Chargingstationbookingtab() {
     container.className = 'stationbookingcontainer';
 
     getAllChargingStationBooking().then(data=>{
-        console.log(data);
         const filterContainer = document.createElement('div');
         filterContainer.className = 'filterContainer';
      
@@ -36,7 +35,7 @@ function Chargingstationbookingtab() {
         renderBookings(data, container);
     
     }).catch(e=>{
-        console.log(e.message);
+        console.error(e.message);
     })
  
     

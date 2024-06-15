@@ -70,7 +70,6 @@ function searchChargingStations(city) {
         throw new Error("not found");
       }
       filteredStations.forEach((station) => {
-        console.log(station.chargingSlots.length);
         if (station.name !== null && station.chargingSlots.length > 0) {
           const searchStationCard = document.createElement("div");
           searchStationCard.className = "searchstationcard";
